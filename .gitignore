@@ -1,0 +1,16 @@
+# Mac stuff
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Sass stuff
+.sass-cache
+
+#Jekyll stuff
+_site
+
+# Bundler stuff
+.bundle
+vendor
+
