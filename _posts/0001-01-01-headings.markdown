@@ -1,0 +1,19 @@
+---
+layout: component
+title:  "Heading Tags"
+categories: basic element
+---
+
+{% capture h1 %}<h1>Page Title (Level 1)</h1>{% endcapture %}
+{% capture h2 %}<h2>Section Title (Level 2)</h2>{% endcapture %}
+{% capture h3 %}<h3>Content Subsection / Auxiliary Content Title (Level 3)</h3>{% endcapture %}
+{% capture h4 %}<h4>Subsection (Level 4)</h4>{% endcapture %}
+{% capture h5 %}<h5>Subsection (Level 5)</h5>{% endcapture %}
+{% capture h6 %}<h6>Subsection (Level 6)</h6>{% endcapture %}
+
+{% include sample.html sample=h1 %}
+{% include sample.html sample=h2 %}
+{% include sample.html sample=h3 %}
+{% include sample.html sample=h4 %}
+{% include sample.html sample=h5 %}
+{% include sample.html sample=h6 %}

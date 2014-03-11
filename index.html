@@ -1,13 +1,26 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Style Guide Index
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+<div class="styleguide-content">
+  <nav class="styleguide-nav"><ul>
+    {% for post in site.posts reversed %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
-  </ul>
+  </ul></nav>
+
+  <div class="styleguide-index">
+    <h1>All Components</h1>
+
+    {% for post in site.posts reversed %}
+      <section>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+        <div class="component">
+          {{ post.content }}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
 </div>

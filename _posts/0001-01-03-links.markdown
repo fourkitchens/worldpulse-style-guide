@@ -1,0 +1,9 @@
+---
+layout: component
+title:  "Links"
+categories: basic element
+---
+
+{% capture a %}<a href="http://www.google.com">Google</a>{% endcapture %}
+
+{% include sample.html sample=a %}

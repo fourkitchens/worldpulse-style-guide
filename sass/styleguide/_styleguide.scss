@@ -1,0 +1,101 @@
+// Tread lightly on this file and use very specific selectors (direct-descent or
+// classes/IDs specific to the Style Guide) to avoid influencing any sample
+// elements or bleeding between the Style Guide CSS and the production site CSS,
+// which is included in this project and should be an exact copy of the site
+// at all times.
+
+.styleguide-container {
+
+  header, footer {
+    padding: 0.5em;
+
+    > div {
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+  }
+
+  > header {
+    background-color: $black;
+    color: $white;
+    margin-bottom: 1em;
+  }
+
+  > footer {
+    margin-top: 2em;
+    color: #999;
+    font-size: 0.75em;
+    border-top: 1px solid #CCC;
+  }
+
+  > main {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+}
+
+.styleguide-content {
+  @include clearfix();
+}
+
+.styleguide-nav {
+  @include grid-span(3,1,12, $gutter: 1);
+
+  float: left;
+  width: 20%;
+
+  font-size: 0.875em;
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #f8f8f8;
+  }
+
+  a {
+    display: block;
+    padding: 0.5em;
+
+    border-top: 1px solid #f8f8f8;
+    background-color: #eee;
+    border-bottom: 1px solid #d6d6d6;
+
+    text-decoration: none;
+    &:hover {
+      background: #f2f2f2;
+    }
+  }
+
+}
+
+.styleguide-index {
+  @include grid-span(9,4,12, $gutter: 1);
+
+  overflow: hidden;
+}
+
+.styleguide-sample {
+  border: 1px solid #ddd;
+  @include border-radius(3px);
+  margin: 1em auto;
+
+  .example, .code {
+    padding: 1em;
+  }
+
+  .code {
+    border-top: #ddd;
+    background: #f4f4f4;
+
+    pre {
+      margin: 0;
+      font-size: 0.75em;
+    }
+  }
+}
