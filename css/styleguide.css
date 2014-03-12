@@ -28,7 +28,7 @@
 }
 
 .styleguide-nav {
-  width: 23.40426%;
+  width: 21.73913%;
   float: left;
   margin-right: -100%;
   margin-left: 0%;
@@ -46,12 +46,20 @@
   border-top: 1px solid #d6d6d6;
   border-bottom: 1px solid #f8f8f8;
 }
-.styleguide-nav a {
+.styleguide-nav li.heading, .styleguide-nav a {
   display: block;
   padding: 0.5em;
   border-top: 1px solid #f8f8f8;
   background-color: #eee;
   border-bottom: 1px solid #d6d6d6;
+}
+.styleguide-nav li.heading {
+  text-transform: uppercase;
+  color: #666;
+  font-weight: bold;
+}
+.styleguide-nav a {
+  padding-left: 1em;
   text-decoration: none;
 }
 .styleguide-nav a:hover {
@@ -59,7 +67,7 @@
 }
 
 .styleguide-index {
-  width: 74.46809%;
+  width: 73.91304%;
   float: right;
   margin-left: 0;
   margin-right: 0;
