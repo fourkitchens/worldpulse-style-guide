@@ -9,7 +9,7 @@ title: Style Guide Index
       {% if post.layout == "heading" %}
         <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</li>
       {% else %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        <li><a href="#{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">{{ post.title }}</a></li>
       {% endif %}
     {% endfor %}
   </ul></nav>
@@ -19,11 +19,11 @@ title: Style Guide Index
 
     {% for post in site.posts reversed %}
       {% if post.layout == 'heading' %}
-        <section class="heading">
+        <section class="heading" id="{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">
           <h2>{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</h2>
         </section>
       {% else %}
-        <section>
+        <section id="{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">
           <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
 
           <div class="component">
