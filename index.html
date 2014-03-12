@@ -7,7 +7,7 @@ title: Style Guide Index
   <nav class="styleguide-nav"><ul>
     {% for post in site.posts reversed %}
       {% if post.layout == "heading" %}
-        <li class="heading">{{ post.title }}</li>
+        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</li>
       {% else %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endif %}
@@ -18,13 +18,19 @@ title: Style Guide Index
     <h1>All Components</h1>
 
     {% for post in site.posts reversed %}
-      <section>
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      {% if post.layout == 'heading' %}
+        <section class="heading">
+          <h2>{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</h2>
+        </section>
+      {% else %}
+        <section>
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
 
-        <div class="component">
-          {{ post.content }}
-        </div>
-      </section>
+          <div class="component">
+            {{ post.content }}
+          </div>
+        </section>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
