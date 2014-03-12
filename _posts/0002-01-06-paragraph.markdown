@@ -1,7 +1,6 @@
 ---
 layout: component
 title:  "Paragraph"
-categories: basic element
 ---
 
 {% capture p %}

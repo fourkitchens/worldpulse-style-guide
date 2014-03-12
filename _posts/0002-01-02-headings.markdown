@@ -1,7 +1,6 @@
 ---
 layout: component
 title:  "Heading Tags"
-categories: basic element
 ---
 
 {% capture h1 %}<h1>Page Title (Level 1)</h1>{% endcapture %}

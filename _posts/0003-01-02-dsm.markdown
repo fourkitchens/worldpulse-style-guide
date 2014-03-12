@@ -1,0 +1,37 @@
+---
+layout: component
+title:  "Drupal Messages"
+---
+
+{% capture status %}
+  <div class="messages status">
+    <h2 class="element-invisible">Status message</h2>
+    Journal entry has been created.
+  </div>
+{% endcapture %}
+
+{% capture warning %}
+  <div class="messages warning">
+    <h2 class="element-invisible">Status message</h2>
+    Some of the pending updates cannot be applied because their dependencies were not met.
+  </div>
+{% endcapture %}
+
+{% capture error %}
+  <div class="messages error">
+    <h2 class="element-invisible">Status message</h2>
+    The content access permissions have not been properly rebuilt.
+  </div>
+{% endcapture %}
+
+### Status Message
+{% include sample.html sample=status %}
+
+### Warning Message
+{% include sample.html sample=warning %}
+
+### Error Message
+{% include sample.html sample=error %}
+
+_Output lifted from [Styleguide](https://drupal.org/project/styleguide) project
+[sample page](http://styleguide.allgoo.de/)._

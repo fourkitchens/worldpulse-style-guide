@@ -1,7 +1,6 @@
 ---
 layout: component
 title:  "Lists"
-categories: basic element
 ---
 
 {% capture ul %}
@@ -22,8 +21,8 @@ categories: basic element
 </ol>
 {% endcapture %}
 
-<h3>Unordered List (Bullet)</h3>
+### Unordered List (Bullet)
 {% include sample.html sample=ul %}
 
-<h3>Ordered Lists (Numbered)</h3>
+### Ordered Lists (Numbered)
 {% include sample.html sample=ol %}
