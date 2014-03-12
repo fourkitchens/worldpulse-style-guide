@@ -54,8 +54,11 @@
   }
 
   ul {
+    @include border-radius(2px);
     border-top: 1px solid #d6d6d6;
     border-bottom: 1px solid #f8f8f8;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
   }
 
   li.heading, a {
