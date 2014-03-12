@@ -4,8 +4,11 @@
 // which is included in this project and should be an exact copy of the site
 // at all times.
 
-.styleguide-container {
+body {
+  background: #f6f6f6;
+}
 
+.styleguide-container {
   header, footer {
     padding: 0.5em;
 
@@ -16,9 +19,20 @@
   }
 
   > header {
-    background-color: $black;
+    background-color: #444;
+    @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
     color: $white;
     margin-bottom: 1em;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    h1 {
+      margin: 0.5em 0;
+      @include text-shadow(1px 1px 0 rgba(0,0,0,1));
+    }
   }
 
   > footer {
@@ -31,6 +45,26 @@
   > main {
     margin: 0 auto;
     max-width: 1000px;
+  }
+
+  section {
+    padding-bottom: 1em;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 1em;
+
+    &.heading {
+      padding-bottom: 0;
+      border-bottom: 2px solid #ddd;
+      margin-top: 4em;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  h1 + section.heading {
+    margin-top: 0;
   }
 
 }
@@ -99,6 +133,10 @@
 
   .example, .code {
     padding: 1em;
+  }
+
+  .example {
+    background-color: white;
   }
 
   .code {

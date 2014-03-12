@@ -1,3 +1,7 @@
+body {
+  background: #f6f6f6;
+}
+
 .styleguide-container header, .styleguide-container footer {
   padding: 0.5em;
 }
@@ -6,9 +10,20 @@
   max-width: 1000px;
 }
 .styleguide-container > header {
-  background-color: black;
+  background-color: #444;
+  -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
   color: white;
   margin-bottom: 1em;
+}
+.styleguide-container > header a {
+  color: #fff;
+  text-decoration: none;
+}
+.styleguide-container > header h1 {
+  margin: 0.5em 0;
+  text-shadow: 1px 1px 0 black;
 }
 .styleguide-container > footer {
   margin-top: 2em;
@@ -19,6 +34,22 @@
 .styleguide-container > main {
   margin: 0 auto;
   max-width: 1000px;
+}
+.styleguide-container section {
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #ddd;
+  margin-bottom: 1em;
+}
+.styleguide-container section.heading {
+  padding-bottom: 0;
+  border-bottom: 2px solid #ddd;
+  margin-top: 4em;
+}
+.styleguide-container section:last-child {
+  border-bottom: 0;
+}
+.styleguide-container h1 + section.heading {
+  margin-top: 0;
 }
 
 .styleguide-content:after {
@@ -92,6 +123,9 @@
 }
 .styleguide-sample .example, .styleguide-sample .code {
   padding: 1em;
+}
+.styleguide-sample .example {
+  background-color: white;
 }
 .styleguide-sample .code {
   border-top: #ddd;
