@@ -2,3 +2,5 @@
 layout: heading
 title:  "Drupal Essentials"
 ---
+
+Drupal provides many components out-of-the-box.

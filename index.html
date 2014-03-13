@@ -21,6 +21,9 @@ title: Style Guide Index
       {% if post.layout == 'heading' %}
         <section class="heading" id="{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">
           <h2>{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</h2>
+          <div class="component">
+            {{ post.content }}
+          </div>
         </section>
       {% else %}
         <section id="{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">

@@ -1,0 +1,6 @@
+---
+layout: heading
+title:  "Site-wide Assets"
+---
+
+These are global components which appear in many parts of the site.

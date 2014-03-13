@@ -1,0 +1,6 @@
+---
+layout: heading
+title:  "Journal Posts"
+---
+
+Components specifically related to Journal posts.
