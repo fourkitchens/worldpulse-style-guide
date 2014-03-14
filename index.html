@@ -4,10 +4,10 @@ title: Style Guide Index
 ---
 
 <div class="styleguide-content">
-  <nav class="styleguide-nav"><ul>
+  <nav class="styleguide-nav collapse"><ul>
     {% for post in site.posts reversed %}
       {% if post.layout == "heading" %}
-        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</li>
+        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <a href="{{ post.url }}">&rarr;</a></li>
       {% else %}
         <li><a href="#{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">{{ post.title }}</a></li>
       {% endif %}
@@ -23,6 +23,18 @@ title: Style Guide Index
           <h2>{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</h2>
           <div class="component">
             {{ post.content }}
+
+            <ul>
+              {% assign my_chapter = post.date | date: "%Y" | plus:0 %}
+              {% assign my_id = post.id %}
+              {% for subpost in site.posts reversed %}
+                {% assign subpost_chapter = subpost.date | date: "%Y" | plus:0 %}
+                {% if subpost_chapter == my_chapter and my_id != subpost.id %}
+                  <li><a href="#{{ subpost.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">{{ subpost.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
           </div>
         </section>
       {% else %}

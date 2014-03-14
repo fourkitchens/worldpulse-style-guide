@@ -1,6 +1,52 @@
 ---
 layout: default
 ---
-<h1>{{ post.date | date: "%Y" | plus:0 }}. {{ page.title }}</h1>
 
-{{ content }}
+{% assign my_chapter = page.date | date: "%Y" | plus:0 %}
+{% assign my_id = page.id %}
+
+<div class="styleguide-content">
+  <nav class="styleguide-nav"><ul>
+    {% for post in site.posts reversed %}
+      {% assign post_chapter = post.date | date: "%Y" | plus:0 %}
+      {% if my_chapter == post_chapter %}
+        {% if post.layout == "heading" %}
+          <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }}</li>
+        {% else %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul></nav>
+
+  <div class="styleguide-index">
+    <h1>{{ my_chapter }}. {{ page.title }}</h1>
+
+    {{ content }}
+
+    <ul>
+      {% for post in site.posts reversed %}
+        {% assign post_chapter = post.date | date: "%Y" | plus:0 %}
+        {% if post_chapter == my_chapter and my_id != post.id %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% comment %}
+            So the post.content variable contains raw Liquid templates because
+            the post hasn't been rendered yet. So this variable would work if
+            the chapter index was _last_ instead of _before_ each individual
+            post has been treated. This is why we can do this on the pages like
+            index.html -- because posts are converted first. Not sure how to
+            work around this limitation.
+
+            <section>
+              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+              <div class="component">
+                {{ post.content }}
+              </div>
+            </section>
+          {% endcomment %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

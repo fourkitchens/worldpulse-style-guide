@@ -92,7 +92,7 @@ body {
     border-right: 1px solid #e2e2e2;
   }
 
-  li.heading, a {
+  li.heading, li:not(.heading) a {
     display: block;
     padding: 0.5em 1em;
 
@@ -100,6 +100,10 @@ body {
     background-color: #eee;
     border-bottom: 1px solid #d6d6d6;
 
+    text-decoration: none;
+    &:hover {
+      background: #f9f9f9;
+    }
   }
 
   li.heading {
@@ -110,12 +114,11 @@ body {
     &:hover {
       background: #e2e2e2;
     }
-  }
 
-  a {
-    text-decoration: none;
-    &:hover {
-      background: #f9f9f9;
+    a {
+      display: block;
+      float: right;
+      text-decoration: none;
     }
   }
 
