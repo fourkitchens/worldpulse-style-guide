@@ -4,8 +4,16 @@
 // which is included in this project and should be an exact copy of the site
 // at all times.
 
+p:empty {
+  // Jekyll produces a ton of empty paragraph tags, especially around markup
+  // around the {% assign %} tags, wherein we're stashing code samples... It's
+  // actually quite annoying and I can't get rid of all of them. So...
+  // this is a thing that I'm doing...
+  display: none;
+}
+
 body {
-  background: #f6f6f6;
+  background: nth($grey, 4);
 }
 
 .styleguide-container {
@@ -19,7 +27,7 @@ body {
   }
 
   > header {
-    background-color: #444;
+    background-color: nth($grey, 1);
     @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
     color: $white;
     margin-bottom: 1em;
@@ -39,22 +47,23 @@ body {
     margin-top: 2em;
     color: #999;
     font-size: 0.75em;
-    border-top: 1px solid #CCC;
+    border-top: 1px solid nth($grey, 3);
   }
 
   > main {
     margin: 0 auto;
+    padding: 0.5em;
     max-width: 1000px;
   }
 
   section {
     padding-bottom: 1em;
-    border-bottom: 1px dotted #ddd;
+    border-bottom: 1px dotted nth($grey, 3);
     margin-bottom: 1em;
 
     &.heading {
       padding-bottom: 0;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid nth($grey, 3);
       margin-top: 4em;
     }
 
@@ -74,7 +83,11 @@ body {
 }
 
 .styleguide-nav {
-  @include grid-span(3,1,12, $gutter: 1);
+  display: none;
+  @include respond-to('sg nav side') {
+    display: block;
+    @include grid-span(3,1,12, $gutter: 1);
+  }
 
   font-size: 0.875em;
 
@@ -86,33 +99,37 @@ body {
 
   ul {
     @include border-radius(2px);
-    border-top: 1px solid #d6d6d6;
-    border-bottom: 1px solid #f8f8f8;
-    border-left: 1px solid #e2e2e2;
-    border-right: 1px solid #e2e2e2;
+    border-top: 1px solid darken(nth($grey, 4), 5%);
+    border-bottom: 1px solid lighten(nth($grey, 4), 5%);
+    border-left: 1px solid lighten(nth($grey, 3), 5%);
+    border-right: 1px solid lighten(nth($grey, 3), 5%);
   }
 
   li.heading, li:not(.heading) a {
     display: block;
     padding: 0.5em 1em;
 
-    border-top: 1px solid #f8f8f8;
-    background-color: #eee;
-    border-bottom: 1px solid #d6d6d6;
+    border-top: 1px solid lighten(nth($grey, 4), 5%);
+    background-color: nth($grey, 4);
+    border-bottom: 1px solid darken(nth($grey, 4), 5%);
 
     text-decoration: none;
     &:hover {
-      background: #f9f9f9;
+      background: $white;
     }
+  }
+
+  li:not(.heading) a {
+    background-color: lighten(nth($grey, 4), 2.5%);
   }
 
   li.heading {
     text-transform: uppercase;
-    color: #666;
+    color: nth($grey, 2);
     font-weight: bold;
 
     &:hover {
-      background: #e2e2e2;
+      background: darken(nth($grey, 4), 5%);
     }
 
     a {
@@ -125,31 +142,314 @@ body {
 }
 
 .styleguide-index {
-  @include grid-span(9,4,12, $gutter: 1);
+  @include respond-to('sg nav side') {
+    @include grid-span(9,4,12, $gutter: 1);
+  }
 
   overflow: hidden;
 }
 
 .styleguide-sample {
-  border: 1px solid #ddd;
-  @include border-radius(3px);
-  margin: 1em auto;
+  @extend %sg-component-frame;
 
   .example, .code {
     padding: 1em;
   }
 
   .example {
-    background-color: white;
+    background-color: $white;
   }
 
   .code {
-    border-top: #ddd;
-    background: #f4f4f4;
+    border-top: 1px solid lighten(nth($grey, 3), 5%);
+    background: lighten(nth($grey, 4), 2.5%);
 
     pre {
       margin: 0;
       font-size: 0.75em;
     }
+  }
+}
+
+.styleguide-swatches {
+  @extend .clearfix;
+
+  @include respond-to('sg swatches large') {
+    @include sg-component-frame-mixin;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    overflow: hidden; // So that the box-shadow around .main only extends vertically
+
+    @include respond-to('sg swatches small') {
+      @include sg-component-frame-mixin;
+      margin: 0 0 1em 0;
+    }
+
+    @include respond-to('sg swatches medium') {
+      @include sg-component-frame-mixin;
+      margin: 0 0 1em 0;
+    }
+
+    @include respond-to('sg swatches large') {
+      @include grid-span(1,0,5, $gutter: 0, $output-style: 'float');
+      &:last-child { margin-right: 0; }
+    }
+
+    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) (grey $grey);
+    @each $swatch in $swatches {
+      $name: nth($swatch, 1); // The text label
+      $color: nth($swatch, 2); // The color array
+      &.#{$name} {
+        .title {
+          background-color: $white;
+          color: nth($color, 2);
+        }
+        .dark {
+          background-color: nth($color, 1);
+          span:after { content: nth($color, 1) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: lighten(nth($color, 1), 5%); }
+          .low { background-color: darken(nth($color, 1), 5%); }
+        }
+        .main {
+          background-color: nth($color, 2);
+          span:after { content: nth($color, 2) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: lighten(nth($color, 2), 5%); }
+          .low { background-color: darken(nth($color, 2), 5%); }
+        }
+        .light {
+          background-color: nth($color, 3);
+          span:after { content: nth($color, 3) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: lighten(nth($color, 3), 5%); }
+          .low { background-color: darken(nth($color, 3), 5%); }
+        }
+        .highlight {
+          background-color: nth($color, 4);
+          span:after { content: nth($color, 4) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: lighten(nth($color, 4), 5%); }
+          .low { background-color: darken(nth($color, 4), 5%); }
+        }
+      }
+    }
+
+    li.highlight span:after {
+      color: nth($grey, 1);
+      @include text-shadow(1px 1px 0 rgba(255,255,255,0.5));
+    }
+
+    &:last-child {
+      @include respond-to('sg swatches large') {
+        li { border-right: 0 !important; }
+      }
+    }
+  }
+
+  li {
+    position: relative;
+    padding: 1em;
+    text-align: center;
+    color: $white;
+
+    @include respond-to('sg swatches small') {
+      &.dark, &.main, &.light, &.highlight {
+        @include grid-span(1,0,2, $gutter: 0, $output-style: 'float');
+      }
+
+      &.title {
+        z-index: 50; // To pop it over the box-shadow on .main
+        padding: 1em;
+      }
+
+      &.main &.highlight {
+        margin-right: 0;
+      }
+
+      &.dark, &.main {
+        .accent { top: 0; }
+        padding: 1.75em 0 1em 0; // to make room for the accents
+      }
+
+      &.light, &.highlight {
+        .accent { bottom: 0; }
+        padding: 1em 0 1.75em 0; // to make room for the accents
+      }
+    }
+
+    @include respond-to('sg swatches medium') {
+      &.dark, &.main, &.light, &.highlight {
+        padding: 1em 0 1.75em 0; // to make room for the accents
+        @include grid-span(1,0,4, $gutter: 0, $output-style: 'float');
+      }
+
+      &.title {
+        z-index: 50; // To pop it over the box-shadow on .main
+        padding: 1em;
+      }
+
+      &.highlight {
+        margin-right: 0;
+      }
+    }
+
+    @include respond-to('sg swatches large') {
+      padding: 1em 25% 1em 0; // to make room for the accents
+      border-right: 1px solid lighten(nth($grey, 4), 5%);
+      &.title {
+        padding: 1em;
+        border-right: 1px solid darken(nth($grey, 4), 5%);
+      }
+    }
+
+
+    &.main {
+      z-index: 25;
+      @include box-shadow(0px 0px 15px rgba(0,0,0,0.85));
+    }
+
+    span {
+      position: relative;
+      z-index: 50;
+
+      &:after {
+        @include text-shadow(1px 1px 0 rgba(0,0,0,0.5));
+      }
+    }
+  }
+
+  .accent {
+    position: absolute;
+
+    @include respond-to('sg swatches small') {
+      height: 0.75em;
+      // -- bottom: 0; -- See above, there are position-specific locations for these
+
+      &.low {
+        left: 0;
+        right: 50%;
+      }
+
+      &.high {
+        left: 50%;
+        right: 0;
+      }
+    }
+    @include respond-to('sg swatches medium') {
+      height: 0.75em;
+      bottom: 0;
+
+      &.low {
+        left: 0;
+        right: 50%;
+      }
+
+      &.high {
+        left: 50%;
+        right: 0;
+      }
+    }
+
+    @include respond-to('sg swatches large') {
+      right: 0;
+
+      width: 25%;
+
+      &.low {
+        top: 0;
+        bottom: 50%;
+      }
+
+      &.high {
+        top: 50%;
+        bottom: 0;
+      }
+    }
+
+  }
+
+
+  .title {
+    font-style: italic;
+  }
+}
+
+.styleguide-typography {
+  $families: (whitney $whitney 400) (gotham $gotham 400) (archer $archer 400);
+  @each $family in $families {
+    $face: nth($family, 1);
+    $stack: nth($family, 2);
+    $weight: nth($family, 3);
+    .#{$face} {
+      &, h3 {
+        font-family: $stack;
+        font-weight: $weight;
+      }
+    }
+  }
+
+  .typeface {
+    @extend %sg-component-frame;
+    overflow: hidden; // For the large typeface previews
+
+    background: $white;
+    padding: 1em;
+
+    h3 {
+      font-size: 3em;
+      margin: 0;
+      a {
+        color: nth($blue, 2) !important; // No color overrides from :visited or anything else on this display.
+        text-decoration: none;
+      }
+    }
+
+    .purpose {
+      text-align: center;
+      padding: 0.5em;
+      border-top: 1px solid nth($grey, 4);
+      border-bottom: 1px solid nth($grey, 4);
+      margin: 0.5em 0.75em;
+
+      @include respond-to('sg typeplate large') {
+        padding: 1em 1.5em;
+        margin: 1em 1.5em;
+      }
+    }
+
+    .largesample {
+      position: relative;
+      left: -150%;
+      width: 400%;
+      margin: 16px 0;
+      text-align: center;
+      $white-space: nowrap;
+      overflow: hidden;
+      color: nth($grey, 3);
+    }
+
+    @include respond-to('sg typeplate small') {
+      .largesample {
+        height: 1.15 * 2em; // "three lines tall"
+        font-size: 4.25em;
+        line-height: 1.15;
+        letter-spacing: -3px;
+      }
+    }
+
+    @include respond-to('sg typeplate large') {
+      .largesample {
+        height: 1.125 * 3em; // "three lines tall"
+        font-size: 6.75em;
+        line-height: 1.125;
+        letter-spacing: -4px;
+      }
+    }
+
+    &.whitney .largesample { font-style: italic; }
+    &.archer .largesample { font-style: italic; }
+    &.gotham .largesample { text-transform: uppercase; font-weight: 600; }
   }
 }

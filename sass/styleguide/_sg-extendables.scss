@@ -1,0 +1,17 @@
+////////////////////////
+// Extendables Partials for Style Guide use
+//
+// All of your extendable classes, ids, and placeholder extendables
+//   should go in this file.
+////////////////////////
+
+@mixin sg-component-frame-mixin {
+  // In a couple places, this can't be extended and has to be included (media queries)
+  border: 1px solid nth($grey, 3);
+  @include border-radius(3px);
+  margin: 1em auto;
+}
+
+%sg-component-frame {
+  @include sg-component-frame-mixin;
+}

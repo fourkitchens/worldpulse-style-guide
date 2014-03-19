@@ -7,7 +7,7 @@ title: Style Guide Index
   <nav class="styleguide-nav collapse"><ul>
     {% for post in site.posts reversed %}
       {% if post.layout == "heading" %}
-        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <a href="{{ post.url }}">&rarr;</a></li>
+        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <!-- <a href="{{ post.url }}">&rarr;</a> --></li>
       {% else %}
         <li><a href="#{{ post.id | remove_first:'/' | replace:'/','-' | replace:' ','-' }}">{{ post.title }}</a></li>
       {% endif %}

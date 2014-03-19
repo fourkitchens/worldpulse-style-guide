@@ -2,3 +2,33 @@
 layout: component
 title:  "Colors"
 ---
+
+{% assign colors = "purple,red,orange,blue,grey" | split:"," %}
+{% assign names = "Violet,Crimson,Mandarin,Freshwater,Warm Slate" | split:"," %}
+{% assign values = "dark,main,light,highlight" | split:"," %}
+
+<div class="styleguide-swatches">
+  {% for color in colors %}
+  <ol class="{{ color }}">
+    <li class="title">
+      {{ names[forloop.index0] }}
+    </li>
+    {% for value in values %}
+      <li class="{{ value }}">
+        <span></span>
+        <div class="accent high"></div>
+        <div class="accent low"></div>
+      </li>
+    {% endfor %}
+  </ol>
+  {% endfor %}
+</div>
+
+Each color is presented in a primary value, which should be used when possible,
+with one shade and two tints. Any of these values may be subsequently tinted or
+shaded by 5% using Sass's `lighten()` or `darken()` functions when building UI
+components, particularly useful for borders (like the menu or code samples in
+this style guide).
+
+_Warm Slate_ should be used as a structural color for text, subtle backgrounds,
+or borders, but not as an accent; it is not a branding color.

@@ -1,0 +1,63 @@
+---
+layout: component
+title:  "Buttons"
+---
+
+{% capture b1 %}
+<form action="#">
+  <button class="btn-primary">Positive</button>
+  <button class="btn-primary" disabled>Positive</button>
+  <button>Neutral</button>
+  <button disabled>Neutral</button>
+  <button class="btn-negative">Negative</button>
+  <button class="btn-negative" disabled>Negative</button>
+</form>
+{% endcapture %}
+
+{% capture b2 %}
+<form action="#">
+  <button class="btn-primary btn-large">Large</button>
+  <button class="btn-primary">Standard</button>
+  <button class="btn-primary btn-small">Small</button>
+</form>
+{% endcapture %}
+
+{% capture b3 %}
+<form action="#">
+  <button class="btn-aux1">Auxiliary</button>
+  <button class="btn-aux1" disabled>Auxiliary</button>
+  <button class="btn-aux2">Auxiliary</button>
+  <button class="btn-aux2" disabled>Auxiliary</button>
+</form>
+{% endcapture %}
+
+_Class names are subject to change, particularly in this area._
+
+### Primary and Negative/Destructive Buttons
+{% include sample.html sample=b1 %}
+
+Primarily, buttons are presented in one of three ways:
+
+* _Positive_ actions like saving, confirming, or posting
+* _Negative_ actions like canceling, aborting, or deleting
+* _Neutral_ actions like searching, submitting minor forms, filtering, etc. These
+  buttons may be styled in additional ways, but a standard `button` tag with no
+  additional classes will appear this way.
+
+### Button Sizes
+{% include sample.html sample=b2 %}
+
+Buttons may be produced in various sizes on a limited basis, although the
+preference is Standard
+
+### Extra Buttons / CTAs
+{% include sample.html sample=b3 %}
+
+Two auxiliary classes of buttons are available, leveraging the remaining
+[colors in the palette]({% post_url 0001-01-02-color %}). These should not
+appear on any primary forms, but may instead be used for CTAs and other
+secondary interactive features. For example, "Recommend" on _Journal_ posts.
+
+_These class names should be changed once a more suitable purpose or class of
+action is determined. Usage of these buttons because the implementor likes the
+color is strongly discouraged._

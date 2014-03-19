@@ -24,10 +24,34 @@ input,
 button,
 select,
 textarea {
+  max-width: 100%;
   font-family: $form-font-family; // And only set font-family here for those that need it (note the missing label element)
+  padding: 0.375em;
+  outline: 0;
+
+  @include transition(box-shadow 0.3s ease-out, border 0.3s ease-out);
+  &:focus {
+    border-color: nth($orange, 1);
+    @include box-shadow(0 0 4px rgba(nth($orange, 1), 0.5));
+  }
+}
+
+textarea {
+  display: block; // Not "inline" like other fields
 }
 
 label {
+  font-family: $gotham;
+  font-size: 0.875em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: lighten(nth($grey, 2), 5%);
+
+  input[type="radio"] + &,
+  input[type="checkbox"] + & {
+    letter-spacing: 0;
+    text-transform: none;
+  }
 }
 
 .button,
@@ -35,14 +59,212 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
+  font-family: $gotham;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 0.375em 0.625em;
+
+  color: nth($grey, 2);
+  @include text-shadow(1px 1px 0 rgba(nth($grey, 4), 0.5));
+
+  &[disabled] {
+    font-weight: 400;
+    color: lighten(nth($grey, 2), 5%);
+    @include text-shadow(none);
+  }
+
+  background-color: nth($grey, 3);
+  @include background-image(linear-gradient(
+    lighten(nth($grey, 3), 5%),
+    nth($grey, 3) 30%,
+    nth($grey, 3) 70%,
+    darken(nth($grey, 3), 2.5%)
+  ));
+
+  @include border-radius(4px);
+  border: {
+    width: 1px 1px 3px 1px;
+    style: solid;
+    color: darken(nth($grey, 3), 5%);
+  }
+
+  &:hover, &:focus {
+    background-color: lighten(nth($grey, 3), 5%);
+    @include background-image(linear-gradient(
+      lighten(nth($grey, 3), 10%),
+      lighten(nth($grey, 3), 5%) 30%,
+      lighten(nth($grey, 3), 5%) 70%,
+      nth($grey, 3)
+    ));
+    border-color: darken(nth($grey, 3), 10%);
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: darken(nth($grey, 4), 10%);
+    @include background-image(none);
+    border-color: darken(nth($grey, 4), 12.5%);
+  }
+
+  &:focus {
+    @include box-shadow(0 0 4px rgba(nth($grey, 2), 0.5));
+  }
 
 
-  &:hover {
-    
+  &.btn-primary {
+    background-color: nth($blue, 2);
+    @include background-image(linear-gradient(
+      lighten(nth($blue, 2), 5%),
+      nth($blue, 2) 30%,
+      nth($blue, 2) 70%,
+      darken(nth($blue, 2), 2.5%)
+    ));
+    border-color: darken(nth($blue, 2), 5%);
+    color: $white;
+    @include text-shadow(1px 1px 0 nth($blue, 1));
+
+    &:hover, &:focus {
+      border-color: darken(nth($blue, 2), 5%);
+      background-color: lighten(nth($blue, 2), 5%);
+      @include background-image(linear-gradient(
+        lighten(nth($blue, 2), 10%),
+        lighten(nth($blue, 2), 5%) 30%,
+        lighten(nth($blue, 2), 5%) 70%,
+        nth($blue, 2)
+      ));
+    }
+
+    &[disabled], &[disabled]:hover {
+      background-color: mix(nth($blue, 2), nth($grey, 3));
+      @include background-image(none);
+      border-color: darken(mix(nth($blue, 2), nth($grey, 3)), 5%);
+      color: $white;
+    }
+
+    &:focus {
+      @include box-shadow(0 0 4px rgba(nth($blue, 2), 0.5));
+    }
+  }
+
+  &.btn-negative {
+    background-color: nth($red, 2);
+    @include background-image(linear-gradient(
+      lighten(nth($red, 2), 5%),
+      nth($red, 2) 30%,
+      nth($red, 2) 70%,
+      darken(nth($red, 2), 2.5%)
+    ));
+    border-color: darken(nth($red, 2), 5%);
+    color: $white;
+    @include text-shadow(1px 1px 0 nth($red, 1));
+
+    &:hover, &:focus {
+      border-color: darken(nth($red, 2), 5%);
+      background-color: lighten(nth($red, 2), 5%);
+      @include background-image(linear-gradient(
+        lighten(nth($red, 2), 10%),
+        lighten(nth($red, 2), 5%) 30%,
+        lighten(nth($red, 2), 5%) 70%,
+        nth($red, 2)
+      ));
+    }
+
+    &[disabled], &[disabled]:hover {
+      background-color: mix( nth($red, 2), nth($grey, 3));
+      @include background-image(none);
+      border-color: darken(mix(nth($red, 2), nth($grey, 3)), 5%);
+      color: $white;
+    }
+
+    &:focus {
+      @include box-shadow(0 0 4px rgba(nth($red, 2), 0.5));
+    }
+  }
+
+  &.btn-aux1 {
+    background-color: nth($purple, 2);
+    @include background-image(linear-gradient(
+      lighten(nth($purple, 2), 5%),
+      nth($purple, 2) 30%,
+      nth($purple, 2) 70%,
+      darken(nth($purple, 2), 2.5%)
+    ));
+    border-color: darken(nth($purple, 2), 5%);
+    color: $white;
+    @include text-shadow(1px 1px 0 nth($purple, 1));
+
+    &:hover, &:focus {
+      border-color: darken(nth($purple, 2), 5%);
+      background-color: lighten(nth($purple, 2), 5%);
+      @include background-image(linear-gradient(
+        lighten(nth($purple, 2), 10%),
+        lighten(nth($purple, 2), 5%) 30%,
+        lighten(nth($purple, 2), 5%) 70%,
+        nth($purple, 2)
+      ));
+    }
+
+    &[disabled], &[disabled]:hover {
+      background-color: mix( nth($purple, 2), nth($grey, 3));
+      @include background-image(none);
+      border-color: darken(mix(nth($purple, 2), nth($grey, 3)), 5%);
+      color: $white;
+    }
+
+    &:focus {
+      @include box-shadow(0 0 4px rgba(nth($purple, 2), 0.5));
+    }
+  }
+
+  &.btn-aux2 {
+    background-color: nth($orange, 2);
+    @include background-image(linear-gradient(
+      lighten(nth($orange, 2), 5%),
+      nth($orange, 2) 30%,
+      nth($orange, 2) 70%,
+      darken(nth($orange, 2), 2.5%)
+    ));
+    border-color: darken(nth($orange, 2), 5%);
+    color: $white;
+    @include text-shadow(1px 1px 0 nth($orange, 1));
+
+    &:hover, &:focus {
+      border-color: darken(nth($orange, 2), 5%);
+      background-color: lighten(nth($orange, 2), 5%);
+      @include background-image(linear-gradient(
+        lighten(nth($orange, 2), 10%),
+        lighten(nth($orange, 2), 5%) 30%,
+        lighten(nth($orange, 2), 5%) 70%,
+        nth($orange, 2)
+      ));
+    }
+
+    &[disabled], &[disabled]:hover {
+      background-color: mix( nth($orange, 2), nth($grey, 3));
+      @include background-image(none);
+      border-color: darken(mix(nth($orange, 2), nth($grey, 3)), 5%);
+      color: $white;
+    }
+
+    &:focus {
+      @include box-shadow(0 0 4px rgba(nth($orange, 2), 0.5));
+    }
+  }
+
+  &.btn-large {
+    font-size: 1.125em;
+    padding: 0.5em 0.625em;
+  }
+
+  &.btn-small {
+    font-size: 0.75em;
+    font-weight: 400;
+    padding: 0.375em 0.25em;
   }
 
   &:active {
-    
+
   }
 }
 
@@ -51,12 +273,19 @@ input[type="password"],
 input[type="email"],
 textarea,
 select {
+  border: 1px solid nth($grey, 3);
+  @include border-radius(2px);
 
   &:focus {
-    
+    border-color: darken(nth($grey, 3), 5%);
   }
 }
 
+input[type="password"] {
+  // Verdana has better lookin' bullets for passwords.
+  font-family: $verdana;
+}
+
 input[type="checkbox"] {
-  
+
 }

@@ -1,0 +1,40 @@
+---
+layout: component
+title:  "Text fields and textareas"
+---
+
+{% capture tf %}
+<form action="#">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+  </div>
+</form>
+{% endcapture %}
+
+{% capture tp %}
+<form action="#">
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" />
+  </div>
+</form>
+{% endcapture %}
+
+{% capture ta %}
+<form action="#">
+  <div>
+    <label for="msg">Message:</label>
+    <textarea id="msg" name="msg"></textarea>
+  </div>
+</form>
+{% endcapture %}
+
+### Text Field
+{% include sample.html sample=tf %}
+
+### Password Field
+{% include sample.html sample=tp %}
+
+### Textarea
+{% include sample.html sample=ta %}

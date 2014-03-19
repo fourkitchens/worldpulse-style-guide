@@ -4,8 +4,10 @@
 
 body {
   font-family: $font-body;
+  font-weight: $font-body-weight;
   font-size: $base-font-size;
   line-height: $base-line-height;
+  color: nth($grey, 2);
 }
 
 
@@ -18,19 +20,30 @@ body {
 // For more information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
 
 #{headings()} {
+  font-family: $gotham;
+  font-weight: 600;
+  line-height: 1.125;
+}
 
+#{headings(1,2)} {
+  letter-spacing: -1px;
+}
+#{headings(4,6)} {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: nth($red, 2);
 }
 
 h1 {
-
+  color: nth($purple, 1);
 }
 
 h2 {
-
+  color: nth($purple, 2);
 }
 
 h3 {
-
+  color: nth($purple, 2);
 }
 
 h4 {
@@ -106,7 +119,7 @@ hr {
   height: 1px;
   border: 1px solid #666;
   padding-bottom: -1px;
-  margin: rhythm(1) 0;
+  margin: 1em 0;
 }
 
 strong {
@@ -122,3 +135,52 @@ em {
 // These selection declarations have to be separate
 ::-moz-selection { background: $selection-bg; color: $selection; text-shadow: none; }
 ::selection { background: $selection-bg; color: $selection; text-shadow: none; }
+
+code, kbd, pre, samp {
+  font-family: $monospace;
+}
+
+blockquote {
+  position: relative;
+
+  font-family: $archer;
+  color: darken(nth($orange, 1), 5%);
+
+  quotes: "\201C""\201D""\2018""\2019";
+  border-left: 0;
+  padding: 0 40px;
+  margin: 2em 0;
+
+  &:before, &:after, cite {
+    font-family: $archer;
+    font-style: italic;
+    font-weight: 400;
+    color: nth($orange, 1);
+  }
+
+  &:before, &:after {
+    position: absolute;
+    font-size: 4em;
+    line-height: 0;
+  }
+
+  &:before {
+    top: 0.25em;
+    left: 0;
+    content: open-quote;
+  }
+
+  &:after {
+    bottom: 0;
+    right: 0;
+    content: close-quote;
+  }
+
+  cite {
+    display: block;
+    font-size: 0.875em;
+    text-align: right;
+
+    &:before { content: "\2014"; }
+  }
+}

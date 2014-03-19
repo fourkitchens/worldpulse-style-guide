@@ -1,0 +1,8 @@
+---
+layout: heading
+title:  "Form Elements"
+---
+
+This section contains basic form elements. Drupal enhances many forms with
+additional styles, tools, and framing elements. Those items appear in the
+_Drupal Essentials_ section.

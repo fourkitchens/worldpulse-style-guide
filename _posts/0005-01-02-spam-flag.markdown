@@ -3,6 +3,6 @@ layout: component
 title:  "Spam/Abuse Flag"
 ---
 
-{% capture flag %}<a class=".flag .abuse" href="#">Spam/Abuse</a>{% endcapture %}
+{% capture flag %}<a class="flag abuse" href="#">Spam/Abuse</a>{% endcapture %}
 
 {% include sample.html sample=flag %}

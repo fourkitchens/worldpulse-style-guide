@@ -15,6 +15,9 @@ title:  "Block Quote"
     in malesuada et, euismod id turpis. Cras mattis vulputate erat, eget tempor
     magna egestas eu. Vestibulum sit amet massa est.
   </p>
+  <cite>
+      Placeholder copy of yore
+  </cite>
 </blockquote>
 {% endcapture %}
 

@@ -15,6 +15,15 @@
 @import 'config/config';
 
 ////////////////////////
+// Import global elements
+////////////////////////
+@import 'global/_normalize.css.scss';
+@import 'global/extendables';
+@import 'global/type';
+@import 'global/forms';
+
+////////////////////////
 // Style Guide Only Styles
 ////////////////////////
+@import 'styleguide/sg-extendables';
 @import 'styleguide/styleguide';
