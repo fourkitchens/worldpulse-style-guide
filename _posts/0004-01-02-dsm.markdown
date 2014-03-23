@@ -6,21 +6,24 @@ title:  "Drupal Messages"
 {% capture status %}
   <div class="messages status">
     <h2 class="element-invisible">Status message</h2>
-    Journal entry has been created.
+    Journal entry <a href="#"><em>Introducing Myself and My Journal</em></a>
+    has been created.
   </div>
 {% endcapture %}
 
 {% capture warning %}
   <div class="messages warning">
     <h2 class="element-invisible">Status message</h2>
-    Some of the pending updates cannot be applied because their dependencies were not met.
+    Some of the pending updates cannot be applied.
+    <a href="#">Review database logs.</a>
   </div>
 {% endcapture %}
 
 {% capture error %}
   <div class="messages error">
     <h2 class="element-invisible">Status message</h2>
-    The content access permissions have not been properly rebuilt.
+    Sorry, unrecognized username or password.
+    <a href="#">Have you forgotten your password?</a>
   </div>
 {% endcapture %}
 

@@ -3,6 +3,12 @@ layout: component
 title:  "Links"
 ---
 
-{% capture a %}<a href="http://www.google.com">Google</a>{% endcapture %}
+{% capture a %}
+  Links may appear as visited, like <a href="http://www.worldpulse.com">World Pulse</a>,
+  or unvisited, like <a href="http://www.example.com">this site you've never been to</a>.
+{% endcapture %}
 
 {% include sample.html sample=a %}
+
+Additional styles may be applied to links to external sites, social media URLs,
+and/or those which open in a new window.

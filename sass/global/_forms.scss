@@ -28,10 +28,12 @@ textarea {
   font-family: $form-font-family; // And only set font-family here for those that need it (note the missing label element)
   padding: 0.375em;
   outline: 0;
+  background-color: lighten(nth($grey, 4), 5%);
 
   @include transition(box-shadow 0.3s ease-out, border 0.3s ease-out);
   &:focus {
     border-color: nth($orange, 1);
+    background-color: #ffffff; // Yes, this is the *one time* we're calling out pure white.
     @include box-shadow(0 0 4px rgba(nth($orange, 1), 0.5));
   }
 }

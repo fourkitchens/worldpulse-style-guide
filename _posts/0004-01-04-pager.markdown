@@ -25,5 +25,11 @@ title:  "Standard Pager"
 
 {% include sample.html sample=pager %}
 
+_Pager_ extends the styles set for _[primary tabs]({% post_url 0004-01-03-tabs %})_.
+Given that pagers can be much wider than primary tab menus, this will need to be
+adjusted for narrower layouts. Currently, this example uses
+[`fit-content`](http://caniuse.com/#search=fit-content) to center the menu; this
+has limited browser support and may need to be reconsidered.
+
 _Output lifted from [Styleguide](https://drupal.org/project/styleguide) project
 [sample page](http://styleguide.allgoo.de/)._

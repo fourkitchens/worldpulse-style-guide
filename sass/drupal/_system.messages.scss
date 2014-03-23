@@ -1,0 +1,63 @@
+
+/**
+ * @file
+ * Styles for system messages.
+ */
+
+div.messages {
+  color: nth($grey, 4);
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  @include border-radius(2px);
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+
+  &.status {
+    border-color: nth($green, 1);
+    background-color: nth($green, 2);
+    color: nth($grey, 4);
+    @include text-shadow(1px 1px 0 rgba(darken(nth($green, 1), 5%), 0.5));
+    a { color: nth($green, 4); }
+  }
+
+  &.warning {
+    border-color: nth($orange, 1);
+    background-color: nth($orange, 2);
+    color: lighten(nth($grey, 4), 5%);
+    @include text-shadow(1px 1px 0 rgba(darken(nth($orange, 1), 5%), 0.5));
+    a, a:visited {
+      color: lighten(nth($orange, 4), 5%);
+    }
+  }
+
+  &.error {
+    border-color: nth($red, 1);
+    background-color: nth($red, 2);
+    color: nth($grey, 4);
+    @include text-shadow(1px 1px 0 rgba(darken(nth($red, 1), 5%), 0.5));
+    a { color: nth($red, 4); }
+  }
+
+}
+
+// Selectors I didn't re-use from system.messages.css originally:
+
+.ok {
+}
+table tr.ok {
+}
+
+table tr.warning {
+}
+
+table tr.error {
+}
+div.error p.error {
+}
+
+div.messages ul {
+  margin: 0 0 0 1em; /* LTR */
+  padding: 0;
+}
+div.messages ul li {
+}

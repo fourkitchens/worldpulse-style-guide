@@ -12,11 +12,17 @@ p:empty {
   display: none;
 }
 
+// We have visited and unvisited link samples, which we want to show accurately.
+a[href*="worldpulse.com"] { @extend a:visited; }
+a[href*="example.com"] { @extend a:link; }
+
 body {
   background: nth($grey, 4);
 }
 
 .styleguide-container {
+  position: relative;
+
   header, footer {
     padding: 0.5em;
 
@@ -31,6 +37,15 @@ body {
     @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
     color: $white;
     margin-bottom: 1em;
+
+    @include respond-to('fixed header') {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 92px;
+    }
 
     a {
       color: #fff;
@@ -51,9 +66,12 @@ body {
   }
 
   > main {
-    margin: 0 auto;
-    padding: 0.5em;
-    max-width: 1000px;
+    @include respond-to('sg nav side') {
+      padding-left: 240px;
+    }
+    @include respond-to('fixed header') {
+      margin-top: 96px;
+    }
   }
 
   section {
@@ -80,13 +98,23 @@ body {
 
 .styleguide-content {
   @include clearfix();
+  margin: 0 auto;
+  padding: 0.5em;
+  max-width: 1000px;
 }
 
 .styleguide-nav {
   display: none;
+
+  @include respond-to('sg nav top') {
+    display: block;
+  }
+
   @include respond-to('sg nav side') {
     display: block;
-    @include grid-span(3,1,12, $gutter: 1);
+    position: fixed;
+    left: 10px;
+    width: 220px;
   }
 
   font-size: 0.875em;
@@ -108,10 +136,9 @@ body {
   li.heading, li:not(.heading) a {
     display: block;
     padding: 0.5em 1em;
-
     border-top: 1px solid lighten(nth($grey, 4), 5%);
-    background-color: nth($grey, 4);
     border-bottom: 1px solid darken(nth($grey, 4), 5%);
+    background-color: nth($grey, 4);
 
     text-decoration: none;
     &:hover {
@@ -143,7 +170,7 @@ body {
 
 .styleguide-index {
   @include respond-to('sg nav side') {
-    @include grid-span(9,4,12, $gutter: 1);
+    // @include grid-span(9,4,12, $gutter: 1);
   }
 
   overflow: hidden;
@@ -171,12 +198,18 @@ body {
   }
 }
 
+.status-green {
+  // To demonstrate this color, which is not shown in the swatches.
+  color: nth($green, 2);
+}
+
 .styleguide-swatches {
   @extend .clearfix;
 
   @include respond-to('sg swatches large') {
     @include sg-component-frame-mixin;
   }
+
 
   ol {
     margin: 0;
@@ -200,7 +233,7 @@ body {
       &:last-child { margin-right: 0; }
     }
 
-    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) (grey $grey);
+    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) (grey $grey) (green $green);
     @each $swatch in $swatches {
       $name: nth($swatch, 1); // The text label
       $color: nth($swatch, 2); // The color array
@@ -299,7 +332,7 @@ body {
       padding: 1em 25% 1em 0; // to make room for the accents
       border-right: 1px solid lighten(nth($grey, 4), 5%);
       &.title {
-        padding: 1em;
+        padding: 1em 0;
         border-right: 1px solid darken(nth($grey, 4), 5%);
       }
     }

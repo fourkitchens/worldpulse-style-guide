@@ -459,10 +459,10 @@ h3 {
   color: #513882;
 }
 
-a:link {
+a:link, a[href*="example.com"] {
   color: #149ce4;
 }
-a:visited {
+a:visited, a[href*="worldpulse.com"] {
   color: #7151b1;
 }
 
@@ -554,6 +554,7 @@ textarea {
   font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
   padding: 0.375em;
   outline: 0;
+  background-color: #fefefe;
   -webkit-transition: box-shadow 0.3s ease-out, border 0.3s ease-out;
   -moz-transition: box-shadow 0.3s ease-out, border 0.3s ease-out;
   -o-transition: box-shadow 0.3s ease-out, border 0.3s ease-out;
@@ -564,6 +565,7 @@ button:focus,
 select:focus,
 textarea:focus {
   border-color: #af5f00;
+  background-color: #ffffff;
   -webkit-box-shadow: 0 0 4px rgba(175, 95, 0, 0.5);
   -moz-box-shadow: 0 0 4px rgba(175, 95, 0, 0.5);
   box-shadow: 0 0 4px rgba(175, 95, 0, 0.5);
@@ -941,6 +943,9 @@ body {
   background: #f3efef;
 }
 
+.styleguide-container {
+  position: relative;
+}
 .styleguide-container header, .styleguide-container footer {
   padding: 0.5em;
 }
@@ -956,6 +961,16 @@ body {
   color: #fefefe;
   margin-bottom: 1em;
 }
+@media (min-width: 45em) {
+  .styleguide-container > header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 92px;
+  }
+}
 .styleguide-container > header a {
   color: #fff;
   text-decoration: none;
@@ -970,10 +985,15 @@ body {
   font-size: 0.75em;
   border-top: 1px solid #d6cbcb;
 }
-.styleguide-container > main {
-  margin: 0 auto;
-  padding: 0.5em;
-  max-width: 1000px;
+@media (min-width: 51.25em) {
+  .styleguide-container > main {
+    padding-left: 240px;
+  }
+}
+@media (min-width: 45em) {
+  .styleguide-container > main {
+    margin-top: 96px;
+  }
 }
 .styleguide-container section {
   padding-bottom: 1em;
@@ -992,6 +1012,11 @@ body {
   margin-top: 0;
 }
 
+.styleguide-content {
+  margin: 0 auto;
+  padding: 0.5em;
+  max-width: 1000px;
+}
 .styleguide-content:after {
   content: "";
   display: table;
@@ -1002,14 +1027,17 @@ body {
   display: none;
   font-size: 0.875em;
 }
-@media (min-width: 60em) {
+@media (max-width: 51.1875em) {
   .styleguide-nav {
     display: block;
-    width: 21.73913%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 0%;
-    clear: none;
+  }
+}
+@media (min-width: 51.25em) {
+  .styleguide-nav {
+    display: block;
+    position: fixed;
+    left: 10px;
+    width: 220px;
   }
 }
 .styleguide-nav ul, .styleguide-nav li {
@@ -1032,8 +1060,8 @@ body {
   display: block;
   padding: 0.5em 1em;
   border-top: 1px solid #fefefe;
-  background-color: #f3efef;
   border-bottom: 1px solid #e8e0e0;
+  background-color: #f3efef;
   text-decoration: none;
 }
 .styleguide-nav li.heading:hover, .styleguide-nav li:not(.heading) a:hover {
@@ -1059,15 +1087,6 @@ body {
 .styleguide-index {
   overflow: hidden;
 }
-@media (min-width: 60em) {
-  .styleguide-index {
-    width: 73.91304%;
-    float: right;
-    margin-left: 0;
-    margin-right: 0;
-    clear: none;
-  }
-}
 
 .styleguide-sample .example, .styleguide-sample .code {
   padding: 1em;
@@ -1082,6 +1101,10 @@ body {
 .styleguide-sample .code pre {
   margin: 0;
   font-size: 0.75em;
+}
+
+.status-green {
+  color: #04982c;
 }
 
 @media (min-width: 47.5em) {
@@ -1395,6 +1418,58 @@ body {
 .styleguide-swatches ol.grey .highlight .low {
   background-color: #e8e0e0;
 }
+.styleguide-swatches ol.green .title {
+  background-color: #fefefe;
+  color: #04982c;
+}
+.styleguide-swatches ol.green .dark {
+  background-color: #005918;
+}
+.styleguide-swatches ol.green .dark span:after {
+  content: "#005918";
+}
+.styleguide-swatches ol.green .dark .high {
+  background-color: #00731f;
+}
+.styleguide-swatches ol.green .dark .low {
+  background-color: #004011;
+}
+.styleguide-swatches ol.green .main {
+  background-color: #04982c;
+}
+.styleguide-swatches ol.green .main span:after {
+  content: "#04982c";
+}
+.styleguide-swatches ol.green .main .high {
+  background-color: #05b033;
+}
+.styleguide-swatches ol.green .main .low {
+  background-color: #037f25;
+}
+.styleguide-swatches ol.green .light {
+  background-color: #2bcc57;
+}
+.styleguide-swatches ol.green .light span:after {
+  content: "#2bcc57";
+}
+.styleguide-swatches ol.green .light .high {
+  background-color: #3bd565;
+}
+.styleguide-swatches ol.green .light .low {
+  background-color: #27b74e;
+}
+.styleguide-swatches ol.green .highlight {
+  background-color: #8adda1;
+}
+.styleguide-swatches ol.green .highlight span:after {
+  content: "#8adda1";
+}
+.styleguide-swatches ol.green .highlight .high {
+  background-color: #9ee3b1;
+}
+.styleguide-swatches ol.green .highlight .low {
+  background-color: #77d791;
+}
 .styleguide-swatches ol li.highlight span:after {
   color: #2b2121;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
@@ -1457,7 +1532,7 @@ body {
     border-right: 1px solid #fefefe;
   }
   .styleguide-swatches li.title {
-    padding: 1em;
+    padding: 1em 0;
     border-right: 1px solid #e8e0e0;
   }
 }
