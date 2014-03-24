@@ -153,6 +153,7 @@ $breakpoint-no-query-fallbacks: true;
 $breakpoint-to-ems: true;
 
 $breakpoints:
+  'hi res' (min-resolution 1.5dppx),
   'pager tiny' (max-width 359px),
   'pager mini' (360px),
   'pager limited' (680px),

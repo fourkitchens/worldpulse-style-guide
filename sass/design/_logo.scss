@@ -1,0 +1,137 @@
+/**
+ * The World Pulse wordmark in various settings
+ */
+
+%worldpulse-logo {
+  height: 0;
+  padding-bottom: 10.255%; // This is how intrinsic ratio works.
+
+  // The glow can't be an SVG, so we have to use the PNG, which is only this wide:
+  max-width: 425px;
+
+  background: {
+    size: contain;
+    position: center center;
+    repeat: no-repeat;
+  }
+
+  * {
+    // Elements within a logo container should be hidden. This is taken from
+    // Drupal's own .element-invisible class. Extending that in this file
+    // created a gigantic selector mess, so we're copying it in here, so it'll
+    // be logo-specific
+
+    // Calling selectors specifically created a giant selector chain which older
+    // versions of IE would ignore. Using the universal selector here is less
+    // likely to cause problems. @TODO: I could use a second opinion on this opinion.
+
+    // @TODO: Also, IE11 doesn't seem to see this... Not that the rules aren't
+    // supported, but the whole ruleset isn't being applied.
+
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+  }
+}
+
+.logo-crimson-glow {
+  @extend %worldpulse-logo;
+
+  background: {
+    color: transparent;
+    image: image-url('logos/logo-crimson-glow.png');
+  }
+
+  @include respond-to('hi res') {
+    background-image: image-url('logos/logo-crimson-glow-2x.png');
+  }
+}
+
+.logo-crimson-solid {
+  @extend %worldpulse-logo;
+
+  background: {
+    color: transparent;
+    image: image-url('logos/logo-crimson-solid.png');
+  }
+
+  @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
+  .svg & {
+    max-width: none;
+    background-image: image-url('logos/logo-crimson-solid.svg');
+  }
+}
+
+.logo-white-glow {
+  @extend %worldpulse-logo;
+
+  background: {
+    color: nth($red, 2);
+    image: image-url('logos/logo-white-glow.png');
+  }
+
+  @include respond-to('hi res') {
+    background-image: image-url('logos/logo-white-glow-2x.png');
+  }
+}
+
+.logo-white-solid {
+  @extend %worldpulse-logo;
+
+  background: {
+    color: nth($red, 2);
+    image: image-url('logos/logo-white-solid.png');
+  }
+
+  @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
+  .svg & {
+    max-width: none;
+    background-image: image-url('logos/logo-white-solid.svg');
+  }
+}
+
+
+.logo-white-solid, .logo-white-glow {
+  &.dark-crimson {
+    background-color: nth($red, 1);
+  }
+
+  &.crimson-gradient {
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+
+    &:before, &:after {
+      content: " "; // To make it show up.
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    &:before {
+      @include background-image(linear-gradient(
+        nth($red, 2),
+        darken(nth($red, 2), 5%) 30%,
+        lighten(nth($red, 1), 5%) 70%,
+        nth($red, 1)
+      ));
+    }
+  }
+}
+
+.logo-white-solid.crimson-gradient:after {
+  @extend .logo-white-solid;
+}
+
+.logo-white-glow.crimson-gradient:after {
+  @extend .logo-white-glow;
+}

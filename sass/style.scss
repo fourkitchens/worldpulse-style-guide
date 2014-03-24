@@ -23,13 +23,17 @@
 @import 'global/type';
 @import 'global/forms';
 
-
 ////////////////////////
 // Import our Drupal basics
 ////////////////////////
 @import 'drupal/system.base';
 @import 'drupal/system.menus';
 @import 'drupal/system.messages';
+
+////////////////////////
+// Import component/feature design partials
+////////////////////////
+@import 'design/logo';
 
 ////////////////////////
 // Import layouts

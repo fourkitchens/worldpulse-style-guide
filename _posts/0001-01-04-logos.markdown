@@ -1,0 +1,79 @@
+---
+layout: component
+title:  "Logotype"
+---
+
+<strong style="font-style: italic;">
+  Question to World Pulse team: Should the primary logo setting be on the standard
+  <span class="crimson">crimson</span> background, or the darker crimson background
+  (see below)
+</strong>
+
+The World Pulse wordmark is properly set in white, with an outer-glow, over a
+<em class="crimson">crimson</em> background. Alternative displays displays
+include a logo in <em class="crimson">crimson</em>, or a logo in either color
+without a glow. Thus, logos are provided in four variants:
+
+- <span class="crimson">Crimson</span> on transparent _with_ outer glow: <br />
+  `logo-crimson-glow.png` and `logo-crimson-glow-2x.png`
+- <span class="crimson">Crimson</span> on transparent _without_ outer glow: <br />
+  `logo-crimson-solid.png`, `logo-crimson-solid-2x.png`, and `logo-crimson-solid.svg`
+- White on transparent _with_ outer glow: <br />
+  `logo-white-glow.png` and `logo-white-glow-2x.png`
+- White on transparent _without_ outer glow: <br />
+  `logo-white-solid.png`, `logo-white-solid-2x.png`, and `logo-white-solid.svg`
+
+To apply a logo, combine the class `logo` with a description of the logo needed
+in any of these combinations. Heading tags, `div`, `span`, and `p` elements are
+hidden within a logo container by extending Drupal's `element-invisible` class.
+
+{% capture l1 %}
+<div class="logo-white-glow">
+  <h1>World Pulse</h1>
+</div>
+{% endcapture %}
+
+{% capture l2 %}
+<div class="logo-white-solid">
+  <h1>World Pulse</h1>
+</div>
+{% endcapture %}
+
+{% capture l3 %}
+<div class="logo-crimson-glow"><h1>World Pulse</h1></div>
+<div class="logo-crimson-solid"><h1>World Pulse</h1></div>
+{% endcapture %}
+
+{% capture l4 %}
+<div class="logo-white-solid dark-crimson"><h1>World Pulse</h1></div>
+<br />
+<div class="logo-white-solid crimson-gradient"><h1>World Pulse</h1></div>
+<br />
+<div class="logo-white-glow dark-crimson"><h1>World Pulse</h1></div>
+<br />
+<div class="logo-white-glow crimson-gradient"><h1>World Pulse</h1></div>
+{% endcapture %}
+
+### Primary logo display:
+{% include sample.html sample=l1 %}
+
+A media query is added to check for device pixel density to
+override the background-image and use the `2x` (aka &ldquo;retina&rdquo;)
+size when appropriate.
+
+### White on crimson logo without a glow:
+{% include sample.html sample=l2 %}
+
+If the `svg` class on the `html` element (placed by [Modernizr](http://modernizr.com/))
+is present, the client browser will use the vector image instead, automatically.
+Additionally, this clears the `max-width` applied, as the vector graphic can be
+scaled to any size.
+
+The `svg` override also takes precedence over the `2x` retina image, as `svg`
+is best when compatible.
+
+### White logos with and without glow:
+{% include sample.html sample=l3 %}
+
+### White logos with alternate backgrounds
+{% include sample.html sample=l4 %}
