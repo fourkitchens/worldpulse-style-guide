@@ -3,7 +3,6 @@
  */
 %worldpulse-icon {
   position: relative;
-  z-index: 1;
 
   display: inline-block; // @TODO: IE6/7??
   vertical-align: middle;
@@ -28,11 +27,11 @@
     background-size: 40px; // Iconmonstr's SVG files seem to have some whitespace around the artboard.
   }
 
-  &:after {
+  &.show-tooltip:after {
     position: absolute;
     display: none;
     z-index: 1000;
-    top: 24px;
+    top: 28px;
     left: -24px;
     width: 80px;
 
@@ -52,28 +51,49 @@
     color: nth($purple, 3);
   }
 
-  &:hover:after, &.reveal-tooltip:after {
+  &.show-tooltip:hover:after {
     display: block;
   }
 }
 
-.icon-friends {
-  @extend %worldpulse-icon;
-  background-image: image-url('icons/icon-friends-32.png');
-  @include respond-to('hi res') { background-image: image-url('icons/icon-friends-64.png'); }
-  .svg & { background-image: image-url('icons/icon-friends.svg'); }
+$icons: // All icons
+  "abuse"
+  "cc"
+  "friends"
+  "private"
+  "public"
+  "region"
+  "tags"
+;
+
+$hovers: // Icons which have images for a hover-state. Although Compass throws
+         // errors for image-url() files that don't exist, it doesn't provide a
+         // way to check for this automatically.
+  "abuse"
+;
+
+@each $icon in $icons {
+  #{('.icon-' + $icon)} {
+    @extend %worldpulse-icon;
+    background-image: image-url('icons/icon-' + $icon + '-32.png');
+    @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64.png'); }
+    .svg & { background-image: image-url('icons/icon-' + $icon + '.svg'); }
+
+    @if ( index($hovers, $icon) ) {
+      &:hover {
+        background-image: image-url('icons/icon-' + $icon + '-32-hover.png');
+        @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64-hover.png'); }
+        .svg & { background-image: image-url('icons/icon-' + $icon + '-hover.svg'); }
+      }
+    }
+  }
 }
 
-.icon-globe {
-  @extend %worldpulse-icon;
-  background-image: image-url('icons/icon-globe-32.png');
-  @include respond-to('hi res') { background-image: image-url('icons/icon-globe-64.png'); }
-  .svg & { background-image: image-url('icons/icon-globe.svg'); }
-}
+/**
+ * Individual tweaks
+ */
 
-.icon-lock {
-  @extend %worldpulse-icon;
-  background-image: image-url('icons/icon-lock-32.png');
-  @include respond-to('hi res') { background-image: image-url('icons/icon-lock-64.png'); }
-  .svg & { background-image: image-url('icons/icon-lock.svg'); }
+.icon-abuse.show-tooltip:after {
+  color: nth($red, 2);
+  border-color: lighten(nth($red, 1), 5%);
 }

@@ -3,6 +3,15 @@ layout: component
 title:  "Spam/Abuse Flag"
 ---
 
-{% capture flag %}<a class="flag abuse" href="#">Spam/Abuse</a>{% endcapture %}
+{% capture flag %}
+  <span class="icon-abuse">This is Abuse or Spam</span>
+{% endcapture %}
 
 {% include sample.html sample=flag %}
+
+For more information about icons, see _[Iconography]({% post_url 0005-01-02-icons %})_.
+
+_Question: Does this symbol feel right? I'm looking for a cross-cultural resonance
+for "help", "stop", "inappropriate", or "danger" without veering into imagery that
+may be associated with law enforcement, police, or violence (like shields, badges,
+etc.). This might not be stark enough, however._

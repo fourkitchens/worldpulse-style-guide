@@ -1568,9 +1568,8 @@ div.messages ul {
 /**
  * Icons
  */
-.icon-friends, .icon-globe, .icon-lock {
+.icon-abuse, .icon-cc, .icon-friends, .icon-private, .icon-public, .icon-region, .icon-tags {
   position: relative;
-  z-index: 1;
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
@@ -1583,14 +1582,14 @@ div.messages ul {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.svg .icon-friends, .svg .icon-globe, .svg .icon-lock {
+.svg .icon-abuse, .svg .icon-cc, .svg .icon-friends, .svg .icon-private, .svg .icon-public, .svg .icon-region, .svg .icon-tags {
   background-size: 40px;
 }
-.icon-friends:after, .icon-globe:after, .icon-lock:after {
+.show-tooltip.icon-abuse:after, .show-tooltip.icon-cc:after, .show-tooltip.icon-friends:after, .show-tooltip.icon-private:after, .show-tooltip.icon-public:after, .show-tooltip.icon-region:after, .show-tooltip.icon-tags:after {
   position: absolute;
   display: none;
   z-index: 1000;
-  top: 24px;
+  top: 28px;
   left: -24px;
   width: 80px;
   font-size: 0.75em;
@@ -1609,8 +1608,43 @@ div.messages ul {
   background-color: #fefefe;
   color: #7151b1;
 }
-.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after, .reveal-tooltip.icon-friends:after, .reveal-tooltip.icon-globe:after, .reveal-tooltip.icon-lock:after {
+.show-tooltip.icon-abuse:hover:after, .show-tooltip.icon-cc:hover:after, .show-tooltip.icon-friends:hover:after, .show-tooltip.icon-private:hover:after, .show-tooltip.icon-public:hover:after, .show-tooltip.icon-region:hover:after, .show-tooltip.icon-tags:hover:after {
   display: block;
+}
+
+.icon-abuse {
+  background-image: url('../images/icons/icon-abuse-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-abuse {
+    background-image: url('../images/icons/icon-abuse-64.png');
+  }
+}
+.svg .icon-abuse {
+  background-image: url('../images/icons/icon-abuse.svg');
+}
+.icon-abuse:hover {
+  background-image: url('../images/icons/icon-abuse-32-hover.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-abuse:hover {
+    background-image: url('../images/icons/icon-abuse-64-hover.png');
+  }
+}
+.svg .icon-abuse:hover {
+  background-image: url('../images/icons/icon-abuse-hover.svg');
+}
+
+.icon-cc {
+  background-image: url('../images/icons/icon-cc-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-cc {
+    background-image: url('../images/icons/icon-cc-64.png');
+  }
+}
+.svg .icon-cc {
+  background-image: url('../images/icons/icon-cc.svg');
 }
 
 .icon-friends {
@@ -1625,26 +1659,58 @@ div.messages ul {
   background-image: url('../images/icons/icon-friends.svg');
 }
 
-.icon-globe {
-  background-image: url('../images/icons/icon-globe-32.png');
+.icon-private {
+  background-image: url('../images/icons/icon-private-32.png');
 }
 @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  .icon-globe {
-    background-image: url('../images/icons/icon-globe-64.png');
+  .icon-private {
+    background-image: url('../images/icons/icon-private-64.png');
   }
 }
-.svg .icon-globe {
-  background-image: url('../images/icons/icon-globe.svg');
+.svg .icon-private {
+  background-image: url('../images/icons/icon-private.svg');
 }
 
-.icon-lock {
-  background-image: url('../images/icons/icon-lock-32.png');
+.icon-public {
+  background-image: url('../images/icons/icon-public-32.png');
 }
 @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  .icon-lock {
-    background-image: url('../images/icons/icon-lock-64.png');
+  .icon-public {
+    background-image: url('../images/icons/icon-public-64.png');
   }
 }
-.svg .icon-lock {
-  background-image: url('../images/icons/icon-lock.svg');
+.svg .icon-public {
+  background-image: url('../images/icons/icon-public.svg');
+}
+
+.icon-region {
+  background-image: url('../images/icons/icon-region-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-region {
+    background-image: url('../images/icons/icon-region-64.png');
+  }
+}
+.svg .icon-region {
+  background-image: url('../images/icons/icon-region.svg');
+}
+
+.icon-tags {
+  background-image: url('../images/icons/icon-tags-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-tags {
+    background-image: url('../images/icons/icon-tags-64.png');
+  }
+}
+.svg .icon-tags {
+  background-image: url('../images/icons/icon-tags.svg');
+}
+
+/**
+ * Individual tweaks
+ */
+.icon-abuse.show-tooltip:after {
+  color: #b00911;
+  border-color: #89070e;
 }

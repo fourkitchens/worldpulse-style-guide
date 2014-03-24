@@ -14,8 +14,6 @@ the PNG downloader does. Add `fill="#574b4b"` to the `path` element(s).
 Using JavaScript, the contents of the `span` element is dynamically loaded into
 the styled tooltip when the page loads. This allows the text content of the icon
 to be read inline by screen readers, search engines, text browsers, etc.
-Additionally, a click or tap on the icon will toggle the display of this tooltip
-so that touchscreen devices can see this hint.
 
 ### Usage Example:
 {% capture i %}<span class="icon-friends">Friends Only</span>{% endcapture %}
@@ -23,13 +21,18 @@ so that touchscreen devices can see this hint.
 
 ### Full Inventory:
 
-| Example                                        | Meaning on _World Pulse_ | Original Iconmonstr Entry                      |
-|:----------------------------------------------:| ------------------------ | ---------------------------------------------- |
-| <span class="icon-globe">Public</span>         | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/) |
-| <span class="icon-friends">Friends Only</span> | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/) |
-| <span class="icon-lock">Only Me</span>         | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)   |
+| CSS Class       | Example                                                | Meaning on _World Pulse_ | Original Iconmonstr Entry                                |
+| --------------- |:------------------------------------------------------:| ------------------------ | -------------------------------------------------------- |
+| `.icon-abuse`   | <span class="icon-abuse">This is Abuse or Spam</span>  | _Spam / Abuse_           | [Stop 3](http://iconmonstr.com/stop-3-icon/)             |
+| `.icon-cc`      | <span class="icon-cc">Creative Commons</span>          | _Creative Commons_       | [Copyright 4](http://iconmonstr.com/copyright-4-icon/)   |
+| `.icon-friends` | <span class="icon-friends">Friends Only</span>         | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/)           |
+| `.icon-private` | <span class="icon-private">Only Me</span>              | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)             |
+| `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/)           |
+| `.icon-region`  | <span class="icon-region">Region(s)</span>             | _Region_                 | [Globe 3](http://iconmonstr.com/globe-3-icon/)           |
+| `.icon-tags`    | <span class="icon-tags">Tags / Topics</span>           | _Tags / Topics_          | [Tags 6](http://iconmonstr.com/tags-6-icon/)             |
 
 
 ### Appears In / See Also:
 
+* [Site-wide, Spam/Abuse Flag]({% post_url 0005-01-03-spam-flag %})
 * [Journal (View), Privacy Icons]({% post_url 0010-01-02-privacy-icons %})

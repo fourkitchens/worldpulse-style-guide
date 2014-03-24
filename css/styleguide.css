@@ -153,6 +153,18 @@ p:empty {
   display: none;
 }
 
+code {
+  font-size: 0.825em;
+  padding: 3px 5px;
+  border: 1px solid #e8e0e0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: rgba(254, 254, 254, 0.75);
+}
+
 body {
   background: #f3efef;
 }
@@ -309,6 +321,13 @@ body {
 .styleguide-sample .code {
   border-top: 1px solid #e1d9d9;
   background: #f8f6f6;
+}
+.styleguide-sample .code code {
+  font-size: inherit;
+  color: inherit;
+  padding: inherit;
+  border: none;
+  background-color: transparent;
 }
 .styleguide-sample .code pre {
   margin: 0;
