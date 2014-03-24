@@ -3,6 +3,7 @@
  */
 %worldpulse-icon {
   position: relative;
+  z-index: 1;
 
   display: inline-block; // @TODO: IE6/7??
   vertical-align: middle;
@@ -23,9 +24,14 @@
     size: contain;
   }
 
-  &:after {
+  .svg & {
+    background-size: 40px; // Iconmonstr's SVG files seem to have some whitespace around the artboard.
+  }
+
+  &:hover:after {
     position: absolute;
-    display: none;
+    display: block;
+    z-index: 1000;
     top: 24px;
     left: -24px;
     width: 80px;
@@ -35,7 +41,7 @@
 
     text-indent: 0;
     text-align: center;
-    content: attr(title);
+    content: attr(data-desc);
 
     border: 1px solid nth($purple, 3);
     border-bottom-width: 2px;
@@ -44,11 +50,6 @@
 
     background-color: lighten(nth($grey, 4), 5%);
     color: nth($purple, 3);
-  }
-
-  &:hover:after {
-    display: block;
-    z-index: 1000;
   }
 }
 

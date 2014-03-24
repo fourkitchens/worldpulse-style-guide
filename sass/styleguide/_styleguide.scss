@@ -99,7 +99,7 @@ body {
 }
 
 .styleguide-content {
-  @include clearfix();
+  @extend %clearfix;
   margin: 0 auto;
   padding: 0.5em;
   max-width: 1000px;
@@ -213,7 +213,7 @@ body {
 }
 
 .styleguide-swatches {
-  @extend .clearfix;
+  @extend %clearfix;
 
   @include respond-to('sg swatches large') {
     @include sg-component-frame-mixin;

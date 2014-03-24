@@ -9,3 +9,13 @@
     }
   });
 })(jQuery);
+
+// @TODO: These need to be included in the final theme:
+(function($) {
+  $(document).ready(function(){
+    $('[class^="icon-"]').each(function(){
+      // We use .attr() instead of .data() because we need an actual DOM change.
+      $(this).attr('data-desc', $(this).text());
+    })
+  });
+})(jQuery);

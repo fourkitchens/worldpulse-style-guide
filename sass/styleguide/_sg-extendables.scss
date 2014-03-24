@@ -15,3 +15,7 @@
 %sg-component-frame {
   @include sg-component-frame-mixin;
 }
+
+%clearfix, .clearfix {
+  @include clearfix();
+}

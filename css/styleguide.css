@@ -1,3 +1,15 @@
+.styleguide-content:after, .styleguide-swatches:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.styleguide-content:after, .styleguide-swatches:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .styleguide-sample, .styleguide-typography .typeface {
   border: 1px solid #d6cbcb;
   -webkit-border-radius: 3px;
@@ -6,6 +18,12 @@
   -o-border-radius: 3px;
   border-radius: 3px;
   margin: 1em auto;
+}
+
+.styleguide-content:after, .styleguide-swatches:after, .clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 p:empty {
@@ -93,11 +111,6 @@ body {
   margin: 0 auto;
   padding: 0.5em;
   max-width: 1000px;
-}
-.styleguide-content:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .styleguide-nav {

@@ -1540,6 +1540,7 @@ div.messages ul {
  */
 .icon-friends, .icon-globe, .icon-lock {
   position: relative;
+  z-index: 1;
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
@@ -1552,9 +1553,13 @@ div.messages ul {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.icon-friends:after, .icon-globe:after, .icon-lock:after {
+.svg .icon-friends, .svg .icon-globe, .svg .icon-lock {
+  background-size: 40px;
+}
+.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after {
   position: absolute;
-  display: none;
+  display: block;
+  z-index: 1000;
   top: 24px;
   left: -24px;
   width: 80px;
@@ -1562,7 +1567,7 @@ div.messages ul {
   line-height: 1.15;
   text-indent: 0;
   text-align: center;
-  content: attr(title);
+  content: attr(data-desc);
   border: 1px solid #7151b1;
   border-bottom-width: 2px;
   -webkit-border-radius: 2px;
@@ -1573,10 +1578,6 @@ div.messages ul {
   padding: 0.5em 0.25em;
   background-color: #fefefe;
   color: #7151b1;
-}
-.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after {
-  display: block;
-  z-index: 1000;
 }
 
 .icon-friends {
