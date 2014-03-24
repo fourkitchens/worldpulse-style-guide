@@ -177,10 +177,6 @@ body {
   font-weight: 600;
 }
 
-.styleguide-index {
-  overflow: hidden;
-}
-
 .styleguide-sample .example, .styleguide-sample .code {
   padding: 1em;
 }

@@ -178,8 +178,6 @@ body {
   @include respond-to('sg nav side') {
     // @include grid-span(9,4,12, $gutter: 1);
   }
-
-  overflow: hidden;
 }
 
 .styleguide-sample {

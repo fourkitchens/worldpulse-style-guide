@@ -926,6 +926,38 @@ input[type="password"] {
 }
 
 /**
+ * Tables (ya know, just in case)
+ */
+table {
+  border: 1px solid #d6cbcb;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border-collapse: separate;
+}
+table thead {
+  color: #513882;
+}
+table thead td, table thead th {
+  border-bottom: 2px solid #d6cbcb;
+}
+table td, table th {
+  padding: 0.25em 0.5em;
+}
+table tr:nth-child(2n+1) {
+  background-color: #fefefe;
+}
+table tr:nth-child(2n+0) {
+  background-color: #f3efef;
+}
+table th + th, table td + td {
+  border-left: 1px solid #d6cbcb;
+}
+
+/**
  * @file
  * Generic theme-independent base styles.
  */
@@ -1556,9 +1588,9 @@ div.messages ul {
 .svg .icon-friends, .svg .icon-globe, .svg .icon-lock {
   background-size: 40px;
 }
-.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after {
+.icon-friends:after, .icon-globe:after, .icon-lock:after {
   position: absolute;
-  display: block;
+  display: none;
   z-index: 1000;
   top: 24px;
   left: -24px;
@@ -1578,6 +1610,9 @@ div.messages ul {
   padding: 0.5em 0.25em;
   background-color: #fefefe;
   color: #7151b1;
+}
+.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after, .reveal-tooltip.icon-friends:after, .reveal-tooltip.icon-globe:after, .reveal-tooltip.icon-lock:after {
+  display: block;
 }
 
 .icon-friends {

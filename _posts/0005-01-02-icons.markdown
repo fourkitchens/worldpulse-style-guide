@@ -1,0 +1,39 @@
+---
+layout: component
+title:  "Iconography"
+---
+
+### Source: [Iconmonstr](http://iconmonstr.com/)
+- Files: 32px and 64px PNGs and SVGs
+- Color: #574b4b
+
+SVG icons from this source are manually edited to ensure shapes are all the
+correct color. Iconmonstr's SVG downloader does not alter SVG colors, although
+the PNG downloader does.
+
+Using JavaScript, the contents of the `span` element is dynamically loaded into
+the styled tooltip when the page loads. This allows the text content of the icon
+to be read inline by screen readers, search engines, text browsers, etc.
+
+### Usage Example:
+{% capture i %}
+<ul>
+  <li><span class="icon-globe">Public</span> &ensp; <em>Public</em></li>
+  <li><span class="icon-friends">Friends Only</span> &ensp; <em>Friends Only</em></li>
+  <li><span class="icon-lock">Only Me</span> &ensp; <em>Only Me / Private</em></li>
+</ul>
+{% endcapture %}
+{% include sample.html sample=i %}
+
+### Full Inventory:
+
+| Example                                        | Meaning on _World Pulse_ | Original Iconmonstr Entry                      |
+|:----------------------------------------------:| ------------------------ | ---------------------------------------------- |
+| <span class="icon-globe">Public</span>         | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/) |
+| <span class="icon-friends">Friends Only</span> | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/) |
+| <span class="icon-lock">Only Me</span>         | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)   |
+
+
+### Appears In / See Also:
+
+* [Journal (View), Privacy Icons]({% post_url 0010-01-02-privacy-icons %})

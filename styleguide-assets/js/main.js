@@ -16,6 +16,11 @@
     $('[class^="icon-"]').each(function(){
       // We use .attr() instead of .data() because we need an actual DOM change.
       $(this).attr('data-desc', $(this).text());
+
+      // Flash the tooltip on tap/click
+      $(this).click(function(){
+        $(this).toggleClass('reveal-tooltip');
+      });
     })
   });
 })(jQuery);
