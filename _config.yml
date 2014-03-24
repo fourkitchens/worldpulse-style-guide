@@ -4,3 +4,4 @@ redcarpet:
   extensions: ["tables"]
 pygments: true
 permalink: component/:year-:title.html
+exclude: ["config.rb", "Gemfile", "Gemfile.lock", "Gruntfile.js", "package.json", "sass"]
