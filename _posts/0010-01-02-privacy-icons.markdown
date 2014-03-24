@@ -13,3 +13,5 @@ title:  "Privacy Icons"
 
 ### This post is visible to:
 {% include sample.html sample=i %}
+
+For more information about icons, see _[Iconography]({% post_url 0005-01-02-icons %}).

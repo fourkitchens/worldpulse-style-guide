@@ -55,7 +55,6 @@
 
   @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
   .svg & {
-    max-width: none;
     background-image: image-url('logos/logo-crimson-solid.svg');
   }
 }
@@ -83,7 +82,6 @@
 
   @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
   .svg & {
-    max-width: none;
     background-image: image-url('logos/logo-white-solid.svg');
   }
 }

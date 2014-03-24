@@ -37,7 +37,6 @@
   }
 }
 .svg .logo-crimson-solid {
-  max-width: none;
   background-image: url('../images/logos/logo-crimson-solid.svg');
 }
 
@@ -61,7 +60,6 @@
   }
 }
 .svg .logo-white-solid, .svg .logo-white-solid.crimson-gradient:after {
-  max-width: none;
   background-image: url('../images/logos/logo-white-solid.svg');
 }
 
