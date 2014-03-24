@@ -58,8 +58,12 @@ body {
   font-size: 0.75em;
   border-top: 1px solid #d6cbcb;
 }
+.styleguide-container > main {
+  margin: 10px;
+}
 @media (min-width: 51.25em) {
   .styleguide-container > main {
+    margin-left: 0;
     padding-left: 240px;
   }
 }
@@ -155,6 +159,9 @@ body {
   display: block;
   float: right;
   text-decoration: none;
+}
+.styleguide-nav li.current a {
+  font-weight: 600;
 }
 
 .styleguide-index {

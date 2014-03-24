@@ -1,8 +1,29 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
 
-<div class="component">
-{{ content }}
+<div class="styleguide-content">
+  <nav class="styleguide-nav collapse"><ul>
+    {% for post in site.posts reversed %}
+      {% if post.layout == "heading" %}
+        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <!-- <a href="{{ post.url }}">&rarr;</a> --></li>
+      {% elsif post.url == page.url %}
+        <li class="current"><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% else %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul></nav>
+
+  <div class="styleguide-index">
+    <h1>{{ page.title }}</h1>
+
+    <div class="component">
+    {{ content }}
+    </div>
+
+  </div>
 </div>
+
+
+

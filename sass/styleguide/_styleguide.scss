@@ -66,7 +66,9 @@ body {
   }
 
   > main {
+    margin: 10px;
     @include respond-to('sg nav side') {
+      margin-left: 0;
       padding-left: 240px;
     }
     @include respond-to('fixed header') {
@@ -164,6 +166,10 @@ body {
       float: right;
       text-decoration: none;
     }
+  }
+
+  li.current a {
+    font-weight: 600;
   }
 
 }
