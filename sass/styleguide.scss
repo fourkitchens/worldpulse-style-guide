@@ -14,6 +14,11 @@
 ////////////////////////
 @import 'config/config';
 
+// No global styles should be added in this file, unless they need to be
+// extended. The styleguide includes the primary `style.css` file.
+@import 'global/type'; // 'global/type' is extended in the link examples
+
+
 ////////////////////////
 // Style Guide Only Styles
 ////////////////////////

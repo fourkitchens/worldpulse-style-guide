@@ -10,6 +10,129 @@
   clear: both;
 }
 
+/**
+* Typography: Headings, body text, lists, code, and more for a versatile and durable typography system.
+*/
+body {
+  font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #574b4b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+h1, h2 {
+  letter-spacing: -1px;
+}
+
+h4, h5, h6 {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b00911;
+}
+
+h1 {
+  color: #342454;
+}
+
+h2 {
+  color: #513882;
+}
+
+h3 {
+  color: #513882;
+}
+
+a:link, a[href*="example.com"] {
+  color: #149ce4;
+}
+a:visited, a[href*="worldpulse.com"] {
+  color: #7151b1;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #666;
+  padding-bottom: -1px;
+  margin: 1em 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+::-moz-selection {
+  background: #7151b1;
+  color: #fefefe;
+  text-shadow: none;
+}
+
+::selection {
+  background: #7151b1;
+  color: #fefefe;
+  text-shadow: none;
+}
+
+code, kbd, pre, samp {
+  font-family: "Consolas", "Monaco", "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+}
+
+blockquote {
+  position: relative;
+  font-family: "Archer SSm A", "Archer SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  color: #965100;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  border-left: 0;
+  padding: 0 40px;
+  margin: 2em 0;
+}
+blockquote:before, blockquote:after, blockquote cite {
+  font-family: "Archer SSm A", "Archer SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #af5f00;
+}
+blockquote:before, blockquote:after {
+  position: absolute;
+  font-size: 4em;
+  line-height: 0;
+}
+blockquote:before {
+  top: 0.25em;
+  left: 0;
+  content: open-quote;
+}
+blockquote:after {
+  bottom: 0;
+  right: 0;
+  content: close-quote;
+}
+blockquote cite {
+  display: block;
+  font-size: 0.875em;
+  text-align: right;
+}
+blockquote cite:before {
+  content: "\2014";
+}
+
 .styleguide-sample, .styleguide-typography .typeface {
   border: 1px solid #d6cbcb;
   -webkit-border-radius: 3px;
