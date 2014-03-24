@@ -27,12 +27,8 @@
 
     // @TODO: Also, IE11 doesn't seem to see this... Not that the rules aren't
     // supported, but the whole ruleset isn't being applied.
+    @include element-invisible();
 
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    overflow: hidden;
-    height: 1px;
   }
 }
 

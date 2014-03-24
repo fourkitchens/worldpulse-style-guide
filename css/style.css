@@ -1534,3 +1534,83 @@ div.messages ul {
   background-image: -o-linear-gradient(#b00911, #98080f 30%, #89070e 70%, #71060b);
   background-image: linear-gradient(#b00911, #98080f 30%, #89070e 70%, #71060b);
 }
+
+/**
+ * Icons
+ */
+.icon-friends, .icon-globe, .icon-lock {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
+  text-indent: -1000px;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  margin: 0.5em;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.icon-friends:after, .icon-globe:after, .icon-lock:after {
+  position: absolute;
+  display: none;
+  top: 24px;
+  left: -24px;
+  width: 80px;
+  font-size: 0.75em;
+  line-height: 1.15;
+  text-indent: 0;
+  text-align: center;
+  content: attr(title);
+  border: 1px solid #7151b1;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0.5em 0.25em;
+  background-color: #fefefe;
+  color: #7151b1;
+}
+.icon-friends:hover:after, .icon-globe:hover:after, .icon-lock:hover:after {
+  display: block;
+  z-index: 1000;
+}
+
+.icon-friends {
+  background-image: url('../images/icons/icon-friends-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-friends {
+    background-image: url('../images/icons/icon-friends-64.png');
+  }
+}
+.svg .icon-friends {
+  background-image: url('../images/icons/icon-friends.svg');
+}
+
+.icon-globe {
+  background-image: url('../images/icons/icon-globe-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-globe {
+    background-image: url('../images/icons/icon-globe-64.png');
+  }
+}
+.svg .icon-globe {
+  background-image: url('../images/icons/icon-globe.svg');
+}
+
+.icon-lock {
+  background-image: url('../images/icons/icon-lock-32.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .icon-lock {
+    background-image: url('../images/icons/icon-lock-64.png');
+  }
+}
+.svg .icon-lock {
+  background-image: url('../images/icons/icon-lock.svg');
+}

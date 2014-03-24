@@ -1,0 +1,74 @@
+/**
+ * Icons
+ */
+%worldpulse-icon {
+  position: relative;
+
+  display: inline-block; // @TODO: IE6/7??
+  vertical-align: middle;
+  line-height: 32px;
+
+  text-indent: -1000px;
+
+  // @TODO: Is 32px the right size here?
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+
+  margin: 0.5em;
+
+  background: {
+    position: center center;
+    repeat: no-repeat;
+    size: contain;
+  }
+
+  &:after {
+    position: absolute;
+    display: none;
+    top: 24px;
+    left: -24px;
+    width: 80px;
+
+    font-size: 0.75em;
+    line-height: 1.15;
+
+    text-indent: 0;
+    text-align: center;
+    content: attr(title);
+
+    border: 1px solid nth($purple, 3);
+    border-bottom-width: 2px;
+    @include border-radius(2px);
+    padding: 0.5em 0.25em;
+
+    background-color: lighten(nth($grey, 4), 5%);
+    color: nth($purple, 3);
+  }
+
+  &:hover:after {
+    display: block;
+    z-index: 1000;
+  }
+}
+
+.icon-friends {
+  @extend %worldpulse-icon;
+  background-image: image-url('icons/icon-friends-32.png');
+  @include respond-to('hi res') { background-image: image-url('icons/icon-friends-64.png'); }
+  .svg & { background-image: image-url('icons/icon-friends.svg'); }
+}
+
+.icon-globe {
+  @extend %worldpulse-icon;
+  background-image: image-url('icons/icon-globe-32.png');
+  @include respond-to('hi res') { background-image: image-url('icons/icon-globe-64.png'); }
+  .svg & { background-image: image-url('icons/icon-globe.svg'); }
+}
+
+.icon-lock {
+  @extend %worldpulse-icon;
+  background-image: image-url('icons/icon-lock-32.png');
+  @include respond-to('hi res') { background-image: image-url('icons/icon-lock-64.png'); }
+  .svg & { background-image: image-url('icons/icon-lock.svg'); }
+}

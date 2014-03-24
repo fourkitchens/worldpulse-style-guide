@@ -42,3 +42,6 @@ title:  "Checkboxes and Radio Buttons"
 
 ### Radio Buttons
 {% include sample.html sample=r %}
+
+_4K Todo: Can styles [like this](http://www.hongkiat.com/blog/css3-checkbox-radio/)
+like this be applied?

@@ -3,3 +3,13 @@
 //
 // All of your mixins should go in this file.
 ////////////////////////
+
+// For invisible elements; this is the same code Drupal uses. We're putting it in
+// a mixin so that we don't muddle the selector in big extendables.
+@mixin element-invisible() {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+}
