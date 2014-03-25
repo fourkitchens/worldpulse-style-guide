@@ -44,4 +44,4 @@ interactive), but icons using an `a` (link) tag will.
 ### Appears In / See Also:
 
 * [Site-wide, Spam/Abuse Flag]({% post_url 0005-01-03-spam-flag %})
-* [Journal (View), Privacy Icons]({% post_url 0010-01-02-privacy-icons %})
+* [Journal (View), Privacy Icons]({% post_url 0010-01-04-privacy-icons %})

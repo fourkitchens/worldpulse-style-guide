@@ -80,6 +80,7 @@ layout lacking for now while these are determined._
 ### Post Meta Footer
 
 _@TODO: There's a note about moving this to a sidebar? Request translation.
+Faces of avatars of recommending users may have been removed.
 [See Notable](https://notableapp.com/posts/819002#annotate/819002)_
 
 {% include sample.html sample=f %}
