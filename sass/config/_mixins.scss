@@ -13,3 +13,12 @@
   overflow: hidden;
   height: 1px;
 }
+
+////////////////////////////////////
+// Wrapper for respond-to.
+////////////////////////////////////
+@mixin rt($context, $no-query: false) {
+  @include respond-to($context, $no-query) {
+    @content;
+  }
+}

@@ -5,18 +5,7 @@
 //   should go in this file.
 ////////////////////////
 
-.clearfix {
-	@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *zoom: 1;
-  }
-
-  &:before,
-  &:after {
-    display: table;
-    content: "";
-  }
-
-  &:after {
-    clear: both;
-  }
+.clearfix,
+%clearfix {
+	@include clearfix;
 }

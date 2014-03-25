@@ -59,7 +59,7 @@ article.node-journal-post {
         // @TODO: This include wouldn't output _any_ code at all without all these
         // variables being redeclared here. But it wasn't throwing an error. Fix??
         @include respond-to('journal meta small') {
-          @include grid-span(1, 1, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(1, 1);
           clear: left;
         }
       }
@@ -69,7 +69,7 @@ article.node-journal-post {
         // @TODO: This include wouldn't output _any_ code at all without all these
         // variables being redeclared here. But it wasn't throwing an error. Fix??
         @include respond-to('journal meta small') {
-          @include grid-span(11, 2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(11, 2);
           text-align: left;
           line-height: 32px; // If there's a second row of text, this will be awful...
         }
@@ -90,7 +90,7 @@ article.node-journal-post {
         text-align: center;
 
         @include respond-to('journal meta full') {
-          @include grid-span(3,2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(3, 2);
 
           button {
             font-size: 0.75em;
@@ -102,15 +102,15 @@ article.node-journal-post {
         }
 
         @include respond-to('journal meta large') {
-          @include grid-span(2,2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(2, 2);
         }
       }
       dd.users {
         @include respond-to('journal meta full') {
-          @include grid-span(8,5, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(8, 5);
         }
         @include respond-to('journal meta large') {
-          @include grid-span(9,4, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          @include grid-span(9, 4);
         }
 
         ul, li {
@@ -124,7 +124,7 @@ article.node-journal-post {
         }
 
         li {
-          @include grid-span(2,1, $grid: 12, $output-style: "float", $gutter: 1/3);
+          @include grid-span(2, 1);
           &:nth-child(6n+0) {
             margin-right: 0;
           }

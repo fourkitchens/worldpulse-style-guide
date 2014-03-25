@@ -2,20 +2,10 @@
 //
 // All of your variables should go in this file.
 
-
-// Legacy IE support
-//
-// These variables are used by many mixins to add additional CSS to support
-// specific versions of IE or specific vendor prefixes.
-//
-// To turn on support for IE6 or IE7, set those variables to true.
-//
-// These variables are used throughout compass, but specifically within the
-// compass-normalize extension.
-// /
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: true;
+// Graceful degredation variables.
+$graceful-usage-threshold:    1         !default;
+$critical-usage-threshold:    0.1       !default;
+$browser-minimum-versions:    (ie: '9') !default;
 
 
 // Font faces, stacks and sizes.
@@ -119,13 +109,16 @@ $indent-amount: 2em;
 //
 // @see https://github.com/Team-Sass/Singularity/wiki
 
-$mobile-first         : true;
-$include-border-box   : false;
-$include-clearfix     : false;
+@include sgs-change('mobile first',       true);
+@include sgs-change('include border box', false);
+@include sgs-change('include clearfix',   false);
 
-$grids                : 12;
-$gutters              : 1/3;
-$output               : "isolation";
+@include add-grid(12);
+//@include add-grid(3 at 200px);
+
+// Define our gutters.
+@include add-gutter(1/3);
+// @include add-gutter(1/4 at 600px);
 
 
 
@@ -148,25 +141,15 @@ $output               : "isolation";
 //                      "large-ish" (770px),
 //                      "extra-large-ish" (1000px);
 
+$breakpoint-no-queries:         false !default;
+$breakpoint-no-query-fallbacks: true  !default;
+$breakpoint-to-ems:             true;
 
-$breakpoint-no-query-fallbacks: true;
-$breakpoint-to-ems: true;
-
-$breakpoints:
-  'hi res' (min-resolution 1.5dppx),
-  'pager tiny' (max-width 359px),
-  'pager mini' (360px),
-  'pager limited' (680px),
-  'pager full' (840px),
-  'journal meta small' (620px),
-  'journal meta full' (840px),
-  'journal meta large' (1120px),
-  // Style Guide breakpoints
-  'fixed header' (720px),
-  'sg nav top' (max-width 819px),
-  'sg nav side' (820px),
-  'sg swatches small' (max-width 559px),
-  'sg swatches medium' (560px 759px),
-  'sg swatches large' (760px),
-  'sg typeplate small' (max-width 579px),
-  'sg typeplate large' (580px);
+$breakpoints: add-breakpoint('hi res', min-resolution 1.5dppx);
+$breakpoints: add-breakpoint('pager tiny', max-width 359px);
+$breakpoints: add-breakpoint('pager mini', 360px);
+$breakpoints: add-breakpoint('pager limited', 680px);
+$breakpoints: add-breakpoint('pager full', 840px);
+$breakpoints: add-breakpoint('journal meta small', 620px);
+$breakpoints: add-breakpoint('journal meta full', 840px);
+$breakpoints: add-breakpoint('journal meta large', 1120px);
