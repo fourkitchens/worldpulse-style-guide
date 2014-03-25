@@ -10,4 +10,4 @@ gem 'sassy-buttons',      "~> 0.2"
 
 
 ## THESE ARE FROM GITHUB's pages.github.com/versions
-#gem 'github-pages','=15'
+gem 'github-pages'
