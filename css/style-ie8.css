@@ -1688,10 +1688,10 @@ article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-
 }
 article.node-journal-post footer dl.recommend dd.users li {
   width: 14.89362%;
+  clear: right;
   float: left;
-  margin-right: -100%;
   margin-left: 0;
-  clear: none;
+  margin-right: 2.12766%;
 }
 article.node-journal-post footer dl.recommend dd.users li:nth-child(6n+0) {
   margin-right: 0;
