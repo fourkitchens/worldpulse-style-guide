@@ -3,12 +3,8 @@ layout: component
 title:  "Logotype"
 ---
 
-_Question to World Pulse team: Should the primary logo setting be on the standard
-<span class="crimson">crimson</span> background, or the darker crimson background
-(see below)_
-
 The World Pulse wordmark is properly set in white, with an outer-glow, over a
-<em class="crimson">crimson</em> background. Alternative displays displays
+dark <em class="crimson">crimson</em> background. Alternative displays displays
 include a logo in <em class="crimson">crimson</em>, or a logo in either color
 without a glow. Thus, logos are provided in four variants:
 
@@ -45,11 +41,11 @@ should be contained within the wrapper.
 {% endcapture %}
 
 {% capture l4 %}
-<div class="logo-white-solid dark-crimson"><h1 class="logo">World Pulse</h1></div>
+<div class="logo-white-solid bright-crimson"><h1 class="logo">World Pulse</h1></div>
 <br />
 <div class="logo-white-solid crimson-gradient"><h1 class="logo">World Pulse</h1></div>
 <br />
-<div class="logo-white-glow dark-crimson"><h1 class="logo">World Pulse</h1></div>
+<div class="logo-white-glow bright-crimson"><h1 class="logo">World Pulse</h1></div>
 <br />
 <div class="logo-white-glow crimson-gradient"><h1 class="logo">World Pulse</h1></div>
 {% endcapture %}
@@ -64,10 +60,11 @@ size when appropriate.
 ### White on crimson logo without a glow:
 {% include sample.html sample=l2 %}
 
-If the `svg` class on the `html` element (placed by [Modernizr](http://modernizr.com/))
-is present, the client browser will use the vector image instead, automatically.
-Additionally, this clears the `max-width` applied, as the vector graphic can be
-scaled to any size.
+If the `svg` class on the `html` element (placed by feature-detection with
+[Modernizr](http://modernizr.com/)) is present, the client browser will use the
+vector image instead, automatically. Using the `svg` image results in a sharper
+image. _For this reason, Four Kitchens recommends not using a glowing logo, in
+favor of the solid variant which can be delivered as a vector._
 
 The `svg` override also takes precedence over the `2x` retina image, as `svg`
 is best when compatible.

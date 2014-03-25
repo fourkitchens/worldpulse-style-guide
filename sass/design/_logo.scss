@@ -65,7 +65,7 @@
   @extend %worldpulse-logo;
   .logo, &.crimson-gradient .logo:after {
     background: {
-      color: nth($red, 2);
+      color: nth($red, 1);
       image: image-url('logos/logo-white-glow.png');
     }
 
@@ -83,7 +83,7 @@
   @extend %worldpulse-logo;
   .logo, &.crimson-gradient .logo:after {
     background: {
-      color: nth($red, 2);
+      color: nth($red, 1);
       image: image-url('logos/logo-white-solid.png');
     }
 
@@ -100,8 +100,8 @@
 
 
 .logo-white-solid, .logo-white-glow {
-  &.dark-crimson .logo {
-    background-color: nth($red, 1);
+  &.bright-crimson .logo {
+    background-color: nth($red, 2);
   }
 
   &.crimson-gradient .logo {

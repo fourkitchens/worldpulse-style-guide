@@ -1514,7 +1514,7 @@ div.messages ul {
 }
 
 .logo-white-glow .logo, .logo-white-glow.crimson-gradient .logo:after {
-  background-color: #b00911;
+  background-color: #71060b;
   background-image: url('../images/logos/logo-white-glow.png');
 }
 @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
@@ -1524,7 +1524,7 @@ div.messages ul {
 }
 
 .logo-white-solid .logo, .logo-white-solid.crimson-gradient .logo:after {
-  background-color: #b00911;
+  background-color: #71060b;
   background-image: url('../images/logos/logo-white-solid.png');
 }
 @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
@@ -1536,8 +1536,8 @@ div.messages ul {
   background-image: url('../images/logos/logo-white-solid.svg');
 }
 
-.logo-white-solid.dark-crimson .logo, .logo-white-glow.dark-crimson .logo {
-  background-color: #71060b;
+.logo-white-solid.bright-crimson .logo, .logo-white-glow.bright-crimson .logo {
+  background-color: #b00911;
 }
 .logo-white-solid.crimson-gradient .logo, .logo-white-glow.crimson-gradient .logo {
   position: relative;
