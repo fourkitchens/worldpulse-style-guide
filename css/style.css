@@ -412,11 +412,11 @@ th {
   box-sizing: border-box;
 }
 
-.clearfix:before, .clearfix:after {
+.clearfix:before, article.node-journal-post header dl:before, article.node-journal-post footer dl:before, .clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
   display: table;
   content: "";
 }
-.clearfix:after {
+.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
   clear: both;
 }
 
@@ -1250,7 +1250,7 @@ html.js .js-hide {
  *
  * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
  */
-.clearfix:after {
+.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
   content: ".";
   display: block;
   height: 0;
@@ -1259,12 +1259,12 @@ html.js .js-hide {
 }
 
 /* IE6 */
-* html .clearfix {
+* html .clearfix, * html article.node-journal-post header dl, article.node-journal-post header * html dl, * html article.node-journal-post footer dl, article.node-journal-post footer * html dl {
   height: 1%;
 }
 
 /* IE7 */
-*:first-child + html .clearfix {
+*:first-child + html .clearfix, *:first-child + html article.node-journal-post header dl, article.node-journal-post header *:first-child + html dl, *:first-child + html article.node-journal-post footer dl, article.node-journal-post footer *:first-child + html dl {
   min-height: 1%;
 }
 
@@ -1575,7 +1575,7 @@ div.messages ul {
   display: inline-block;
   vertical-align: middle;
   line-height: 32px;
-  text-indent: -1000px;
+  text-indent: -5000px;
   height: 32px;
   width: 32px;
   line-height: 32px;
@@ -1715,4 +1715,63 @@ div.messages ul {
 .icon-abuse.show-tooltip:after {
   color: #b00911;
   border-color: #89070e;
+}
+
+/**
+ * Node Type: Journal Post
+ */
+article.node-journal-post header, article.node-journal-post footer {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+article.node-journal-post header dl, article.node-journal-post footer dl {
+  margin: 0;
+}
+article.node-journal-post header {
+  position: relative;
+  padding-bottom: 0.5em;
+  padding-right: 64px;
+  border-bottom: 2px solid #e8e0e0;
+  margin-bottom: 0.5em;
+}
+article.node-journal-post header dt {
+  display: none;
+}
+article.node-journal-post header dd {
+  display: inline;
+  margin: 0 0.5em;
+}
+article.node-journal-post header dd:first-of-type {
+  margin-left: 0;
+}
+article.node-journal-post header .icon-abuse {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+article.node-journal-post footer {
+  margin-top: 0.5em;
+  border-top: 2px solid #e8e0e0;
+  padding-top: 0.5em;
+}
+article.node-journal-post footer dt {
+  width: 6.38298%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0%;
+  clear: none;
+  clear: left;
+}
+article.node-journal-post footer dd {
+  width: 91.48936%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 32px;
 }

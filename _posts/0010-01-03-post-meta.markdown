@@ -3,11 +3,52 @@ layout: component
 title:  "Post Metadata"
 ---
 
-{% capture h %}{% endcapture %}
-{% capture f %}{% endcapture %}
+{% capture h %}
+<article class="node-journal-post">
+  <header>
+    <h2>Post title</h2>
+    <dl>
+      <dt>Privacy</dt>
+      <dd><span class="icon-public">Public</span></dd>
+      <dt>Posted</dt>
+      <dd><em>March 24<sup>th</sup>, 2014</em></dd>
+      <dt>Comments</dt>
+      <dd>3 Comments</dd>
+    </dl>
+    <a href="#" class="icon-abuse">Report as Abuse or Spam</a>
+  </header>
+</article>
+{% endcapture %}
+
+{% capture f %}
+<article class="node-journal-post">
+  <footer>
+    <dl>
+      <dt><span class="icon-tags">Tagged</span></dt>
+      <dd>
+        <a href="#">Disasters and Emergencies</a>,
+        <a href="#">Health</a>,
+        <a href="#">Security</a>
+      </dd>
+      <dt><span class="icon-region">Region(s)</span></dt>
+      <dd>
+        <a href="#">Middle East</a>
+      </dd>
+    </dl>
+    <button class="btn-aux1">Recommend</button>
+  </footer>
+</article>
+{% endcapture %}
 
 ### Post Meta Header
+
+_@TODO: Comment count._
+
 {% include sample.html sample=h %}
 
+
 ### Post Meta Footer
+
+_@TODO: There's a [note about moving this to a sidebar](https://notableapp.com/posts/819002#annotate/819002)?_
+
 {% include sample.html sample=f %}
