@@ -67,6 +67,7 @@ input[type="button"] {
   font-weight: 600;
   letter-spacing: 2px;
   padding: 0.375em 0.625em;
+  margin-bottom: 0.5em;
 
   color: nth($grey, 2);
   @include text-shadow(1px 1px 0 rgba(nth($grey, 4), 0.5));

@@ -14,6 +14,7 @@
   height: 32px;
   width: 32px;
   line-height: 32px;
+  max-width: 100%;
 
   margin: 0.5em;
 
@@ -24,7 +25,7 @@
   }
 
   .svg & {
-    background-size: 40px; // Iconmonstr's SVG files seem to have some whitespace around the artboard.
+    background-size: 120%; // Iconmonstr's SVG files seem to have some whitespace around the artboard.
   }
 
   &.show-tooltip:after {
@@ -42,18 +43,27 @@
     text-align: center;
     content: attr(data-desc);
 
-    border: 1px solid nth($purple, 3);
+    border: 1px solid;
     border-bottom-width: 2px;
     @include border-radius(2px);
     padding: 0.5em 0.25em;
 
     background-color: lighten(nth($grey, 4), 5%);
-    color: nth($purple, 3);
   }
 
   &.show-tooltip:hover:after {
     display: block;
   }
+}
+
+span.show-tooltip:after {
+  color: nth($purple, 3);
+  border-color: nth($purple, 3);
+}
+
+a.show-tooltip:after {
+  color: darken(nth($blue, 2), 5%);
+  border-color: darken(nth($blue, 1), 5%);
 }
 
 $icons: // All icons
@@ -70,6 +80,7 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
          // errors for image-url() files that don't exist, it doesn't provide a
          // way to check for this automatically.
   "abuse"
+  "cc"
 ;
 
 @each $icon in $icons {
@@ -78,13 +89,13 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
     background-image: image-url('icons/icon-' + $icon + '-32.png');
     @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64.png'); }
     .svg & { background-image: image-url('icons/icon-' + $icon + '.svg'); }
+  }
 
-    @if ( index($hovers, $icon) ) {
-      &:hover {
-        background-image: image-url('icons/icon-' + $icon + '-32-hover.png');
-        @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64-hover.png'); }
-        .svg & { background-image: image-url('icons/icon-' + $icon + '-hover.svg'); }
-      }
+  @if ( index($hovers, $icon) ) {
+    #{('a.icon-' + $icon + ':hover')} {
+      background-image: image-url('icons/icon-' + $icon + '-32-hover.png');
+      @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64-hover.png'); }
+      .svg & { background-image: image-url('icons/icon-' + $icon + '-hover.svg'); }
     }
   }
 }
@@ -94,6 +105,6 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
  */
 
 .icon-abuse.show-tooltip:after {
-  color: nth($red, 2);
-  border-color: lighten(nth($red, 1), 5%);
+  color: nth($red, 3);
+  border-color: lighten(nth($red, 2), 5%);
 }

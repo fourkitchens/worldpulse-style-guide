@@ -8,8 +8,10 @@ title:  "Post Metadata"
   <header>
     <h2>Post title</h2>
     <dl>
-      <dt>Privacy</dt>
+      <dt>Visibility</dt>
       <dd><span class="icon-public">Public</span></dd>
+      <dt>Publishing License</dt>
+      <dd><a class="icon-cc">Creative Commons</a></dd>
       <dt>Posted</dt>
       <dd><em>March 24<sup>th</sup>, 2014</em></dd>
       <dt>Comments</dt>
@@ -23,7 +25,7 @@ title:  "Post Metadata"
 {% capture f %}
 <article class="node-journal-post">
   <footer>
-    <dl>
+    <dl class="post-meta">
       <dt><span class="icon-tags">Tagged</span></dt>
       <dd>
         <a href="#">Disasters and Emergencies</a>,
@@ -35,20 +37,49 @@ title:  "Post Metadata"
         <a href="#">Middle East</a>
       </dd>
     </dl>
-    <button class="btn-aux1">Recommend</button>
+    <dl class="recommend">
+      <dt>Recommend this post</dt>
+      <dd class="cta"><button class="btn-aux1">Recommend</button></dd>
+      <dt>This post has been recommended by</dt>
+      <dd class="users">
+        <ul>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg" alt="Divya">
+          </a></li>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" alt="Adelle Charles">
+          </a></li>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/raquelwilson/128.jpg" alt="Raquel Wilson">
+          </a></li>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/128.jpg" alt="Jenny Shen">
+          </a></li>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chloepark/128.jpg" alt="Chloe Park">
+          </a></li>
+          <li><a href="#">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/menghe/128.jpg" alt="Meng He">
+          </a></li>
+        </ul>
+      </dd>
+    </dl>
   </footer>
 </article>
 {% endcapture %}
 
 ### Post Meta Header
 
-_@TODO: Comment count._
+_@TODO: Comment count. Language/Translations. Admin actions to spotlight/curate.
+[See Notable](https://notableapp.com/posts/819002#annotate/819002). Mobile
+layout lacking for now while these are determined._
 
 {% include sample.html sample=h %}
 
 
 ### Post Meta Footer
 
-_@TODO: There's a [note about moving this to a sidebar](https://notableapp.com/posts/819002#annotate/819002)?_
+_@TODO: There's a note about moving this to a sidebar? Request translation.
+[See Notable](https://notableapp.com/posts/819002#annotate/819002)_
 
 {% include sample.html sample=f %}

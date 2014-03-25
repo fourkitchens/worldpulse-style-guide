@@ -406,17 +406,25 @@ th {
   padding: 0;
 }
 
+/* Max-Width for Responsive Media
+   ========================================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.clearfix:before, article.node-journal-post header dl:before, article.node-journal-post footer dl:before, .clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
+.clearfix:before, article.node-journal-post header dl:before, article.node-journal-post footer dl:before, article.node-journal-post footer dl.recommend dd.users ul:before, .clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after {
   display: table;
   content: "";
 }
-.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
+.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after {
   clear: both;
 }
 
@@ -598,6 +606,7 @@ input[type="button"] {
   font-weight: 600;
   letter-spacing: 2px;
   padding: 0.375em 0.625em;
+  margin-bottom: 0.5em;
   color: #574b4b;
   text-shadow: 1px 1px 0 rgba(243, 239, 239, 0.5);
   background-color: #d6cbcb;
@@ -1250,7 +1259,7 @@ html.js .js-hide {
  *
  * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
  */
-.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after {
+.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after {
   content: ".";
   display: block;
   height: 0;
@@ -1259,12 +1268,12 @@ html.js .js-hide {
 }
 
 /* IE6 */
-* html .clearfix, * html article.node-journal-post header dl, article.node-journal-post header * html dl, * html article.node-journal-post footer dl, article.node-journal-post footer * html dl {
+* html .clearfix, * html article.node-journal-post header dl, article.node-journal-post header * html dl, * html article.node-journal-post footer dl, article.node-journal-post footer * html dl, * html article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-post footer dl.recommend dd.users * html ul {
   height: 1%;
 }
 
 /* IE7 */
-*:first-child + html .clearfix, *:first-child + html article.node-journal-post header dl, article.node-journal-post header *:first-child + html dl, *:first-child + html article.node-journal-post footer dl, article.node-journal-post footer *:first-child + html dl {
+*:first-child + html .clearfix, *:first-child + html article.node-journal-post header dl, article.node-journal-post header *:first-child + html dl, *:first-child + html article.node-journal-post footer dl, article.node-journal-post footer *:first-child + html dl, *:first-child + html article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-post footer dl.recommend dd.users *:first-child + html ul {
   min-height: 1%;
 }
 
@@ -1579,13 +1588,14 @@ div.messages ul {
   height: 32px;
   width: 32px;
   line-height: 32px;
+  max-width: 100%;
   margin: 0.5em;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 .svg .icon-abuse, .svg .icon-cc, .svg .icon-friends, .svg .icon-private, .svg .icon-public, .svg .icon-region, .svg .icon-tags {
-  background-size: 40px;
+  background-size: 120%;
 }
 .show-tooltip.icon-abuse:after, .show-tooltip.icon-cc:after, .show-tooltip.icon-friends:after, .show-tooltip.icon-private:after, .show-tooltip.icon-public:after, .show-tooltip.icon-region:after, .show-tooltip.icon-tags:after {
   position: absolute;
@@ -1599,7 +1609,7 @@ div.messages ul {
   text-indent: 0;
   text-align: center;
   content: attr(data-desc);
-  border: 1px solid #7151b1;
+  border: 1px solid;
   border-bottom-width: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -1608,10 +1618,19 @@ div.messages ul {
   border-radius: 2px;
   padding: 0.5em 0.25em;
   background-color: #fefefe;
-  color: #7151b1;
 }
 .show-tooltip.icon-abuse:hover:after, .show-tooltip.icon-cc:hover:after, .show-tooltip.icon-friends:hover:after, .show-tooltip.icon-private:hover:after, .show-tooltip.icon-public:hover:after, .show-tooltip.icon-region:hover:after, .show-tooltip.icon-tags:hover:after {
   display: block;
+}
+
+span.show-tooltip:after {
+  color: #7151b1;
+  border-color: #7151b1;
+}
+
+a.show-tooltip:after {
+  color: #128ccc;
+  border-color: #0d6694;
 }
 
 .icon-abuse {
@@ -1625,15 +1644,16 @@ div.messages ul {
 .svg .icon-abuse {
   background-image: url('../images/icons/icon-abuse.svg');
 }
-.icon-abuse:hover {
+
+a.icon-abuse:hover {
   background-image: url('../images/icons/icon-abuse-32-hover.png');
 }
 @media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  .icon-abuse:hover {
+  a.icon-abuse:hover {
     background-image: url('../images/icons/icon-abuse-64-hover.png');
   }
 }
-.svg .icon-abuse:hover {
+.svg a.icon-abuse:hover {
   background-image: url('../images/icons/icon-abuse-hover.svg');
 }
 
@@ -1647,6 +1667,18 @@ div.messages ul {
 }
 .svg .icon-cc {
   background-image: url('../images/icons/icon-cc.svg');
+}
+
+a.icon-cc:hover {
+  background-image: url('../images/icons/icon-cc-32-hover.png');
+}
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  a.icon-cc:hover {
+    background-image: url('../images/icons/icon-cc-64-hover.png');
+  }
+}
+.svg a.icon-cc:hover {
+  background-image: url('../images/icons/icon-cc-hover.svg');
 }
 
 .icon-friends {
@@ -1713,65 +1745,165 @@ div.messages ul {
  * Individual tweaks
  */
 .icon-abuse.show-tooltip:after {
-  color: #b00911;
-  border-color: #89070e;
+  color: #e7242e;
+  border-color: #c80b14;
 }
 
 /**
  * Node Type: Journal Post
  */
-article.node-journal-post header, article.node-journal-post footer {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-}
 article.node-journal-post header dl, article.node-journal-post footer dl {
   margin: 0;
+}
+article.node-journal-post header dd, article.node-journal-post header dt, article.node-journal-post footer dd, article.node-journal-post footer dt {
+  margin-left: 0;
 }
 article.node-journal-post header {
   position: relative;
   padding-bottom: 0.5em;
-  padding-right: 64px;
   border-bottom: 2px solid #e8e0e0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
+}
+@media (min-width: 38.75em) {
+  article.node-journal-post header {
+    padding-right: 64px;
+  }
 }
 article.node-journal-post header dt {
   display: none;
 }
 article.node-journal-post header dd {
-  display: inline;
-  margin: 0 0.5em;
+  display: block;
+  text-align: center;
 }
-article.node-journal-post header dd:first-of-type {
-  margin-left: 0;
+@media (min-width: 38.75em) {
+  article.node-journal-post header dd {
+    display: inline;
+    text-align: left;
+    margin: 0 0.5em;
+  }
+  article.node-journal-post header dd:first-of-type {
+    margin-left: 0;
+  }
 }
 article.node-journal-post header .icon-abuse {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
+  display: block;
+  margin-left: auto;
+}
+@media (min-width: 38.75em) {
+  article.node-journal-post header .icon-abuse {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+  }
 }
 article.node-journal-post footer {
   margin-top: 0.5em;
   border-top: 2px solid #e8e0e0;
   padding-top: 0.5em;
 }
-article.node-journal-post footer dt {
-  width: 6.38298%;
-  float: left;
-  margin-right: -100%;
-  margin-left: 0%;
-  clear: none;
-  clear: left;
+article.node-journal-post footer dl.post-meta dt {
+  text-align: center;
 }
-article.node-journal-post footer dd {
-  width: 91.48936%;
-  float: right;
-  margin-left: 0;
-  margin-right: 0;
-  clear: none;
+@media (min-width: 38.75em) {
+  article.node-journal-post footer dl.post-meta dt {
+    width: 6.38298%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0%;
+    clear: none;
+    clear: left;
+  }
+}
+article.node-journal-post footer dl.post-meta dd {
+  text-align: center;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  line-height: 32px;
+}
+@media (min-width: 38.75em) {
+  article.node-journal-post footer dl.post-meta dd {
+    width: 91.48936%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+    text-align: left;
+    line-height: 32px;
+  }
+}
+article.node-journal-post footer dl.recommend {
+  margin-top: 0.5em;
+}
+article.node-journal-post footer dl.recommend dt {
+  display: none;
+}
+article.node-journal-post footer dl.recommend dd.cta {
+  text-align: center;
+}
+@media (min-width: 52.5em) {
+  article.node-journal-post footer dl.recommend dd.cta {
+    width: 23.40426%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 8.51064%;
+    clear: none;
+  }
+  article.node-journal-post footer dl.recommend dd.cta button {
+    font-size: 0.75em;
+    font-weight: 400;
+    padding: 0.375em 0.25em;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+@media (min-width: 70em) {
+  article.node-journal-post footer dl.recommend dd.cta {
+    width: 14.89362%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 8.51064%;
+    clear: none;
+  }
+}
+@media (min-width: 52.5em) {
+  article.node-journal-post footer dl.recommend dd.users {
+    width: 65.95745%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
+}
+@media (min-width: 70em) {
+  article.node-journal-post footer dl.recommend dd.users {
+    width: 74.46809%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
+}
+article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-post footer dl.recommend dd.users li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+article.node-journal-post footer dl.recommend dd.users li {
+  width: 14.89362%;
+  clear: right;
+  float: left;
+  margin-left: 0;
+  margin-right: 2.12766%;
+}
+article.node-journal-post footer dl.recommend dd.users li:nth-child(6n+0) {
+  margin-right: 0;
+}
+article.node-journal-post footer dl.recommend dd.users img {
+  display: block;
+  position: relative;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }

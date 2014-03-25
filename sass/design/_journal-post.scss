@@ -4,11 +4,13 @@
 
 article.node-journal-post {
   header, footer {
-    @include border-radius(3px);
-
     dl {
       @extend .clearfix;
       margin: 0;
+    }
+
+    dd, dt {
+      margin-left: 0;
     }
   }
 
@@ -16,21 +18,33 @@ article.node-journal-post {
     position: relative;
 
     padding-bottom: 0.5em;
-    padding-right: 64px; // Make room for the abuse icon
+    @include respond-to('journal meta small') {
+      padding-right: 64px; // Make room for the abuse icon
+    }
     border-bottom: 2px solid darken(nth($grey, 4), 5%);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
 
     dt { display: none; }
     dd {
-      display: inline;
-      margin: 0 0.5em;
-      &:first-of-type { margin-left: 0; }
+      display: block;
+      text-align: center;
+
+      @include respond-to('journal meta small') {
+        display: inline;
+        text-align: left;
+        margin: 0 0.5em;
+        &:first-of-type { margin-left: 0; }
+      }
     }
 
     .icon-abuse {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
+      display: block;
+      margin-left: auto;
+      @include respond-to('journal meta small') {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+      }
     }
   }
 
@@ -39,22 +53,89 @@ article.node-journal-post {
     border-top: 2px solid darken(nth($grey, 4), 5%);
     padding-top: 0.5em;
 
-    dt {
-      // @TODO: This include wouldn't output _any_ code at all without all these
-      // variables being redeclared here. But it wasn't throwing an error. Fix??
-      @include grid-span(1, 1, $grid: 12, $output-style: "isolation", $gutter: 1/3);
-      clear: left;
+    dl.post-meta {
+      dt {
+        text-align: center;
+        // @TODO: This include wouldn't output _any_ code at all without all these
+        // variables being redeclared here. But it wasn't throwing an error. Fix??
+        @include respond-to('journal meta small') {
+          @include grid-span(1, 1, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          clear: left;
+        }
+      }
+
+      dd {
+        text-align: center;
+        // @TODO: This include wouldn't output _any_ code at all without all these
+        // variables being redeclared here. But it wasn't throwing an error. Fix??
+        @include respond-to('journal meta small') {
+          @include grid-span(11, 2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+          text-align: left;
+          line-height: 32px; // If there's a second row of text, this will be awful...
+        }
+
+        // <dt/> contains an icon, so let's line it up properly:
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
     }
 
-    dd {
-      // @TODO: This include wouldn't output _any_ code at all without all these
-      // variables being redeclared here. But it wasn't throwing an error. Fix??
-      @include grid-span(11, 2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
-
-      // <dt/> contains an icon, so let's line it up properly:
+    dl.recommend {
       margin-top: 0.5em;
-      margin-bottom: 0.5em;
-      line-height: 32px; // If there's a second row of text, this will be awful...
+
+      dt {
+        display: none;
+      }
+      dd.cta {
+        text-align: center;
+
+        @include respond-to('journal meta full') {
+          @include grid-span(3,2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+
+          button {
+            font-size: 0.75em;
+            font-weight: 400;
+            padding: 0.375em 0.25em;
+            width: 100%;
+            margin-bottom: 1em;
+          }
+        }
+
+        @include respond-to('journal meta large') {
+          @include grid-span(2,2, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+        }
+      }
+      dd.users {
+        @include respond-to('journal meta full') {
+          @include grid-span(8,5, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+        }
+        @include respond-to('journal meta large') {
+          @include grid-span(9,4, $grid: 12, $output-style: "isolation", $gutter: 1/3);
+        }
+
+        ul, li {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        ul {
+          @extend .clearfix;
+        }
+
+        li {
+          @include grid-span(2,1, $grid: 12, $output-style: "float", $gutter: 1/3);
+          &:nth-child(6n+0) {
+            margin-right: 0;
+          }
+        }
+
+        img {
+          display: block;
+          position: relative;
+          @include border-radius(3px);
+        }
+      }
     }
   }
 }

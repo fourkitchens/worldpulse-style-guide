@@ -7,6 +7,19 @@
         $(this).nextUntil('li.heading').show();
       });
     }
+
+    $('a[href="#"]').click(function(e){
+      // So that when people click sample links, they don't go flying back to the
+      // top of the style guide.
+      e.preventDefault();
+    })
+
+    $('a.icon-abuse').click(function(){
+      alert("Thanks for letting us know. The moderators will review this post or comment.");
+    });
+    $('a.icon-cc').click(function(){
+      alert("[[ Information regarding Creative Commons license ]]");
+    });
   });
 })(jQuery);
 

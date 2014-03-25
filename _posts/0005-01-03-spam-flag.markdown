@@ -11,7 +11,8 @@ title:  "Spam/Abuse Flag"
 
 For more information about icons, see _[Iconography]({% post_url 0005-01-02-icons %})_.
 
-_Question: Does this symbol feel right? I'm looking for a cross-cultural resonance
+_@TODO: Does this symbol feel right? I'm looking for a cross-cultural resonance
 for "help", "stop", "inappropriate", or "danger" without veering into imagery that
 may be associated with law enforcement, police, or violence (like shields, badges,
-etc.). This might not be stark enough, however._
+etc.). This might not be stark enough, however. This arises from
+[discussion about the flag icon looking "fun" or for "upvoting"](https://notableapp.com/posts/819002#annotate/819002)._
