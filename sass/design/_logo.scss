@@ -3,96 +3,108 @@
  */
 
 %worldpulse-logo {
-  height: 0;
-  padding-bottom: 10.255%; // This is how intrinsic ratio works.
-
   // The glow can't be an SVG, so we have to use the PNG, which is only this wide:
   max-width: 425px;
 
-  background: {
-    size: contain;
-    position: center center;
-    repeat: no-repeat;
-  }
+  .logo {
+    margin: 0;
+    padding: 0;
+    text-indent: -1000px;
+    overflow: hidden;
 
-  * {
-    // Elements within a logo container should be hidden. This is taken from
-    // Drupal's own .element-invisible class. Extending that in this file
-    // created a gigantic selector mess, so we're copying it in here, so it'll
-    // be logo-specific
+    height: 0;
+    padding-bottom: (100/450) * 100%; // This is how intrinsic ratio works.
 
-    // Calling selectors specifically created a giant selector chain which older
-    // versions of IE would ignore. Using the universal selector here is less
-    // likely to cause problems. @TODO: I could use a second opinion on this opinion.
-
-    // @TODO: Also, IE11 doesn't seem to see this... Not that the rules aren't
-    // supported, but the whole ruleset isn't being applied.
-    @include element-invisible();
-
+    background: {
+      size: contain;
+      position: center center;
+      repeat: no-repeat;
+    }
   }
 }
 
 .logo-crimson-glow {
   @extend %worldpulse-logo;
+  .logo {
+    background: {
+      color: transparent;
+      image: image-url('logos/logo-crimson-glow.png');
+    }
 
-  background: {
-    color: transparent;
-    image: image-url('logos/logo-crimson-glow.png');
-  }
+// @TODO: When IE compatibility mode is known, set this up:
+//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
-  @include respond-to('hi res') {
-    background-image: image-url('logos/logo-crimson-glow-2x.png');
+
+    @include respond-to('hi res') {
+      background-image: image-url('logos/logo-crimson-glow-2x.png');
+    }
   }
 }
 
 .logo-crimson-solid {
   @extend %worldpulse-logo;
+  .logo {
+    background: {
+      color: transparent;
+      image: image-url('logos/logo-crimson-solid.png');
+    }
 
-  background: {
-    color: transparent;
-    image: image-url('logos/logo-crimson-solid.png');
-  }
+// @TODO: When IE compatibility mode is known, set this up:
+//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
-  @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
-  .svg & {
-    background-image: image-url('logos/logo-crimson-solid.svg');
+    @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
+    .svg & {
+      background-image: image-url('logos/logo-crimson-solid.svg');
+    }
   }
 }
 
 .logo-white-glow {
   @extend %worldpulse-logo;
+  .logo, &.crimson-gradient .logo:after {
+    background: {
+      color: nth($red, 2);
+      image: image-url('logos/logo-white-glow.png');
+    }
 
-  background: {
-    color: nth($red, 2);
-    image: image-url('logos/logo-white-glow.png');
-  }
+// @TODO: When IE compatibility mode is known, set this up:
+//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
-  @include respond-to('hi res') {
-    background-image: image-url('logos/logo-white-glow-2x.png');
+    @include respond-to('hi res') {
+      background-image: image-url('logos/logo-white-glow-2x.png');
+    }
   }
 }
 
 .logo-white-solid {
   @extend %worldpulse-logo;
+  .logo, &.crimson-gradient .logo:after {
+    background: {
+      color: nth($red, 2);
+      image: image-url('logos/logo-white-solid.png');
+    }
 
-  background: {
-    color: nth($red, 2);
-    image: image-url('logos/logo-white-solid.png');
-  }
+// @TODO: When IE compatibility mode is known, set this up:
+//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
-  @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
-  .svg & {
-    background-image: image-url('logos/logo-white-solid.svg');
+    @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
+    .svg & {
+      background-image: image-url('logos/logo-white-solid.svg');
+    }
   }
 }
 
 
 .logo-white-solid, .logo-white-glow {
-  &.dark-crimson {
+  &.dark-crimson .logo {
     background-color: nth($red, 1);
   }
 
-  &.crimson-gradient {
+  &.crimson-gradient .logo {
     position: relative;
     z-index: 10;
     background-color: transparent;
@@ -119,13 +131,9 @@
         nth($red, 1)
       ));
     }
+
+    &:after {
+      background-color: transparent !important;
+    }
   }
-}
-
-.logo-white-solid.crimson-gradient:after {
-  @extend .logo-white-solid;
-}
-
-.logo-white-glow.crimson-gradient:after {
-  @extend .logo-white-glow;
 }

@@ -180,7 +180,7 @@ body {
   max-width: 1000px;
 }
 .styleguide-container > header {
-  background-color: #2b2121;
+  background-color: #71060b;
   -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
@@ -194,16 +194,15 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 92px;
+    height: 72px;
   }
 }
 .styleguide-container > header a {
   color: #fff;
   text-decoration: none;
 }
-.styleguide-container > header h1 {
-  margin: 0.5em 0;
-  text-shadow: 1px 1px 0 black;
+.styleguide-container > header #logo {
+  max-width: 280px;
 }
 .styleguide-container > footer {
   margin-top: 2em;
@@ -222,7 +221,7 @@ body {
 }
 @media (min-width: 45em) {
   .styleguide-container > main {
-    margin-top: 96px;
+    margin-top: 76px;
   }
 }
 .styleguide-container section {

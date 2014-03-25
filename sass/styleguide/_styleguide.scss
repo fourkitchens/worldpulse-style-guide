@@ -41,7 +41,7 @@ body {
   }
 
   > header {
-    background-color: nth($grey, 1);
+    background-color: nth($red, 1);
     @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
     color: $white;
     margin-bottom: 1em;
@@ -52,7 +52,7 @@ body {
       top: 0;
       left: 0;
       right: 0;
-      height: 92px;
+      height: 72px;
     }
 
     a {
@@ -60,9 +60,8 @@ body {
       text-decoration: none;
     }
 
-    h1 {
-      margin: 0.5em 0;
-      @include text-shadow(1px 1px 0 rgba(0,0,0,1));
+    #logo {
+      max-width: 280px;
     }
   }
 
@@ -80,7 +79,7 @@ body {
       padding-left: 240px;
     }
     @include respond-to('fixed header') {
-      margin-top: 96px;
+      margin-top: 76px;
     }
   }
 

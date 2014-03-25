@@ -2,3 +2,12 @@
 layout: component
 title:  "Post Metadata"
 ---
+
+{% capture h %}{% endcapture %}
+{% capture f %}{% endcapture %}
+
+### Post Meta Header
+{% include sample.html sample=h %}
+
+### Post Meta Footer
+{% include sample.html sample=f %}

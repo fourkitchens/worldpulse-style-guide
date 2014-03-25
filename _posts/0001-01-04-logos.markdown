@@ -3,11 +3,9 @@ layout: component
 title:  "Logotype"
 ---
 
-<strong style="font-style: italic;">
-  Question to World Pulse team: Should the primary logo setting be on the standard
-  <span class="crimson">crimson</span> background, or the darker crimson background
-  (see below)
-</strong>
+_Question to World Pulse team: Should the primary logo setting be on the standard
+<span class="crimson">crimson</span> background, or the darker crimson background
+(see below)_
 
 The World Pulse wordmark is properly set in white, with an outer-glow, over a
 <em class="crimson">crimson</em> background. Alternative displays displays
@@ -23,35 +21,37 @@ without a glow. Thus, logos are provided in four variants:
 - White on transparent _without_ outer glow: <br />
   `logo-white-solid.png`, `logo-white-solid-2x.png`, and `logo-white-solid.svg`
 
-To apply a logo, combine the class `logo` with a description of the logo needed
-in any of these combinations. Heading tags, `div`, `span`, and `p` elements are
-hidden within a logo container by extending Drupal's `element-invisible` class.
+To apply a logo, utilize one of the `logo-*` classes below for an outer wrapper.
+Apply the `logo` class to a contained, semantically appropriate element. (A
+nested container is required for the intrinsic ratio property to be handled
+properly.) Text in the nested element will be hidden. No additional markup
+should be contained within the wrapper.
 
 {% capture l1 %}
 <div class="logo-white-glow">
-  <h1>World Pulse</h1>
+  <h1 class="logo">World Pulse</h1>
 </div>
 {% endcapture %}
 
 {% capture l2 %}
 <div class="logo-white-solid">
-  <h1>World Pulse</h1>
+  <h1 class="logo">World Pulse</h1>
 </div>
 {% endcapture %}
 
 {% capture l3 %}
-<div class="logo-crimson-glow"><h1>World Pulse</h1></div>
-<div class="logo-crimson-solid"><h1>World Pulse</h1></div>
+<div class="logo-crimson-glow"><h1 class="logo">World Pulse</h1></div>
+<div class="logo-crimson-solid"><h1 class="logo">World Pulse</h1></div>
 {% endcapture %}
 
 {% capture l4 %}
-<div class="logo-white-solid dark-crimson"><h1>World Pulse</h1></div>
+<div class="logo-white-solid dark-crimson"><h1 class="logo">World Pulse</h1></div>
 <br />
-<div class="logo-white-solid crimson-gradient"><h1>World Pulse</h1></div>
+<div class="logo-white-solid crimson-gradient"><h1 class="logo">World Pulse</h1></div>
 <br />
-<div class="logo-white-glow dark-crimson"><h1>World Pulse</h1></div>
+<div class="logo-white-glow dark-crimson"><h1 class="logo">World Pulse</h1></div>
 <br />
-<div class="logo-white-glow crimson-gradient"><h1>World Pulse</h1></div>
+<div class="logo-white-glow crimson-gradient"><h1 class="logo">World Pulse</h1></div>
 {% endcapture %}
 
 ### Primary logo display:
