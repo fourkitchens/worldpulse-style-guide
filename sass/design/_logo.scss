@@ -126,7 +126,7 @@
     &:before {
       @include background-image(linear-gradient(
         wp-color($red),
-        wp-color($red, -5%) 30%,
+        wp-color($red, 2, -5%) 30%,
         wp-color($red, 1, 5%) 70%,
         wp-color($red, 1)
       ));

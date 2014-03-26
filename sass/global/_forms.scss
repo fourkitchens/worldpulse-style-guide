@@ -121,14 +121,14 @@ input[type="button"] {
       wp-color($blue, 2, 5%),
       wp-color($blue) 30%,
       wp-color($blue) 70%,
-      wp-color($blue, -2.5%)
+      wp-color($blue, 2, -2.5%)
     ));
-    border-color: wp-color($blue, -5%);
+    border-color: wp-color($blue, 2, -5%);
     color: $white;
     @include text-shadow(1px 1px 0 wp-color($blue, 1));
 
     &:hover, &:focus {
-      border-color: wp-color($blue, -5%);
+      border-color: wp-color($blue, 2, -5%);
       background-color: wp-color($blue, 2, 5%);
       @include background-image(linear-gradient(
         wp-color($blue, 2, 10%),
@@ -156,14 +156,14 @@ input[type="button"] {
       wp-color($red, 2, 5%),
       wp-color($red) 30%,
       wp-color($red) 70%,
-      wp-color($red, -2.5%)
+      wp-color($red, 2, -2.5%)
     ));
-    border-color: wp-color($red, -5%);
+    border-color: wp-color($red, 2, -5%);
     color: $white;
     @include text-shadow(1px 1px 0 wp-color($red, 1));
 
     &:hover, &:focus {
-      border-color: wp-color($red, -5%);
+      border-color: wp-color($red, 2, -5%);
       background-color: wp-color($red, 2, 5%);
       @include background-image(linear-gradient(
         wp-color($red, 2, 10%),
@@ -191,14 +191,14 @@ input[type="button"] {
       wp-color($purple, 2, 5%),
       wp-color($purple) 30%,
       wp-color($purple) 70%,
-      wp-color($purple, -2.5%)
+      wp-color($purple, 2, -2.5%)
     ));
-    border-color: wp-color($purple, -5%);
+    border-color: wp-color($purple, 2, -5%);
     color: $white;
     @include text-shadow(1px 1px 0 wp-color($purple, 1));
 
     &:hover, &:focus {
-      border-color: wp-color($purple, -5%);
+      border-color: wp-color($purple, 2, -5%);
       background-color: wp-color($purple, 2, 5%);
       @include background-image(linear-gradient(
         wp-color($purple, 2, 10%),
@@ -226,14 +226,14 @@ input[type="button"] {
       wp-color($orange, 2, 5%),
       wp-color($orange) 30%,
       wp-color($orange) 70%,
-      wp-color($orange, -2.5%)
+      wp-color($orange, 2, -2.5%)
     ));
-    border-color: wp-color($orange, -5%);
+    border-color: wp-color($orange, 2, -5%);
     color: $white;
     @include text-shadow(1px 1px 0 wp-color($orange, 1));
 
     &:hover, &:focus {
-      border-color: wp-color($orange, -5%);
+      border-color: wp-color($orange, 2, -5%);
       background-color: wp-color($orange, 2, 5%);
       @include background-image(linear-gradient(
         wp-color($orange, 2, 10%),

@@ -62,7 +62,7 @@ span.show-tooltip:after {
 }
 
 a.show-tooltip:after {
-  color: wp-color($blue, -5%);
+  color: wp-color($blue, 2, -5%);
   border-color: wp-color($blue, 1, -5%);
 }
 

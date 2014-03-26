@@ -21,7 +21,7 @@ code {
   padding: 3px 5px;
   border: 1px solid wp-color($grey, 4, -5%);
   @include border-radius(3px);
-  background-color: rgba(wp-color($grey, 4), 5%, 0.75);
+  background-color: rgba(wp-color($grey, 4, 5%), 0.75);
 }
 
 body {
@@ -254,10 +254,10 @@ body {
       &:last-child { margin-right: 0; }
     }
 
-    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) (grey $grey) (green $green);
+    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) ('grey' $grey) (green $green);
     @each $swatch in $swatches {
-      $name: wp-color($swatch, 1); // The text label
-      $color: wp-color($swatch); // The color array
+      $name: nth($swatch, 1); // The text label
+      $color: nth($swatch, 2); // The color array
       &.#{$name} {
         .title {
           background-color: $white;
@@ -273,7 +273,7 @@ body {
           background-color: wp-color($color);
           span:after { content: wp-color($color) + ''; } // '' causes Sass to quote the string instead of output hex value
           .high { background-color: wp-color($color, 2, 5%); }
-          .low { background-color: wp-color($color, -5%); }
+          .low { background-color: wp-color($color, 2, -5%); }
         }
         .light {
           background-color: wp-color($color, 3);
@@ -433,9 +433,9 @@ body {
 .styleguide-typography {
   $families: (whitney $whitney 400) (gotham $gotham 400) (archer $archer 400);
   @each $family in $families {
-    $face: wp-color($family, 1);
-    $stack: wp-color($family);
-    $weight: wp-color($family, 3);
+    $face: nth($family, 1);
+    $stack: nth($family, 2);
+    $weight: nth($family, 3);
     .#{$face} {
       &, h3 {
         font-family: $stack;

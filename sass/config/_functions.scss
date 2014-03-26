@@ -29,7 +29,7 @@
     @return lighten($selected, $adjustment);
   }
   @else if ($adjustment < 0) {
-    @return darken($selected, $adjustment);
+    @return darken($selected, abs($adjustment));
   }
 
   @return $selected;
