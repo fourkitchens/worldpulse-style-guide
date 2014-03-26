@@ -22,15 +22,47 @@
   @return false;
 }
 
-@function wp-color($color, $tint: 2, $adjustment: 0) {
-  $selected: nth($color, $tint);
 
-  @if ($adjustment > 0) {
-    @return lighten($selected, $adjustment);
-  }
-  @else if ($adjustment < 0) {
-    @return darken($selected, abs($adjustment));
+// World Pulse Color Utility:
+//   $color: one of the color maps defined in _variables.scss: purple, red,
+//           orange, blue, grey, or green
+//   $value: the color value, string preferred, but legacy index numbers are
+//           translated with a warning. Dark, main (default if not provided),
+//           bright, highlight.
+//   $adjustment: A percentage to lighten or darken the selected color value.
+//           +/-5% is preferred, but other values are used on RARE OCCASION.
+@function wp-color($color, $value: 'main', $adjustment: 0) {
+  @if type-of($color) != 'map' {
+    @warn '@function wp-color expects first argument to be a map: purple, red, orange, blue, grey, or green.';
   }
 
-  @return $selected;
+  @if type-of($value) != 'string' {
+    @if type-of($value) == 'number' and $value > 0 and $value < 5 {
+      $value: nth(('dark', 'main', 'bright', 'highlight'), $value);
+      @warn '@function wp-color now uses value strings, not integers: dark, main* (default), bright, or highlight. Assumed ' + $value + '.';
+    }
+    @else {
+      @warn '@function wp-color expects second argument [optional] to be a string: dark, main* (default), bright, or highlight. "' + $value + '" provided.';
+    }
+  }
+
+  @if map-has-key($color, $value) {
+    $selected: map-get($color, $value);
+
+    @if ($adjustment > 0) {
+      @return lighten($selected, $adjustment);
+    }
+    @else if ($adjustment < 0) {
+      @return darken($selected, abs($adjustment));
+    }
+    @else {
+      @return $selected;
+    }
+  }
+
+  @else {
+    @warn '@function wp-color error: ' + $value + ' value is not defined within provided color.';
+  }
+
+  @return false;
 }
