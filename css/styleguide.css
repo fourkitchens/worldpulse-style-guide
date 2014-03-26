@@ -577,56 +577,56 @@ body {
 .styleguide-swatches ol.red .highlight .low {
   background-color: #e87e83;
 }
-.styleguide-swatches ol.gray .title {
+.styleguide-swatches ol.grey .title {
   background-color: #fefefe;
   color: #574b4b;
 }
-.styleguide-swatches ol.gray .dark {
+.styleguide-swatches ol.grey .dark {
   background-color: #2b2121;
 }
-.styleguide-swatches ol.gray .dark span:after {
+.styleguide-swatches ol.grey .dark span:after {
   content: "#2b2121";
 }
-.styleguide-swatches ol.gray .dark .high {
+.styleguide-swatches ol.grey .dark .high {
   background-color: #392c2c;
 }
-.styleguide-swatches ol.gray .dark .low {
+.styleguide-swatches ol.grey .dark .low {
   background-color: #1d1616;
 }
-.styleguide-swatches ol.gray .main {
+.styleguide-swatches ol.grey .main {
   background-color: #574b4b;
 }
-.styleguide-swatches ol.gray .main span:after {
+.styleguide-swatches ol.grey .main span:after {
   content: "#574b4b";
 }
-.styleguide-swatches ol.gray .main .high {
+.styleguide-swatches ol.grey .main .high {
   background-color: #655757;
 }
-.styleguide-swatches ol.gray .main .low {
+.styleguide-swatches ol.grey .main .low {
   background-color: #493f3f;
 }
-.styleguide-swatches ol.gray .light {
+.styleguide-swatches ol.grey .light {
   background-color: #d6cbcb;
 }
-.styleguide-swatches ol.gray .light span:after {
+.styleguide-swatches ol.grey .light span:after {
   content: "#d6cbcb";
 }
-.styleguide-swatches ol.gray .light .high {
+.styleguide-swatches ol.grey .light .high {
   background-color: #e1d9d9;
 }
-.styleguide-swatches ol.gray .light .low {
+.styleguide-swatches ol.grey .light .low {
   background-color: #cbbdbd;
 }
-.styleguide-swatches ol.gray .highlight {
+.styleguide-swatches ol.grey .highlight {
   background-color: #f3efef;
 }
-.styleguide-swatches ol.gray .highlight span:after {
+.styleguide-swatches ol.grey .highlight span:after {
   content: "#f3efef";
 }
-.styleguide-swatches ol.gray .highlight .high {
+.styleguide-swatches ol.grey .highlight .high {
   background-color: #fefefe;
 }
-.styleguide-swatches ol.gray .highlight .low {
+.styleguide-swatches ol.grey .highlight .low {
   background-color: #e8e0e0;
 }
 .styleguide-swatches ol.green .title {
