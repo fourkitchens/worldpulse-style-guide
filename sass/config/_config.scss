@@ -10,9 +10,9 @@
 // susy, toolkit, breakpoint, sassy-buttons, and compass-normalize
 
 @import 'compass';
-@import 'singularitygs';
 @import 'breakpoint';
-@import 'toolkit-no-css';
+@import 'singularitygs';
+@import 'toolkit';
 
 // Private Imports
 //
@@ -22,4 +22,3 @@
 @import "variables";
 @import "functions";
 @import "mixins";
-

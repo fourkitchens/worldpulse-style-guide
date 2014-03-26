@@ -91,7 +91,7 @@ template {
    ========================================================================== */
 
 /**
- * Remove the gray background color from active links in IE 10.
+ * Remove the grey background color from active links in IE 10.
  */
 
 a {
@@ -442,5 +442,7 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+
+
 // Add in our border-box styling from toolkit.
-@import 'toolkit/border-box';
+@import 'toolkit/kickstart';
