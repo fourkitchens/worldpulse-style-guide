@@ -85,7 +85,7 @@ ul.primary, ul.pager {
 
     &:first-child, &.first {
       a {
-        border-left-color: darken(nth($grey, 4), 5%);
+        border-left-color: wp-color($grey, 4, -5%);
         @include border-radius(2px 0 0 2px);
       }
     }
@@ -100,11 +100,11 @@ ul.primary, ul.pager {
       display: block;
       @include transition(border 0.2s ease-out, background 0.2s ease-out);
 
-      color: nth($grey, 2);
-      background-color: nth($grey, 4);
-      border: 1px solid darken(nth($grey, 4), 5%);
+      color: wp-color($grey);
+      background-color: wp-color($grey, 4);
+      border: 1px solid wp-color($grey, 4, -5%);
       border-bottom-width: 2px;
-      border-left-color: lighten(nth($grey, 4), 5%);
+      border-left-color: wp-color($grey, 4, 5%);
 
 
       padding: 0.5em 1em;
@@ -115,7 +115,7 @@ ul.primary, ul.pager {
       // At the smallest breakpoint, pager-previous is the "first" visible
       // link, so we need to copy in styles from li:first-child a defined above
       @include respond-to('pager tiny') {
-        border-left-color: darken(nth($grey, 4), 5%);
+        border-left-color: wp-color($grey, 4, -5%);
         @include border-radius(2px 0 0 2px);
       }
     }
@@ -143,16 +143,16 @@ ul.primary, ul.pager {
     }
 
     a:hover {
-      background-color: lighten(nth($grey, 4), 5%);
-      border-bottom-color: nth($purple, 4);
+      background-color: wp-color($grey, 4, 5%);
+      border-bottom-color: wp-color($purple, 4);
     }
 
     &.active a, &.pager-current {
       font-weight: 600;
-      color: nth($purple, 2);
-      background-color: lighten(nth($grey, 4), 5%);
-      border-color: lighten(nth($grey, 3), 5%);
-      border-bottom-color: nth($purple, 3);
+      color: wp-color($purple);
+      background-color: wp-color($grey, 4, 5%);
+      border-color: wp-color($grey, 3, 5%);
+      border-bottom-color: wp-color($purple, 3);
     }
   }
 }

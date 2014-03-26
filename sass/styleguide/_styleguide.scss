@@ -19,13 +19,13 @@ a[href*="example.com"] { @extend a:link; }
 code {
   font-size: 0.825em;
   padding: 3px 5px;
-  border: 1px solid darken(nth($grey, 4), 5%);
+  border: 1px solid wp-color($grey, 4, -5%);
   @include border-radius(3px);
-  background-color: rgba(lighten(nth($grey, 4), 5%), 0.75);
+  background-color: rgba(wp-color($grey, 4, 5%), 0.75);
 }
 
 body {
-  background: nth($grey, 4);
+  background: wp-color($grey, 4);
 }
 
 .styleguide-container {
@@ -41,7 +41,7 @@ body {
   }
 
   > header {
-    background-color: nth($red, 1);
+    background-color: wp-color($red, 1);
     @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
     color: $white;
     margin-bottom: 1em;
@@ -69,7 +69,7 @@ body {
     margin-top: 2em;
     color: #999;
     font-size: 0.75em;
-    border-top: 1px solid nth($grey, 3);
+    border-top: 1px solid wp-color($grey, 3);
   }
 
   > main {
@@ -85,12 +85,12 @@ body {
 
   section {
     padding-bottom: 1em;
-    border-bottom: 1px dotted nth($grey, 3);
+    border-bottom: 1px dotted wp-color($grey, 3);
     margin-bottom: 1em;
 
     &.heading {
       padding-bottom: 0;
-      border-bottom: 2px solid nth($grey, 3);
+      border-bottom: 2px solid wp-color($grey, 3);
       margin-top: 4em;
     }
 
@@ -136,18 +136,18 @@ body {
 
   ul {
     @include border-radius(2px);
-    border-top: 1px solid darken(nth($grey, 4), 5%);
-    border-bottom: 1px solid lighten(nth($grey, 4), 5%);
-    border-left: 1px solid lighten(nth($grey, 3), 5%);
-    border-right: 1px solid lighten(nth($grey, 3), 5%);
+    border-top: 1px solid wp-color($grey, 4, -5%);
+    border-bottom: 1px solid wp-color($grey, 4, 5%);
+    border-left: 1px solid wp-color($grey, 3, 5%);
+    border-right: 1px solid wp-color($grey, 3, 5%);
   }
 
   li.heading, li:not(.heading) a {
     display: block;
     padding: 0.5em 1em;
-    border-top: 1px solid lighten(nth($grey, 4), 5%);
-    border-bottom: 1px solid darken(nth($grey, 4), 5%);
-    background-color: nth($grey, 4);
+    border-top: 1px solid wp-color($grey, 4, 5%);
+    border-bottom: 1px solid wp-color($grey, 4, -5%);
+    background-color: wp-color($grey, 4);
 
     text-decoration: none;
     &:hover {
@@ -156,16 +156,16 @@ body {
   }
 
   li:not(.heading) a {
-    background-color: lighten(nth($grey, 4), 2.5%);
+    background-color: wp-color($grey, 4, 2.5%);
   }
 
   li.heading {
     text-transform: uppercase;
-    color: nth($grey, 2);
+    color: wp-color($grey);
     font-weight: bold;
 
     &:hover {
-      background: darken(nth($grey, 4), 5%);
+      background: wp-color($grey, 4, -5%);
     }
 
     a {
@@ -199,8 +199,8 @@ body {
   }
 
   .code {
-    border-top: 1px solid lighten(nth($grey, 3), 5%);
-    background: lighten(nth($grey, 4), 2.5%);
+    border-top: 1px solid wp-color($grey, 3, 5%);
+    background: wp-color($grey, 4, 2.5%);
     code {
       // Override the <code/> styles for these syntax highlighted blocks
       font-size: inherit;
@@ -218,10 +218,10 @@ body {
 
 .status-green {
   // To demonstrate this color, which is not shown in the swatches.
-  color: nth($green, 2);
+  color: wp-color($green);
 }
 .crimson {
-  color: nth($red, 2);
+  color: wp-color($red);
 }
 
 .styleguide-swatches {
@@ -254,44 +254,44 @@ body {
       &:last-child { margin-right: 0; }
     }
 
-    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) (grey $grey) (green $green);
+    $swatches: (purple $purple) (blue $blue) (orange $orange) (red $red) ('grey' $grey) (green $green);
     @each $swatch in $swatches {
       $name: nth($swatch, 1); // The text label
       $color: nth($swatch, 2); // The color array
       &.#{$name} {
         .title {
           background-color: $white;
-          color: nth($color, 2);
+          color: wp-color($color);
         }
         .dark {
-          background-color: nth($color, 1);
-          span:after { content: nth($color, 1) + ''; } // '' causes Sass to quote the string instead of output hex value
-          .high { background-color: lighten(nth($color, 1), 5%); }
-          .low { background-color: darken(nth($color, 1), 5%); }
+          background-color: wp-color($color, 1);
+          span:after { content: wp-color($color, 1) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: wp-color($color, 1, 5%); }
+          .low { background-color: wp-color($color, 1, -5%); }
         }
         .main {
-          background-color: nth($color, 2);
-          span:after { content: nth($color, 2) + ''; } // '' causes Sass to quote the string instead of output hex value
-          .high { background-color: lighten(nth($color, 2), 5%); }
-          .low { background-color: darken(nth($color, 2), 5%); }
+          background-color: wp-color($color);
+          span:after { content: wp-color($color) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: wp-color($color, 2, 5%); }
+          .low { background-color: wp-color($color, 2, -5%); }
         }
         .light {
-          background-color: nth($color, 3);
-          span:after { content: nth($color, 3) + ''; } // '' causes Sass to quote the string instead of output hex value
-          .high { background-color: lighten(nth($color, 3), 5%); }
-          .low { background-color: darken(nth($color, 3), 5%); }
+          background-color: wp-color($color, 3);
+          span:after { content: wp-color($color, 3) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: wp-color($color, 3, 5%); }
+          .low { background-color: wp-color($color, 3, -5%); }
         }
         .highlight {
-          background-color: nth($color, 4);
-          span:after { content: nth($color, 4) + ''; } // '' causes Sass to quote the string instead of output hex value
-          .high { background-color: lighten(nth($color, 4), 5%); }
-          .low { background-color: darken(nth($color, 4), 5%); }
+          background-color: wp-color($color, 4);
+          span:after { content: wp-color($color, 4) + ''; } // '' causes Sass to quote the string instead of output hex value
+          .high { background-color: wp-color($color, 4, 5%); }
+          .low { background-color: wp-color($color, 4, -5%); }
         }
       }
     }
 
     li.highlight span:after {
-      color: nth($grey, 1);
+      color: wp-color($grey, 1);
       @include text-shadow(1px 1px 0 rgba(255,255,255,0.5));
     }
 
@@ -351,10 +351,10 @@ body {
 
     @include respond-to('sg swatches large') {
       padding: 1em 25% 1em 0; // to make room for the accents
-      border-right: 1px solid lighten(nth($grey, 4), 5%);
+      border-right: 1px solid wp-color($grey, 4, 5%);
       &.title {
         padding: 1em 0;
-        border-right: 1px solid darken(nth($grey, 4), 5%);
+        border-right: 1px solid wp-color($grey, 4, -5%);
       }
     }
 
@@ -455,7 +455,7 @@ body {
       font-size: 3em;
       margin: 0;
       a {
-        color: nth($blue, 2) !important; // No color overrides from :visited or anything else on this display.
+        color: wp-color($blue) !important; // No color overrides from :visited or anything else on this display.
         text-decoration: none;
       }
     }
@@ -463,8 +463,8 @@ body {
     .purpose {
       text-align: center;
       padding: 0.5em;
-      border-top: 1px solid nth($grey, 4);
-      border-bottom: 1px solid nth($grey, 4);
+      border-top: 1px solid wp-color($grey, 4);
+      border-bottom: 1px solid wp-color($grey, 4);
       margin: 0.5em 0.75em;
 
       @include respond-to('sg typeplate large') {
@@ -481,7 +481,7 @@ body {
       text-align: center;
       $white-space: nowrap;
       overflow: hidden;
-      color: nth($grey, 3);
+      color: wp-color($grey, 3);
     }
 
     @include respond-to('sg typeplate small') {

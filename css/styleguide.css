@@ -395,7 +395,7 @@ body {
   background-color: #5c4094;
 }
 .styleguide-swatches ol.purple .main .low {
-  background-color: #463071;
+  background-color: #463070;
 }
 .styleguide-swatches ol.purple .light {
   background-color: #7151b1;
@@ -407,7 +407,7 @@ body {
   background-color: #7f63b9;
 }
 .styleguide-swatches ol.purple .light .low {
-  background-color: #6548a0;
+  background-color: #6548a1;
 }
 .styleguide-swatches ol.purple .highlight {
   background-color: #a590cd;
@@ -419,7 +419,7 @@ body {
   background-color: #b3a2d5;
 }
 .styleguide-swatches ol.purple .highlight .low {
-  background-color: #967fc5;
+  background-color: #977ec5;
 }
 .styleguide-swatches ol.blue .title {
   background-color: #fefefe;
@@ -435,7 +435,7 @@ body {
   background-color: #1186c3;
 }
 .styleguide-swatches ol.blue .dark .low {
-  background-color: #0d6694;
+  background-color: #0d6695;
 }
 .styleguide-swatches ol.blue .main {
   background-color: #149ce4;
@@ -447,7 +447,7 @@ body {
   background-color: #26a7ec;
 }
 .styleguide-swatches ol.blue .main .low {
-  background-color: #128ccc;
+  background-color: #128ccd;
 }
 .styleguide-swatches ol.blue .light {
   background-color: #63bbf1;
@@ -468,10 +468,10 @@ body {
   content: "#a0d6f6";
 }
 .styleguide-swatches ol.blue .highlight .high {
-  background-color: #b7e0f9;
+  background-color: #b7e0f8;
 }
 .styleguide-swatches ol.blue .highlight .low {
-  background-color: #88cbf4;
+  background-color: #89ccf4;
 }
 .styleguide-swatches ol.orange .title {
   background-color: #fefefe;
@@ -496,10 +496,10 @@ body {
   content: "#fc8800";
 }
 .styleguide-swatches ol.orange .main .high {
-  background-color: #ff9416;
+  background-color: #ff9417;
 }
 .styleguide-swatches ol.orange .main .low {
-  background-color: #e27b00;
+  background-color: #e37a00;
 }
 .styleguide-swatches ol.orange .light {
   background-color: #ffa73f;
@@ -511,7 +511,7 @@ body {
   background-color: #ffb359;
 }
 .styleguide-swatches ol.orange .light .low {
-  background-color: #ff9b26;
+  background-color: #ff9b25;
 }
 .styleguide-swatches ol.orange .highlight {
   background-color: #ffd19b;
@@ -536,7 +536,7 @@ body {
   content: "#71060b";
 }
 .styleguide-swatches ol.red .dark .high {
-  background-color: #89070e;
+  background-color: #89070d;
 }
 .styleguide-swatches ol.red .dark .low {
   background-color: #590509;
@@ -548,7 +548,7 @@ body {
   content: "#b00911";
 }
 .styleguide-swatches ol.red .main .high {
-  background-color: #c80b14;
+  background-color: #c80a13;
 }
 .styleguide-swatches ol.red .main .low {
   background-color: #98080f;
@@ -560,10 +560,10 @@ body {
   content: "#e7242e";
 }
 .styleguide-swatches ol.red .light .high {
-  background-color: #e93b44;
+  background-color: #ea3b44;
 }
 .styleguide-swatches ol.red .light .low {
-  background-color: #d91822;
+  background-color: #da1822;
 }
 .styleguide-swatches ol.red .highlight {
   background-color: #ec9498;
@@ -640,10 +640,10 @@ body {
   content: "#005918";
 }
 .styleguide-swatches ol.green .dark .high {
-  background-color: #00731f;
+  background-color: #00721f;
 }
 .styleguide-swatches ol.green .dark .low {
-  background-color: #004011;
+  background-color: #003f11;
 }
 .styleguide-swatches ol.green .main {
   background-color: #04982c;
@@ -652,7 +652,7 @@ body {
   content: "#04982c";
 }
 .styleguide-swatches ol.green .main .high {
-  background-color: #05b033;
+  background-color: #05b133;
 }
 .styleguide-swatches ol.green .main .low {
   background-color: #037f25;
@@ -664,7 +664,7 @@ body {
   content: "#2bcc57";
 }
 .styleguide-swatches ol.green .light .high {
-  background-color: #3bd565;
+  background-color: #3bd665;
 }
 .styleguide-swatches ol.green .light .low {
   background-color: #27b74e;
@@ -679,7 +679,7 @@ body {
   background-color: #9ee3b1;
 }
 .styleguide-swatches ol.green .highlight .low {
-  background-color: #77d791;
+  background-color: #76d791;
 }
 .styleguide-swatches ol li.highlight span:after {
   color: #2b2121;

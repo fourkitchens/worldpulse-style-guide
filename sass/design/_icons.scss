@@ -48,7 +48,7 @@
     @include border-radius(2px);
     padding: 0.5em 0.25em;
 
-    background-color: lighten(nth($grey, 4), 5%);
+    background-color: wp-color($grey, 4, 5%);
   }
 
   &.show-tooltip:hover:after {
@@ -57,13 +57,13 @@
 }
 
 span.show-tooltip:after {
-  color: nth($purple, 3);
-  border-color: nth($purple, 3);
+  color: wp-color($purple, 3);
+  border-color: wp-color($purple, 3);
 }
 
 a.show-tooltip:after {
-  color: darken(nth($blue, 2), 5%);
-  border-color: darken(nth($blue, 1), 5%);
+  color: wp-color($blue, 2, -5%);
+  border-color: wp-color($blue, 1, -5%);
 }
 
 $icons: // All icons
@@ -105,6 +105,6 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
  */
 
 .icon-abuse.show-tooltip:after {
-  color: nth($red, 3);
-  border-color: lighten(nth($red, 2), 5%);
+  color: wp-color($red, 3);
+  border-color: wp-color($red, 2, 5%);
 }

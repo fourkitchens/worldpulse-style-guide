@@ -2,18 +2,18 @@
  * Tables (ya know, just in case)
  */
 table {
-  border: 1px solid nth($grey, 3);
+  border: 1px solid wp-color($grey, 3);
   border-bottom-width: 2px;
   @include border-radius(3px);
   border-collapse: separate; // To make the outer border apply the radius
 
   thead {
-    color: nth($purple, 2);
+    color: wp-color($purple);
     td, th {
       // This can't be applied to thead or tr directly, for whatever reason,
       // because of the border-collapse:separate rule. Applying to the cell
       // directly is okay, though, because that's where the other borders are.
-      border-bottom: 2px solid nth($grey, 3);
+      border-bottom: 2px solid wp-color($grey, 3);
     }
   }
 
@@ -22,14 +22,14 @@ table {
   }
 
   tr:nth-child(2n+1) {
-    background-color: lighten(nth($grey, 4), 5%);
+    background-color: wp-color($grey, 4, 5%);
   }
 
   tr:nth-child(2n+0) {
-    background-color: nth($grey, 4);
+    background-color: wp-color($grey, 4);
   }
 
   th + th, td + td {
-    border-left: 1px solid nth($grey, 3);
+    border-left: 1px solid wp-color($grey, 3);
   }
 }
