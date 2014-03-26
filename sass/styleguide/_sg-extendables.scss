@@ -7,7 +7,7 @@
 
 @mixin sg-component-frame-mixin {
   // In a couple places, this can't be extended and has to be included (media queries)
-  border: 1px solid nth($grey, 3);
+  border: 1px solid wp-color($grey, 3);
   @include border-radius(3px);
   margin: 1em auto;
 }

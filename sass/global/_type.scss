@@ -7,7 +7,7 @@ body {
   font-weight: $font-body-weight;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  color: nth($grey, 2);
+  color: wp-color($grey);
 }
 
 
@@ -31,19 +31,19 @@ body {
 #{headings(4,6)} {
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: nth($red, 2);
+  color: wp-color($red);
 }
 
 h1 {
-  color: nth($purple, 1);
+  color: wp-color($purple, 1);
 }
 
 h2 {
-  color: nth($purple, 2);
+  color: wp-color($purple);
 }
 
 h3 {
-  color: nth($purple, 2);
+  color: wp-color($purple);
 }
 
 h4 {
@@ -144,7 +144,7 @@ blockquote {
   position: relative;
 
   font-family: $archer;
-  color: darken(nth($orange, 1), 5%);
+  color: wp-color($orange, 1, -5%);
 
   quotes: "\201C""\201D""\2018""\2019";
   border-left: 0;
@@ -155,7 +155,7 @@ blockquote {
     font-family: $archer;
     font-style: italic;
     font-weight: 400;
-    color: nth($orange, 1);
+    color: wp-color($orange, 1);
   }
 
   &:before, &:after {

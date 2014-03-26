@@ -61,7 +61,7 @@ $font-body-weight: 300; // Verlag is pulled down in 300 and 600 weights.
 
 // World Pulse Next Gen Colors. Each color the format:
 // $color: dark, main, light, highlight
-// which can be addressed as nth($color, X) where X is 1, 2, 3, or 4.
+// which can be addressed as wp-color($color, X) where X is 1, 2, 3, or 4.
 $purple: #342454, lighten(#342454, 13%), desaturate(lighten(#342454, 27%), 2%), desaturate(lighten(#342454, 45%), 2%);
 $red:    darken(#AB0911, 12%), lighten(#AB0911, 1%), desaturate(lighten(#AB0911, 17%), 10%), desaturate(lighten(#AB0911, 40%), 20%);
 $orange: saturate(darken(#FE8B03, 16%), 10%), saturate(darken(#FE8B03, 1%), 5%), saturate(lighten(#FE8B03, 12%), 5%), saturate(lighten(#FE8B03, 30%), 5%);
@@ -69,8 +69,8 @@ $blue:   darken(adjust-color(adjust-hue(#63A5F1, -1), $green: +25), 30%), darken
 $grey:   adjust-color(desaturate(darken(#302424, 2%), 4%), $red: +2), adjust-color(desaturate(lighten(#302424, 15%), 8%), $red: +2), adjust-color(desaturate(lighten(#302424, 65%), 4%), $red: +1), adjust-color(desaturate(lighten(#302424, 78%), 4%), $red: +1);
 $green: darken(#008223, 8%), desaturate(lighten(#008223, 5%), 5%), desaturate(lighten(#008223, 23%), 35%), desaturate(lighten(#008223, 45%), 45%);
 
-$white          : lighten(nth($grey, 4), 5%);
-$black          : darken(nth($grey, 1), 5%);
+$white          : wp-color($grey, 4, 5%);
+$black          : wp-color($grey, 1, -5%);
 
 
 
@@ -92,9 +92,9 @@ $color-fk       : #66B360;
 
 
 // Base color variables.
-$link           : nth($blue, 2);
-$visited        : nth($purple, 3);
-$selection-bg   : nth($purple, 3);
+$link           : wp-color($blue);
+$visited        : wp-color($purple, 3);
+$selection-bg   : wp-color($purple, 3);
 $selection      : $white;
 
 // The amount lists, blockquotes and comments are indented.
