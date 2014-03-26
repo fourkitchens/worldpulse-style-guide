@@ -62,12 +62,12 @@ $font-body-weight: 300; // Verlag is pulled down in 300 and 600 weights.
 // World Pulse Next Gen Colors. Each color the format:
 // $color: dark, main, light, highlight
 // which can be addressed as wp-color($color, X) where X is 1, 2, 3, or 4.
-$purple: #342454, lighten(#342454, 13%), desaturate(lighten(#342454, 27%), 2%), desaturate(lighten(#342454, 45%), 2%);
-$red:    darken(#AB0911, 12%), lighten(#AB0911, 1%), desaturate(lighten(#AB0911, 17%), 10%), desaturate(lighten(#AB0911, 40%), 20%);
-$orange: saturate(darken(#FE8B03, 16%), 10%), saturate(darken(#FE8B03, 1%), 5%), saturate(lighten(#FE8B03, 12%), 5%), saturate(lighten(#FE8B03, 30%), 5%);
-$blue:   darken(adjust-color(adjust-hue(#63A5F1, -1), $green: +25), 30%), darken(adjust-color(adjust-hue(#63A5F1, -1), $green: +25), 18%), adjust-color(adjust-hue(#63A5F1, -1), $green: +20), lighten(adjust-color(adjust-hue(#63A5F1, -1), $green: +20), 13%);
-$grey:   adjust-color(desaturate(darken(#302424, 2%), 4%), $red: +2), adjust-color(desaturate(lighten(#302424, 15%), 8%), $red: +2), adjust-color(desaturate(lighten(#302424, 65%), 4%), $red: +1), adjust-color(desaturate(lighten(#302424, 78%), 4%), $red: +1);
-$green: darken(#008223, 8%), desaturate(lighten(#008223, 5%), 5%), desaturate(lighten(#008223, 23%), 35%), desaturate(lighten(#008223, 45%), 45%);
+$purple: #342454, #513882, #7151b1, #a590cd;
+$red:    #71060b, #b00911, #e7242e, #ec9498;
+$orange: #af5f00, #fc8800, #ffa73f, #ffd19b;
+$blue:   #0f76ac, #149ce4, #63bbf1, #a0d6f6;
+$grey:   #2b2121, #574b4b, #d6cbcb, #f3efef;
+$green:  #005918, #04982c, #2bcc57, #8adda1;
 
 $white          : wp-color($grey, 4, 5%);
 $black          : wp-color($grey, 1, -5%);
