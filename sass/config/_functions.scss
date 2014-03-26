@@ -21,3 +21,16 @@
 
   @return false;
 }
+
+@function wp-color($color, $tint: 2, $adjustment: 0) {
+  $selected: nth($color, $tint);
+
+  @if ($adjustment > 0) {
+    @return lighten($selected, $adjustment);
+  }
+  @else if ($adjustment < 0) {
+    @return darken($selected, $adjustment);
+  }
+
+  @return $selected;
+}
