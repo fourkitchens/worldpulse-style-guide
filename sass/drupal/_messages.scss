@@ -1,0 +1,41 @@
+
+/**
+ * @file
+ * Styles for system messages.
+ */
+
+div.messages {
+  color: wp-color($grey, 'highlight');
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  @include border-radius(2px);
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+
+  &.status {
+    border-color: wp-color($green, 'dark');
+    background-color: wp-color($green);
+    color: wp-color($grey, 'highlight');
+    @include text-shadow(1px 1px 0 rgba(wp-color($green, 'dark', -5%), 0.5));
+    a { color: wp-color($green, 'highlight'); }
+  }
+
+  &.warning {
+    border-color: wp-color($orange, 'dark');
+    background-color: wp-color($orange);
+    color: wp-color($grey, 'highlight', 5%);
+    @include text-shadow(1px 1px 0 rgba(wp-color($orange, 'dark', -5%), 0.5));
+    a, a:visited {
+      color: wp-color($orange, 'highlight', 5%);
+    }
+  }
+
+  &.error {
+    border-color: wp-color($red, 'dark');
+    background-color: wp-color($red);
+    color: wp-color($grey, 'highlight');
+    @include text-shadow(1px 1px 0 rgba(wp-color($red, 'dark', -5%), 0.5));
+    a { color: wp-color($red, 'highlight'); }
+  }
+
+}

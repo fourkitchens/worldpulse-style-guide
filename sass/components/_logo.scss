@@ -44,7 +44,7 @@
 
 .logo-crimson-solid {
   @extend %worldpulse-logo;
-  .logo {
+  #{nest('.no-js, .no-svg', '& .logo')} {
     background: {
       color: transparent;
       image: image-url('logos/logo-crimson-solid.png');
@@ -55,9 +55,10 @@
 //    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
     @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
-    .svg & {
-      background-image: image-url('logos/logo-crimson-solid.svg');
-    }
+  }
+
+  .svg & .logo {
+    background-image: image-url('logos/logo-crimson-solid.svg');
   }
 }
 
@@ -65,7 +66,7 @@
   @extend %worldpulse-logo;
   .logo, &.crimson-gradient .logo:after {
     background: {
-      color: wp-color($red, 1);
+      color: wp-color($red, 'dark');
       image: image-url('logos/logo-white-glow.png');
     }
 
@@ -81,9 +82,9 @@
 
 .logo-white-solid {
   @extend %worldpulse-logo;
-  .logo, &.crimson-gradient .logo:after {
+  #{nest('.no-js, .no-svg', '& .logo, &.crimson-gradient .logo:after')} {
     background: {
-      color: wp-color($red, 1);
+      color: wp-color($red, 'dark');
       image: image-url('logos/logo-white-solid.png');
     }
 
@@ -92,9 +93,11 @@
 //    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
 
     @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
-    .svg & {
-      background-image: image-url('logos/logo-white-solid.svg');
-    }
+  }
+
+  #{nest('.svg', '& .logo, &.crimson-gradient .logo:after')} {
+    background-color: wp-color($red, 'dark');
+    background-image: image-url('logos/logo-white-solid.svg');
   }
 }
 
@@ -126,9 +129,9 @@
     &:before {
       @include background-image(linear-gradient(
         wp-color($red),
-        wp-color($red, 2, -5%) 30%,
-        wp-color($red, 1, 5%) 70%,
-        wp-color($red, 1)
+        wp-color($red, 'main', -5%) 30%,
+        wp-color($red, 'dark', 5%) 70%,
+        wp-color($red, 'dark')
       ));
     }
 

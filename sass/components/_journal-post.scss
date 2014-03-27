@@ -1,3 +1,5 @@
+// NOTE: This isn't being included in styles.scss yet, since the markup is very style-guide prototype.
+
 /**
  * Node Type: Journal Post
  */
@@ -21,7 +23,7 @@ article.node-journal-post {
     @include respond-to('journal meta small') {
       padding-right: 64px; // Make room for the abuse icon
     }
-    border-bottom: 2px solid wp-color($grey, 4, -5%);
+    border-bottom: 2px solid wp-color($grey, 'highlight', -5%);
     margin-bottom: 0.25em;
 
     dt { display: none; }
@@ -50,7 +52,7 @@ article.node-journal-post {
 
   footer {
     margin-top: 0.5em;
-    border-top: 2px solid wp-color($grey, 4, -5%);
+    border-top: 2px solid wp-color($grey, 'highlight', -5%);
     padding-top: 0.5em;
 
     dl.post-meta {

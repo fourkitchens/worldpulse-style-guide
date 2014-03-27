@@ -27,16 +27,16 @@
 ////////////////////////
 // Import our Drupal basics
 ////////////////////////
-@import 'drupal/system.base';
-@import 'drupal/system.menus';
-@import 'drupal/system.messages';
+@import 'drupal/base';
+@import 'drupal/tabs-pagers';
+@import 'drupal/messages';
 
 ////////////////////////
 // Import component/feature design partials
 ////////////////////////
-@import 'design/logo';
-@import 'design/icons';
-@import 'design/journal-post';
+@import 'components/logo';
+@import 'components/icons';
+@import 'components/journal-post'; // STYLEGUIDE ONLY (This is omitted for now. Markup from style guide won't match Drupal output.)
 
 ////////////////////////
 // Import layouts

@@ -434,15 +434,22 @@ th {
   padding: 0;
 }
 
-/* Max-Width for Responsive Media
-   ========================================================================== */
-img {
+
+/* Toolkit's 'kickstart', with added ms magic.
+  ========================================================================== */
+
+*, *:before, *:after {
+  @if mixin-exists('box-sizing') {
+    @include box-sizing('border-box');
+  }
+  @else {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+img, video {
   max-width: 100%;
   height: auto;
   -ms-interpolation-mode: bicubic;
 }
-
-
-
-// Add in our border-box styling from toolkit.
-@import 'toolkit/kickstart';

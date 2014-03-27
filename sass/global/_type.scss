@@ -35,7 +35,7 @@ body {
 }
 
 h1 {
-  color: wp-color($purple, 1);
+  color: wp-color($purple, 'dark');
 }
 
 h2 {
@@ -144,7 +144,7 @@ blockquote {
   position: relative;
 
   font-family: $archer;
-  color: wp-color($orange, 1, -5%);
+  color: wp-color($orange, 'dark', -5%);
 
   quotes: "\201C""\201D""\2018""\2019";
   border-left: 0;
@@ -155,7 +155,7 @@ blockquote {
     font-family: $archer;
     font-style: italic;
     font-weight: 400;
-    color: wp-color($orange, 1);
+    color: wp-color($orange, 'dark');
   }
 
   &:before, &:after {

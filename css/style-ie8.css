@@ -396,14 +396,8 @@ th {
   padding: 0;
 }
 
-/* Max-Width for Responsive Media
-   ========================================================================== */
-img {
-  max-width: 100%;
-  height: auto;
-  -ms-interpolation-mode: bicubic;
-}
-
+/* Toolkit's 'kickstart', with added ms magic.
+  ========================================================================== */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -413,9 +407,12 @@ img {
 img, video {
   max-width: 100%;
   height: auto;
+  -ms-interpolation-mode: bicubic;
 }
 
-.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after {
+.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after,
+ul.primary:after,
+ul.pager:after {
   content: "";
   display: table;
   clear: both;
@@ -634,11 +631,11 @@ input[type="reset"]:focus,
 input[type="button"]:hover,
 input[type="button"]:focus {
   background-color: #e1d9d9;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VjZThlOCIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjZTFkOWQ5Ii8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNlMWQ5ZDkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNmNiY2IiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q2Y2JjYiIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjZTFkOWQ5Ii8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNlMWQ5ZDkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNmNiY2IiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -moz-linear-gradient(#ece8e8, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
-  background-image: -webkit-linear-gradient(#ece8e8, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
-  background-image: linear-gradient(#ece8e8, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
+  background-image: -moz-linear-gradient(#d6cbcb, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
+  background-image: -webkit-linear-gradient(#d6cbcb, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
+  background-image: linear-gradient(#d6cbcb, #e1d9d9 30%, #e1d9d9 70%, #d6cbcb);
   border-color: #c0aeae;
 }
 .button[disabled], .button[disabled]:hover,
@@ -958,241 +955,6 @@ table th + th, table td + td {
  * Generic theme-independent base styles.
  */
 /**
- * Autocomplete.
- *
- * @see autocomplete.js
- */
-/* Suggestion list */
-#autocomplete {
-  border: 1px solid;
-  overflow: hidden;
-  position: absolute;
-  z-index: 100;
-}
-
-#autocomplete ul {
-  list-style: none;
-  list-style-image: none;
-  margin: 0;
-  padding: 0;
-}
-
-#autocomplete li {
-  background: #fff;
-  color: #000;
-  cursor: default;
-  white-space: pre;
-  zoom: 1;
-  /* IE7 */
-}
-
-/* Animated throbber */
-html.js input.form-autocomplete {
-  background-image: url(../../misc/throbber.gif);
-  background-position: 100% 2px;
-  /* LTR */
-  background-repeat: no-repeat;
-}
-
-html.js input.throbbing {
-  background-position: 100% -18px;
-  /* LTR */
-}
-
-/**
- * Collapsible fieldsets.
- *
- * @see collapse.js
- */
-html.js fieldset.collapsed {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  height: 1em;
-}
-
-html.js fieldset.collapsed .fieldset-wrapper {
-  display: none;
-}
-
-fieldset.collapsible {
-  position: relative;
-}
-
-fieldset.collapsible .fieldset-legend {
-  display: block;
-}
-
-/**
- * Resizable textareas.
- *
- * @see textarea.js
- */
-.form-textarea-wrapper textarea {
-  display: block;
-  margin: 0;
-  width: 100%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.resizable-textarea .grippie {
-  background: #eeeeee url(../../misc/grippie.png) no-repeat center 2px;
-  border: 1px solid #ddd;
-  border-top-width: 0;
-  cursor: s-resize;
-  height: 9px;
-  overflow: hidden;
-}
-
-/**
- * TableDrag behavior.
- *
- * @see tabledrag.js
- */
-body.drag {
-  cursor: move;
-}
-
-.draggable a.tabledrag-handle {
-  cursor: move;
-  float: left;
-  /* LTR */
-  height: 1.7em;
-  margin-left: -1em;
-  /* LTR */
-  overflow: hidden;
-  text-decoration: none;
-}
-
-a.tabledrag-handle:hover {
-  text-decoration: none;
-}
-
-a.tabledrag-handle .handle {
-  background: url(../../misc/draggable.png) no-repeat 6px 9px;
-  height: 13px;
-  margin: -0.4em 0.5em;
-  /* LTR */
-  padding: 0.42em 0.5em;
-  /* LTR */
-  width: 13px;
-}
-
-a.tabledrag-handle-hover .handle {
-  background-position: 6px -11px;
-}
-
-div.indentation {
-  float: left;
-  /* LTR */
-  height: 1.7em;
-  margin: -0.4em 0.2em -0.4em -0.4em;
-  /* LTR */
-  padding: 0.42em 0 0.42em 0.6em;
-  /* LTR */
-  width: 20px;
-}
-
-div.tree-child {
-  background: url(../../misc/tree.png) no-repeat 11px center;
-  /* LTR */
-}
-
-div.tree-child-last {
-  background: url(../../misc/tree-bottom.png) no-repeat 11px center;
-  /* LTR */
-}
-
-div.tree-child-horizontal {
-  background: url(../../misc/tree.png) no-repeat -11px center;
-}
-
-.tabledrag-toggle-weight-wrapper {
-  text-align: right;
-  /* LTR */
-}
-
-/**
- * TableHeader behavior.
- *
- * @see tableheader.js
- */
-table.sticky-header {
-  background-color: #fff;
-  margin-top: 0;
-}
-
-/**
- * Progress behavior.
- *
- * @see progress.js
- */
-/* Bar */
-.progress .bar {
-  background-color: #fff;
-  border: 1px solid;
-}
-
-.progress .filled {
-  background-color: #000;
-  height: 1.5em;
-  width: 5px;
-}
-
-.progress .percentage {
-  float: right;
-  /* LTR */
-}
-
-/* Throbber */
-.ajax-progress {
-  display: inline-block;
-}
-
-.ajax-progress .throbber {
-  background: transparent url(../../misc/throbber.gif) no-repeat 0px -18px;
-  float: left;
-  /* LTR */
-  height: 15px;
-  margin: 2px;
-  width: 15px;
-}
-
-.ajax-progress .message {
-  padding-left: 20px;
-}
-
-tr .ajax-progress .throbber {
-  margin: 0 2px;
-}
-
-.ajax-progress-bar {
-  width: 16em;
-}
-
-/**
- * Inline items.
- */
-.container-inline div,
-.container-inline label {
-  display: inline;
-}
-
-/* Fieldset contents always need to be rendered as block. */
-.container-inline .fieldset-wrapper {
-  display: block;
-}
-
-/**
- * Prevent text wrapping.
- */
-.nowrap {
-  white-space: nowrap;
-}
-
-/**
  * For anything you want to hide on page load when JS is enabled, so
  * that you can use the JS to control visibility and avoid flicker.
  */
@@ -1242,54 +1004,6 @@ html.js .js-hide {
 }
 
 /**
- * Markup free clearing.
- *
- * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
- */
-.clearfix:after, article.node-journal-post header dl:after, article.node-journal-post footer dl:after, article.node-journal-post footer dl.recommend dd.users ul:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-/* IE6 */
-* html .clearfix, * html article.node-journal-post header dl, article.node-journal-post header * html dl, * html article.node-journal-post footer dl, article.node-journal-post footer * html dl, * html article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-post footer dl.recommend dd.users * html ul {
-  height: 1%;
-}
-
-/* IE7 */
-*:first-child + html .clearfix, *:first-child + html article.node-journal-post header dl, article.node-journal-post header *:first-child + html dl, *:first-child + html article.node-journal-post footer dl, article.node-journal-post footer *:first-child + html dl, *:first-child + html article.node-journal-post footer dl.recommend dd.users ul, article.node-journal-post footer dl.recommend dd.users *:first-child + html ul {
-  min-height: 1%;
-}
-
-/**
- * @file
- * Styles for menus and navigation markup.
- */
-/**
- * Markup generated by theme_menu_tree().
- */
-/**
- * Markup generated by theme_links().
- */
-ul.inline,
-ul.links.inline {
-  display: inline;
-  padding-left: 0;
-}
-
-ul.inline li {
-  display: inline;
-  list-style-type: none;
-  padding: 0 0.5em;
-}
-
-/**
- * Markup generated by theme_breadcrumb().
- */
-/**
  * Markup generated by theme_menu_local_tasks().
  * Also used for pagers.
  */
@@ -1310,11 +1024,6 @@ ul.primary, ul.pager {
   margin-top: 1em;
   margin-bottom: 1em;
   white-space: nowrap;
-}
-ul.primary:after, ul.pager:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 ul.primary li, ul.pager li {
   display: block;
@@ -1370,20 +1079,6 @@ ul.primary li.active a, ul.primary li.pager-current, ul.pager li.active a, ul.pa
   border-bottom-color: #7151b1;
 }
 
-ul.secondary {
-  padding: 0.5em 1em;
-  margin: 5px;
-}
-
-ul.secondary li {
-  display: inline;
-  padding: 0 1em;
-}
-
-ul.secondary a {
-  padding: 0;
-}
-
 /**
  * @file
  * Styles for system messages.
@@ -1426,12 +1121,6 @@ div.messages.error a {
   color: #ec9498;
 }
 
-div.messages ul {
-  margin: 0 0 0 1em;
-  /* LTR */
-  padding: 0;
-}
-
 /**
  * The World Pulse wordmark in various settings
  */
@@ -1455,7 +1144,7 @@ div.messages ul {
   background-image: url('../images/logos/logo-crimson-glow.png');
 }
 
-.logo-crimson-solid .logo {
+.no-js .logo-crimson-solid .logo, .no-svg .logo-crimson-solid .logo {
   background-color: transparent;
   background-image: url('../images/logos/logo-crimson-solid.png');
 }
@@ -1468,11 +1157,12 @@ div.messages ul {
   background-image: url('../images/logos/logo-white-glow.png');
 }
 
-.logo-white-solid .logo, .logo-white-solid.crimson-gradient .logo:after {
+.no-js .logo-white-solid .logo, .no-js .logo-white-solid.crimson-gradient .logo:after, .no-svg .logo-white-solid .logo, .no-svg .logo-white-solid.crimson-gradient .logo:after {
   background-color: #71060b;
   background-image: url('../images/logos/logo-white-solid.png');
 }
 .svg .logo-white-solid .logo, .svg .logo-white-solid.crimson-gradient .logo:after {
+  background-color: #71060b;
   background-image: url('../images/logos/logo-white-solid.svg');
 }
 
