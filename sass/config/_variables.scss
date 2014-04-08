@@ -63,10 +63,10 @@ $font-body-weight: 300; // Verlag is pulled down in 300 and 600 weights.
 // $color: dark, main, light, highlight
 // which can be addressed as wp-color($color, X) where X is 1, 2, 3, or 4.
 $purple:(
-  dark:      #342454,
-  main:      #513882,
-  bright:    #7151b1,
-  highlight: #a590cd
+  dark:      adjust-color(#342454, $blue: +6, $red: -4),
+  main:      adjust-color(lighten(#342454, 14%), $blue: +8, $red: -5),
+  bright:    adjust-color(desaturate(lighten(#342454, 27%), 2%), $blue: +10, $red: -8),
+  highlight: adjust-color(desaturate(lighten(#342454, 45%), 2%), $blue: +12, $red: -10),
 );
 
 $red:   (

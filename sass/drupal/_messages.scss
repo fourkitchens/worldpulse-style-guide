@@ -4,7 +4,7 @@
  * Styles for system messages.
  */
 
-div.messages {
+.messages {
   color: wp-color($grey, 'highlight');
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -15,27 +15,27 @@ div.messages {
   &.status {
     border-color: wp-color($green, 'dark');
     background-color: wp-color($green);
-    color: wp-color($grey, 'highlight');
+    color: wp-color($green, 'highlight', 15%);
     @include text-shadow(1px 1px 0 rgba(wp-color($green, 'dark', -5%), 0.5));
-    a { color: wp-color($green, 'highlight'); }
+    a { color: $white; }
   }
 
   &.warning {
     border-color: wp-color($orange, 'dark');
-    background-color: wp-color($orange);
-    color: wp-color($grey, 'highlight', 5%);
+    background-color: wp-color($orange, main, -2.5%);
+    color: wp-color($orange, 'highlight', 15%);
     @include text-shadow(1px 1px 0 rgba(wp-color($orange, 'dark', -5%), 0.5));
     a, a:visited {
-      color: wp-color($orange, 'highlight', 5%);
+      color: $white;
     }
   }
 
   &.error {
     border-color: wp-color($red, 'dark');
     background-color: wp-color($red);
-    color: wp-color($grey, 'highlight');
+    color: wp-color($red, 'highlight', 15%);
     @include text-shadow(1px 1px 0 rgba(wp-color($red, 'dark', -5%), 0.5));
-    a { color: wp-color($red, 'highlight'); }
+    a { color: $white; }
   }
 
 }
