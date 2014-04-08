@@ -34,10 +34,13 @@ interactive), but icons using an `a` (link) tag will.
 | --------------- |:------------------------------------------------------:| ------------------------ | -------------------------------------------------------- |
 | `.icon-abuse`   | <a class="icon-abuse">This is Abuse or Spam</a>        | _Spam / Abuse_           | [Stop 3](http://iconmonstr.com/stop-3-icon/)             |
 | `.icon-cc`      | <a class="icon-cc">Creative Commons</a>                | _Creative Commons_       | [Copyright 4](http://iconmonstr.com/copyright-4-icon/)   |
+| `.icon-delete`  | <a class="icon-delete">Delete this</a>                 | _Delete_                 | [Trash Can 9](http://iconmonstr.com/trash-can-9-icon/)   |
+| `.icon-edit`    | <a class="icon-edit">Edit this</a>                     | _Edit_                   | [Edit 8](http://iconmonstr.com/edit-8-icon/)             |
 | `.icon-friends` | <span class="icon-friends">Friends Only</span>         | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/)           |
 | `.icon-private` | <span class="icon-private">Only Me</span>              | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)             |
 | `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/)           |
 | `.icon-region`  | <span class="icon-region">Region(s)</span>             | _Region_                 | [Globe 3](http://iconmonstr.com/globe-3-icon/)           |
+| `.icon-reply`   | <a class="icon-reply">Reply to this</a>                | _Reply_                  | [Speech Bubble 14](http://iconmonstr.com/speech-bubble-14-icon/) |
 | `.icon-tags`    | <span class="icon-tags">Tags / Topics</span>           | _Tags / Topics_          | [Tags 6](http://iconmonstr.com/tags-6-icon/)             |
 
 
