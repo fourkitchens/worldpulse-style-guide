@@ -1,0 +1,15 @@
+/**
+ * @file _main.scss
+ * The main region container. Minor styles only.
+ */
+
+#main {
+  background-color: wp-color($grey, highlight);
+
+  .main-container {
+    padding: {
+      top: 1em;
+      bottom: 1em;
+    }
+  }
+}

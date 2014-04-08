@@ -1,0 +1,12 @@
+/**
+ * @file _krumo_root.scss
+ */
+.krumo-root {
+  color: black;
+  @include text-shadow(none);
+
+  a.krumo-name {
+  	color:#404000 !important;
+  	font: bold 13px Arial;
+	}
+}

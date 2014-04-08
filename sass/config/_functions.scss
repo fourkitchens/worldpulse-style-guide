@@ -4,6 +4,7 @@
 // All of your functions should go in this file.
 ////////////////////////
 
+
 // A function to grab the value of the breakpoint, if we are just doing min-width.
 @function bp-value($context) {
   @if type-of($breakpoints) != 'map' {

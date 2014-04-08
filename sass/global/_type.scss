@@ -8,8 +8,8 @@ body {
   font-size: $base-font-size;
   line-height: $base-line-height;
   color: wp-color($grey);
+  background-color: wp-color($grey, main);
 }
-
 
 // Headings
 //
@@ -35,7 +35,7 @@ body {
 }
 
 h1 {
-  color: wp-color($purple, 'dark');
+  color: wp-color($purple, main, -2.5%);
 }
 
 h2 {
@@ -71,14 +71,17 @@ a {
 
   &:visited {
     color: $visited;
+    &:hover, &:focus {
+      color: wp-color($purple);
+    }
   }
 
   &:hover, &:focus {
-
+    color: wp-color($blue, dark);
   }
 
-  &:active, &.active {
-
+  &:active {
+    color: wp-color($red, dark);
   }
 }
 
@@ -87,6 +90,16 @@ a {
 
 ul, ol {
 
+  &.inline {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
 }
 
 ul ul,
@@ -183,4 +196,9 @@ blockquote {
 
     &:before { content: "\2014"; }
   }
+}
+
+.sep {
+  // Separators (probably pipe characters "|" but also small words like "by" in comment-meta)
+  @include opacity(0.75);
 }

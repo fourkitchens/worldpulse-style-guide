@@ -2,10 +2,7 @@
 //
 // All of your variables should go in this file.
 
-// Graceful degredation variables.
-$graceful-usage-threshold:    1         !default;
-$critical-usage-threshold:    0.1       !default;
-$browser-minimum-versions:    (ie: '9') !default;
+$max-width:   1280px;
 
 
 // Font faces, stacks and sizes.
@@ -47,6 +44,13 @@ $monospace:       'Consolas', 'Monaco', $courier;
 
 
 
+// Project-specific fonts
+// Put any font families here that are specific to your project.
+$whitney:         'Whitney SSm A', 'Whitney SSm B', $helvetica;
+$gotham:          'Gotham SSm A', 'Gotham SSm B', $helvetica;
+$archer:          'Archer SSm A', 'Archer SSm B', $helvetica;
+$monospace:       'Consolas', 'Monaco', $courier;
+
 // Now create some variables for the font stacks we want to use on this site.
 $base-font-family: $helvetica; // The font family set on the html element.
 $font-body:        $whitney;
@@ -59,9 +63,9 @@ $font-body-weight: 300; // Verlag is pulled down in 300 and 600 weights.
 // Colors, etc.
 //
 
-// World Pulse Next Gen Colors. Each color the format:
-// $color: dark, main, light, highlight
-// which can be addressed as wp-color($color, X) where X is 1, 2, 3, or 4.
+// World Pulse Next Gen Colors:
+  // They've asked for some adjustments on the violet hue --- once this settles,
+  // flatten it back into specific hex value.
 $purple:(
   dark:      adjust-color(#342454, $blue: +6, $red: -4),
   main:      adjust-color(lighten(#342454, 14%), $blue: +8, $red: -5),
@@ -112,19 +116,21 @@ $black          : wp-color($grey, 'dark', -5%);
 
 // Standard colors: for standard 4K and other brand colors.
 // Note: these are just for reference, and some brands have multiple colors.
-$color-facebook : #3B5998;
-$color-twitter  : #33CCFF;
-$color-youtube  : #FF3333;
-$color-pinterest: #990000;
-$color-skype    : #12A5F4;
-$color-flickr   : #FE0883;
-$color-foursquare: #8FD400;
-$color-instagram: #4E433C;
-$color-linkedin : #4875B4;
-$color-tumblr   : #2B4964;
-$color-vimeo    : #86B32D;
-$color-google   : #D6492C;
-$color-fk       : #66B360;
+$social-colors:(
+  facebook    : #3B5998,
+  twitter     : #33CCFF,
+  youtube     : #FF3333,
+  pinterest   : #990000,
+  skype       : #12A5F4,
+  flickr      : #FE0883,
+  foursquare  : #8FD400,
+  instagram   : #4E433C,
+  linkedin    : #4875B4,
+  tumblr      : #2B4964,
+  vimeo       : #86B32D,
+  google      : #D6492C,
+  fk          : #66B360,
+);
 
 
 // Base color variables.
@@ -148,14 +154,15 @@ $indent-amount: 2em;
 @include sgs-change('mobile first',       true);
 @include sgs-change('include border box', false);
 @include sgs-change('include clearfix',   false);
+@include sgs-change('direction',          'both');
 
-@include add-grid(12);
-//@include add-grid(3 at 200px);
+@include add-grid(1);
+@include add-grid(6 3 at 600px);
+@include add-grid(8 3 at 800px);
 
 // Define our gutters.
 @include add-gutter(1/3);
-// @include add-gutter(1/4 at 600px);
-
+@include add-gutter(1 at 800px);
 
 
 // Add breakpoint settings.
@@ -181,6 +188,7 @@ $breakpoint-no-queries:         false !default;
 $breakpoint-no-query-fallbacks: true  !default;
 $breakpoint-to-ems:             true;
 
+
 $breakpoints: add-breakpoint('hi res', min-resolution 1.5dppx);
 $breakpoints: add-breakpoint('pager tiny', max-width 359px);
 $breakpoints: add-breakpoint('pager mini', 360px);
@@ -189,3 +197,9 @@ $breakpoints: add-breakpoint('pager full', 840px);
 $breakpoints: add-breakpoint('journal meta small', 620px);
 $breakpoints: add-breakpoint('journal meta full', 840px);
 $breakpoints: add-breakpoint('journal meta large', 1120px);
+$breakpoints: add-breakpoint('wide form labels', 820px);
+$breakpoints: add-breakpoint('two col med', 600px);
+$breakpoints: add-breakpoint('two col large', 800px);
+$breakpoints: add-breakpoint('comment indent', 1000px);
+$breakpoints: add-breakpoint('comment indent limited', 800px);
+$breakpoints: add-breakpoint('comment indent mobile', 400px 799px);

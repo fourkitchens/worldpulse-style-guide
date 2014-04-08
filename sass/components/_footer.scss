@@ -1,0 +1,11 @@
+/**
+ * @file _footer.scss
+ * The design for the footer partials.
+ */
+
+#footer {
+  border-top: 1px solid wp-color($grey, dark);
+  padding-top: .5em;
+  color: wp-color($grey, bright);
+}
+

@@ -1,0 +1,61 @@
+/**
+ * @file _comment-wrapper.scss
+ * Styling for the comment wrapper and the ajax forms for inline replies
+ */
+
+.comment-wrapper {
+  // Nodes exist in a padded container, so we're going to push this out to the
+  // real broundies of that container so it can have a different background color.
+  @include box-sizing(content-box);
+  position: relative;
+  left: -1em;
+  margin-bottom: -1em;
+  width: 100%;
+  padding: 1em;
+  background-color: wp-color($grey, highlight, 2.5%);
+  border-top: 1px solid wp-color($grey, highlight);
+  @include border-radius(0 0 3px 3px);
+
+  a.button {
+    // This is the "Comment on this Post" link/button.
+    float: right;
+    margin-top: 0;
+  }
+
+  h2.title {
+    margin-top: 0;
+  }
+
+  // Indent comment replies. I do not think this is needed anywhere else.
+  .indented {
+    margin-left: 1em;
+
+    @include respond-to('comment indent mobile') {
+      margin-left: 2em;
+
+      // Prevent comments on mobile devices from goint too far left.
+      .indented .indented {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to('comment indent limited', TRUE) {
+      .indented .indented .indented .indented .indented {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to('comment indent', TRUE) {
+      margin-left: 4em;
+    }
+  }
+
+  .ajax-comment-wrapper {
+    form {
+      border: 1px solid wp-color($grey, highlight, -5%);
+      background-color: $white;
+      padding: 1em;
+      margin: 1em 0 1em 4em;
+    }
+  }
+}

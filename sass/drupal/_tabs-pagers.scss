@@ -53,7 +53,7 @@ ul.primary, ul.pager {
       @include transition(border 0.2s ease-out, background 0.2s ease-out);
 
       color: wp-color($grey);
-      background-color: wp-color($grey, 'highlight');
+      background-color: wp-color($grey, 'highlight', 2.5%);
       border: 1px solid wp-color($grey, 'highlight', -5%);
       border-bottom-width: 2px;
       border-left-color: wp-color($grey, 'highlight', 5%);
@@ -84,7 +84,7 @@ ul.primary, ul.pager {
 
     &.pager-first a, &.pager-previous a, &.pager-next a, &.pager-last a {
       padding-left: 0.75em;
-      pager-right: 0.75em;
+      padding-right: 0.75em;
     }
 
     &.pager-first a, &.pager-last a {

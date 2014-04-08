@@ -1,0 +1,37 @@
+/**
+ * @file _comment-form.scss
+ * Styling for the comment form
+ */
+
+h2.comment-form {
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid wp-color($grey, highlight, 5%);
+}
+form.comment-form { border-top: 1px solid wp-color($grey, highlight, -2.5%); }
+
+.comment-form {
+  padding-top: 0.75em;
+
+  .form-item-subject input {
+    // This is for a subtitle, make it look like one!
+    font-family: $gotham;
+    font-weight: 600;
+    line-height: 1.125;
+    color: wp-color($purple, main);
+    font-size: 1.125em;
+  }
+
+  // The description of the text filters
+  // @TODO: Is this an acceptable way to do this? We had discussed not showing this to users.
+  .filter-wrapper { display: none; }
+
+  @include respond-to('wide form labels') {
+    .form-type-item .username {
+      display: block;
+      float: right;
+      width: 80%;
+      padding: 0.25em 0;
+    }
+  }
+}

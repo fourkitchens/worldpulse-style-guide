@@ -1,10 +1,12 @@
 /**
- * The World Pulse wordmark in various settings
+ * @file _logo.scss.
+ * The logo for the site.
  */
 
 %worldpulse-logo {
   // The glow can't be an SVG, so we have to use the PNG, which is only this wide:
   max-width: 425px;
+  display: block;
 
   .logo {
     margin: 0;
@@ -31,9 +33,10 @@
       image: image-url('logos/logo-crimson-glow.png');
     }
 
-// @TODO: When IE compatibility mode is known, set this up:
-//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
-//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    @include for-legacy-browser('ie', "6", "7", 1) {
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    }
 
 
     @include respond-to('hi res') {
@@ -50,9 +53,10 @@
       image: image-url('logos/logo-crimson-solid.png');
     }
 
-// @TODO: When IE compatibility mode is known, set this up:
-//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
-//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    @include for-legacy-browser('ie', "6", "7", 1) {
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    }
 
     @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
   }
@@ -70,9 +74,10 @@
       image: image-url('logos/logo-white-glow.png');
     }
 
-// @TODO: When IE compatibility mode is known, set this up:
-//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
-//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    @include for-legacy-browser('ie', "6", "7", 1) {
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    }
 
     @include respond-to('hi res') {
       background-image: image-url('logos/logo-white-glow-2x.png');
@@ -82,15 +87,17 @@
 
 .logo-white-solid {
   @extend %worldpulse-logo;
+
   #{nest('.no-js, .no-svg', '& .logo, &.crimson-gradient .logo:after')} {
     background: {
       color: wp-color($red, 'dark');
       image: image-url('logos/logo-white-solid.png');
     }
 
-// @TODO: When IE compatibility mode is known, set this up:
-//    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
-//    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    @include for-legacy-browser('ie', "6", "7", 1) {
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.gif',sizingMethod='scale')";
+    }
 
     @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
   }

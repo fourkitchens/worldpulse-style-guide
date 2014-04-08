@@ -1,0 +1,64 @@
+/**
+ * @file _user-profile-form.scss
+ * User edit forms on /user/X/edit
+ */
+
+#user-profile-form {
+  .password-confirm {
+    .error { color: wp-color($red);   }
+    .ok    { color: wp-color($green); }
+  }
+
+  .password-strength {
+    @extend %clearfix;
+  }
+
+  .password-strength-title {
+    @extend %imitate-form-label;
+
+    @include respond-to('wide form labels') {
+      float: left;
+      width: 18%;
+      margin-right: 2%;
+      padding: 0.5em 0;
+    }
+  }
+
+  @include respond-to('wide form labels') {
+    .password-strength-text {
+      float: right;
+      width: 80%;
+      margin: 0.35em 0;
+    }
+  }
+
+  .password-indicator {
+    position: relative;
+    z-index: 1;
+
+    background-color: wp-color($grey, bright);
+    @include border-radius(3px);
+    height: 0.75em;
+    width: 500px;
+    max-width: 80%;
+
+    margin-bottom: 1em;
+
+    @include respond-to('wide form labels') {
+      float: left;
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    .indicator {
+      position: relative;
+      z-index: 5;
+
+      height: 0.75em;
+      width: 0; // To start. Drupal's JS sets this width as strength increases.
+      @include border-radius(3px);
+      background-color: wp-color($purple);
+    }
+
+  }
+}

@@ -1,8 +1,18 @@
-// NOTE: This isn't being included in styles.scss yet, since the markup is very style-guide prototype.
+/**
+ * @file _node-post.scss
+ * Styles for Journal Post nodes.
+ * Consider what should be Journal-specific and what should be general node styles instead...
+ */
+.node-post {
+  header h1 {
+    margin-top: 0;
+  }
+}
+
 
 /**
  * Node Type: Journal Post
- */
+ * /
 
 article.node-journal-post {
   header, footer {
@@ -141,3 +151,5 @@ article.node-journal-post {
     }
   }
 }
+
+// */

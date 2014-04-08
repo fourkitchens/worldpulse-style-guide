@@ -1,0 +1,11 @@
+/**
+ * @file _header.scss
+ * The design for the header.
+ */
+
+#header {
+  background-color: wp-color($red, dark);
+  border-bottom: 1px solid wp-color($red, dark, -5%);
+  @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
+  color: $white;
+}

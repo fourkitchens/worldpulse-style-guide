@@ -1,0 +1,8 @@
+/**
+ * @file _oembed.scss
+ * Any oembed media that we have on the site.
+ */
+
+.oembed-content {
+  @include ir;
+}

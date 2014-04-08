@@ -6,6 +6,18 @@ form {
 }
 
 fieldset {
+  border: 1px solid wp-color($grey, highlight, -2.5%);
+  border-bottom-width: 2px;
+  @include border-radius(3px);
+  margin-bottom: 1em;
+  padding: 1em;
+
+  > legend {
+    padding: 0 1em;
+    font-family: $gotham;
+    font-weight: 600;
+    color: wp-color($grey, bright, -15%);
+  }
 }
 
 legend {
@@ -42,6 +54,7 @@ textarea {
   display: block; // Not "inline" like other fields
 }
 
+%imitate-form-label,
 label {
   font-family: $gotham;
   font-size: 0.875em;
@@ -56,220 +69,7 @@ label {
   }
 }
 
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  font-family: $gotham;
-  text-transform: uppercase;
-  font-size: 0.875em;
-  font-weight: 600;
-  letter-spacing: 2px;
-  padding: 0.375em 0.625em;
-  margin-bottom: 0.5em;
 
-  color: wp-color($grey);
-  @include text-shadow(1px 1px 0 rgba(wp-color($grey, 'highlight'), 0.5));
-
-  &[disabled] {
-    font-weight: 400;
-    color: wp-color($grey, 'main', 5%);
-    @include text-shadow(none);
-  }
-
-  background-color: wp-color($grey, 'bright');
-  @include background-image(linear-gradient(
-    wp-color($grey, 'bright', 5%),
-    wp-color($grey, 'bright') 30%,
-    wp-color($grey, 'bright') 70%,
-    wp-color($grey, 'bright', -2.5%)
-  ));
-
-  @include border-radius(4px);
-  border: {
-    width: 1px 1px 3px 1px;
-    style: solid;
-    color: wp-color($grey, 'bright', -5%);
-  }
-
-  &:hover, &:focus {
-    background-color: wp-color($grey, 'bright', 5%);
-    @include background-image(linear-gradient(
-      wp-color($grey, 'bright', 0%),
-      wp-color($grey, 'bright', 5%) 30%,
-      wp-color($grey, 'bright', 5%) 70%,
-      wp-color($grey, 'bright')
-    ));
-    border-color: wp-color($grey, 'bright', -10%);
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: wp-color($grey, 'highlight', -10%);
-    @include background-image(none);
-    border-color: wp-color($grey, 'highlight', -12.5%);
-  }
-
-  &:focus {
-    @include box-shadow(0 0 4px rgba(wp-color($grey), 0.5));
-  }
-
-
-  &.btn-primary {
-    background-color: wp-color($blue);
-    @include background-image(linear-gradient(
-      wp-color($blue, 'main', 5%),
-      wp-color($blue) 30%,
-      wp-color($blue) 70%,
-      wp-color($blue, 'main', -2.5%)
-    ));
-    border-color: wp-color($blue, 'main', -5%);
-    color: $white;
-    @include text-shadow(1px 1px 0 wp-color($blue, 'dark'));
-
-    &:hover, &:focus {
-      border-color: wp-color($blue, 'main', -5%);
-      background-color: wp-color($blue, 'main', 5%);
-      @include background-image(linear-gradient(
-        wp-color($blue, 'main', 10%),
-        wp-color($blue, 'main', 5%) 30%,
-        wp-color($blue, 'main', 5%) 70%,
-        wp-color($blue)
-      ));
-    }
-
-    &[disabled], &[disabled]:hover {
-      background-color: mix(wp-color($blue), wp-color($grey, 'bright'));
-      @include background-image(none);
-      border-color: darken(mix(wp-color($blue), wp-color($grey, 'bright')), 5%);
-      color: $white;
-    }
-
-    &:focus {
-      @include box-shadow(0 0 4px rgba(wp-color($blue), 0.5));
-    }
-  }
-
-  &.btn-negative {
-    background-color: wp-color($red);
-    @include background-image(linear-gradient(
-      wp-color($red, 'main', 5%),
-      wp-color($red) 30%,
-      wp-color($red) 70%,
-      wp-color($red, 'main', -2.5%)
-    ));
-    border-color: wp-color($red, 'main', -5%);
-    color: $white;
-    @include text-shadow(1px 1px 0 wp-color($red, 'dark'));
-
-    &:hover, &:focus {
-      border-color: wp-color($red, 'main', -5%);
-      background-color: wp-color($red, 'main', 5%);
-      @include background-image(linear-gradient(
-        wp-color($red, 'main', 10%),
-        wp-color($red, 'main', 5%) 30%,
-        wp-color($red, 'main', 5%) 70%,
-        wp-color($red)
-      ));
-    }
-
-    &[disabled], &[disabled]:hover {
-      background-color: mix( wp-color($red), wp-color($grey, 'bright'));
-      @include background-image(none);
-      border-color: darken(mix(wp-color($red), wp-color($grey, 'bright')), 5%);
-      color: $white;
-    }
-
-    &:focus {
-      @include box-shadow(0 0 4px rgba(wp-color($red), 0.5));
-    }
-  }
-
-  &.btn-aux1 {
-    background-color: wp-color($purple);
-    @include background-image(linear-gradient(
-      wp-color($purple, 'main', 5%),
-      wp-color($purple) 30%,
-      wp-color($purple) 70%,
-      wp-color($purple, 'main', -2.5%)
-    ));
-    border-color: wp-color($purple, 'main', -5%);
-    color: $white;
-    @include text-shadow(1px 1px 0 wp-color($purple, 'dark'));
-
-    &:hover, &:focus {
-      border-color: wp-color($purple, 'main', -5%);
-      background-color: wp-color($purple, 'main', 5%);
-      @include background-image(linear-gradient(
-        wp-color($purple, 'main', 10%),
-        wp-color($purple, 'main', 5%) 30%,
-        wp-color($purple, 'main', 5%) 70%,
-        wp-color($purple)
-      ));
-    }
-
-    &[disabled], &[disabled]:hover {
-      background-color: mix( wp-color($purple), wp-color($grey, 'bright'));
-      @include background-image(none);
-      border-color: darken(mix(wp-color($purple), wp-color($grey, 'bright')), 5%);
-      color: $white;
-    }
-
-    &:focus {
-      @include box-shadow(0 0 4px rgba(wp-color($purple), 0.5));
-    }
-  }
-
-  &.btn-aux2 {
-    background-color: wp-color($orange);
-    @include background-image(linear-gradient(
-      wp-color($orange, 'main', 5%),
-      wp-color($orange) 30%,
-      wp-color($orange) 70%,
-      wp-color($orange, 'main', -2.5%)
-    ));
-    border-color: wp-color($orange, 'main', -5%);
-    color: $white;
-    @include text-shadow(1px 1px 0 wp-color($orange, 'dark'));
-
-    &:hover, &:focus {
-      border-color: wp-color($orange, 'main', -5%);
-      background-color: wp-color($orange, 'main', 5%);
-      @include background-image(linear-gradient(
-        wp-color($orange, 'main', 10%),
-        wp-color($orange, 'main', 5%) 30%,
-        wp-color($orange, 'main', 5%) 70%,
-        wp-color($orange)
-      ));
-    }
-
-    &[disabled], &[disabled]:hover {
-      background-color: mix( wp-color($orange), wp-color($grey, 'bright'));
-      @include background-image(none);
-      border-color: darken(mix(wp-color($orange), wp-color($grey, 'bright')), 5%);
-      color: $white;
-    }
-
-    &:focus {
-      @include box-shadow(0 0 4px rgba(wp-color($orange), 0.5));
-    }
-  }
-
-  &.btn-large {
-    font-size: 1.125em;
-    padding: 0.5em 0.625em;
-  }
-
-  &.btn-small {
-    font-size: 0.75em;
-    font-weight: 400;
-    padding: 0.375em 0.25em;
-  }
-
-  &:active {
-
-  }
-}
 
 input[type="text"],
 input[type="password"],
@@ -291,4 +91,121 @@ input[type="password"] {
 
 input[type="checkbox"] {
 
+}
+
+.form-required {
+  color: wp-color($red);
+}
+
+.form-item {
+  margin-bottom: 1em;
+}
+
+/**
+ * LABELS AND FIELD ALIGNMENT
+ */
+.form-type-item,
+.form-type-textfield,
+.form-type-emailfield,
+.form-type-select,
+.form-type-password,
+.form-type-password-confirm {
+  @extend %clearfix;
+
+  label {
+    display: block;
+  }
+
+  .description {
+    color: wp-color($grey, main, 20%);
+  }
+
+  @include respond-to('wide form labels') {
+    label {
+      float: left;
+      width: 18%;
+      margin-right: 2%;
+      padding: 0.5em 0;
+    }
+
+    input {
+      float: right;
+      width: 80%;
+    }
+
+    .description {
+      float: right;
+      width: 80%;
+    }
+  }
+}
+
+// Radio buttons and checkboxes have a different output structure from the above,
+// so we treat them separately.
+.form-type-radios {
+  @extend %clearfix;
+
+  > label {
+    display: block;
+  }
+
+  .description {
+    color: wp-color($grey, main, 20%);
+  }
+
+  .form-item {
+    margin-bottom: 0.25em;
+
+    label {
+      @include transition(color 0.3s ease-out);
+    }
+
+    input:checked + label {
+      color: wp-color($blue);
+    }
+  }
+
+
+  @include respond-to('wide form labels') {
+    > label {
+      float: left;
+      width: 18%;
+      margin-right: 2%;
+      padding: 0.5em 0;
+    }
+
+    .form-radios {
+      float: right;
+      width: 80%;
+      padding: 0.25em 0;
+    }
+  }
+}
+
+// Finally, text areas
+.form-type-textarea {
+  @extend %clearfix;
+
+  > label {
+    display: block;
+  }
+
+  .description {
+    color: wp-color($grey, main, 20%);
+  }
+
+  @include respond-to('wide form labels') {
+    > label {
+      float: left;
+      width: 18%;
+      margin-right: 2%;
+      padding: 0.5em 0;
+    }
+
+    .form-textarea-wrapper {
+      float: right;
+      width: 80%;
+      padding: 0.25em 0;
+    }
+  }
 }

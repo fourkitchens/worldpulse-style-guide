@@ -1,0 +1,25 @@
+/**
+ * @file _panel-pane.scss
+ * Styles for panel panes
+ */
+
+// Some general styles which apply only to some panes. To be selective, we'll
+// extend this below.
+%panel-pane-content {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid wp-color($grey, highlight, -5%);
+  border-bottom-width: 2px;
+  @include border-radius(3px);
+  background-color: wp-color($grey, highlight, 5%);
+}
+
+.panel-pane {
+  &.pane-page-content, &.pane-node {
+    @extend %panel-pane-content;
+  }
+
+  .pane-title {
+    margin-top: 0;
+  }
+}

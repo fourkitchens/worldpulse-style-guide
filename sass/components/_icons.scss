@@ -8,6 +8,9 @@
   vertical-align: middle;
   line-height: 32px;
 
+  // Align right makes my text-hiding method stop working, in the case of some
+  // right-align icon lists.
+  text-align: left;
   text-indent: -5000px;
 
   // @TODO: Is 32px the right size here?
@@ -15,6 +18,13 @@
   width: 32px;
   line-height: 32px;
   max-width: 100%;
+
+  // Allow a small icon, when we know the browser can scale down the image appropraitely.
+  .backgroundsize &.icon-small {
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+  }
 
   margin: 0.5em;
 
@@ -51,6 +61,7 @@
     background-color: wp-color($grey, 'highlight', 5%);
   }
 
+  &.show-tooltip:focus:after,
   &.show-tooltip:hover:after {
     display: block;
   }
@@ -74,6 +85,9 @@ $icons: // All icons
   "public"
   "region"
   "tags"
+  "edit"
+  "delete"
+  "reply"
 ;
 
 $hovers: // Icons which have images for a hover-state. Although Compass throws
@@ -81,6 +95,9 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
          // way to check for this automatically.
   "abuse"
   "cc"
+  "edit"
+  "delete"
+  "reply"
 ;
 
 @each $icon in $icons {
@@ -104,7 +121,9 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
  * Individual tweaks
  */
 
-.icon-abuse.show-tooltip:after {
+// The red ones:
+.icon-abuse.show-tooltip:after,
+.icon-delete.show-tooltip:after {
   color: wp-color($red, 'bright');
   border-color: wp-color($red, 'main', 5%);
 }

@@ -1,0 +1,9 @@
+/**
+ * @file _base_layouts.scss
+ * A generic set of layouts that are used cross-site.
+ */
+
+%primary-container {
+  max-width: $max-width;
+  padding: 0 10px;
+}

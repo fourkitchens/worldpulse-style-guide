@@ -22,3 +22,17 @@
     @content;
   }
 }
+
+// RTL styles
+@mixin rtl {
+  html[dir="rtl"] & {
+    @content;
+  }
+}
+
+// Special mixin for IE8 RTL
+@mixin ie-breakpoint-rtl {
+  html[dir="rtl"].lt-ie9 & {
+    @content;
+  }
+}

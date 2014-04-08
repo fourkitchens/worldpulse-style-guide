@@ -1,0 +1,19 @@
+/**
+ * @file _node.scss
+ * Generic node styles
+ */
+
+.node {
+  &.node-unpublished {
+    // Reposition an unpublished node within its content pane so that we can have
+    // an alternate background color that fills the whole space.
+    @include box-sizing(content-box);
+    position: relative;
+    width: 100%;
+    margin-bottom: -2em;
+    left: -1em;
+    top: -1em;
+    padding: 1em;
+    background-color: wp-color($red, highlight, 17.5%);
+  }
+}

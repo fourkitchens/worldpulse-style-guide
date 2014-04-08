@@ -1,0 +1,14 @@
+/**
+ * @file wp_two_col.admin.scss
+ * The layout only to be used on the admin interface for wp_two_col.
+ */
+
+@import '../config/config';
+
+.pre-content,
+.post-content {
+  width: 100%;
+}
+
+@import '../layouts/base_layouts';
+@import '../layouts/l-two-column';

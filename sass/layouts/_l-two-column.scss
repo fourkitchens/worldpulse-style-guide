@@ -1,0 +1,36 @@
+/**
+ * @file _l-two-column.scss
+ * A basic two column layout to be used.
+ */
+
+.l-two-column {
+
+  .column-1 {
+
+  }
+
+  .column-2 {
+
+  }
+
+  @include respond-to('two col med') {
+    .column-1 {
+      @include grid-span(1, 1);
+    }
+
+    .column-2 {
+      @include grid-span(1, 2);
+    }
+  }
+
+  @include respond-to('two col large', true) {
+    .column-1 {
+      @include grid-span(1, 1);
+    }
+
+    .column-2 {
+      @include grid-span(1, 2);
+    }
+  }
+
+}

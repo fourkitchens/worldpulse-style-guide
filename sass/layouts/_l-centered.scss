@@ -1,0 +1,9 @@
+/**
+ * @file _l-centered.scss
+ * Centered sections of the page.
+ */
+
+.l-centered {
+  @extend %primary-container;
+  margin: 0 auto;
+}

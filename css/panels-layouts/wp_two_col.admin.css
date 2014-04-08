@@ -1,0 +1,65 @@
+/**
+ * @file wp_two_col.admin.scss
+ * The layout only to be used on the admin interface for wp_two_col.
+ */
+.pre-content,
+.post-content {
+  width: 100%;
+}
+
+/**
+ * @file _base_layouts.scss
+ * A generic set of layouts that are used cross-site.
+ */
+/**
+ * @file _l-two-column.scss
+ * A basic two column layout to be used.
+ */
+@media (min-width: 37.5em) {
+  .l-two-column .column-1 {
+    width: 64.28571%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none;
+  }
+  [dir="rtl"] .l-two-column .column-1 {
+    float: right;
+    margin-left: -100%;
+    margin-right: 0;
+  }
+  .l-two-column .column-2 {
+    width: 32.14286%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
+  [dir="rtl"] .l-two-column .column-2 {
+    float: left;
+  }
+}
+@media (min-width: 50em) {
+  .l-two-column .column-1 {
+    width: 66.66667%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none;
+  }
+  [dir="rtl"] .l-two-column .column-1 {
+    float: right;
+    margin-left: -100%;
+    margin-right: 0;
+  }
+  .l-two-column .column-2 {
+    width: 25%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
+  [dir="rtl"] .l-two-column .column-2 {
+    float: left;
+  }
+}

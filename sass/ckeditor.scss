@@ -1,0 +1,28 @@
+////////////////////////
+// CKEditor styles
+//
+// This file gets turned into ckeditor.css.
+////////////////////////
+
+////////////////////////
+// Configuration, no CSS output.
+//   variables
+//   mixins
+//   functions
+//   compass extensions
+////////////////////////
+@import 'config/config';
+
+@import 'global/_normalize.css.scss';
+@import 'global/extendables';
+@import 'global/type';
+
+
+body {
+  padding: .5em;
+  background-color: wp-color($grey, highlight, 5%);
+}
+
+p:first-child {
+  margin-top: 0;
+}

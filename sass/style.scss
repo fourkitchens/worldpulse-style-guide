@@ -30,22 +30,37 @@
 @import 'drupal/base';
 @import 'drupal/tabs-pagers';
 @import 'drupal/messages';
-
-////////////////////////
-// Import component/feature design partials
-////////////////////////
-@import 'components/logo';
-@import 'components/icons';
-@import 'components/journal-post'; // STYLEGUIDE ONLY (This is omitted for now. Markup from style guide won't match Drupal output.)
+@import 'drupal/krumo_root';
 
 ////////////////////////
 // Import layouts
 ////////////////////////
-//@import 'layout/header';
-//@import 'layout/panel-page-x';
+@import 'layouts/base_layouts';
+@import 'layouts/l-centered';
+@import 'layouts/l-two-column';
 
 ////////////////////////
 // Import compontents
 ////////////////////////
-//@import 'components/tabs';
-//@import 'components/button';
+@import 'components/button';
+@import 'components/header';
+@import 'components/logo';
+@import 'components/main';
+@import 'components/icons';
+@import 'components/footer';
+@import 'components/panel-pane';
+@import 'components/user-login';
+@import 'components/user-profile-form';
+@import 'components/node-form';
+@import 'components/node';
+@import 'components/node-post';
+@import 'components/comment';
+@import 'components/comment-form';
+@import 'components/comment-wrapper';
+@import 'components/ckeditor_overrides';
+@import 'components/oembed';
+
+////////////////////////
+// Import print
+////////////////////////
+@import 'print';
