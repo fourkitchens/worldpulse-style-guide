@@ -1,0 +1,48 @@
+.icon-abuse:hover, .flag-wp-flag-comments-abuse a:hover,
+.icon-abuse-hover { background-image: url('png/abuse-hover.png'); background-repeat: no-repeat; }
+
+.flag-wp-flag-comments-abuse .unflag-action,
+.icon-abuse-reported { background-image: url('png/abuse-reported.png'); background-repeat: no-repeat; }
+
+.flag-wp-flag-comments-abuse .flag-action,
+.icon-abuse { background-image: url('png/abuse.png'); background-repeat: no-repeat; }
+
+.icon-cc:hover,
+.icon-cc-hover { background-image: url('png/cc-hover.png'); background-repeat: no-repeat; }
+
+.icon-cc { background-image: url('png/cc.png'); background-repeat: no-repeat; }
+
+.icon-edit:hover,
+.icon-edit-hover { background-image: url('png/edit-hover.png'); background-repeat: no-repeat; }
+
+.icon-edit { background-image: url('png/edit.png'); background-repeat: no-repeat; }
+
+.field-name-field-post-access input:checked + label .icon-friends,
+.icon-friends-highlight { background-image: url('png/friends-highlight.png'); background-repeat: no-repeat; }
+
+.icon-friends { background-image: url('png/friends.png'); background-repeat: no-repeat; }
+
+.field-name-field-post-access input:checked + label .icon-private,
+.icon-private-highlight { background-image: url('png/private-highlight.png'); background-repeat: no-repeat; }
+
+.icon-private { background-image: url('png/private.png'); background-repeat: no-repeat; }
+
+.field-name-field-post-access input:checked + label .icon-public,
+.icon-public-highlight { background-image: url('png/public-highlight.png'); background-repeat: no-repeat; }
+
+.icon-public { background-image: url('png/public.png'); background-repeat: no-repeat; }
+
+.icon-redact:hover,
+.icon-redact-hover { background-image: url('png/redact-hover.png'); background-repeat: no-repeat; }
+
+.icon-redact { background-image: url('png/redact.png'); background-repeat: no-repeat; }
+
+.icon-region { background-image: url('png/region.png'); background-repeat: no-repeat; }
+
+.icon-reply:hover,
+.icon-reply-hover { background-image: url('png/reply-hover.png'); background-repeat: no-repeat; }
+
+.icon-reply { background-image: url('png/reply.png'); background-repeat: no-repeat; }
+
+.icon-tags { background-image: url('png/tags.png'); background-repeat: no-repeat; }
+

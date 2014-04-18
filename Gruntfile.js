@@ -73,7 +73,7 @@ module.exports = function (grunt) {
           defaultHeight: "64px",
           customselectors: {
             "abuse": [".flag-wp-flag-comments-abuse .flag-action"],
-            "abuse-hover": [".flag-wp-flag-comments-abuse a:hover"],
+            "abuse-hover": [".icon-abuse:hover, .flag-wp-flag-comments-abuse a:hover"],
             "abuse-reported": [".flag-wp-flag-comments-abuse .unflag-action"],
             "cc-hover": [".icon-cc:hover"],
             "redact-hover": [".icon-redact:hover"],
