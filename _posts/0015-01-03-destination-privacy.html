@@ -1,0 +1,46 @@
+---
+layout: component
+title:  "Post Destination / Privacy"
+---
+
+{% comment %}
+Note that this file is HTML, not Markdown. For some reason, whether captured
+directly, or brought in from an included .html file, Liquid split the following
+code block in half and highlighted it in the example as well as the code output.
+Switching this file to HTML from Markdown made that parsing stop and now the
+sample renders correctly.
+{% endcomment %}
+
+{% capture r %}
+<form action="#" class="node-form">
+  <div class="field-name-field-post-access">
+    <div class="form-item form-type-radios form-item-field-post-access-und">
+      <label class="element-invisible" for="edit-field-post-access-und">
+        Post Privacy
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div id="edit-field-post-access-und" class="form-radios">
+        <div class="form-item form-type-radio">
+          <input type="radio" id="edit-field-post-access-und-1" name="field_post_access[und]" value="1" checked="checked" />
+          <label class="option" for="edit-field-post-access-und-1">
+            <span class="icon-public icon-small"></span> Public
+          </label>
+        </div>
+        <div class="form-item form-type-radio">
+          <input type="radio" id="edit-field-post-access-und-3" name="field_post_access[und]" value="3" />
+          <label class="option" for="edit-field-post-access-und-3">
+            <span class="icon-private icon-small"></span> Private
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endcapture %}
+
+<h3>Post Privacy/Access Field</h3>
+{% include sample.html sample=r %}
+
+<p>Note that the text is placed outside the icon span; this prevents it from being
+pulled into the styled tooltip for <a href="{% post_url 0005-01-02-icons %}">icon
+elements</a>.</p>

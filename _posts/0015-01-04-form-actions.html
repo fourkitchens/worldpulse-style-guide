@@ -1,0 +1,21 @@
+---
+layout: component
+title:  "Form Submit Actions"
+---
+
+{% capture r %}
+<form action="#" class="node-form">
+  <div class="form-actions form-wrapper" id="edit-actions">
+    <input class="action-submit form-submit" type="submit" id="edit-submit" name="op" value="Save">
+    <input class="action-draft form-submit" type="submit" id="edit-draft" name="op" value="Unpublish">
+    <input class="action-preview form-submit" type="submit" id="edit-preview" name="op" value="Preview">
+    <input class="action-preview_changes form-submit" type="submit" id="edit-preview-changes" name="op" value="View changes">
+    <input class="action-delete form-submit" type="submit" id="edit-delete" name="op" value="Delete">
+  </div>
+</form>
+{% endcapture %}
+
+{% include sample.html sample=r %}
+
+<p><em>@TODO: </em>Preview Changes<em> should be restricted to trained users,
+as the diff output will be unfamiliar to our audience.</em></p>

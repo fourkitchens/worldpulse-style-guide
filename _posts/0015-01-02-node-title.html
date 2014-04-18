@@ -1,0 +1,22 @@
+---
+layout: component
+title:  "Post Title"
+---
+
+{% capture t %}
+<form action="#" class="node-form">
+  <div class="form-item form-type-textfield form-item-title">
+    <label for="edit-title">
+      Title <span class="form-required" title="This field is required.">*</span>
+    </label>
+    <input type="text" id="edit-title" name="title" size="60" maxlength="255"
+      value="Introducing Myself and My Journal" class="form-text required" />
+  </div>
+</form>
+{% endcapture %}
+
+{% include sample.html sample=t %}
+
+<p>The title field on the node form is displayed in the style of
+  <a href="{% post_url 0002-01-02-headings %}">a level 2 heading</a> tag to
+  reinforce to users the role and importance of this field.</p>
