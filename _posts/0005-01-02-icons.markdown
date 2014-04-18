@@ -75,8 +75,8 @@ to be read inline by screen readers, search engines, text browsers, etc.
 | `.icon-edit`    | <a class="icon-edit">Edit this</a>                     | _Edit_                   | [Edit 8](http://iconmonstr.com/edit-8-icon/)             |
 | `.icon-friends` | <span class="icon-friends">Friends Only</span>         | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/)           |
 | `.icon-private` | <span class="icon-private">Only Me</span>              | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)             |
-| `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/)           |
-| `.icon-redact`  | <a class="icon-redact">Delete this</a>                 | _Redact_ <br/> (User-facing alternative to _Delete_ for comments) | [Trash Can 10](http://iconmonstr.com/trash-can-10-icon/)   |
+| `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/) <br/> <small>Path simplified in Illustrator for file-size reduction.</small>          |
+| `.icon-redact`  | <a class="icon-redact">Delete this</a>                 | _Redact_ <br/> <small>User-facing alternative to _Delete_ for comments</small> | [Trash Can 10](http://iconmonstr.com/trash-can-10-icon/)   |
 | `.icon-region`  | <span class="icon-region">Region(s)</span>             | _Region_                 | [Globe 3](http://iconmonstr.com/globe-3-icon/)           |
 | `.icon-reply`   | <a class="icon-reply">Reply to this</a>                | _Reply_                  | [Speech Bubble 14](http://iconmonstr.com/speech-bubble-14-icon/) |
 | `.icon-tags`    | <span class="icon-tags">Tags / Topics</span>           | _Tags / Topics_          | [Tags 6](http://iconmonstr.com/tags-6-icon/)             |
