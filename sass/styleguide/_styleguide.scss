@@ -507,3 +507,10 @@ body {
     &.gotham .largesample { text-transform: uppercase; font-weight: 600; }
   }
 }
+
+.icons-inventory + table {
+  td:last-child, th:last-child { display: none; }
+  @include respond-to('sg icons large') {
+    td:last-child, th:last-child { display: table-cell; }
+  }
+}

@@ -4,21 +4,59 @@ title:  "Iconography"
 ---
 
 ### Source [Iconmonstr](http://iconmonstr.com/)
-- Files: 32px and 64px PNGs and SVGs
+- Files: SVGs
 - Color: #574b4b
 
 SVG icons from this source are manually edited to ensure shapes are all the
 correct color. Iconmonstr's SVG downloader does not alter SVG colors, although
 the PNG downloader does. Add `fill="#574b4b"` to the `path` element(s).
 
+[Grunticons](https://github.com/filamentgroup/grunticon) is used to generate the
+stylesheets for icon files and PNG fallbacks when SVG is not supported. It
+generates:
+
+- _Preferred:_ A stylesheet with dataURI `background-image` values in SVG.
+- _Alternate:_ A stylesheet with URL requests for generated PNGs, loaded based on
+  the result of `Modernizr.svg`.
+- _Available, but currently unused:_ A stylesheet with dataURI `background-image`
+  values in PNG. Although this is IE8-compatible, it is not compatible with our
+  minimum target versions of Android and iOS.
+
+If an alternate image color for `hover` or other states is available, or additional
+classes need to be supported in the case that our icon classes cannot be added to
+the element, these additional selectors should be added to the `Gruntfile.js`
+config for Grunticons in `customselectors`:
+
+<div class="styleguide-sample">
+<div class="example">
+  <em>Excerpted from original:</em>
+</div>
+<div class="code">
+{% highlight js %}
+  grunticon: {
+    development: {
+      options: {
+        customselectors: {
+          // "CC" and "Edit" have a hover state:
+          "cc-hover": [".icon-cc:hover"],
+          "edit-hover": [".icon-edit:hover"],
+
+          // "Abuse" has a hover state, a reported state, and needs support for
+          // Flag module classes:
+          "abuse": [".flag-wp-flag-comments-abuse .flag-action"],
+          "abuse-hover": [".icon-abuse:hover, .flag-wp-flag-comments-abuse a:hover"],
+          "abuse-reported": [".flag-wp-flag-comments-abuse .unflag-action"]
+        }
+      }
+    }
+  }
+{% endhighlight %}
+</div></div>
+
 Using JavaScript, the text content of the element is dynamically loaded into
 the styled tooltip when the page loads. This allows the text content of the icon
 to be read inline by screen readers, search engines, text browsers, etc.
 
-If an alternate image color for `hover` states, is available and noted in the
-`_icons.scss` file, a link-only hover state will be created. This way, icons
-using a `span` tag will not have a hover state (indicating that they are not
-interactive), but icons using an `a` (link) tag will.
 
 
 ### Usage Example:
@@ -28,17 +66,17 @@ interactive), but icons using an `a` (link) tag will.
 {% endcapture %}
 {% include sample.html sample=i %}
 
-### Full Inventory:
+<h3 class="icons-inventory">Full Inventory:</h3>
 
 | CSS Class       | Example                                                | Meaning on _World Pulse_ | Original Iconmonstr Entry                                |
 | --------------- |:------------------------------------------------------:| ------------------------ | -------------------------------------------------------- |
 | `.icon-abuse`   | <a class="icon-abuse">This is Abuse or Spam</a>        | _Spam / Abuse_           | [Stop 3](http://iconmonstr.com/stop-3-icon/)             |
 | `.icon-cc`      | <a class="icon-cc">Creative Commons</a>                | _Creative Commons_       | [Copyright 4](http://iconmonstr.com/copyright-4-icon/)   |
-| `.icon-delete`  | <a class="icon-delete">Delete this</a>                 | _Delete_                 | [Trash Can 9](http://iconmonstr.com/trash-can-9-icon/)   |
 | `.icon-edit`    | <a class="icon-edit">Edit this</a>                     | _Edit_                   | [Edit 8](http://iconmonstr.com/edit-8-icon/)             |
 | `.icon-friends` | <span class="icon-friends">Friends Only</span>         | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/)           |
 | `.icon-private` | <span class="icon-private">Only Me</span>              | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)             |
 | `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/)           |
+| `.icon-redact`  | <a class="icon-redact">Delete this</a>                 | _Redact_ <br/> (User-facing alternative to _Delete_ for comments) | [Trash Can 10](http://iconmonstr.com/trash-can-10-icon/)   |
 | `.icon-region`  | <span class="icon-region">Region(s)</span>             | _Region_                 | [Globe 3](http://iconmonstr.com/globe-3-icon/)           |
 | `.icon-reply`   | <a class="icon-reply">Reply to this</a>                | _Reply_                  | [Speech Bubble 14](http://iconmonstr.com/speech-bubble-14-icon/) |
 | `.icon-tags`    | <span class="icon-tags">Tags / Topics</span>           | _Tags / Topics_          | [Tags 6](http://iconmonstr.com/tags-6-icon/)             |
