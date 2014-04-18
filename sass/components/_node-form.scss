@@ -17,65 +17,75 @@
     // @TODO: This isn't permanent. Please, yes? Better ways!
     display: none;
   }
+}
 
-  // Privacy Controls work. This may eventually belong in its own file with
-  // the three fields that make up this component. In the meantime, just for
-  // journal privacy limited options (private/public), it's here:
-  @include breakpoint(200px) { // So IE 8 really doesn't play nice with
-    // this method. So... I'm not proud of this, but here's how I'm gonna hide it.
-    .field-name-field-post-access {
-      .form-radios {
-        @include clearfix(); // Include because of media query.
-      }
+// Privacy Controls work. This may eventually belong in its own file with
+// the three fields that make up this component. In the meantime, just for
+// journal privacy limited options (private/public), it's here:
+@include respond-to('ie 8') {// So IE 8 really doesn't play nice with
+  // this method. So... I'm not proud of this, but here's how I'm gonna hide it.
+  .field-name-field-post-access {
+    .form-radios {
+      @include clearfix(); // Include because of media query.
+    }
 
-      .form-radios .form-item {
-        float: left;
-        margin: 0;
-        padding: 0;
+    .form-radios .form-item {
+      float: left;
+      margin: 0;
+      padding: 0;
+    }
 
-        input {
-          display: none; // @TODO: We should wrap this in a modernizr conditional class to make sure this doesn't cause accessibility issues.
-        }
+    input {
+      display: none; // @TODO: We should wrap this in a modernizr conditional class to make sure this doesn't cause accessibility issues.
+    }
 
-        label {
-          display: block;
-          color: wp-color($grey, main);
-          background-color: wp-color($grey, bright, 10%);
-          padding: 0.75em 1.5em;
+    label {
+      display: block;
+      color: wp-color($grey, main);
+      background-color: wp-color($grey, bright, 10%);
+      padding: 0.5em 1.25em 0.5em 0.75em;
 
-          border: 1px solid wp-color($grey, bright, 5%);
-          border-bottom-width: 2px;
+      border: 1px solid wp-color($grey, bright, 5%);
+      border-bottom-width: 2px;
 
-          @include transition(all .2s ease-out);
+      @include transition(all .2s ease-out);
 
-          &:hover {
-            color: wp-color($grey, main, -5%);
-            background-color: wp-color($grey, bright, 15%);
-          }
-        }
-
-        &:first-child label {
-          @include border-radius(3px 0 0 3px);
-          border-left: 1px solid wp-color($grey, bright, 5%);
-        }
-
-        &:last-child label {
-          @include border-radius(0 3px 3px 0);
-          border-right: 1px solid wp-color($grey, bright, 5%);
-        }
-
-        input:checked + label {
-          color: $white;
-          font-weight: bold;
-          background-color: wp-color($purple, main);
-
-          border-color: wp-color($purple, main, -5%);
-
-          &:hover {
-            background-color: wp-color($purple, main, 5%);
-          }
-        }
+      &:hover {
+        color: wp-color($grey, main, -5%);
+        background-color: wp-color($grey, bright, 15%);
       }
     }
-  } // END MEDIA QUERY
-}
+
+    .form-type-radio:first-child label {
+      @include border-radius(3px 0 0 3px);
+      border-left: 1px solid wp-color($grey, bright, 5%);
+    }
+
+    // This will not work for IE 8, we need to find another way.
+    .form-type-radio:last-child label {
+      @include border-radius(0 3px 3px 0);
+      border-right: 1px solid wp-color($grey, bright, 5%);
+    }
+
+    input:checked + label {
+      color: $white;
+      font-weight: bold;
+      background-color: wp-color($purple);
+
+      border-color: wp-color($purple, main, -5%) !important; // Use important to override the :first/last-child label outer borders
+
+      &:hover {
+        background-color: wp-color($purple, main, 5%);
+      }
+    }
+  }
+
+  .form-disabled label {
+    background-color: wp-color($grey, bright);
+
+    &:hover {
+      background-color: wp-color($grey, bright);
+    }
+  }
+
+} // END MEDIA QUERY

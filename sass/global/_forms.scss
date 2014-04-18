@@ -155,15 +155,16 @@ input[type="checkbox"] {
 
   .form-item {
     margin-bottom: 0.25em;
-
-    label {
-      @include transition(color 0.3s ease-out);
-    }
-
-    input:checked + label {
-      color: wp-color($blue);
-    }
   }
+  
+  label {
+    @include transition(color 0.3s ease-out);
+  }
+
+  input:checked + label {
+    color: wp-color($blue);
+  }
+
 
 
   @include respond-to('wide form labels') {

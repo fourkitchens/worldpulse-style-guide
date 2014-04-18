@@ -19,7 +19,6 @@
     }
 
     .comment-meta {
-      font-size: 0.875em;
       font-style: italic;
       color: wp-color($purple, main);
     }
@@ -37,8 +36,13 @@
     }
   }
 
+  .comment-redacted {
+    font-style: italic;
+    color: wp-color($orange, main, -10%);
+  }
+
   footer {
-    .comment-new, .comment-edited {
+    .comment-new, .comment-edited, .comment-abuse-notice {
       @include border-radius(3px);
       padding: 0.375em;
       vertical-align: middle;
@@ -56,9 +60,16 @@
       background-color: wp-color($grey, bright, -5%);
     }
 
+    .comment-abuse-notice {
+      color: wp-color($red, highlight, 5%);
+      background-color: wp-color($red, bright, -5%);
+    }
+
     ul.links {
       margin-top: 0;
       text-align: right;
     }
   }
 }
+
+

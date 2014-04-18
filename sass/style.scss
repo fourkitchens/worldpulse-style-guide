@@ -49,8 +49,7 @@
 @import 'components/icons';
 @import 'components/footer';
 @import 'components/panel-pane';
-@import 'components/user-login';
-@import 'components/user-profile-form';
+//@import 'components/user-profile-form';
 @import 'components/node-form';
 @import 'components/node';
 @import 'components/node-post';
@@ -59,6 +58,7 @@
 @import 'components/comment-wrapper';
 @import 'components/ckeditor_overrides';
 @import 'components/oembed';
+@import 'components/unpublished';
 
 ////////////////////////
 // Import print

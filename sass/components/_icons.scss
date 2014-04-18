@@ -43,8 +43,8 @@
     display: none;
     z-index: 1000;
     top: 28px;
-    left: -24px;
-    width: 80px;
+    left: -28px;
+    width: 88px;
 
     font-size: 0.75em;
     line-height: 1.15;
@@ -86,34 +86,18 @@ $icons: // All icons
   "region"
   "tags"
   "edit"
-  "delete"
+  "redact"
   "reply"
 ;
 
-$hovers: // Icons which have images for a hover-state. Although Compass throws
-         // errors for image-url() files that don't exist, it doesn't provide a
-         // way to check for this automatically.
-  "abuse"
-  "cc"
-  "edit"
-  "delete"
-  "reply"
-;
+// If you're creating an icon with a hover or active state, be sure to configure
+// that in the Gruntfile.js. This array now exists only to properly extend
+// %worldpulse-icon above; Grunticons handles all image creation and alternate
+// class names if .icon-X isn't possible.
 
 @each $icon in $icons {
   #{('.icon-' + $icon)} {
     @extend %worldpulse-icon;
-    background-image: image-url('icons/icon-' + $icon + '-32.png');
-    @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64.png'); }
-    .svg & { background-image: image-url('icons/icon-' + $icon + '.svg'); }
-  }
-
-  @if ( index($hovers, $icon) ) {
-    #{('a.icon-' + $icon + ':hover')} {
-      background-image: image-url('icons/icon-' + $icon + '-32-hover.png');
-      @include respond-to('hi res') { background-image: image-url('icons/icon-' + $icon + '-64-hover.png'); }
-      .svg & { background-image: image-url('icons/icon-' + $icon + '-hover.svg'); }
-    }
   }
 }
 
@@ -122,8 +106,15 @@ $hovers: // Icons which have images for a hover-state. Although Compass throws
  */
 
 // The red ones:
+#{nest('.flag-wp-flag-comments-abuse', '.flag-action:after, .unflag-action:after')},
 .icon-abuse.show-tooltip:after,
-.icon-delete.show-tooltip:after {
+.icon-redact.show-tooltip:after {
   color: wp-color($red, 'bright');
   border-color: wp-color($red, 'main', 5%);
+}
+
+// Extra items that need the icon classes added to them.
+.flag-wp-flag-comments-abuse .flag-action,
+.flag-wp-flag-comments-abuse .unflag-action {
+  @extend %worldpulse-icon;
 }

@@ -109,6 +109,8 @@ input.action-submit { // The input. is necissary here to override the above rule
 
 %btn-negative,
 .btn-negative,
+form[id*="delete"] input.action-submit,
+form[id*="redact"] input.action-submit,
 input.action-delete {
   background-color: wp-color($red);
   @include background-image(linear-gradient(
