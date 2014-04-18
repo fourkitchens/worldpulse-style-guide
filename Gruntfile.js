@@ -15,7 +15,7 @@ module.exports = function (grunt) {
         }
       },
       css: {
-        files: ['stylesheets/{,**/}*.css']
+        files: ['css/{,**/}*.css']
       },
       images: {
         files: ['images/**']
@@ -59,7 +59,64 @@ module.exports = function (grunt) {
       ]
     },
 
+    grunticon: {
+      development: {
+        files: [{
+          expand: true,
+          cwd: 'temp-icons/icons',
+          src: ['*.svg'],
+          dest: "temp-icons/grunticon",
+        }],
+        options: {
+          previewhtml: "icons.html",
+          defaultWidth: "64px",
+          defaultHeight: "64px",
+          customselectors: {
+            "abuse": [".flag-wp-flag-comments-abuse .flag-action"],
+            "abuse-hover": [".flag-wp-flag-comments-abuse a:hover"],
+            "abuse-reported": [".flag-wp-flag-comments-abuse .unflag-action"],
+            "cc-hover": [".icon-cc:hover"],
+            "redact-hover": [".icon-redact:hover"],
+            "edit-hover": [".icon-edit:hover"],
+            "friends-highlight": [".field-name-field-post-access input:checked + label .icon-friends"],
+            "private-highlight": [".field-name-field-post-access input:checked + label .icon-private"],
+            "public-highlight": [".field-name-field-post-access input:checked + label .icon-public"],
+            "reply-hover": [".icon-reply:hover"]
+          }
+        }
+      }
+    },
+
+    'string-replace': {
+      icons: {
+        files: {
+          'temp-icons/': 'icons/*.svg',
+        },
+        options: {
+          replacements: [{
+            pattern: '512px',
+            replacement: '32px'
+          },
+          {
+            pattern: '512px',
+            replacement: '32px'
+          }]
+        }
+      },
+    },
+
     imagemin: {
+      icons: {
+        options: {
+          optimizationLevel: 3
+        },
+        files: [{
+          expand: true,
+          cwd: 'temp-icons/grunticon',
+          src: ['**/*.png'],
+          dest: 'img/icons'
+        }]
+      },
       dist: {
         options: {
           optimizationLevel: 3
@@ -115,6 +172,16 @@ module.exports = function (grunt) {
     },
 
     copy: {
+      icons: {
+        files: [
+          {
+            expand: true,
+            cwd: 'temp-icons/grunticon',
+            src: ['**', '!**/*.png'],
+            dest: 'img/icons'
+          },
+        ]
+      },
       dist: {
         files: [
           {
@@ -130,9 +197,14 @@ module.exports = function (grunt) {
     parallel: {
       assets: {
         grunt: true,
-        tasks: ['imagemin', 'svgmin', 'uglify:dist', 'copy:dist']
+        tasks: ['imagemin:dist', 'svgmin', 'uglify:dist', 'copy:dist']
       }
-    }
+    },
+
+    clean: {
+      icons: ["temp-icons"],
+      dist: ["img", "css", ".sass-cache"]
+    },
   });
 
 
@@ -151,10 +223,46 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-grunticon');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-string-replace');
 
+  // grunt icons: This will ensure all of our icons are created properly.
+  grunt.registerTask('icons', [
+    'string-replace:icons',
+    'grunticon:development',
+    'imagemin:icons',
+    'copy:icons',
+    'clean:icons',
+  ]);
+
+  // grunt js: Runs jslinting and minifies the js if it is linted.
+  grunt.registerTask('js', [
+    'jshint',
+    'uglify:dev',
+  ]);
+
+  // grunt sass: Compiles all of the Sass in our directory.
+  grunt.registerTask('sass', [
+    'compass:dev',
+  ]);
+
+  // grunt build: Does a full rebuild of our icons, minifies images, compiles
+  //   the Sass, and lints our js
   grunt.registerTask('build', [
+    'clean:dist',
+    'icons',
     'parallel:assets',
     'compass:dist',
     'jshint'
+  ]);
+
+  // grunt / grunt default: Cleans our Sass cache files, builds our icons, and
+  //   compiles the Sass from scratch. Run this after you switch branches.
+  grunt.registerTask('default', [
+    'jshint',
+    'clean:dist',
+    'icons',
+    'compass:dev',
   ]);
 };
