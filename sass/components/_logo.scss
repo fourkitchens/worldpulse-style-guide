@@ -144,6 +144,8 @@
 
     &:after {
       background-color: transparent !important;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 }
