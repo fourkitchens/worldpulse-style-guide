@@ -1,0 +1,9 @@
+/**
+ * @file _styleguide-overrides.scss
+ * CSS overrides for rules in the main Sass, for the demonstration
+ */
+
+// This marker is invisible until unhidden via JS.
+html .form-type-password div.password-confirm {
+  visibility: visible;
+}

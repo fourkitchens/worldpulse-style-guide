@@ -72,8 +72,14 @@ to be read inline by screen readers, search engines, text browsers, etc.
 | --------------- |:------------------------------------------------------:| ------------------------ | -------------------------------------------------------- |
 | `.icon-abuse`   | <a class="icon-abuse">This is Abuse or Spam</a>        | _Spam / Abuse_           | [Stop 3](http://iconmonstr.com/stop-3-icon/)             |
 | `.icon-cc`      | <a class="icon-cc">Creative Commons</a>                | _Creative Commons_       | [Copyright 4](http://iconmonstr.com/copyright-4-icon/)   |
+| `.icon-close`   | <a class="icon-close"></a>                             | _Close_                  | [X Mark 3](http://iconmonstr.com/x-mark-3-icon)          |
+| `.icon-drag`    | <a class="icon-drag"></a>                              | _Drag_ <br/> <small>Seen in Drupal multivalue form tables</small> | [Cursor Move 2](http://iconmonstr.com/cursor-move-2-icon) |
 | `.icon-edit`    | <a class="icon-edit">Edit this</a>                     | _Edit_                   | [Edit 8](http://iconmonstr.com/edit-8-icon/)             |
 | `.icon-friends` | <span class="icon-friends">Friends Only</span>         | _Friends Only_           | [User 14](http://iconmonstr.com/user-14-icon/)           |
+| `.icon-group`   | <span class="icon-group">Group</span>                  | _Group_                  | [Share 2](share-2-icon)                                  |
+| `.icon-journal` | <span class="icon-journal">Journal</span>              | _Journal_                | [Share 2](share-2-icon)                                  |
+| `.icon-next`    | <a class="icon-next"></a>                              | _Next_                   | [Arrow 28](http://iconmonstr.com/arrow-28-icon) <br/> <small>Path mirrored in Illustrator to reverse direction.</small> |
+| `.icon-prev`    | <a class="icon-prev"></a>                              | _Previous_               | [Arrow 28](http://iconmonstr.com/arrow-28-icon)          |
 | `.icon-private` | <span class="icon-private">Only Me</span>              | _Only Me / Private_      | [Lock 3](http://iconmonstr.com/lock-3-icon/)             |
 | `.icon-public`  | <span class="icon-public">Public</span>                | _Public_                 | [Globe 4](http://iconmonstr.com/globe-4-icon/) <br/> <small>Path simplified in Illustrator for file-size reduction.</small>          |
 | `.icon-redact`  | <a class="icon-redact">Delete this</a>                 | _Redact_ <br/> <small>User-facing alternative to _Delete_ for comments</small> | [Trash Can 10](http://iconmonstr.com/trash-can-10-icon/)   |

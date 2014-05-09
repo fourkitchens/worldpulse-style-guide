@@ -1,0 +1,20 @@
+---
+layout: component
+title:  "Progress Bar"
+---
+
+{% capture p %}
+  <div id="progress" class="progress">
+    <div class="bar">
+      <div class="filled" style="width: 57%"></div>
+    </div>
+    <div class="percentage">57%</div>
+    <div class="message">
+      Maecenas mollis eros non elit sollicitudin quis.
+    </div>
+  </div>
+{% endcapture %}
+
+<p><em>Note:</em> The strength and match indicators are not dynamic in this sample.</p>
+
+{% include sample.html sample=p %}

@@ -72,9 +72,8 @@ ol ul {
 }
 
 hr {
-  height: 1px;
-  border: 1px solid #666;
-  padding-bottom: -1px;
+  height: 0;
+  border: 1px solid #fefefe;
   margin: 1em 0;
 }
 
@@ -910,11 +909,10 @@ body {
   font-weight: 600;
 }
 
-.icons-inventory + table td:last-child, .icons-inventory + table th:last-child {
-  display: none;
-}
-@media (min-width: 40em) {
-  .icons-inventory + table td:last-child, .icons-inventory + table th:last-child {
-    display: table-cell;
-  }
+/**
+ * @file _styleguide-overrides.scss
+ * CSS overrides for rules in the main Sass, for the demonstration
+ */
+html .form-type-password div.password-confirm {
+  visibility: visible;
 }

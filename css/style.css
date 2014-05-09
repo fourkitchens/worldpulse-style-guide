@@ -414,9 +414,14 @@ img, video {
 .form-type-password:after,
 .form-type-password-confirm:after,
 .form-type-radios:after,
+.form-type-checkboxes:after,
 .form-type-textarea:after,
 ul.primary:after,
-ul.pager:after {
+ul.pager:after,
+.form-type-password .password-strength:after,
+.form-type-password div.password-confirm:after,
+.node-post .field-post-image-gallery:after,
+.view .vbo-views-form .fieldset-wrapper:after {
   content: "";
   display: table;
   clear: both;
@@ -496,9 +501,8 @@ ol ul {
 }
 
 hr {
-  height: 1px;
-  border: 1px solid #666;
-  padding-bottom: -1px;
+  height: 0;
+  border: 1px solid #fefefe;
   margin: 1em 0;
 }
 
@@ -586,6 +590,9 @@ fieldset > legend {
   font-weight: 600;
   color: #b4a0a0;
 }
+html.js fieldset.collapsed .fieldset-wrapper {
+  display: none;
+}
 
 input,
 button,
@@ -611,6 +618,7 @@ textarea:focus {
 
 textarea {
   display: block;
+  width: 100%;
 }
 
 label {
@@ -628,6 +636,7 @@ label {
 }
 
 input[type="text"],
+input[type="url"],
 input[type="password"],
 input[type="email"],
 textarea,
@@ -636,11 +645,39 @@ select {
   border-radius: 2px;
 }
 input[type="text"]:focus,
+input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 textarea:focus,
 select:focus {
   border-color: #cbbdbd;
+}
+input[type="text"]:focus:invalid,
+input[type="url"]:focus:invalid,
+input[type="password"]:focus:invalid,
+input[type="email"]:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  border-color: #e7242e;
+  -webkit-box-shadow: 0 0 4px rgba(113, 6, 11, 0.5);
+  box-shadow: 0 0 4px rgba(113, 6, 11, 0.5);
+}
+input[type="text"]:invalid,
+input[type="url"]:invalid,
+input[type="password"]:invalid,
+input[type="email"]:invalid,
+textarea:invalid,
+select:invalid {
+  border-color: #e10b16;
+}
+
+input[type="url"]:focus:valid,
+input[type="email"]:focus:valid,
+input[type="text"]:required:focus:valid,
+input[type="text"].required:focus:valid {
+  border-color: #04982c;
+  -webkit-box-shadow: 0 0 4px rgba(0, 89, 24, 0.5);
+  box-shadow: 0 0 4px rgba(0, 89, 24, 0.5);
 }
 
 input[type="password"] {
@@ -650,9 +687,15 @@ input[type="password"] {
 .form-required {
   color: #b00911;
 }
+.form-required + .form-required {
+  display: none;
+}
 
 .form-item {
   margin-bottom: 1em;
+}
+table .form-item {
+  margin-bottom: 0;
 }
 
 /**
@@ -686,50 +729,53 @@ input[type="password"] {
     margin-right: 2%;
     padding: 0.5em 0;
   }
-  .form-type-item input,
+  .form-type-item input, .form-type-item .description,
   .form-type-textfield input,
-  .form-type-emailfield input,
-  .form-type-select input,
-  .form-type-password input,
-  .form-type-password-confirm input {
-    float: right;
-    width: 80%;
-  }
-  .form-type-item .description,
   .form-type-textfield .description,
+  .form-type-emailfield input,
   .form-type-emailfield .description,
+  .form-type-select input,
   .form-type-select .description,
+  .form-type-password input,
   .form-type-password .description,
+  .form-type-password-confirm input,
   .form-type-password-confirm .description {
     float: right;
     width: 80%;
   }
 }
 
-.form-type-radios > label {
+.form-type-radios > label,
+.form-type-checkboxes > label {
   display: block;
 }
-.form-type-radios .description {
+.form-type-radios .description,
+.form-type-checkboxes .description {
   color: #8d7b7b;
 }
-.form-type-radios .form-item {
+.form-type-radios .form-item,
+.form-type-checkboxes .form-item {
   margin-bottom: 0.25em;
 }
-.form-type-radios label {
+.form-type-radios label,
+.form-type-checkboxes label {
   -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
-.form-type-radios input:checked + label {
+.form-type-radios input:checked + label,
+.form-type-checkboxes input:checked + label {
   color: #149ce4;
 }
 @media (min-width: 51.25em) {
-  .form-type-radios > label {
+  .form-type-radios > label,
+  .form-type-checkboxes > label {
     float: left;
     width: 18%;
     margin-right: 2%;
     padding: 0.5em 0;
   }
-  .form-type-radios .form-radios {
+  .form-type-radios .form-radios,
+  .form-type-checkboxes .form-radios {
     float: right;
     width: 80%;
     padding: 0.25em 0;
@@ -754,6 +800,15 @@ input[type="password"] {
     width: 80%;
     padding: 0.25em 0;
   }
+  .form-type-textarea + .ckeditor_links {
+    display: block;
+    margin: -.5em 0 1em 20%;
+  }
+}
+
+form .container-inline .form-item {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /**
@@ -764,12 +819,22 @@ table {
   border-bottom-width: 2px;
   border-radius: 3px;
   border-collapse: separate;
+  width: 100%;
 }
 table thead {
-  color: #4e398e;
+  color: #5e5151;
+  text-shadow: 1px 1px 0 rgba(254, 254, 254, 0.75);
 }
 table thead td, table thead th {
-  border-bottom: 2px solid #d6cbcb;
+  border-bottom: 1px solid #c5b6b6;
+  background-color: #dcd2d2;
+}
+table thead label {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
 }
 table td, table th {
   padding: 0.25em 0.5em;
@@ -781,7 +846,7 @@ table tr:nth-child(2n+0) {
   background-color: #f3efef;
 }
 table th + th, table td + td {
-  border-left: 1px solid #d6cbcb;
+  border-left: 1px solid #e1d9d9;
 }
 
 /**
@@ -964,6 +1029,124 @@ ul.primary li.active a, ul.primary li.pager-current, ul.pager li.active a, ul.pa
 }
 
 /**
+ * @file _multivalue-tables.scss
+ * Drupal wraps multi-value fields in a draggable table disaster. Tame the monster!
+ */
+.draggable a.tabledrag-handle {
+  display: block;
+  float: left;
+}
+.draggable a.tabledrag-handle .handle {
+  margin-left: 0em !important;
+}
+.backgroundsize .draggable a.tabledrag-handle .handle {
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  background-size: contain;
+}
+.draggable a.tabledrag-handle + div {
+  overflow: hidden;
+}
+
+.tabledrag-processed tr.drag {
+  background-color: #b7e0f8;
+}
+.tabledrag-processed tr.drag-previous {
+  background-color: #cfeafa;
+}
+
+/**
+ * @file _process.scss
+ * Drupal's customized progress bar markup, used most often in this project
+ * on the file upload fields on the node edit form.
+ */
+.progress {
+  position: relative;
+  margin: 0.5em;
+}
+.progress .bar, .progress .filled {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+}
+.progress .bar {
+  right: 0;
+  background-color: #d6cbcb;
+}
+.progress .filled {
+  border-radius: 3px;
+  -webkit-animation: progressBackground 0.85s linear infinite;
+  -moz-animation: progressBackground 0.85s linear infinite;
+  -ms-animation: progressBackground 0.85s linear infinite;
+  -o-animation: progressBackground 0.85s linear infinite;
+  animation: progressBackground 0.85s linear infinite;
+  background-color: #04982c;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQklEQVQYV2NkwA0kkaUYcahDUQRU8xybQgxFIMPQFWJVhK4QpyJkhXgVwRQSVIRN4XNcoQDyDMxEnIqQTcSrCKQQAKZDCW8B5soxAAAAAElFTkSuQmCC);
+  background-repeat: repeat;
+  background-position: 0px 0px;
+}
+.progress .percentage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fefefe;
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  line-height: 1.71429;
+}
+
+@-moz-keyframes progressBackground {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 10px;
+  }
+}
+@-webkit-keyframes progressBackground {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 10px;
+  }
+}
+@-o-keyframes progressBackground {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 10px;
+  }
+}
+@-ms-keyframes progressBackground {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 10px;
+  }
+}
+@keyframes progressBackground {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 10px;
+  }
+}
+/**
  * @file _base_layouts.scss
  * A generic set of layouts that are used cross-site.
  */
@@ -1117,6 +1300,7 @@ a.button {
   text-decoration: none;
 }
 
+.field-name-field-post-image-gallery input[name*='upload'], .view .views-exposed-form input[type="submit"],
 .btn-primary,
 input.action-submit {
   background-color: #149ce4;
@@ -1129,6 +1313,7 @@ input.action-submit {
   color: #fefefe;
   text-shadow: 1px 1px 0 #0f76ac;
 }
+.field-name-field-post-image-gallery input[name*='upload']:hover, .view .views-exposed-form input[type="submit"]:hover, .field-name-field-post-image-gallery input[name*='upload']:focus, .view .views-exposed-form input[type="submit"]:focus,
 .btn-primary:hover,
 .btn-primary:focus,
 input.action-submit:hover,
@@ -1141,6 +1326,7 @@ input.action-submit:focus {
   background-image: -webkit-linear-gradient(#3db1ee, #26a7ec 30%, #26a7ec 70%, #149ce4);
   background-image: linear-gradient(#3db1ee, #26a7ec 30%, #26a7ec 70%, #149ce4);
 }
+.field-name-field-post-image-gallery input[disabled][name*='upload'], .view .views-exposed-form input[disabled][type="submit"], .field-name-field-post-image-gallery input[disabled][name*='upload']:hover, .view .views-exposed-form input[disabled][type="submit"]:hover,
 .btn-primary[disabled],
 .btn-primary[disabled]:hover,
 input.action-submit[disabled],
@@ -1150,12 +1336,14 @@ input.action-submit[disabled]:hover {
   border-color: #61a8d1;
   color: #fefefe;
 }
+.field-name-field-post-image-gallery input[name*='upload']:focus, .view .views-exposed-form input[type="submit"]:focus,
 .btn-primary:focus,
 input.action-submit:focus {
   -webkit-box-shadow: 0 0 4px rgba(20, 156, 228, 0.5);
   box-shadow: 0 0 4px rgba(20, 156, 228, 0.5);
 }
 
+.field-name-field-post-image-gallery input[name*='remove'],
 .btn-negative,
 form[id*="delete"] input.action-submit,
 form[id*="redact"] input.action-submit,
@@ -1170,6 +1358,7 @@ input.action-delete {
   color: #fefefe;
   text-shadow: 1px 1px 0 #71060b;
 }
+.field-name-field-post-image-gallery input[name*='remove']:hover, .field-name-field-post-image-gallery input[name*='remove']:focus,
 .btn-negative:hover,
 .btn-negative:focus,
 form[id*="delete"] input.action-submit:hover,
@@ -1186,6 +1375,7 @@ input.action-delete:focus {
   background-image: -webkit-linear-gradient(#e10b16, #c80a13 30%, #c80a13 70%, #b00911);
   background-image: linear-gradient(#e10b16, #c80a13 30%, #c80a13 70%, #b00911);
 }
+.field-name-field-post-image-gallery input[disabled][name*='remove'], .field-name-field-post-image-gallery input[disabled][name*='remove']:hover,
 .btn-negative[disabled],
 .btn-negative[disabled]:hover,
 form[id*="delete"] input.action-submit[disabled],
@@ -1199,6 +1389,7 @@ input.action-delete[disabled]:hover {
   border-color: #bc585c;
   color: #fefefe;
 }
+.field-name-field-post-image-gallery input[name*='remove']:focus,
 .btn-negative:focus,
 form[id*="delete"] input.action-submit:focus,
 form[id*="redact"] input.action-submit:focus,
@@ -1273,11 +1464,13 @@ input.action-delete:focus {
   box-shadow: 0 0 4px rgba(252, 136, 0, 0.5);
 }
 
+.node-form .action-submit,
 .btn-large {
   font-size: 1.125em;
   padding: 0.5em 0.625em;
 }
 
+.field-name-field-post-image-gallery input[name*='remove'], .field-name-field-post-image-gallery input[name*='upload'], .field-name-field-post-video .field-add-more-submit,
 .btn-small {
   font-size: 0.75em;
   font-weight: 400;
@@ -1411,8 +1604,8 @@ input.action-delete:focus {
 /**
  * Icons
  */
-.icon-abuse, .icon-cc, .icon-friends, .icon-private, .icon-public, .icon-region, .icon-tags, .icon-edit, .icon-redact, .icon-reply, .flag-wp-flag-comments-abuse .flag-action,
-.flag-wp-flag-comments-abuse .unflag-action {
+.draggable a.tabledrag-handle .handle, .icon-abuse, .icon-cc, .icon-close, .icon-drag, .icon-edit, .icon-friends, .icon-group, .icon-journal, .icon-next, .icon-prev, .icon-private, .icon-public, .icon-redact, .icon-region, .icon-reply, .icon-tags, .flag-wp-flag-comments-abuse .flag-action,
+.flag-wp-flag-comments-abuse .unflag-action, #cboxPrevious, #cboxNext, #cboxClose {
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -1428,20 +1621,20 @@ input.action-delete:focus {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.backgroundsize .icon-small.icon-abuse, .backgroundsize .icon-small.icon-cc, .backgroundsize .icon-small.icon-friends, .backgroundsize .icon-small.icon-private, .backgroundsize .icon-small.icon-public, .backgroundsize .icon-small.icon-region, .backgroundsize .icon-small.icon-tags, .backgroundsize .icon-small.icon-edit, .backgroundsize .icon-small.icon-redact, .backgroundsize .icon-small.icon-reply, .backgroundsize .flag-wp-flag-comments-abuse .icon-small.flag-action, .flag-wp-flag-comments-abuse .backgroundsize .icon-small.flag-action,
+.backgroundsize .draggable a.tabledrag-handle .icon-small.handle, .draggable a.tabledrag-handle .backgroundsize .icon-small.handle, .backgroundsize .icon-small.icon-abuse, .backgroundsize .icon-small.icon-cc, .backgroundsize .icon-small.icon-close, .backgroundsize .icon-small.icon-drag, .backgroundsize .icon-small.icon-edit, .backgroundsize .icon-small.icon-friends, .backgroundsize .icon-small.icon-group, .backgroundsize .icon-small.icon-journal, .backgroundsize .icon-small.icon-next, .backgroundsize .icon-small.icon-prev, .backgroundsize .icon-small.icon-private, .backgroundsize .icon-small.icon-public, .backgroundsize .icon-small.icon-redact, .backgroundsize .icon-small.icon-region, .backgroundsize .icon-small.icon-reply, .backgroundsize .icon-small.icon-tags, .backgroundsize .flag-wp-flag-comments-abuse .icon-small.flag-action, .flag-wp-flag-comments-abuse .backgroundsize .icon-small.flag-action,
 .backgroundsize .flag-wp-flag-comments-abuse .icon-small.unflag-action,
-.flag-wp-flag-comments-abuse .backgroundsize .icon-small.unflag-action {
+.flag-wp-flag-comments-abuse .backgroundsize .icon-small.unflag-action, .backgroundsize .icon-small#cboxPrevious, .backgroundsize .icon-small#cboxNext, .backgroundsize .icon-small#cboxClose {
   height: 24px;
   width: 24px;
   line-height: 24px;
 }
-.svg .icon-abuse, .svg .icon-cc, .svg .icon-friends, .svg .icon-private, .svg .icon-public, .svg .icon-region, .svg .icon-tags, .svg .icon-edit, .svg .icon-redact, .svg .icon-reply, .svg .flag-wp-flag-comments-abuse .flag-action, .flag-wp-flag-comments-abuse .svg .flag-action,
+.svg .draggable a.tabledrag-handle .handle, .draggable a.tabledrag-handle .svg .handle, .svg .icon-abuse, .svg .icon-cc, .svg .icon-close, .svg .icon-drag, .svg .icon-edit, .svg .icon-friends, .svg .icon-group, .svg .icon-journal, .svg .icon-next, .svg .icon-prev, .svg .icon-private, .svg .icon-public, .svg .icon-redact, .svg .icon-region, .svg .icon-reply, .svg .icon-tags, .svg .flag-wp-flag-comments-abuse .flag-action, .flag-wp-flag-comments-abuse .svg .flag-action,
 .svg .flag-wp-flag-comments-abuse .unflag-action,
-.flag-wp-flag-comments-abuse .svg .unflag-action {
+.flag-wp-flag-comments-abuse .svg .unflag-action, .svg #cboxPrevious, .svg #cboxNext, .svg #cboxClose {
   background-size: 120%;
 }
-.show-tooltip.icon-abuse:after, .show-tooltip.icon-cc:after, .show-tooltip.icon-friends:after, .show-tooltip.icon-private:after, .show-tooltip.icon-public:after, .show-tooltip.icon-region:after, .show-tooltip.icon-tags:after, .show-tooltip.icon-edit:after, .show-tooltip.icon-redact:after, .show-tooltip.icon-reply:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:after,
-.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:after {
+.draggable a.tabledrag-handle .show-tooltip.handle:after, .show-tooltip.icon-abuse:after, .show-tooltip.icon-cc:after, .show-tooltip.icon-close:after, .show-tooltip.icon-drag:after, .show-tooltip.icon-edit:after, .show-tooltip.icon-friends:after, .show-tooltip.icon-group:after, .show-tooltip.icon-journal:after, .show-tooltip.icon-next:after, .show-tooltip.icon-prev:after, .show-tooltip.icon-private:after, .show-tooltip.icon-public:after, .show-tooltip.icon-redact:after, .show-tooltip.icon-region:after, .show-tooltip.icon-reply:after, .show-tooltip.icon-tags:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:after,
+.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:after, .show-tooltip#cboxPrevious:after, .show-tooltip#cboxNext:after, .show-tooltip#cboxClose:after {
   position: absolute;
   display: none;
   z-index: 1000;
@@ -1459,9 +1652,9 @@ input.action-delete:focus {
   padding: 0.5em 0.25em;
   background-color: #fefefe;
 }
-.show-tooltip.icon-abuse:focus:after, .show-tooltip.icon-cc:focus:after, .show-tooltip.icon-friends:focus:after, .show-tooltip.icon-private:focus:after, .show-tooltip.icon-public:focus:after, .show-tooltip.icon-region:focus:after, .show-tooltip.icon-tags:focus:after, .show-tooltip.icon-edit:focus:after, .show-tooltip.icon-redact:focus:after, .show-tooltip.icon-reply:focus:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:focus:after,
-.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:focus:after, .show-tooltip.icon-abuse:hover:after, .show-tooltip.icon-cc:hover:after, .show-tooltip.icon-friends:hover:after, .show-tooltip.icon-private:hover:after, .show-tooltip.icon-public:hover:after, .show-tooltip.icon-region:hover:after, .show-tooltip.icon-tags:hover:after, .show-tooltip.icon-edit:hover:after, .show-tooltip.icon-redact:hover:after, .show-tooltip.icon-reply:hover:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:hover:after,
-.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:hover:after {
+.draggable a.tabledrag-handle .show-tooltip.handle:focus:after, .show-tooltip.icon-abuse:focus:after, .show-tooltip.icon-cc:focus:after, .show-tooltip.icon-close:focus:after, .show-tooltip.icon-drag:focus:after, .show-tooltip.icon-edit:focus:after, .show-tooltip.icon-friends:focus:after, .show-tooltip.icon-group:focus:after, .show-tooltip.icon-journal:focus:after, .show-tooltip.icon-next:focus:after, .show-tooltip.icon-prev:focus:after, .show-tooltip.icon-private:focus:after, .show-tooltip.icon-public:focus:after, .show-tooltip.icon-redact:focus:after, .show-tooltip.icon-region:focus:after, .show-tooltip.icon-reply:focus:after, .show-tooltip.icon-tags:focus:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:focus:after,
+.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:focus:after, .show-tooltip#cboxPrevious:focus:after, .show-tooltip#cboxNext:focus:after, .show-tooltip#cboxClose:focus:after, .draggable a.tabledrag-handle .show-tooltip.handle:hover:after, .show-tooltip.icon-abuse:hover:after, .show-tooltip.icon-cc:hover:after, .show-tooltip.icon-close:hover:after, .show-tooltip.icon-drag:hover:after, .show-tooltip.icon-edit:hover:after, .show-tooltip.icon-friends:hover:after, .show-tooltip.icon-group:hover:after, .show-tooltip.icon-journal:hover:after, .show-tooltip.icon-next:hover:after, .show-tooltip.icon-prev:hover:after, .show-tooltip.icon-private:hover:after, .show-tooltip.icon-public:hover:after, .show-tooltip.icon-redact:hover:after, .show-tooltip.icon-region:hover:after, .show-tooltip.icon-reply:hover:after, .show-tooltip.icon-tags:hover:after, .flag-wp-flag-comments-abuse .show-tooltip.flag-action:hover:after,
+.flag-wp-flag-comments-abuse .show-tooltip.unflag-action:hover:after, .show-tooltip#cboxPrevious:hover:after, .show-tooltip#cboxNext:hover:after, .show-tooltip#cboxClose:hover:after {
   display: block;
 }
 
@@ -1513,6 +1706,64 @@ a.show-tooltip:after {
 }
 
 /**
+ * @file _password-field.scss
+ * A form element which needs a whole lot of extra styling, so it gets its own
+ * partial to keep things tidy.
+ */
+.form-type-password .password-confirm .error {
+  color: #b00911;
+}
+.form-type-password .password-confirm .ok {
+  color: #04982c;
+}
+@media (min-width: 51.25em) {
+  .form-type-password .password-strength, .form-type-password div.password-confirm {
+    float: right;
+    width: 35%;
+    padding: 0.25em 0;
+  }
+}
+.form-type-password div.password-confirm {
+  visibility: hidden;
+}
+@media (min-width: 51.25em) {
+  .form-type-password div.password-confirm {
+    margin-top: 0.625em;
+  }
+}
+.form-type-password div.password-confirm span {
+  font-weight: 600;
+}
+.form-type-password .password-strength-text {
+  float: right;
+}
+.form-type-password .password-strength-title {
+  float: left;
+}
+.form-type-password .password-indicator {
+  clear: both;
+  position: relative;
+  z-index: 1;
+  background-color: #d6cbcb;
+  border-radius: 3px;
+  height: 0.75em;
+}
+.form-type-password .password-indicator .indicator {
+  position: relative;
+  z-index: 5;
+  height: 0.75em;
+  width: 0;
+  border-radius: 3px;
+  background-color: #04982c;
+}
+@media (min-width: 51.25em) {
+  .form-type-password.form-item-pass-pass1 input, .form-type-password.form-item-pass-pass2 input {
+    margin: 0.5em 5% 0 0;
+    width: 40%;
+  }
+}
+
+/**
  * @file _node-form.scss
  * Theming for the node form
  */
@@ -1528,59 +1779,130 @@ a.show-tooltip:after {
   display: none;
 }
 
-@media (min-width: 12.5em) {
-  .field-name-field-post-access .form-radios:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .field-name-field-post-access .form-radios .form-item {
-    float: left;
-    margin: 0;
-    padding: 0;
-  }
-  .field-name-field-post-access input {
-    display: none;
-  }
-  .field-name-field-post-access label {
-    display: block;
-    color: #574b4b;
-    background-color: #ece8e8;
-    padding: 0.5em 1.25em 0.5em 0.75em;
-    border: 1px solid #e1d9d9;
-    border-bottom-width: 2px;
-    -webkit-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-  }
-  .field-name-field-post-access label:hover {
-    color: #493f3f;
-    background-color: #f8f6f6;
-  }
-  .field-name-field-post-access .form-type-radio:first-child label {
-    border-radius: 3px 0 0 3px;
-    border-left: 1px solid #e1d9d9;
-  }
-  .field-name-field-post-access .form-type-radio:last-child label {
-    border-radius: 0 3px 3px 0;
-    border-right: 1px solid #e1d9d9;
-  }
-  .field-name-field-post-access input:checked + label {
-    color: #fefefe;
-    font-weight: bold;
-    background-color: #4e398e;
-    border-color: #44327c !important;
-  }
-  .field-name-field-post-access input:checked + label:hover {
-    background-color: #5840a0;
-  }
-
-  .form-disabled label {
-    background-color: #d6cbcb;
-  }
-  .form-disabled label:hover {
-    background-color: #d6cbcb;
+.gte-ie9 .field-name-field-post-access .form-radios:after, .gte-ie9 .field-name-field-post-type .form-radios:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.gte-ie9 .field-name-field-post-access .form-radios .form-item, .gte-ie9 .field-name-field-post-type .form-radios .form-item {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.gte-ie9 .field-name-field-post-access input, .gte-ie9 .field-name-field-post-type input {
+  display: none;
+}
+.gte-ie9 .field-name-field-post-access .form-radios label, .gte-ie9 .field-name-field-post-type .form-radios label {
+  display: block;
+  color: #574b4b;
+  background-color: #ece8e8;
+  padding: 0.5em 1.25em 0.5em 0.75em;
+  border: 1px solid #e1d9d9;
+  border-bottom-width: 2px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.gte-ie9 .field-name-field-post-access .form-radios label:hover, .gte-ie9 .field-name-field-post-type .form-radios label:hover {
+  color: #493f3f;
+  background-color: #f8f6f6;
+}
+.gte-ie9 .field-name-field-post-access .form-radios label .form-required, .gte-ie9 .field-name-field-post-type .form-radios label .form-required {
+  display: none;
+}
+@media (min-width: 37.5em) {
+  .gte-ie9 .field-name-field-post-access .form-radios label, .gte-ie9 .field-name-field-post-type .form-radios label {
+    text-align: center;
+    font-size: 1em;
+    width: 12em;
   }
 }
+.gte-ie9 .field-name-field-post-access .form-type-radio:first-child label, .gte-ie9 .field-name-field-post-type .form-type-radio:first-child label {
+  border-radius: 3px 0 0 3px;
+  border-left: 1px solid #e1d9d9;
+}
+.gte-ie9 .field-name-field-post-access .form-type-radio:last-child label, .gte-ie9 .field-name-field-post-type .form-type-radio:last-child label {
+  border-radius: 0 3px 3px 0;
+  border-right: 1px solid #e1d9d9;
+}
+.gte-ie9 .field-name-field-post-access .form-radios input:checked + label, .gte-ie9 .field-name-field-post-type .form-radios input:checked + label {
+  color: #fefefe;
+  font-weight: bold;
+  background-color: #4e398e;
+  border-color: #44327c !important;
+}
+.gte-ie9 .field-name-field-post-access .form-radios input:checked + label:hover, .gte-ie9 .field-name-field-post-type .form-radios input:checked + label:hover {
+  background-color: #5840a0;
+}
+.gte-ie9 .form-disabled label {
+  background-color: #d6cbcb;
+}
+.gte-ie9 .form-disabled label:hover {
+  background-color: #d6cbcb;
+}
+@media (min-width: 37.5em) {
+  .gte-ie9 .field-name-og-group-ref select {
+    text-align: center;
+    width: 24em;
+  }
+}
+
+.field-name-field-post-image-gallery {
+  display: none;
+}
+.fileinput .field-name-field-post-image-gallery {
+  display: block;
+}
+.field-name-field-post-image-gallery .tabledrag-toggle-weight-wrapper, .field-name-field-post-image-gallery .ckeditor_links, .field-name-field-post-image-gallery .ckeditor_links[style] {
+  display: none !important;
+}
+.field-name-field-post-image-gallery .form-text {
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-weight: 400;
+  line-height: 1.125;
+  color: #574b4b;
+  font-size: 1.125em;
+}
+.field-name-field-post-image-gallery input[name*='remove'] {
+  display: block;
+  margin: 0 auto;
+}
+.field-name-field-post-image-gallery input[name*='upload'] {
+  display: inline-block;
+  margin: 0 auto;
+}
+.field-name-field-post-image-gallery .form-type-managed-file > label {
+  display: block;
+  margin-top: 1em;
+  font-weight: 600;
+}
+.field-name-field-post-image-gallery .form-type-managed-file .description {
+  color: #806e6e;
+  font-size: 0.875em;
+  margin-left: 6px;
+}
+@media (min-width: 51.25em) {
+  .field-name-field-post-image-gallery .image-preview {
+    width: 18%;
+    margin-right: 2%;
+    float: left;
+  }
+  .field-name-field-post-image-gallery .file, .field-name-field-post-image-gallery .file-size {
+    display: block;
+    width: 80%;
+    float: right;
+  }
+  .field-name-field-post-image-gallery .form-item {
+    clear: both;
+  }
+}
+
+.field-name-field-post-video .tabledrag-toggle-weight {
+  display: none;
+}
+.field-name-field-post-video input[type="url"] {
+  width: 100%;
+}
+
 /**
  * @file _node.scss
  * Generic node styles
@@ -1605,6 +1927,92 @@ a.show-tooltip:after {
  */
 .node-post header h1 {
   margin-top: 0;
+}
+.node-post .field-post-image-gallery {
+  list-style: none;
+  margin: 1em auto;
+  padding: 0;
+}
+@media (min-width: 30em) and (max-width: 57.4375em) {
+  .node-post .field-post-image-gallery {
+    margin-top: -0.5em;
+  }
+}
+@media (min-width: 57.5em) {
+  .node-post .field-post-image-gallery {
+    margin-top: -0.75em;
+  }
+}
+.node-post .field-post-image-gallery li {
+  list-style: none;
+  width: 33.33333%;
+  clear: right;
+  float: left;
+  margin-right: 0%;
+}
+[dir="rtl"] .node-post .field-post-image-gallery li {
+  clear: left;
+  float: right;
+  margin-left: 0%;
+}
+@media (min-width: 30em) and (max-width: 57.4375em) {
+  .node-post .field-post-image-gallery li {
+    width: 23.94366%;
+    clear: right;
+    float: left;
+    margin-right: 1.40845%;
+    margin-top: 0.5em;
+  }
+  [dir="rtl"] .node-post .field-post-image-gallery li {
+    clear: left;
+    float: right;
+    margin-left: 1.40845%;
+  }
+  .node-post .field-post-image-gallery li:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+@media (min-width: 57.5em) {
+  .node-post .field-post-image-gallery li {
+    width: 15.49296%;
+    clear: right;
+    float: left;
+    margin-right: 1.40845%;
+    margin-top: 0.75em;
+  }
+  [dir="rtl"] .node-post .field-post-image-gallery li {
+    clear: left;
+    float: right;
+    margin-left: 1.40845%;
+  }
+  .node-post .field-post-image-gallery li:nth-child(6n) {
+    margin-right: 0;
+  }
+}
+.node-post .field-post-image-gallery a {
+  display: block;
+  margin: 0.25em;
+  padding: 0.25em;
+  border: 1px solid #f3efef;
+  border-radius: 3px;
+  -webkit-transition: border 0.2s ease-out;
+  transition: border 0.2s ease-out;
+}
+@media (min-width: 30em) and (max-width: 57.4375em) {
+  .node-post .field-post-image-gallery a {
+    margin: 0;
+  }
+}
+@media (min-width: 57.5em) {
+  .node-post .field-post-image-gallery a {
+    margin: 0;
+  }
+}
+.node-post .field-post-image-gallery a:hover {
+  border-color: #e3d9d9;
+}
+.node-post .field-post-image-gallery img {
+  display: block;
 }
 
 /**
@@ -1781,6 +2189,13 @@ article.node-journal-post {
   font-style: italic;
   color: #c96c00;
 }
+.comment.comment-unpublished {
+  background-color: #f9e0e1;
+}
+.comment .comment-body-unpublished {
+  color: #da1822;
+  font-style: italic;
+}
 .comment footer .comment-new, .comment footer .comment-edited, .comment footer .comment-abuse-notice {
   border-radius: 3px;
   padding: 0.375em;
@@ -1852,6 +2267,7 @@ form.comment-form {
   position: relative;
   left: -1em;
   margin-bottom: -1em;
+  margin-top: 1em;
   width: 100%;
   padding: 1em;
   background-color: #f8f6f6;
@@ -1956,15 +2372,228 @@ html body .cke_chrome .cke_wysiwyg_frame, html body .cke_chrome .cke_wysiwyg_div
 }
 
 /**
- * @file _unpublished.scss
- * Styling for unpublished nodes and comments.
+ * @file _colorbox.scss
+ * Colorbox Styles
  */
-.comment-unpublished {
-  background-color: #f4bfc2;
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
-.comment-unpublished .comment-body-unpublished {
-  color: #e4696e;
-  font-style: italic;
+
+#cboxWrapper {
+  max-width: none;
+}
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+#cboxContent {
+  position: relative;
+  border: 2px solid #fefefe;
+  border-bottom-width: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#cboxLoadedContent {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle {
+  margin: 0;
+  text-align: center;
+  color: #fefefe;
+  font-size: 0.875em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1d1616;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.25em;
+}
+#cboxTitle[style] {
+  float: none !important;
+}
+#cboxTitle[style]:empty, #cboxTitle:empty {
+  display: none !important;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+  /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+  position: absolute;
+}
+#cboxPrevious:active, #cboxNext:active, #cboxClose:active, #cboxSlideshow:active {
+  outline: 0;
+}
+
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+  max-width: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+#colorbox, #colorbox[style] {
+  overflow: visible !important;
+}
+#colorbox:focus {
+  outline: 0;
+}
+
+#cboxCurrent {
+  position: absolute;
+  color: #d6cbcb;
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose {
+  background-color: transparent;
+  border: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+#cboxPrevious:hover, #cboxNext:hover, #cboxClose:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent {
+  top: -1000em;
+}
+
+@media (min-width: 20em) and (max-width: 51.1875em) and (min-height: 25em) {
+  #cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent {
+    display: block;
+  }
+
+  #cboxClose, #cboxPrevious, #cboxNext {
+    top: -48px;
+  }
+
+  #cboxClose {
+    right: -12px;
+  }
+
+  #cboxNext {
+    right: 32px;
+  }
+
+  #cboxPrevious {
+    right: 76px;
+  }
+
+  #cboxCurrent {
+    top: -34px;
+    right: 132px;
+  }
+}
+@media (min-width: 51.25em) {
+  #cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent {
+    display: block;
+  }
+
+  #cboxCurrent {
+    top: -34px;
+    right: 40px;
+  }
+
+  #cboxClose {
+    top: -48px;
+    right: -12px;
+  }
+
+  #cboxPrevious, #cboxNext {
+    top: 50%;
+    -moz-transform: translateY(-12px);
+    -ms-transform: translateY(-12px);
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+  }
+
+  #cboxPrevious {
+    left: -48px;
+  }
+
+  #cboxNext {
+    right: -48px;
+  }
+}
+/**
+ * @file _view.scss
+ * Some general Views work, particularly useful in OG admin areas that display
+ * in the front-end theme
+ */
+.view .views-exposed-form {
+  margin-bottom: 1em;
+}
+@media (min-width: 51.25em) {
+  .view .views-exposed-form label {
+    float: left;
+    width: 18%;
+    margin-right: 2%;
+    padding: 0.5em 0;
+  }
+  .view .views-exposed-form input, .view .views-exposed-form .description {
+    float: right;
+    width: 80%;
+  }
+  .view .views-exposed-form input[type="submit"] {
+    float: none;
+    width: auto;
+  }
+}
+.view .vbo-views-form .form-item-operation {
+  float: left;
+  margin-bottom: 0;
+}
+.view .vbo-views-form .form-item-operation select, .view .vbo-views-form .form-item-operation + input[type="submit"] {
+  vertical-align: middle;
+}
+.view .vbo-views-form .form-item-operation + input[type="submit"] {
+  margin-top: 0.125em;
+  margin-left: 1em;
 }
 
 /**

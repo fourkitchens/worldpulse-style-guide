@@ -41,6 +41,15 @@
     color: wp-color($orange, main, -10%);
   }
 
+  &.comment-unpublished {
+    background-color: wp-color($red, highlight, 17.5%);
+  }
+
+  .comment-body-unpublished {
+    color: wp-color($red, bright, -5%);
+    font-style: italic;
+  }
+
   footer {
     .comment-new, .comment-edited, .comment-abuse-notice {
       @include border-radius(3px);

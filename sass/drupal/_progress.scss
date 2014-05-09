@@ -1,0 +1,78 @@
+/**
+ * @file _process.scss
+ * Drupal's customized progress bar markup, used most often in this project
+ * on the file upload fields on the node edit form.
+ */
+.progress {
+  position: relative;
+  margin: 0.5em;
+
+  .bar, .filled {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    @include border-radius(3px);
+  }
+
+  .bar {
+    right: 0;
+    background-color: wp-color($grey, bright);
+  }
+
+  .filled {
+    @include border-radius(3px);
+
+    -webkit-animation: progressBackground 0.85s linear infinite;
+       -moz-animation: progressBackground 0.85s linear infinite;
+        -ms-animation: progressBackground 0.85s linear infinite;
+         -o-animation: progressBackground 0.85s linear infinite;
+            animation: progressBackground 0.85s linear infinite;
+
+    background: {
+      color: wp-color($green);
+      image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQklEQVQYV2NkwA0kkaUYcahDUQRU8xybQgxFIMPQFWJVhK4QpyJkhXgVwRQSVIRN4XNcoQDyDMxEnIqQTcSrCKQQAKZDCW8B5soxAAAAAElFTkSuQmCC);
+      repeat: repeat;
+      position: 0px 0px;
+    }
+  }
+
+  .percentage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    color: wp-color($grey, highlight, 5%);
+    font-family: $gotham;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    line-height: (1.5/0.875); // Boost the line-height to compensate for smaller font-size.
+  }
+}
+
+@-moz-keyframes progressBackground {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: 10px; }
+}
+
+@-webkit-keyframes progressBackground {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: 10px; }
+}
+
+@-o-keyframes progressBackground {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: 10px; }
+}
+
+@-ms-keyframes progressBackground {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: 10px; }
+}
+
+@keyframes progressBackground {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: 10px; }
+}

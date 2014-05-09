@@ -7,13 +7,28 @@ table {
   @include border-radius(3px);
   border-collapse: separate; // To make the outer border apply the radius
 
+  width: 100%;
+
   thead {
-    color: wp-color($purple);
+    color: wp-color($grey, main, 2.5%);
+    @include text-shadow(1px 1px 0 rgba( wp-color($grey, highlight, 5%), 0.75));
+
     td, th {
       // This can't be applied to thead or tr directly, for whatever reason,
       // because of the border-collapse:separate rule. Applying to the cell
       // directly is okay, though, because that's where the other borders are.
-      border-bottom: 2px solid wp-color($grey, 'bright');
+      border-bottom: 1px solid wp-color($grey, 'bright', -7.5%);
+      background-color: wp-color($grey, 'bright', 2.5%);
+    }
+
+    label {
+      // So in multi-value fields, Drupal wraps _some_ but not all TH column titles
+      // in a label field, which looks different:
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      text-transform: inherit;
+      letter-spacing: inherit;
     }
   }
 
@@ -30,6 +45,6 @@ table {
   }
 
   th + th, td + td {
-    border-left: 1px solid wp-color($grey, 'bright');
+    border-left: 1px solid wp-color($grey, 'bright', 5%);
   }
 }

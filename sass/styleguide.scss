@@ -23,7 +23,6 @@ $breakpoints: add-breakpoint('sg swatches medium', 560px 759px);
 $breakpoints: add-breakpoint('sg swatches large', 760px);
 $breakpoints: add-breakpoint('sg typeplate small', max-width 579px);
 $breakpoints: add-breakpoint('sg typeplate large', 580px);
-$breakpoints: add-breakpoint('sg icons large', 640px);
 
 
 // No global styles should be added in this file, unless they need to be
@@ -36,3 +35,4 @@ $breakpoints: add-breakpoint('sg icons large', 640px);
 ////////////////////////
 @import 'styleguide/sg-extendables';
 @import 'styleguide/styleguide';
+@import 'styleguide/styleguide-overrides';

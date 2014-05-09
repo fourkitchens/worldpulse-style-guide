@@ -17,14 +17,17 @@
     // @TODO: This isn't permanent. Please, yes? Better ways!
     display: none;
   }
+
+  .action-submit {
+    @extend %btn-large;
+  }
 }
 
 // Privacy Controls work. This may eventually belong in its own file with
 // the three fields that make up this component. In the meantime, just for
 // journal privacy limited options (private/public), it's here:
-@include respond-to('ie 8') {// So IE 8 really doesn't play nice with
-  // this method. So... I'm not proud of this, but here's how I'm gonna hide it.
-  .field-name-field-post-access {
+.gte-ie9 {// So IE 8 really doesn't play nice with these styles
+  .field-name-field-post-access, .field-name-field-post-type {
     .form-radios {
       @include clearfix(); // Include because of media query.
     }
@@ -39,7 +42,7 @@
       display: none; // @TODO: We should wrap this in a modernizr conditional class to make sure this doesn't cause accessibility issues.
     }
 
-    label {
+    .form-radios label {
       display: block;
       color: wp-color($grey, main);
       background-color: wp-color($grey, bright, 10%);
@@ -54,6 +57,17 @@
         color: wp-color($grey, main, -5%);
         background-color: wp-color($grey, bright, 15%);
       }
+
+      .form-required {
+        // The label on the radioset already has this, we don't need it here, too
+        display: none;
+      }
+
+      @include respond-to('wide form post access') {
+        text-align: center;
+        font-size: 1em;
+        width: 12em;
+      }
     }
 
     .form-type-radio:first-child label {
@@ -67,7 +81,7 @@
       border-right: 1px solid wp-color($grey, bright, 5%);
     }
 
-    input:checked + label {
+    .form-radios input:checked + label {
       color: $white;
       font-weight: bold;
       background-color: wp-color($purple);
@@ -88,4 +102,96 @@
     }
   }
 
-} // END MEDIA QUERY
+  .field-name-og-group-ref {
+    select {
+      @include respond-to('wide form post access') {
+        text-align: center;
+        width: 24em;
+      }
+    }
+  }
+
+} // END LT-IE9
+
+.field-name-field-post-image-gallery {
+
+  // Modernizr test to only show this field if the browser supports uploading files
+  display: none;
+  .fileinput & { display: block; }
+
+
+  .tabledrag-toggle-weight-wrapper, .ckeditor_links, .ckeditor_links[style] {
+    display: none !important;
+  }
+
+  .form-text {
+    // This is for a title, make it look like one!
+    font-family: $gotham;
+    font-weight: 400;
+    line-height: 1.125;
+    color: wp-color($grey, main);
+    font-size: 1.125em;
+  }
+
+  input[name*='remove'] {
+    @extend %btn-negative;
+    @extend %btn-small;
+    display: block;
+    margin: 0 auto;
+  }
+
+  input[name*='upload'] {
+    @extend %btn-primary;
+    @extend %btn-small;
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .form-type-managed-file {
+    > label {
+      display: block;
+      margin-top: 1em;
+      font-weight: 600;
+    }
+
+    .description {
+      color: wp-color($grey, main, 15%);
+      font-size: 0.875em;
+      margin-left: 6px; // To mostly match the UA stylesheet, since we can't really style file inputs.
+    }
+  }
+
+  @include respond-to('wide form labels') {
+    .image-preview {
+      width: 18%;
+      margin-right: 2%;
+      float: left;
+    }
+
+    .file, .file-size {
+      display: block;
+      width: 80%;
+      float: right;
+    }
+
+    .form-item {
+      clear: both;
+    }
+  }
+}
+
+.field-name-field-post-video {
+  .tabledrag-toggle-weight {
+    display: none;
+  }
+
+  input[type="url"] {
+    // Drupal puts a size="80" on this, which takes precendence over the inherited
+    // max-width on this field, so it goes off screen without a width defined.
+    width: 100%;
+  }
+
+  .field-add-more-submit {
+    @extend %btn-small;
+  }
+}

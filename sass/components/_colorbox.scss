@@ -1,0 +1,171 @@
+/**
+ * @file _colorbox.scss
+ * Colorbox Styles
+ */
+
+// Colorbox core styles are specified first for each of these blocks. Specific
+// WP-styles are included beneath them after a comment.
+
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:9999;
+  // WP Exclusion: overflow:hidden;
+}
+
+#cboxWrapper {
+  max-width:none;
+}
+
+#cboxOverlay{
+  position:fixed;
+  width:100%;
+  height:100%;
+  // WP:
+  background-color: #000;
+
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear:left;
+}
+
+#cboxContent {
+  position:relative;
+  // WP:
+  border: 2px solid wp-color($grey, 'highlight', 5%);
+  border-bottom-width: 3px;
+  @include border-radius(3px);
+  @include box-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+#cboxLoadedContent {
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle{
+  margin:0;
+  // WP:
+  &[style] { float: none !important; }
+  &[style]:empty, &:empty { display: none !important; }
+  text-align: center;
+  color: wp-color($grey, 'highlight', 5%);
+  font-size: 0.875em;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: wp-color($grey, dark, -5%);
+  background-color: rgba(0,0,0, 0.8);
+  padding: 0.25em;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor:pointer;
+
+  /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+  &:active { outline: 0; }
+
+  // WP:
+  position: absolute;
+}
+
+.cboxPhoto {
+  float:left;
+  margin:auto;
+  border:0;
+  display:block;
+  max-width:none;
+  -ms-interpolation-mode:bicubic;
+}
+
+.cboxIframe{
+  width:100%;
+  height:100%;
+  display:block;
+  border:0;
+  padding:0;
+  margin:0;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent{
+  box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+}
+
+// WP:
+
+#colorbox {
+  &, &[style] { overflow: visible !important;}
+  &:focus {
+    // When the Colorbox opens, this <div> gets focus, which causes an outline
+    // around all the buttons inside which makes no sense and is visually
+    // distracting. Focus:0 on this <div> because it isn't an actionable element
+    // anyway.
+    outline: 0;
+  }
+}
+
+#cboxCurrent {
+  position: absolute;
+  color: wp-color($grey, 'bright');
+
+  font-family: $gotham;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose {
+  @extend %worldpulse-icon;
+  // So these are <button> elements, so we need to clear out some <button> styles
+  // which aren't taken care of by the icon classes. Icon stuff is declared with
+  // an ID selector (b/c of the extension) so those already take precedence.
+  background-color: transparent;
+  // background-image comes from grunticons.
+  border: 0;
+
+  @include opacity(0.7);
+  &:hover { @include opacity(1); }
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent {
+  // We can't override display here and again in a media query later because it's
+  // set inline. But we know that top will change in all media queries, so we can
+  // user this property to hide it from tiny screens.
+  top: -1000em;
+}
+
+@include respond-to('colorbox overlay medium') {
+  #cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent { display: block; }
+  #cboxClose, #cboxPrevious, #cboxNext { top: -48px; }
+  #cboxClose { right: -12px; }
+  #cboxNext { right: -12px + 12px + 32px; }
+  #cboxPrevious { right: -12px + 12px + 32px + 12px + 32px; }
+  #cboxCurrent { top: -34px; right: -12px + 12px + 32px + 12px + 32px + 12px + 32px + 12px; }
+}
+
+@include respond-to('colorbox overlay wide') {
+  #cboxPrevious, #cboxNext, #cboxClose, #cboxCurrent { display: block; }
+  #cboxCurrent { top: -34px; right: 40px; }
+  #cboxClose { top: -48px; right: -12px; }
+  #cboxPrevious, #cboxNext {
+    top: 50%;
+    @include transform(translateY(-12px)); // For more precise vertical centering when possible
+  }
+  #cboxPrevious { left: -48px; }
+  #cboxNext { right: -48px; }
+}

@@ -1,0 +1,36 @@
+/**
+ * @file _multivalue-tables.scss
+ * Drupal wraps multi-value fields in a draggable table disaster. Tame the monster!
+ */
+
+.draggable {
+  // Icon business:
+  a.tabledrag-handle {
+    .handle {
+      @extend %worldpulse-icon;
+      margin-left: 0em !important;
+
+      .backgroundsize & {
+        height: 18px;
+        width: 18px;
+        line-height: 18px;
+        background-size: contain;
+      }
+    }
+
+    display: block;
+    float: left;
+
+    + div {
+      // To bump around the float. It'll already have clearfix, this is necessary
+      // to protect an external float from interfering.
+      overflow: hidden;
+    }
+  }
+}
+
+.tabledrag-processed {
+  // Active drag-row:
+  tr.drag { background-color: wp-color($blue, 'highlight', 5%); }
+  tr.drag-previous { background-color: wp-color($blue, 'highlight', 10%); }
+}

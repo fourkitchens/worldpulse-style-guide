@@ -12,6 +12,16 @@
 
 .icon-cc { background-image: url('png/cc.png'); background-repeat: no-repeat; }
 
+.icon-close-highlight { background-image: url('png/close-highlight.png'); background-repeat: no-repeat; }
+
+.icon-close-hover { background-image: url('png/close-hover.png'); background-repeat: no-repeat; }
+
+.icon-close { background-image: url('png/close.png'); background-repeat: no-repeat; }
+
+.icon-drag-hover { background-image: url('png/drag-hover.png'); background-repeat: no-repeat; }
+
+.icon-drag { background-image: url('png/drag.png'); background-repeat: no-repeat; }
+
 .icon-edit:hover,
 .icon-edit-hover { background-image: url('png/edit-hover.png'); background-repeat: no-repeat; }
 
@@ -21,6 +31,28 @@
 .icon-friends-highlight { background-image: url('png/friends-highlight.png'); background-repeat: no-repeat; }
 
 .icon-friends { background-image: url('png/friends.png'); background-repeat: no-repeat; }
+
+.icon-group-highlight { background-image: url('png/group-highlight.png'); background-repeat: no-repeat; }
+
+.icon-group { background-image: url('png/group.png'); background-repeat: no-repeat; }
+
+.icon-icon-drag { background-image: url('png/icon-drag.png'); background-repeat: no-repeat; }
+
+.icon-journal-highlight { background-image: url('png/journal-highlight.png'); background-repeat: no-repeat; }
+
+.icon-journal { background-image: url('png/journal.png'); background-repeat: no-repeat; }
+
+.icon-next-highlight { background-image: url('png/next-highlight.png'); background-repeat: no-repeat; }
+
+.icon-next-hover { background-image: url('png/next-hover.png'); background-repeat: no-repeat; }
+
+.icon-next { background-image: url('png/next.png'); background-repeat: no-repeat; }
+
+.icon-prev-highlight { background-image: url('png/prev-highlight.png'); background-repeat: no-repeat; }
+
+.icon-prev-hover { background-image: url('png/prev-hover.png'); background-repeat: no-repeat; }
+
+.icon-prev { background-image: url('png/prev.png'); background-repeat: no-repeat; }
 
 .field-name-field-post-access input:checked + label .icon-private,
 .icon-private-highlight { background-image: url('png/private-highlight.png'); background-repeat: no-repeat; }
