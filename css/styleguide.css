@@ -27,25 +27,25 @@ h4, h5, h6 {
 }
 
 h1 {
-  color: #493585;
+  color: #313883;
 }
 
 h2 {
-  color: #4e398e;
+  color: #343c8c;
 }
 
 h3 {
-  color: #4e398e;
+  color: #343c8c;
 }
 
 a:link, a[href*="example.com"] {
   color: #149ce4;
 }
 a:visited, a[href*="worldpulse.com"] {
-  color: #6951bb;
+  color: #5361c1;
 }
 a:visited:hover, a[href*="worldpulse.com"]:hover, a:visited:focus, a[href*="worldpulse.com"]:focus {
-  color: #4e398e;
+  color: #343c8c;
 }
 a:hover, a:focus {
   color: #0f76ac;
@@ -86,13 +86,13 @@ em {
 }
 
 ::-moz-selection {
-  background: #6951bb;
+  background: #5361c1;
   color: #fefefe;
   text-shadow: none;
 }
 
 ::selection {
-  background: #6951bb;
+  background: #5361c1;
   color: #fefefe;
   text-shadow: none;
 }
@@ -387,55 +387,55 @@ body {
 }
 .styleguide-swatches ol.purple .title {
   background-color: #fefefe;
-  color: #4e398e;
+  color: #343c8c;
 }
 .styleguide-swatches ol.purple .dark {
-  background-color: #30245a;
+  background-color: #242a64;
 }
 .styleguide-swatches ol.purple .dark span:after {
-  content: "#30245a";
+  content: "#242a64";
 }
 .styleguide-swatches ol.purple .dark .high {
-  background-color: #3a2b6c;
+  background-color: #2b3277;
 }
 .styleguide-swatches ol.purple .dark .low {
-  background-color: #261d48;
+  background-color: #1d2251;
 }
 .styleguide-swatches ol.purple .main {
-  background-color: #4e398e;
+  background-color: #343c8c;
 }
 .styleguide-swatches ol.purple .main span:after {
-  content: "#4e398e";
+  content: "#343c8c";
 }
 .styleguide-swatches ol.purple .main .high {
-  background-color: #5840a0;
+  background-color: #3b449f;
 }
 .styleguide-swatches ol.purple .main .low {
-  background-color: #44327c;
+  background-color: #2d3479;
 }
 .styleguide-swatches ol.purple .light {
-  background-color: #6951bb;
+  background-color: #5361c1;
 }
 .styleguide-swatches ol.purple .light span:after {
-  content: "#6951bb";
+  content: "#5361c1";
 }
 .styleguide-swatches ol.purple .light .high {
-  background-color: #7963c2;
+  background-color: #6672c8;
 }
 .styleguide-swatches ol.purple .light .low {
-  background-color: #5c44ae;
+  background-color: #4251b8;
 }
 .styleguide-swatches ol.purple .highlight {
-  background-color: #9b90d9;
+  background-color: #8e99d9;
 }
 .styleguide-swatches ol.purple .highlight span:after {
-  content: "#9b90d9";
+  content: "#8e99d9";
 }
 .styleguide-swatches ol.purple .highlight .high {
-  background-color: #aca3e0;
+  background-color: #a1aadf;
 }
 .styleguide-swatches ol.purple .highlight .low {
-  background-color: #8a7dd2;
+  background-color: #7b88d3;
 }
 .styleguide-swatches ol.blue .title {
   background-color: #fefefe;

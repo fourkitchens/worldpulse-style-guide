@@ -64,14 +64,13 @@ $font-body-weight: 300; // Verlag is pulled down in 300 and 600 weights.
 //
 
 // World Pulse Next Gen Colors:
-  // They've asked for some adjustments on the violet hue --- once this settles,
-  // flatten it back into specific hex value.
 $purple:(
-  dark:      adjust-color(#342454, $blue: +6, $red: -4),
-  main:      adjust-color(lighten(#342454, 14%), $blue: +8, $red: -5),
-  bright:    adjust-color(desaturate(lighten(#342454, 27%), 2%), $blue: +10, $red: -8),
-  highlight: adjust-color(desaturate(lighten(#342454, 45%), 2%), $blue: +12, $red: -10),
+  dark:      #242a64,
+  main:      #343c8c,
+  bright:    #5361c1,
+  highlight: #8e99d9
 );
+
 
 $red:   (
   dark:      #71060b,

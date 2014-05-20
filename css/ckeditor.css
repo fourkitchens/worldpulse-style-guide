@@ -441,25 +441,25 @@ h4, h5, h6 {
 }
 
 h1 {
-  color: #493585;
+  color: #313883;
 }
 
 h2 {
-  color: #4e398e;
+  color: #343c8c;
 }
 
 h3 {
-  color: #4e398e;
+  color: #343c8c;
 }
 
 a:link {
   color: #149ce4;
 }
 a:visited {
-  color: #6951bb;
+  color: #5361c1;
 }
 a:visited:hover, a:visited:focus {
-  color: #4e398e;
+  color: #343c8c;
 }
 a:hover, a:focus {
   color: #0f76ac;
@@ -500,13 +500,13 @@ em {
 }
 
 ::-moz-selection {
-  background: #6951bb;
+  background: #5361c1;
   color: #fefefe;
   text-shadow: none;
 }
 
 ::selection {
-  background: #6951bb;
+  background: #5361c1;
   color: #fefefe;
   text-shadow: none;
 }
