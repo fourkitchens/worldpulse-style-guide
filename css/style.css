@@ -989,31 +989,34 @@ ul.primary li.active a, ul.primary li.pager-current, ul.pager li.active a, ul.pa
   margin-bottom: 0.5em;
 }
 .messages.status {
-  border-color: #005918;
-  background-color: #04982c;
-  color: #c5eed1;
-  text-shadow: 1px 1px 0 rgba(0, 63, 17, 0.5);
+  border-color: #91cb9c;
+  border-bottom-color: #58ac6b;
+  background-color: #d5eedb;
+  color: #115e23;
+  text-shadow: 1px 1px 0 rgba(178, 232, 193, 0.75);
 }
-.messages.status a {
-  color: #fefefe;
+.messages.status a, .messages.status a:visited {
+  color: #037f25;
 }
 .messages.warning {
-  border-color: #af5f00;
-  background-color: #ef8100;
-  color: #fff4e7;
-  text-shadow: 1px 1px 0 rgba(150, 81, 0, 0.5);
+  border-color: #e6bc93;
+  border-bottom-color: #eca251;
+  background-color: #faf2e9;
+  color: #a25a0b;
+  text-shadow: 1px 1px 0 rgba(255, 232, 206, 0.75);
 }
 .messages.warning a, .messages.warning a:visited {
-  color: #fefefe;
+  color: #d67300;
 }
 .messages.error {
-  border-color: #71060b;
-  background-color: #b00911;
-  color: #f8d5d7;
-  text-shadow: 1px 1px 0 rgba(89, 5, 9, 0.5);
+  border-color: #dc888c;
+  border-bottom-color: #bf565b;
+  background-color: #f6dedf;
+  color: #711015;
+  text-shadow: 1px 1px 0 rgba(244, 191, 194, 0.75);
 }
-.messages.error a {
-  color: #fefefe;
+.messages.error a, .messages.error a:visited {
+  color: #98080f;
 }
 
 /**

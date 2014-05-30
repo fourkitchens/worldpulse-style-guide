@@ -12,30 +12,32 @@
   padding: 0.5em;
   margin-bottom: 0.5em;
 
+
   &.status {
-    border-color: wp-color($green, 'dark');
-    background-color: wp-color($green);
-    color: wp-color($green, 'highlight', 15%);
-    @include text-shadow(1px 1px 0 rgba(wp-color($green, 'dark', -5%), 0.5));
-    a { color: $white; }
+    border-color: mix(wp-color($grey, bright), wp-color($green, 'bright'), 60%);
+    border-bottom-color: mix(wp-color($grey, bright), wp-color($green, 'main'), 40%);
+    background-color: mix(wp-color($grey, highlight), wp-color($green, highlight, 15%), 35%);
+    color: mix(wp-color($grey, dark), wp-color($green, 'main', -5%), 35%);
+    @include text-shadow(1px 1px 0 rgba(wp-color($green, 'highlight', 10%), 0.75));
+    a, a:visited { color: wp-color($green, 'main', -5%); }
   }
 
   &.warning {
-    border-color: wp-color($orange, 'dark');
-    background-color: wp-color($orange, main, -2.5%);
-    color: wp-color($orange, 'highlight', 15%);
-    @include text-shadow(1px 1px 0 rgba(wp-color($orange, 'dark', -5%), 0.5));
-    a, a:visited {
-      color: $white;
-    }
+    border-color: mix(wp-color($grey, bright), wp-color($orange, 'bright'), 60%);
+    border-bottom-color: mix(wp-color($grey, bright), wp-color($orange, 'main'), 40%);
+    background-color: mix(wp-color($grey, highlight), wp-color($orange, highlight, 15%), 35%);
+    color: mix(wp-color($grey, dark), wp-color($orange, 'main', -5%), 35%);
+    @include text-shadow(1px 1px 0 rgba(wp-color($orange, 'highlight', 10%), 0.75));
+    a, a:visited { color: wp-color($orange, 'main', -7.5%); }
   }
 
   &.error {
-    border-color: wp-color($red, 'dark');
-    background-color: wp-color($red);
-    color: wp-color($red, 'highlight', 15%);
-    @include text-shadow(1px 1px 0 rgba(wp-color($red, 'dark', -5%), 0.5));
-    a { color: $white; }
+    border-color: mix(wp-color($grey, bright), wp-color($red, 'bright'), 60%);
+    border-bottom-color: mix(wp-color($grey, bright), wp-color($red, 'main'), 40%);
+    background-color: mix(wp-color($grey, highlight), wp-color($red, highlight, 15%), 35%);
+    color: mix(wp-color($grey, dark), wp-color($red, 'main', -5%), 35%);
+    @include text-shadow(1px 1px 0 rgba(wp-color($red, 'highlight', 10%), 0.75));
+    a, a:visited { color: wp-color($red, 'main', -5%); }
   }
 
 }
