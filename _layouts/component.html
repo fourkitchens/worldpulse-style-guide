@@ -1,27 +1,45 @@
 ---
 layout: default
 ---
+  <div class="l-centered main-container styleguide-content">
+    <!--
+    <section class="pre-content">
+      <?php print $content['pre_content']; ?>
+    </section>
+    -->
 
-<div class="styleguide-content">
-  <nav class="styleguide-nav collapse"><ul>
-    {% for post in site.posts reversed %}
-      {% if post.layout == "heading" %}
-        <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <!-- <a href="{{ post.url }}">&rarr;</a> --></li>
-      {% elsif post.url == page.url %}
-        <li class="current"><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% else %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul></nav>
+    <div class="l-two-column clearfix">
+      <div class="column-1">
+        <div class="styleguide-index">
+          <h1>{{ page.title }}</h1>
 
-  <div class="styleguide-index">
-    <h1>{{ page.title }}</h1>
+          <div class="component">
+          {{ content }}
+          </div>
 
-    <div class="component">
-    {{ content }}
+        </div>
+      </div>
+
+      <div class="column-2">
+        <nav class="styleguide-nav collapse"><ul>
+          {% for post in site.posts reversed %}
+            {% if post.layout == "heading" %}
+              <li class="heading">{{ post.date | date: "%Y" | plus:0 }}. {{ post.title }} <!-- <a href="{{ post.url }}">&rarr;</a> --></li>
+            {% elsif post.url == page.url %}
+              <li class="current"><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% else %}
+              <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul></nav>
+      </div>
     </div>
 
+    <!--
+    <section class="post-content">
+      <?php print $content['post_content']; ?>
+    </section>
+    -->
   </div>
 </div>
 

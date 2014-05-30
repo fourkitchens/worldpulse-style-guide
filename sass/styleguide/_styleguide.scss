@@ -24,64 +24,8 @@ code {
   background-color: rgba(wp-color($grey, 'highlight', 5%), 0.75);
 }
 
-body {
-  background: wp-color($grey, 'highlight');
-}
-
 .styleguide-container {
   position: relative;
-
-  header, footer {
-    padding: 0.5em;
-
-    > div {
-      margin: 0 auto;
-      max-width: 1000px;
-    }
-  }
-
-  > header {
-    background-color: wp-color($red, 'dark');
-    @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
-    color: $white;
-    margin-bottom: 1em;
-
-    @include respond-to('fixed header') {
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 72px;
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    #logo {
-      max-width: 280px;
-    }
-  }
-
-  > footer {
-    margin-top: 2em;
-    color: #999;
-    font-size: 0.75em;
-    border-top: 1px solid wp-color($grey, 'bright');
-  }
-
-  > main {
-    margin: 10px;
-    @include respond-to('sg nav side') {
-      margin-left: 0;
-      padding-left: 240px;
-    }
-    @include respond-to('fixed header') {
-      margin-top: 76px;
-    }
-  }
 
   section {
     padding-bottom: 1em;
@@ -99,7 +43,7 @@ body {
     }
   }
 
-  h1 + section.heading {
+  h1 + section.heading, h1:first-child {
     margin-top: 0;
   }
 
@@ -109,22 +53,11 @@ body {
   @extend %clearfix;
   margin: 0 auto;
   padding: 0.5em;
-  max-width: 1000px;
+  max-width: $max-width;
 }
 
 .styleguide-nav {
-  display: none;
-
-  @include respond-to('sg nav top') {
-    display: block;
-  }
-
-  @include respond-to('sg nav side') {
-    display: block;
-    position: fixed;
-    left: 10px;
-    width: 220px;
-  }
+  display: block;
 
   font-size: 0.875em;
 

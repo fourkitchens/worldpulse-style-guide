@@ -24,19 +24,55 @@
   </head>
   <body>
     <div class="styleguide-container">
-      <header>
-        <a href="/">
-          <div id="logo" class="logo-white-solid"><h1 class="logo">{{ site.name }}</h1></div>
-        </a>
+      <header id="header" role="banner">
+        <div class="clearfix">
+          <div class="row-1 clearfix">
+            <div class="header-content l-centered">
+              <a href="/" title="Return to the World Pulse home page" class="site-logo logo-white-solid" id="logo" rel="home"><h1 class="logo">World Pulse</h1></a>
+              <div class="panel-pane pane-block pane-system-user-menu">
+                <div class="pane-content">
+                  <ul class="menu">
+                    <li class="first leaf"><a href="https://github.com/fourkitchens/worldpulse-style-guide">GitHub Repo</a></li>
+                    <li class="last leaf"><a href="http://www.worldpulse.com">World Pulse</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="header-content l-centered">
+              <!-- For the moment, there's nothing here. -->
+            </div>
+          </div>
+
+          <div class="row-3">
+            <div class="header-content l-centered">
+              <!-- For the moment, there's nothing here. -->
+            </div>
+          </div>
+        </div>
       </header>
 
-      <main>
-        {{ content }}
+      <main id="main" role="main">
+        <div class="l-centered main-container">
+          {{ content }}
+        </div>
       </main>
 
-      <footer>
-        <div>
-          Four Kitchens | <a href="http://www.fourkitchens.com">www.fourkitchens.com</a>
+      <footer id="footer" role="contentinfo">
+        <div class="clearfix">
+          <div class="row-1">
+            <div class="footer-content l-centered">
+              <p>Style Guide for World Pulse</p>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="footer-content l-centered">
+              <p>Four Kitchens | <a href="http://www.fourkitchens.com">www.fourkitchens.com</a></p>
+            </div>
+          </div>
         </div>
       </footer>
     </div> <!-- /styleguide-container -->
