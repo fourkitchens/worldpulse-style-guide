@@ -3,9 +3,40 @@
  * Styles for Journal Post nodes.
  * Consider what should be Journal-specific and what should be general node styles instead...
  */
+
 .node-post {
-  header h1 {
-    margin-top: 0;
+  header {
+    h1 {
+      margin-top: 0;
+      float: left;
+    }
+    .privacy-status {
+      clear: left;
+      span {
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    .abuse-info {
+      float: right;
+      line-height: 32px;
+    }
+
+    a.flag {
+      margin: 0 0 0 8px;
+    }
+
+    .reported {
+      @include border-radius(3px);
+      padding: 0.375em;
+      vertical-align: middle;
+      text-transform: uppercase;
+      font-size: 0.75em;
+      color: wp-color($red, highlight, 5%);
+      background-color: wp-color($red, bright, -5%);
+    }
+
   }
 
   .field-post-image-gallery {
@@ -51,6 +82,59 @@
 
     img {
       display: block;
+    }
+  }
+
+  .field-post-cover-image-wrapper {
+    @include box-sizing(content-box); // To make it easier to fill the full width
+    margin-top: -1em;
+    margin-left: -1em;
+    margin-bottom: 1em;
+    width: 100%;
+    padding: 0 1em; // To match the padding that's on the node container (pane)
+
+    position: relative;
+    overflow: hidden;
+    @include border-radius(3px 3px 0 0);
+
+
+    figure {
+      margin: 0;
+
+      // To combat nested padding, we force the image to be too wide, and then
+      // cropped by the container's overflow:hidden. This results in a very thin
+      // margin being cropped on the sides of the image, but the goal is to
+      // minimize this and also avoid using JavaScript to make this positioning
+      // more complicated.
+      max-width: 120%;
+      width: 120%;
+      position: relative;
+      left: -10%;
+    }
+
+    img {
+      display: block;
+    }
+
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 0.75em;
+      padding: 0.375em 8.5%;
+      color: wp-color($grey, highlight);
+      background-color: wp-color($grey, dark, -5%);
+      background-color: rgba(0,0,0,0.8);
+
+      p:first-child {
+        // The title; or the caption without a title
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      p:last-child { margin-bottom: 0; }
+
     }
   }
 }

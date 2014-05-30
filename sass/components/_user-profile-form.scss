@@ -1,0 +1,67 @@
+/**
+ * @file _user-profile-form.scss
+ * Edit form for user profiles
+ */
+#user-profile-form {
+  .form-type-managed-file input[name*="upload"] {
+    @extend %btn-primary;
+    @extend %btn-small;
+  }
+
+  .form-type-managed-file input[name*="remove"] {
+    @extend %btn-negative;
+    @extend %btn-small;
+  }
+
+  .manualcrop-style-button-holder {
+    padding-top: 0; // Override this, comes from module, but we need that sheet.
+  }
+
+  .manualcrop-style-button {
+    @extend %btn-aux1;
+    @extend %btn-small;
+  }
+
+  .field-name-field-user-profile-picture {
+    @extend %clearfix;
+
+    .image-widget-data span {
+      display: block;
+    }
+
+    .image-preview {
+      display: block;
+      width: 49%;
+      float: left;
+    }
+
+    .image-preview + .image-widget-data {
+      display: block;
+      width: 49%;
+      float: right;
+    }
+
+    .description {
+      color: wp-color($grey, main, 20%);
+    }
+
+    @include respond-to('wide form labels') {
+      label {
+        width: 18%;
+        margin-right: 2%;
+        float: left;
+      }
+
+      .form-managed-file, .description {
+        display: block;
+        width: 80%;
+        float: right;
+      }
+
+      .image-widget-data {
+        margin-top: 5%;
+      }
+    }
+  }
+
+}

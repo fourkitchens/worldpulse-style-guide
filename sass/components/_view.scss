@@ -50,4 +50,29 @@
       }
     }
   }
+
+  // The read-more link that shows underneath node teasers. If it's appearing
+  // in a view, it's obvious that it is excerpted content.
+  .node-readmore {
+    display: none;
+  }
+
+  // For list views of rendered entities (generally teasers):
+  .views-row article {
+    padding-bottom: 1em;
+    border-bottom: 1px solid wp-color($grey, highlight, -5%);
+    margin-bottom: 1em;
+
+    h3, :first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Smaller buttons for Views when placed in secondary panels regions.
+  // Additional usage of secondary content panels is defined in _panel-pane.scss
+  .l-two-column .column-2 & {
+    .button {
+      @extend %btn-small;
+    }
+  }
 }

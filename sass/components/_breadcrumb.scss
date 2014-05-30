@@ -1,0 +1,141 @@
+/**
+ * @file _breadcrumb.scss
+ * Styles for the breadcrumb menu and the panel pane it usually sits inherit;
+ */
+.breadcrumb {
+  @extend %clearfix;
+  overflow: hidden; // To hide my arrows
+
+  // If the screen is *that* narrow, there's no value; just hide it.
+  display: none;
+  @include respond-to('breadcrumb show') { display: block; }
+
+  white-space: nowrap;
+
+  margin: 0;
+  #header .row-3 & { margin-bottom: -2px; } // To "overlap" the border in the header row
+  font-size: 0.75em;
+
+  line-height: 2; // To make vertical alignment with the icon look right
+  @include respond-to('breadcrumb styles expanded') { line-height: 3; }
+
+  &, li {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: none;
+    &.first, &.second, &.penultimate { display: inline-block; }
+    @include respond-to('breadcrumb links current') { &.last { display: inline-block; } }
+    @include respond-to('breadcrumb links all') { display: inline-block; }
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: wp-color($blue, dark, 5%);
+
+    @include transition(border 0.2s ease-out);
+
+    &:hover {
+      color: wp-color($blue, dark, -5%);
+      background: wp-color($grey, bright, 10%);
+      border-bottom: 2px solid wp-color($purple, bright);
+      &:after { border-left-color: wp-color($grey, bright, 10%); }
+    }
+
+  }
+
+  .no-link {
+    color: wp-color($grey, main, 7.5%);
+    &.last { color: wp-color($grey, main); }
+  }
+
+  .first a {
+    white-space: nowrap;
+    @include respond-to('breadcrumb styles expanded') { padding-left: 1em; }
+    @include border-radius(2px 0 0 2px);
+
+    .icon-home-light {
+      display: none;
+      margin: 0;
+      margin-right: 0.5em;
+    }
+
+    #header .row-3 & {
+      background-color: wp-color($grey, bright, 10%);
+      &:after { border-left-color: wp-color($grey, bright, 10%); }
+      // &:before { border-left-color: wp-color($grey, bright, 10%); }
+    }
+
+    @include respond-to('breadcrumb styles expanded') {
+      width: 3.25em;
+      .icon-home-light { display: inline-block; }
+    }
+  }
+
+  li.penultimate a {
+    border-right: none;
+  }
+
+  li.last {
+    border-right: none;
+    font-style: italic;
+    background: wp-color($grey, bright, 10%);
+    @include border-radius(0 2px 2px 0);
+    @include respond-to('breadcrumb styles expanded') { padding-right: 1em; }
+  }
+
+  a, .no-link {
+    padding: 2px 5px 0 5px;
+    background: wp-color($grey, bright, 7.5%);
+    border-bottom: 2px solid wp-color($grey, bright, 5%);
+    border-right: 1px solid wp-color($grey, highlight, 7.5%);
+
+    white-space: nowrap;
+
+    position: relative;
+
+    @include respond-to('breadcrumb styles expanded') {
+      padding-left: 20px;
+      border-right: none;
+
+      &:before, &:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        font-size: 0;
+        height: 0;
+        width: 0;
+        top: 50%;
+        left: 100%;
+        margin-top: -24px;
+        border: {
+          top: 25px solid transparent;
+          bottom: 25px solid transparent;
+          left: 10px solid wp-color($grey, bright, 7.5%);
+        }
+      }
+
+      &.last {
+        &:before, &:after {
+          content: none;
+        }
+      }
+
+      &:after {
+        z-index: 2;
+      }
+
+      &:before {
+        z-index: 1;
+        margin-left: 1px;
+        border-left-color: wp-color($grey, highlight, 7.5%);
+      }
+    }
+  }
+}
+
+.pane-page-breadcrumb {}

@@ -20,7 +20,10 @@
 
 body {
   padding: .5em;
+
+  // From the primary stylesheet, we get these background properties. Override!
   background-color: wp-color($grey, highlight, 5%);
+  background-image: none !important;
 }
 
 p:first-child {

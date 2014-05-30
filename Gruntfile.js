@@ -71,17 +71,38 @@ module.exports = function (grunt) {
           previewhtml: "icons.html",
           defaultWidth: "64px",
           defaultHeight: "64px",
+          colors: {
+            red: '#b00911',
+            red_dark: '#71060b',
+            blue: '#149ce4',
+            light: '#8d7b7b',
+            highlight: '#fefefe',
+          },
           customselectors: {
             "abuse": [".flag-wp-flag-comments-abuse .flag-action"],
-            "abuse-hover": [".icon-abuse:hover, .flag-wp-flag-comments-abuse a:hover"],
-            "abuse-reported": [".flag-wp-flag-comments-abuse .unflag-action"],
-            "cc-hover": [".icon-cc:hover"],
-            "redact-hover": [".icon-redact:hover"],
-            "edit-hover": [".icon-edit:hover"],
+            "abuse-red": [".icon-abuse:hover", ".flag-wp-flag-comments-abuse a:hover"],
+            "abuse-red_dark": [".icon-abuse.unflag-action"],
+            "cc-blue": [".icon-cc:hover"],
+            "close": [".chosen-container-multi", ".search-choice-close"],
+            "close-blue": [".icon-close:hover", "#cboxClose:hover", ".chosen-container-multi .search-choice-close:hover"],
+            "close-highlight": ["#cboxClose"],
+            "down-light": [".chosen-container-single .chosen-single", ".chosen-container-multi .chosen-choices"],
+            "drag": [".icon-edit:hover", ".draggable a.tabledrag-handle .handle"],
+            "drag-blue": [".icon-edit:hover", ".draggable a.tabledrag-handle .handle:hover"],
+            "edit-blue": [".icon-edit:hover"],
             "friends-highlight": [".field-name-field-post-access input:checked + label .icon-friends"],
+            "group-highlight": [".field-name-field-post-type input:checked + label .icon-group"],
+            "home": [".breadcrumb a:hover .icon-home-light"],
+            "journal-highlight": [".field-name-field-post-type input:checked + label .icon-journal"],
+            "next-blue": [".icon-next:hover", "#cboxNext:hover"],
+            "next-highlight": ["#cboxNext"],
+            "prev-blue": [".icon-prev:hover", "#cboxPrevious:hover"],
+            "prev-highlight": ["#cboxPrevious"],
             "private-highlight": [".field-name-field-post-access input:checked + label .icon-private"],
             "public-highlight": [".field-name-field-post-access input:checked + label .icon-public"],
-            "reply-hover": [".icon-reply:hover"]
+            "redact-red": [".icon-redact:hover"],
+            "reply-blue": [".icon-reply:hover"],
+            "search-light": [".chosen-container-single input[type=\"text\"]"]
           }
         }
       }
@@ -124,7 +145,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'images',
-          src: ['**/*.png', '**/*.jpg'],
+          src: ['**/*.png', '**/*.jpg', '**/*.gif', '**/*.jpeg'],
           dest: 'img/'
         }]
       }
@@ -187,7 +208,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: 'images',
-            src: ['**', '!**/*.svg', '!**/*.png', '!**/*.jpg'],
+            src: ['**', '!**/*.svg', '!**/*.png', '!**/*.jpg', '**/*.gif', '**/*.jpeg'],
             dest: 'img'
           }
         ]

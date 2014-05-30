@@ -1,0 +1,469 @@
+/**
+ * @file _chosen.scss
+ * Styling for the Chosen library http://harvesthq.github.io/chosen/
+ * Chosen makes a better autocomplete experience for long and/or hierarchical
+ * <select> lists. Currently in use on the countries taxonomy selector on
+ * node and user forms.
+ *
+ * This is largely lifted from the default stylesheet at
+ * /sites/all/libraries/chosen/chosen.css -- just WP-ified slightly.
+ *
+ */
+
+/////////////////////////////////////////////////////////////////////
+// Basics
+/////////////////////////////////////////////////////////////////////
+
+.chosen-container {
+  position: relative;
+  display: block;
+  vertical-align: middle;
+
+  zoom: 1;
+  *display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  &, &[style] {
+    // Chosen automatically determines its width when it opens w/ JS,
+    // but I'd rather have have it inline.
+    width: auto !important;
+
+    label ~ & {
+      @include respond-to('wide form labels') {
+        float: right;
+        width: 80% !important;
+      }
+    }
+  }
+
+  .chosen-choices, .chosen-single {
+    @include border-radius(3px);
+    @include transition(box-shadow 0.3s ease-out, border 0.3s ease-out);
+  }
+
+  #{nest('&.chosen-with-drop', '.chosen-choices, .chosen-single')} {
+    @include border-radius(3px 3px 0 0);
+    border-bottom: 0;
+  }
+
+  .chosen-drop {
+    @include border-radius(0 0 3px 3px);
+    @include transition(box-shadow 0.3s ease-out, border 0.3s ease-out);
+    position: absolute;
+    top: 100%;
+    left: -9999px;
+    z-index: 1010;
+    width: 100%;
+    border: 1px solid wp-color($grey, 'bright');
+    border-top: 0;
+    background-color: wp-color($grey, 'highlight', 5%);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  &.chosen-with-drop .chosen-drop {
+    left: 0;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// Single Selects
+/////////////////////////////////////////////////////////////////////
+
+.chosen-container-single {
+  .chosen-single {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    height: auto;
+    border: 1px solid wp-color($grey, 'bright');
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+
+    background: {
+      color: wp-color($grey, 'highlight', 5%);
+      position: 99.5% 50%;
+      size: 18px;
+    }
+
+    // This is actually a link, so we need to drop the hoverstate color:
+    &:hover { color: inherit; }
+  }
+  .chosen-single span {
+    // This is the selected item
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    margin-right: 26px;
+    padding: 0.375em;
+    width: 100%;
+    height: auto;
+    cursor: text;
+    line-height: normal; // To better mimic <input type="text" />
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .chosen-single-with-deselect span {
+    margin-right: 38px;
+  }
+
+  .chosen-single div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 18px;
+    height: 100%;
+  }
+  .chosen-search {
+    position: relative;
+    z-index: 1010;
+    margin: 0;
+    padding: 3px 4px;
+    white-space: nowrap;
+  }
+  .chosen-search input[type="text"] {
+    @include box-sizing(border-box);
+    @include box-shadow(none); // Set in _forms.scss for input::focus.
+    margin: 2px 0 5px 0;
+    padding: 4px 20px 4px 5px;
+    width: 100%;
+    height: auto;
+    outline: 0;
+    border: 1px solid wp-color($grey, highlight, -5%);
+    background: {
+      position: 99.5% 50%;
+      size: 18px;
+    }
+    line-height: normal;
+  }
+  .chosen-drop {
+    margin-top: -1px;
+    border-radius: 0 0 3px 3px;
+    background-clip: padding-box;
+  }
+  &.chosen-container-single-nosearch .chosen-search {
+    position: absolute;
+    left: -9999px;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// Result Sets
+/////////////////////////////////////////////////////////////////////
+
+.chosen-container {
+  .chosen-results {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 4px 0 0;
+    padding: 0;
+    max-height: 240px;
+    width: 100%; // This shouldn't be needed, but without it, result lists are 4px wide in chosen-single selects
+    -webkit-overflow-scrolling: touch;
+
+    li {
+      display: none;
+      margin: 0;
+      padding: 0.25em 0.5em;
+      list-style: none;
+      line-height: 1.25;
+      -webkit-touch-callout: none;
+    }
+
+    li.active-result {
+      display: list-item;
+      cursor: pointer;
+    }
+
+    li.disabled-result {
+      display: list-item;
+      color: #ccc;
+      cursor: default;
+    }
+
+    li.highlighted {
+      @include background-image(linear-gradient(
+        wp-color($purple, 'main', 5%),
+        wp-color($purple) 30%,
+        wp-color($purple) 70%,
+        wp-color($purple, 'main', -2.5%)
+      ));
+      color: wp-color($grey, highlight, 5%);
+      @include text-shadow(1px 1px 0 rgba(0,0,0,0.75));
+    }
+
+    li.no-results {
+      display: list-item;
+      color: wp-color($grey, main, 5%);
+      background: wp-color($grey, highlight);
+    }
+
+    li.group-result {
+      display: list-item;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    li.group-option {
+      padding-left: 15px;
+    }
+
+    li em {
+      font-style: normal;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// Multi Selects
+/////////////////////////////////////////////////////////////////////
+
+.chosen-container-multi {
+  .chosen-choices {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border: 1px solid wp-color($grey, 'bright');
+    cursor: text;
+
+    background: {
+      color: wp-color($grey, 'highlight', 5%);
+      position: 99.5% 50%;
+      size: 18px;
+    }
+
+    li {
+      float: left;
+      list-style: none;
+    }
+
+    li.search-field {
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+
+      input[type="text"] {
+        margin: 3px 0;
+        padding: 5px;
+        outline: 0;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+
+    li.search-choice {
+      position: relative;
+      margin: 3px 0 3px 3px;
+      padding: 2px 24px 0px 4px;
+      border: 1px solid wp-color($grey, 'bright', -5%);
+      border-radius: 2px;
+      background-color: wp-color($grey, 'bright', 5%);
+      @include background-image(linear-gradient(
+        wp-color($grey, 'bright', 10%),
+        wp-color($grey, 'bright', 5%) 30%,
+        wp-color($grey, 'bright', 5%) 70%,
+        wp-color($grey, 'bright')
+      ));
+      background-clip: padding-box;
+      box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+      cursor: default;
+
+      .search-choice-close {
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        right: 4px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        font-size: 1px;
+        background-size: contain;
+      }
+    }
+
+    li.search-choice-disabled {
+      padding-right: 5px;
+      border: 1px solid #ccc;
+      background-color: #e4e4e4;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+      background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+      background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+      background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+      background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+      color: #666;
+    }
+
+    li.search-choice-focus {
+      background: #d4d4d4;
+    }
+  }
+  .chosen-results {
+    margin: 0;
+    padding: 0;
+  }
+  .chosen-drop .result-selected {
+    display: list-item;
+    color: #ccc;
+    cursor: default;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// Active Items
+/////////////////////////////////////////////////////////////////////
+
+.chosen-container-active {
+  .chosen-single {
+    border-color: wp-color($grey, 'bright', -5%);
+    background-color: #ffffff; // Yes, this is the *one time* we're calling out pure white.
+    @include box-shadow(0 0 4px rgba(wp-color($orange, 'dark'), 0.5));
+  }
+  &.chosen-with-drop .chosen-single {
+    border-color: wp-color($grey, 'bright', -5%);
+    background-color: #ffffff; // Yes, this is the *one time* we're calling out pure white.
+    @include box-shadow(0 0 4px rgba(wp-color($orange, 'dark'), 0.5));
+
+  }
+  &.chosen-with-drop .chosen-single div {
+    border-left: none;
+    background: transparent;
+  }
+  &.chosen-with-drop .chosen-single div b {
+    background-position: -18px 2px;
+  }
+  .chosen-choices {
+    border-color: wp-color($grey, 'bright', -5%);
+    background-color: #ffffff; // Yes, this is the *one time* we're calling out pure white.
+    @include box-shadow(0 0 4px rgba(wp-color($orange, 'dark'), 0.5));
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// Disabled fields
+/////////////////////////////////////////////////////////////////////
+
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+
+  .chosen-single {
+    cursor: default;
+  }
+  .chosen-choices .search-choice .search-choice-close {
+    cursor: default;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// RTL
+/////////////////////////////////////////////////////////////////////
+
+.chosen-rtl {
+  text-align: right;
+
+  .chosen-single {
+    overflow: visible;
+    padding: 0 8px 0 0;
+  }
+  .chosen-single span {
+    margin-right: 0;
+    margin-left: 26px;
+    direction: rtl;
+  }
+  .chosen-single-with-deselect span {
+    margin-left: 38px;
+  }
+  .chosen-single div {
+    right: auto;
+    left: 3px;
+  }
+  .chosen-single abbr {
+    right: auto;
+    left: 26px;
+  }
+  .chosen-choices li {
+    float: right;
+  }
+  .chosen-choices li.search-field input[type="text"] {
+    direction: rtl;
+  }
+  .chosen-choices li.search-choice {
+    margin: 3px 0 3px 3px;
+    padding: 2px 24px 0px 4px;
+  }
+  .chosen-choices li.search-choice .search-choice-close {
+    right: auto;
+    left: 4px;
+  }
+  &.chosen-container-single-nosearch .chosen-search,
+  .chosen-drop {
+    left: 9999px;
+  }
+  .chosen-rtl.chosen-container-single .chosen-results {
+    margin: 0 0 4px 4px;
+    padding: 0 4px 0 0;
+  }
+  .chosen-results li.group-option {
+    padding-right: 15px;
+    padding-left: 0;
+  }
+  &.chosen-container-active.chosen-with-drop .chosen-single div {
+    border-right: none;
+  }
+  .chosen-search input[type="text"] {
+    padding: 4px 5px 4px 20px;
+    direction: rtl;
+    background: {
+      position: 0.5% 50%;
+    }
+  }
+  &.chosen-container-single .chosen-single div b {
+    background-position: 6px 2px;
+  }
+  &.chosen-container-single.chosen-with-drop .chosen-single div b {
+    background-position: -12px 2px;
+  }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// High Resolution / Retina Compatibility
+// (CURRENTLY UNUSED)
+/////////////////////////////////////////////////////////////////////
+
+/*
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-container-single .chosen-single abbr,
+  .chosen-container-single .chosen-single div b,
+  .chosen-container-single .chosen-search input[type="text"],
+  .chosen-container .chosen-results-scroll-down span,
+  .chosen-container .chosen-results-scroll-up span {
+    background-image: url('chosen-sprite@2x.png') !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}
+*/
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////

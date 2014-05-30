@@ -9,7 +9,7 @@ fieldset {
   border: 1px solid wp-color($grey, highlight, -2.5%);
   border-bottom-width: 2px;
   @include border-radius(3px);
-  margin-bottom: 1em;
+  margin: 0 0 1em 0;
   padding: 1em;
 
   > legend {
@@ -247,11 +247,9 @@ input[type="checkbox"] {
   }
 }
 
-form {
-  .container-inline {
-    .form-item {
-      display: inline-block;
-      vertical-align: middle;
-    }
+.container-inline {
+  .form-item {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

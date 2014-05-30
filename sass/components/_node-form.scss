@@ -26,7 +26,8 @@
 // Privacy Controls work. This may eventually belong in its own file with
 // the three fields that make up this component. In the meantime, just for
 // journal privacy limited options (private/public), it's here:
-.gte-ie9 {// So IE 8 really doesn't play nice with these styles
+@include respond-to('ie 8') {// This will prevent the ie 8 stylesheet from
+  // picking up the code.
   .field-name-field-post-access, .field-name-field-post-type {
     .form-radios {
       @include clearfix(); // Include because of media query.
@@ -111,7 +112,7 @@
     }
   }
 
-} // END LT-IE9
+} // END IE8 INCOMPATIBLE CODE.
 
 .field-name-field-post-image-gallery {
 

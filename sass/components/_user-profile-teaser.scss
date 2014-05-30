@@ -1,0 +1,24 @@
+/**
+ * @file _user-profile-teaser.scss
+ * User profile teaser.
+ * partial to keep things tidy.
+ */
+
+.user-profile.teaser {
+  text-align: center;
+
+  .user-profile-user-picture {
+    display: block;
+    margin: 0 auto 0.25em auto;
+  }
+
+  .user-profile-teaser-flag {
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  .user-profile-teaser-name {
+    display: block;
+    float: left;
+  }
+}
+

@@ -4,8 +4,132 @@
  */
 
 #header {
-  background-color: wp-color($red, dark);
-  border-bottom: 1px solid wp-color($red, dark, -5%);
-  @include box-shadow(1px 0 5px rgba(0,0,0,0.2));
   color: $white;
+  border-bottom: 1px solid wp-color($grey, bright);
+
+  a#logo {
+    .logo { background-position-x: left; }
+    width: 210px;
+    max-width: 80%;
+
+    margin: 1em auto 0.5em;
+
+    @include respond-to('header primary medium buttons') {
+      margin: 0;
+      width: 195px;
+      max-width: 40%;
+      float: left;
+
+      ~ .panel-pane {
+        float: right;
+      }
+    }
+
+    @include respond-to('header primary tall buttons')   { width: 280px; }
+  }
+
+  // For placeholder content only, strip margins to make things easier to compare
+  p { margin: 0; }
+
+  .header-content {
+    // This is the "inner-wrapper" on each row that has the max-width from
+    // .l-centered --- In order to use positioning on menu components, we
+    // set this area to relative.
+    position: relative;
+  }
+
+  .row-1 {
+    background-color: wp-color($red, dark);
+    border-bottom: 1px solid wp-color($red, dark, -5%);
+
+    .menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+
+      li {
+        display: inline;
+      }
+
+      a {
+        display: inline-block;
+
+        // Styles for all sizes
+        font-family: $gotham;
+        font-weight: 400;
+        color: wp-color($grey, highlight, -2.5%);
+        @include text-shadow(1px 1px 0 rgba(0,0,0,0.5));
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        // Mobile-only styles we'll override later
+        font-size: 0.75em;
+        border: 1px solid wp-color($red, dark, 2.5%);
+        background-color: wp-color($red, dark, -2.5%);
+        @include border-radius(3px);
+        margin: 0 0.5em 0.5em 0.5em;
+        padding: 0.25em 0.5em;
+      }
+
+    }
+
+    @include respond-to('header primary medium buttons') {
+      // This needs to match/exceed the height of the logo at this breakpoint
+      $height-match: 48px;
+      .panel-pane { height: $height-match; }
+      .menu a { line-height: $height-match; }
+
+      .menu {
+        border-left: 1px solid wp-color($red, dark, -5%);
+        border-right: 1px solid wp-color($red, dark, 5%);
+        font-size: 0; // To eliminate space between inline-block elements
+      }
+
+      .menu a {
+        font-size: 12px; // Must be pixels because 0em is inherited from .menu
+        padding: 0 0.5em;
+        margin: 0;
+        border-top: 0;
+        border-bottom: 0;
+        border-left: 1px solid wp-color($red, dark, 5%);
+        border-right: 1px solid wp-color($red, dark, -5%);
+        @include border-radius(none);
+        background-color: wp-color($red, dark);
+        @include text-shadow(1px 1px 0 rgba(0,0,0,0.5));
+
+        &:hover {
+          background-color: wp-color($red, dark, -2.5%);
+          color: wp-color($grey, highlight, 5%);
+          @include text-shadow(1px 1px 0 rgba(0,0,0,1));
+        }
+      }
+    }
+
+    @include respond-to('header primary tall buttons') {
+      // This needs to match/exceed the height of the logo at this breakpoint
+      $height-match: 65px;
+      .panel-pane { height: $height-match; }
+      .menu a { line-height: $height-match; }
+
+      .menu a {
+        padding: 0 1em;
+        font-size: 13px; // Must be pixels because 0em is inherited from .menu
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+
+  .row-2 {
+    border-top: 1px solid wp-color($red, dark);
+    background-color: wp-color($red, dark, -5%);
+    border-bottom: 1px solid wp-color($grey, highlight, 10%);
+  }
+
+  .row-3 {
+    background-color: wp-color($grey, bright, 10%);
+    border-bottom: 2px solid wp-color($grey, bright, 5%);
+  }
 }

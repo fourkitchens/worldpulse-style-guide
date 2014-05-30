@@ -9,17 +9,67 @@
   padding: 1em;
   margin-bottom: 1em;
   border: 1px solid wp-color($grey, highlight, -5%);
+}
+
+// "Primary content" stuff (main node content, etc). Generally, we'll extend
+// this onto .panel-pane elements in content areas, rather than individually.
+// See below.
+%panel-pane-primary {
+  @extend %panel-pane-content;
+  border: 1px solid wp-color($grey, highlight, -5%);
   border-bottom-width: 2px;
   @include border-radius(3px);
   background-color: wp-color($grey, highlight, 5%);
 }
 
+// "Secondary content" stuff (sidebars, etc.). Generally, we'll extend this
+// onto .panel-pane elements in sidebar or auxiliary regions, rather than
+// individually. See below.
+%panel-pane-secondary {
+  @extend %panel-pane-content;
+  border: 1px solid wp-color($grey, highlight, -3.5%);
+  border-bottom-width: 2px;
+  background-color: wp-color($grey, highlight, 2.5%);
+}
+
+// When a pane is inside a region wherein it has inherited one of the
+// %panel-pane-[primary|secondary] extensions (below), but it is a special
+// case which should not have the padding or border, we clear that off here.
+// Note that a strong selector may be required.
+%panel-pane-override-clear {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+// General Panels setup
 .panel-pane {
   &.pane-page-content, &.pane-node {
-    @extend %panel-pane-content;
+    @extend %panel-pane-primary;
   }
 
   .pane-title {
     margin-top: 0;
   }
+}
+
+.pane-element {
+  margin-top: 1em;
+}
+
+// Many pages, especially system pages like /user, /user/%/edit, /note/%/edit
+// etc... follow this format of [.main-container > title + the-stuff]. In which
+// case. gracefully wrap the-stuff.
+#first-time, // #first-time is the Drupal home page placeholder until we put something there
+.main-container h1 + article,
+.main-container h1 + form,
+.main-container h1 + .view {
+  @extend %panel-pane-primary;
+}
+
+// These "secondary" content items (primarily sidebar or meta stuff) get a
+// similar treatment as most panel-panes, but with a slightly more subtle
+// background color and border color.
+.l-two-column .column-2 .panel-pane {
+  @extend %panel-pane-secondary;
 }

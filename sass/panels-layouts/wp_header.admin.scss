@@ -1,0 +1,13 @@
+/**
+ * @file wp_header.admin.scss
+ * The layout only to be used on the admin interface for wp_header.
+ */
+
+@import '../config/config';
+
+.pre-content,
+.post-content {
+  width: 100%;
+}
+
+@import '../layouts/base_layouts';

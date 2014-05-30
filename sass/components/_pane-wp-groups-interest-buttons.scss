@@ -1,0 +1,45 @@
+/**
+ * @file _pane-wp-groups-interest-buttons.scss
+ * On the Community landing page, there are three buttons above the primary
+ * content area housed within a pane. This is some basic layout for those items,
+ * most of the styling is inherited from _button.scss
+ */
+
+.pane-wp-groups-interest-buttons {
+  .pane-content {
+    @extend %clearfix;
+
+    a {
+      margin-right: 0; // We'll override this in breakpoints below, if we can do columns.
+    }
+
+    .last {
+      margin-right: 0 !important; // This should take precedence over some of our no-flexbox rules below
+    }
+
+
+    @include respond-to('community interest buttons') {
+      // Flexbox is so awesome. Use it if we can.
+      .flexbox & {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        a {
+          flex: 1 1 0;
+          margin-right: 0.5em;
+        }
+      }
+
+      // And in the absence of Flexbox, do it this way:
+      #{nest('.no-js, .no-flexbox', '&')} {
+        display: table;
+        a {
+          display: table-cell;
+          width: 33.33%;
+          &.last { width: 33.34% }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,11 @@
  */
 
 #main {
-  background-color: wp-color($grey, highlight);
+  background: {
+    color: wp-color($grey, highlight);
+    image: inline-image('textures/stripes.png'); // This is stupidly small, so we get a benefit from inlining the image.
+    repeat: repeat;
+  }
 
   .main-container {
     padding: {

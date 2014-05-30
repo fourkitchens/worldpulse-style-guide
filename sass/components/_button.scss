@@ -228,5 +228,24 @@ input.action-delete {
 .btn-small {
   font-size: 0.75em;
   font-weight: 400;
-  padding: 0.375em 0.25em;
+  padding: 0.375em;
+}
+
+%btn-multiline,
+.btn-multiline {
+  display: block;
+  text-align: center;
+
+  #{headings()} {
+    color: inherit;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0.5em;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 0.875em;
+    letter-spacing: 0;
+  }
 }

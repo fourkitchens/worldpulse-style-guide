@@ -15,22 +15,22 @@ ul.pager {
   font-size: 0.875em;
 }
 
-ul.primary, ul.pager {
+ul.primary, ul.secondary, ul.pager {
   @extend %clearfix;
-
   height: auto;
   line-height: normal;
   list-style: none;
   padding: 0;
-  margin-top: 1em;
+  margin-top: 0;
   margin-bottom: 1em;
   white-space: nowrap;
+}
 
+ul.primary, ul.pager {
 
   li {
     display: block;
     float: left;
-
     font-size: 0.875em;
     @include respond-to('pager tiny') { font-size: 0.75em; }
     @include respond-to('pager full') { font-size: 0.925em; }
@@ -106,5 +106,27 @@ ul.primary, ul.pager {
       border-color: wp-color($grey, 'bright', 5%);
       border-bottom-color: wp-color($purple, 'bright');
     }
+  }
+}
+
+ul.secondary {
+  text-align: center;
+  font-family: $gotham;
+  font-size: 0.825em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    @extend %button;
+    @extend %btn-small;
+    text-decoration: none;
+  }
+
+  .active a {
+    @extend %btn-aux1;
   }
 }
