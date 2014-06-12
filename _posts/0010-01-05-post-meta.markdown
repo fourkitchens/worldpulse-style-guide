@@ -1,25 +1,32 @@
 ---
 layout: component
-title:  "Post Metadata"
+title:  "Node Metadata"
 ---
 
 {% capture h %}
-<article class="node-journal-post">
-  <header>
-    <h2>Post title</h2>
-    <dl>
-      <dt>Visibility</dt>
-      <dd><span class="icon-public">Public</span></dd>
-      <dt>Publishing License</dt>
-      <dd><a class="icon-cc">Creative Commons</a></dd>
-      <dt>Posted</dt>
-      <dd><em>March 24<sup>th</sup>, 2014</em></dd>
-      <dt>Comments</dt>
-      <dd>3 Comments</dd>
-    </dl>
-    <a href="#" class="icon-abuse">Report as Abuse or Spam</a>
-  </header>
-</article>
+<header class="clearfix node-metadata">
+  <h1 itemprop="headline">Post Title</h1>
+  <div class="privacy-status" itemprop="audience">
+    <span class="icon-public"></span>Public
+  </div>
+  <div class="posted-location">
+    Posted to <a href="#">Username's Journal</a> on <a href="#">Category</a>
+  </div>
+  <div class="by-line">
+    By: <a href="#" itemprop="author">Username</a>
+  </div>
+  <div class="date" itemprop="datePublished">
+    On March 24th, 2014
+  </div>
+  <div class="comment-link">
+    <span class="comment-count" itemprop="commentCount">3</span> comments
+  </div>
+  <div class="abuse-info">
+    <span class="flag-wrapper flag-wp-flag-post-abuse">
+      <a href="#" title="Report this post as spam or abuse." class="flag flag-action flag-link-toggle icon-abuse" rel="nofollow">Spam/Abuse</a>
+    </span>
+  </div>
+</header>
 {% endcapture %}
 
 {% capture f %}
