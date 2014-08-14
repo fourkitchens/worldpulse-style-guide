@@ -129,10 +129,10 @@ code {
 
   .example {
     background-color: $white;
+    + .code { border-top: 1px solid wp-color($grey, 'bright', 5%); }
   }
 
   .code {
-    border-top: 1px solid wp-color($grey, 'bright', 5%);
     background: wp-color($grey, 'highlight', 2.5%);
     code {
       // Override the <code/> styles for these syntax highlighted blocks
@@ -289,12 +289,18 @@ code {
         padding: 1em 0;
         border-right: 1px solid wp-color($grey, 'highlight', -5%);
       }
+      &.main span:after {
+        font-size: 1.125em;
+      }
     }
 
 
     &.main {
       z-index: 25;
-      @include box-shadow(0px 0px 15px rgba(0,0,0,0.85));
+      @include box-shadow(0px 0px 20px rgba(0,0,0,0.95));
+      span:after {
+        font-weight: 600;
+      }
     }
 
     span {

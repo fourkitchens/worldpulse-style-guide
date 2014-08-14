@@ -282,8 +282,10 @@ code {
 .styleguide-sample .example {
   background-color: #fefefe;
 }
-.styleguide-sample .code {
+.styleguide-sample .example + .code {
   border-top: 1px solid #e1d9d9;
+}
+.styleguide-sample .code {
   background: #f8f6f6;
 }
 .styleguide-sample .code code {
@@ -306,7 +308,7 @@ code {
   color: #b00911;
 }
 
-@media (min-width: 47.5em) {
+@media (min-width: 53.75em) {
   .styleguide-swatches {
     border: 1px solid #d6cbcb;
     border-radius: 3px;
@@ -327,7 +329,7 @@ code {
     margin: 0 0 1em 0;
   }
 }
-@media (min-width: 35em) and (max-width: 47.4375em) {
+@media (min-width: 35em) and (max-width: 53.6875em) {
   .styleguide-swatches ol {
     border: 1px solid #d6cbcb;
     border-radius: 3px;
@@ -335,7 +337,7 @@ code {
     margin: 0 0 1em 0;
   }
 }
-@media (min-width: 47.5em) {
+@media (min-width: 53.75em) {
   .styleguide-swatches ol {
     width: 20%;
     clear: right;
@@ -667,7 +669,7 @@ code {
   color: #2b2121;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
-@media (min-width: 47.5em) {
+@media (min-width: 53.75em) {
   .styleguide-swatches ol:last-child li {
     border-right: 0 !important;
   }
@@ -710,7 +712,7 @@ code {
     bottom: 0;
   }
 }
-@media (min-width: 35em) and (max-width: 47.4375em) {
+@media (min-width: 35em) and (max-width: 53.6875em) {
   .styleguide-swatches li.dark, .styleguide-swatches li.main, .styleguide-swatches li.light, .styleguide-swatches li.highlight {
     padding: 1em 0 1.75em 0;
     width: 25%;
@@ -731,7 +733,7 @@ code {
     margin-right: 0;
   }
 }
-@media (min-width: 47.5em) {
+@media (min-width: 53.75em) {
   .styleguide-swatches li {
     padding: 1em 25% 1em 0;
     border-right: 1px solid #fefefe;
@@ -740,11 +742,17 @@ code {
     padding: 1em 0;
     border-right: 1px solid #e8e0e0;
   }
+  .styleguide-swatches li.main span:after {
+    font-size: 1.125em;
+  }
 }
 .styleguide-swatches li.main {
   z-index: 25;
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.85);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.95);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.95);
+}
+.styleguide-swatches li.main span:after {
+  font-weight: 600;
 }
 .styleguide-swatches li span {
   position: relative;
@@ -769,7 +777,7 @@ code {
     right: 0;
   }
 }
-@media (min-width: 35em) and (max-width: 47.4375em) {
+@media (min-width: 35em) and (max-width: 53.6875em) {
   .styleguide-swatches .accent {
     height: 0.75em;
     bottom: 0;
@@ -783,7 +791,7 @@ code {
     right: 0;
   }
 }
-@media (min-width: 47.5em) {
+@media (min-width: 53.75em) {
   .styleguide-swatches .accent {
     right: 0;
     width: 25%;

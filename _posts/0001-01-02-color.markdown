@@ -24,11 +24,13 @@ title:  "Colors"
   {% endfor %}
 </div>
 
-Each color is presented in a primary value, which should be used when possible,
-with one shade and two tints. Any of these values may be subsequently tinted or
-shaded by 5% using Sass's `lighten()` or `darken()` functions when building UI
-components, particularly useful for borders (like the menu or code samples in
-this style guide).
+### Color values
+
+Each color is presented in a primary value (**bold**), which should be used when
+possible, with one shade and two tints. Any of these values may be subsequently
+tinted or shaded by 5%.
+
+### Supplementary colors
 
 _Warm Slate_ should be used as a structural color for text, subtle backgrounds,
 or borders, but not as an accent; it is not a branding color.
@@ -36,3 +38,20 @@ or borders, but not as an accent; it is not a branding color.
 A <em class="status-green">status green</em> is available in all four values,
 however it should only be used in system status messages because of the
 cultural associations green has with other colors in this palette.
+
+### Using the `wp-color` color function in Sass
+
+When authoring stylesheets in Sass, the `wp-color()` function is defined to make
+recalling and modifying these color values a little easier.
+
+<div class="styleguide-sample"><div class="code">{% highlight html %}
+wp-color($color, $value: 'main', $adjustment: 0);
+{% endhighlight %}</div></div>
+
+| Arguments     | Meaning                | Acceptable Values                                               |
+|:------------- |:-----------------------|:--------------------------------------------------------------- |
+| `$color`      | The color stack        | `$purple`, `$red`, `$orange`, `$blue`, or `$grey`               |
+| `$value`      | The value (brightness) | `'dark'`, `'main'` (default), `'light'`, or `'highlight'`       |
+| `$adjustment` | Brightness adjustment  | A percentage, which defaults to 0. `-5%` or `5%` are preferred. |
+
+_(This function is defined in `global/_functions.scss`)_
