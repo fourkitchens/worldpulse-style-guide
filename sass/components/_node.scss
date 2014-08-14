@@ -16,4 +16,15 @@
     padding: 1em;
     background-color: wp-color($red, highlight, 17.5%);
   }
+
+  header {
+    // For nodes which don't use our 'header-metadata' set (currently Groups)
+    // make sure there isn't a top-margin on the article title.
+    h1, h2 { margin-top: 0; }
+  }
+
+  .content {
+    // Content may contain floated elements, wrap them properly.
+    @extend %clearfix;
+  }
 }

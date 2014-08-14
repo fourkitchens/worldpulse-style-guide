@@ -103,6 +103,10 @@ ul, ol {
     li {
       display: inline-block;
       margin-right: 1em;
+      @include rtl {
+        margin-left: 1em;
+        margin-right: 0;
+      }
     }
   }
 }
@@ -135,7 +139,8 @@ ol.unstyled {
 
 hr {
   height: 0;
-  border: 1px solid wp-color($grey, highlight, 5%);
+  border: 0;
+  border-top: 1px solid wp-color($grey, highlight, -7.5%);
   margin: 1em 0;
 }
 

@@ -29,3 +29,13 @@ body {
 p:first-child {
   margin-top: 0;
 }
+
+.wp-image-left {
+  float: left;
+  margin: 1em;
+}
+
+.wp-image-right {
+  float: right;
+  margin: 1em;
+}

@@ -1,0 +1,37 @@
+/**
+ * @file _rex-type.scss
+ * Styles for Rex nodes.
+ */
+
+%rex-type,
+.rex-type {
+  float: left;
+  margin-right: 0.5em;
+
+  @include rtl {
+    float: right;
+    margin-left: 0.5em;
+    margin-right: 0;
+  }
+  vertical-align: text-bottom;
+  padding: 0.125em 0.375em;
+  color: wp-color($grey, highlight, 5%);
+  font-family: $gotham;
+  font-size: 0.875em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include border-radius(3px);
+  text-align: center;
+
+  background-color: wp-color($red, main, 5%);
+
+  &.offer {
+    background-color: wp-color($green, main);
+  }
+
+  .node-teaser & {
+    // Markers is teasers can be smaller
+    font-size: 0.625em;
+  }
+}

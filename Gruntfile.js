@@ -23,7 +23,8 @@ module.exports = function (grunt) {
       js: {
         files: [
           'js/{,**/}*.js',
-          '!js/{,**/}*.js'
+          '!js/{,**/}*.js',
+          '!js/flexnav/**'
         ],
         tasks: ['jshint', 'uglify:dev']
       }
@@ -55,7 +56,8 @@ module.exports = function (grunt) {
       },
       all: [
         'js/{,**/}*.js',
-        '!js/{,**/}*.min.js'
+        '!js/{,**/}*.min.js',
+        '!js/flexnav/**'
       ]
     },
 
@@ -90,6 +92,8 @@ module.exports = function (grunt) {
             "drag": [".icon-edit:hover", ".draggable a.tabledrag-handle .handle"],
             "drag-blue": [".icon-edit:hover", ".draggable a.tabledrag-handle .handle:hover"],
             "edit-blue": [".icon-edit:hover"],
+            "facebook-blue": ["a.icon-facebook:hover"],
+            "youtube-blue": ["a.icon-youtube:hover"],
             "friends-highlight": [".field-name-field-post-access input:checked + label .icon-friends"],
             "group-highlight": [".field-name-field-post-type input:checked + label .icon-group"],
             "home": [".breadcrumb a:hover .icon-home-light"],
@@ -102,7 +106,9 @@ module.exports = function (grunt) {
             "public-highlight": [".field-name-field-post-access input:checked + label .icon-public"],
             "redact-red": [".icon-redact:hover"],
             "reply-blue": [".icon-reply:hover"],
-            "search-light": [".chosen-container-single input[type=\"text\"]"]
+            "search-light": [".chosen-container-single input[type=\"text\"]"],
+            "search-highlight": [".pane-search-api-page-search input[type=\"submit\"]"],
+            "twitter-blue": ["a.icon-twitter:hover"],
           }
         }
       }
@@ -172,7 +178,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'js',
-          src: ['**/*.js', '!**/*.min.js'],
+          src: ['**/*.js', '!**/*.min.js', '!**/flexnav/**'],
           dest: 'js',
           ext: '.min.js'
         }]
@@ -185,7 +191,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'js',
-          src: ['**/*.js', '!**/*.min.js'],
+          src: ['**/*.js', '!**/*.min.js', '!**/flexnav/**'],
           dest: 'js',
           ext: '.min.js'
         }]

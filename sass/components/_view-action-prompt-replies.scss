@@ -1,0 +1,8 @@
+/**
+ * @file _view-action-prompt-replies.scss
+ * A view of responses to an action prompt, displayed underneath the action
+ * prompt full node view.
+ */
+.view-action-prompt-replies {
+  @extend %panel-pane-secondary;
+}

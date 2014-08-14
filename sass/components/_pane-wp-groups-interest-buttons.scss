@@ -21,12 +21,22 @@
     @include respond-to('community interest buttons') {
       // Flexbox is so awesome. Use it if we can.
       .flexbox & {
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
         justify-content: space-between;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
         align-items: stretch;
 
+
+
         a {
-          flex: 1 1 0;
+          -webkit-flex: 1 0;
+          -ms-flex: 1 0;
+          flex: 1 0;
           margin-right: 0.5em;
         }
       }

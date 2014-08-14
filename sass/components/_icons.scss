@@ -13,6 +13,11 @@
   text-align: left;
   text-indent: -5000px;
 
+  @include rtl() {
+    text-indent: 5000px;
+    white-space: nowrap;
+  }
+
   // @TODO: Is 32px the right size here?
   height: 32px;
   width: 32px;
@@ -43,8 +48,8 @@
     display: none;
     z-index: 1000;
     top: 28px;
-    left: -28px;
-    width: 88px;
+    left: -38px;
+    width: 108px;
 
     font-size: 0.75em;
     line-height: 1.15;
@@ -52,6 +57,7 @@
     text-indent: 0;
     text-align: center;
     content: attr(data-desc);
+    word-wrap: break-word;
 
     border: 1px solid;
     border-bottom-width: 2px;
@@ -82,8 +88,9 @@ $icons: // All icons
   "cc"
   "close"
   "drag"
-  "down"
   "edit"
+  "facebook"
+  "youtube"
   "friends"
   "group"
   "home"
@@ -96,8 +103,8 @@ $icons: // All icons
   "redact"
   "region"
   "reply"
-  "search"
   "tags"
+  "twitter"
 ;
 
 // If you're creating an icon with a hover or active state, be sure to configure

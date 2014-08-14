@@ -1,0 +1,91 @@
+/**
+ * @file _pane-wp-view-group-content-sort-post-list-preview.scss
+ * The recent activity view on groups pages
+ */
+
+.pane-wp-view-group-content-sort-post-list-preview {
+
+  .pane-content {
+    position: relative;
+
+    // Defined in _panel-pane.scss, it's a content frame. We apply it to the
+    // pane-content instead of the pane because we want the headline outside
+    // the box; it's system generated, not user generated.
+    .view-content, .view-empty {
+      @extend %panel-pane-primary;
+
+      // Make some room for those quicktabs:
+      padding-top: 2.5em;
+    }
+  }
+
+  .form-item {
+    margin: 0;
+
+    label {
+      display: none;
+    }
+
+    .form-radios {
+      padding: 0;
+    }
+  }
+
+  .views-exposed-form {
+    margin: 0;
+  }
+
+  .bef-select-as-links {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    margin: 0;
+    padding: 0;
+
+    .form-item {
+      display: inline-block;
+      list-style: none;
+      margin-right: .25em;
+      &:last-child { margin-right: 0; }
+
+    }
+
+    a {
+      background-color: wp-color($grey, highlight, 5%);
+      border-color: wp-color($grey, bright, 5%);
+      border-image: none;
+      border-style: solid;
+      border-width: 2px 1px 1px 1px;
+      display: block;
+      text-decoration: none;
+      font-size: 0.875em;
+      padding: 0.125em 0.25em;
+      color: wp-color($grey, main, 10%);
+      @include transition(background 0.2s ease-out, border 0.2s ease-out, color 0.2s ease-out);
+
+      &:hover, &:active {
+        color: wp-color($grey, highlight, 5%);
+        background: wp-color($orange, main, 10%);
+        border-color: wp-color($orange, dark, 10%);
+      }
+    }
+
+    .selected {
+
+      a, a:hover, a:active {
+        background: wp-color($orange, main);
+        border-color: wp-color($orange, dark);
+        font-weight: 600;
+        @include text-shadow(1px 1px 0 rgba(wp-color($orange, dark), 0.75));
+        color: wp-color($grey, highlight, 5%);
+      }
+    }
+  }
+
+  /* ONCE DESIGN WORK FROM THE SPOTLIGHT BRANCH COMES IN, THIS SHOULD BE MOVED */
+  .attachment-after {
+    @extend %panel-pane-primary;
+    // @extend %view-more-link; This is also in the spotlight branch
+    margin-top: -1em;
+  }
+}

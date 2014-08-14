@@ -1,0 +1,51 @@
+/**
+ * @file _page-messages.scss
+ *
+ * Private Message doesn't wrap its message view in a specific component, but it
+ * does add this class to the message view page.
+ *
+ * For the inbox form component, look at _privatemsg-list-form.scss
+ */
+.page-messages-view {
+  // The participants list at the top of the message thread:
+  .privatemsg-message-participants { @extend %panel-pane-secondary; }
+
+  // Each individual message and the new-reply form at the bottom:
+  .privatemsg-message, #privatemsg-new { @extend %panel-pane-primary; }
+  #privatemsg-new h2 { margin-top: 0; }
+
+  .privatemsg-message-information {
+    font-size: 0.875em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid wp-color($grey, highlight, -5%);
+    margin-bottom: 1em;
+  }
+  .privatemsg-author-name { font-weight: 600; }
+  .privatemsg-message-date { color: wp-color($grey, main, 15%); }
+  .privatemsg-message-actions {
+    font-style: italic;
+    display: inline;
+  }
+
+  // For new messages. (The div is the message wrapper, the span is the "NEW" marker)
+  div.privatemsg-message-new { border-color: wp-color($orange, main) !important; }
+  span.privatemsg-message-new {
+    font-family: $gotham;
+    text-transform: uppercase;
+    color: wp-color($orange, main);
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    line-height: 1;
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  // This is the cancel/reset button for this form, but module outputs it as a link instead.
+  #edit-cancel {
+    text-decoration: none;
+    display: inline-block;
+    @extend %button;
+    @extend %btn-negative;
+    @extend %btn-small;
+  }
+}

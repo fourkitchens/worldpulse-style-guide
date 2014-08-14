@@ -8,17 +8,25 @@ table {
   border-collapse: separate; // To make the outer border apply the radius
 
   width: 100%;
+  margin-bottom: 1em;
 
   thead {
-    color: wp-color($grey, main, 2.5%);
+    color: wp-color($grey, main, -5%);
     @include text-shadow(1px 1px 0 rgba( wp-color($grey, highlight, 5%), 0.75));
 
     td, th {
       // This can't be applied to thead or tr directly, for whatever reason,
       // because of the border-collapse:separate rule. Applying to the cell
       // directly is okay, though, because that's where the other borders are.
-      border-bottom: 1px solid wp-color($grey, 'bright', -7.5%);
-      background-color: wp-color($grey, 'bright', 2.5%);
+      border-bottom: 1px solid wp-color($grey, 'bright', -10%);
+      background-color: wp-color($grey, 'highlight');
+      // background-color: wp-color($grey, 'bright', 2.5%);
+
+      font-family: $gotham;
+      font-size: 0.875em;
+      letter-spacing: 1px;
+      font-weight: 400;
+      text-transform: uppercase;
     }
 
     label {

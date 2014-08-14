@@ -1,0 +1,79 @@
+/**
+ * @file _figure.scss
+ * Figures in content. Intially, this is for media inserts in Editorial wysiwyg
+ * but it might pop up again elsewhere, so we'll use this to set a baseline:
+ */
+%figure, // Media won't let us use a <figure/>, so we extend %figure to that <div/>
+.figure,
+figure {
+  margin: 0 0 1em 0;
+  padding: 0;
+
+  border: 1px solid wp-color($grey, highlight, -5%);
+  background-color: wp-color($grey, highlight, 2.5%);
+
+  @include respond-to('floated editorial media') {
+    &.wpe-image-left, &.wpe-image-right,
+    &.wpe_image_left, &.wpe_image_right {
+      max-width: 37.5%;
+      margin-top: 0;
+    }
+
+    // "Aligned left" is left in LTR or right in RTL
+    html[dir="ltr"] &.wpe_image_left,
+    html[dir="ltr"] &.wpe-image-left,
+    html[dir="rtl"] &.wpe_image_right,
+    html[dir="rtl"] &.wpe-image-right {
+      float: left;
+      margin-left: -1em;
+      margin-right: 1em;
+      border-left: 0;
+    }
+
+    // "Aligned right" is right in LTR, or left in RTL
+    html[dir="ltr"] &.wpe_image_right,
+    html[dir="ltr"] &.wpe-image-right,
+    html[dir="rtl"] &.wpe_image_left,
+    html[dir="rtl"] &.wpe-image-left {
+      float: right;
+      margin-right: -1em;
+      margin-left: 1em;
+      border-right: 0;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  div, figcaption {
+    padding: 1em;
+  }
+
+  .field-file-image-photo-credit,
+  .photo-credit {
+    display: block;
+    font-size: 0.925em;
+    font-weight: 600;
+    padding: 1em 0 0.5em 0;
+    border-bottom: 1px solid wp-color($grey, highlight, -2.5%);
+    margin: 0 1em 0.5em 1em;
+  }
+
+  .field-file-image-photo-details,
+  .photo-details {
+    display: block;
+    font-size: 0.875em;
+    font-style: italic;
+    padding-top: 0;
+    margin-top: 0.5em;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -43,7 +43,10 @@
       color: wp-color($blue, dark, -5%);
       background: wp-color($grey, bright, 10%);
       border-bottom: 2px solid wp-color($purple, bright);
-      &:after { border-left-color: wp-color($grey, bright, 10%); }
+      &:after {
+        html[dir="ltr"] & { border-left-color: wp-color($grey, bright, 10%); }
+        @include rtl { border-right-color: wp-color($grey, bright, 10%); }
+      }
     }
 
   }
@@ -55,18 +58,25 @@
 
   .first a {
     white-space: nowrap;
-    @include respond-to('breadcrumb styles expanded') { padding-left: 1em; }
-    @include border-radius(2px 0 0 2px);
+    @include respond-to('breadcrumb styles expanded') {
+      html[dir="ltr"] & { padding-left: 1em; }
+      @include rtl { padding-right: 1em; }
+    }
 
     .icon-home-light {
       display: none;
       margin: 0;
-      margin-right: 0.5em;
+
+      html[dir="ltr"] & { margin-right: 1em; }
+      @include rtl { margin-left: 1em; }
     }
 
     #header .row-3 & {
       background-color: wp-color($grey, bright, 10%);
-      &:after { border-left-color: wp-color($grey, bright, 10%); }
+      &:after {
+        html[dir="ltr"] & { border-left-color: wp-color($grey, bright, 10%); }
+        @include rtl { border-right-color: wp-color($grey, bright, 10%); }
+      }
       // &:before { border-left-color: wp-color($grey, bright, 10%); }
     }
 
@@ -99,9 +109,6 @@
     position: relative;
 
     @include respond-to('breadcrumb styles expanded') {
-      padding-left: 20px;
-      border-right: none;
-
       &:before, &:after {
         content: " ";
         display: block;
@@ -110,12 +117,10 @@
         height: 0;
         width: 0;
         top: 50%;
-        left: 100%;
         margin-top: -24px;
         border: {
           top: 25px solid transparent;
           bottom: 25px solid transparent;
-          left: 10px solid wp-color($grey, bright, 7.5%);
         }
       }
 
@@ -131,8 +136,40 @@
 
       &:before {
         z-index: 1;
-        margin-left: 1px;
-        border-left-color: wp-color($grey, highlight, 7.5%);
+      }
+
+      html[dir="ltr"] & {
+        padding-left: 20px;
+        border-right: none;
+
+        &:before, &:after {
+          left: 100%;
+          border: {
+            left: 10px solid wp-color($grey, bright, 7.5%);
+          }
+        }
+
+        &:before {
+          margin-left: 1px;
+          border-left-color: wp-color($grey, highlight, 7.5%);
+        }
+      }
+
+      @include rtl {
+        padding-right: 20px;
+        border-left: none;
+
+        &:before, &:after {
+          right: 100%;
+          border: {
+            right: 10px solid wp-color($grey, bright, 7.5%);
+          }
+        }
+
+        &:before {
+          margin-right: 1px;
+          border-right-color: wp-color($grey, highlight, 7.5%);
+        }
       }
     }
   }

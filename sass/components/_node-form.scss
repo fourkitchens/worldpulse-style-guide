@@ -28,7 +28,7 @@
 // journal privacy limited options (private/public), it's here:
 @include respond-to('ie 8') {// This will prevent the ie 8 stylesheet from
   // picking up the code.
-  .field-name-field-post-access, .field-name-field-post-type {
+  .field-name-field-post-access, .field-name-field-post-type, .field-name-field-rex-type {
     .form-radios {
       @include clearfix(); // Include because of media query.
     }
@@ -69,6 +69,11 @@
         font-size: 1em;
         width: 12em;
       }
+
+      span[class*="icon"] {
+        display: none;
+        @include respond-to('form radio icons') { display: inline-block; }
+      }
     }
 
     .form-type-radio:first-child label {
@@ -95,6 +100,24 @@
     }
   }
 
+  .field-name-field-rex-type .form-radios input[value="0"]:checked + label { // 0 = NEED
+    background-color: wp-color($red);
+    border-color: wp-color($red, main, -5%) !important; // Use important to override the :first/last-child label outer borders
+
+    &:hover {
+      background-color: wp-color($red, main, 5%);
+    }
+  }
+
+  .field-name-field-rex-type .form-radios input[value="1"]:checked + label { // 1 = OFFER
+    background-color: wp-color($green);
+    border-color: wp-color($green, main, -5%) !important; // Use important to override the :first/last-child label outer borders
+
+    &:hover {
+      background-color: wp-color($green, main, 5%);
+    }
+  }
+
   .form-disabled label {
     background-color: wp-color($grey, bright);
 
@@ -114,7 +137,9 @@
 
 } // END IE8 INCOMPATIBLE CODE.
 
-.field-name-field-post-image-gallery {
+.field-name-field-post-image-gallery,
+.field-name-field-post-document,
+.field-name-field-post-cover-image {
 
   // Modernizr test to only show this field if the browser supports uploading files
   display: none;
@@ -137,8 +162,12 @@
   input[name*='remove'] {
     @extend %btn-negative;
     @extend %btn-small;
-    display: block;
+    display: inline-block;
     margin: 0 auto;
+  }
+
+  td input[name*='remove'] {
+    display: block; // So that it centers properly in those tabledrag multivalue fields
   }
 
   input[name*='upload'] {

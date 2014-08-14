@@ -44,6 +44,11 @@
 
 .icon-edit { background-image: url('png/edit.png'); background-repeat: no-repeat; }
 
+a.icon-facebook:hover,
+.icon-facebook-blue { background-image: url('png/facebook-blue.png'); background-repeat: no-repeat; }
+
+.icon-facebook { background-image: url('png/facebook.png'); background-repeat: no-repeat; }
+
 .field-name-field-post-access input:checked + label .icon-friends,
 .icon-friends-highlight { background-image: url('png/friends-highlight.png'); background-repeat: no-repeat; }
 
@@ -108,10 +113,23 @@
 
 .icon-reply { background-image: url('png/reply.png'); background-repeat: no-repeat; }
 
+.pane-search-api-page-search input[type="submit"],
+.icon-search-highlight { background-image: url('png/search-highlight.png'); background-repeat: no-repeat; }
+
 .chosen-container-single input[type="text"],
 .icon-search-light { background-image: url('png/search-light.png'); background-repeat: no-repeat; }
 
 .icon-search { background-image: url('png/search.png'); background-repeat: no-repeat; }
 
 .icon-tags { background-image: url('png/tags.png'); background-repeat: no-repeat; }
+
+a.icon-twitter:hover,
+.icon-twitter-blue { background-image: url('png/twitter-blue.png'); background-repeat: no-repeat; }
+
+.icon-twitter { background-image: url('png/twitter.png'); background-repeat: no-repeat; }
+
+a.icon-youtube:hover,
+.icon-youtube-blue { background-image: url('png/youtube-blue.png'); background-repeat: no-repeat; }
+
+.icon-youtube { background-image: url('png/youtube.png'); background-repeat: no-repeat; }
 

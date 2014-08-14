@@ -42,32 +42,57 @@
 @import 'layouts/l-two-column';
 
 ////////////////////////
-// Import compontents
+// Import components
 ////////////////////////
 @import 'components/button';
 @import 'components/header';
+@import 'components/main-menu';
 @import 'components/logo';
 @import 'components/main';
 @import 'components/icons';
 @import 'components/footer';
+@import 'components/figure';
 @import 'components/panel-pane';
 @import 'components/breadcrumb';
-@import 'components/password-field';
+@import 'components/form-type-password';
 @import 'components/chosen';
 @import 'components/manualcrop';
 @import 'components/node-form';
+@import 'components/ui-datepicker';
 @import 'components/node';
-@import 'components/node-post';
+@import 'components/node-teaser';
+@import 'components/node-type-event';
+@import 'components/organization-header';
 @import 'components/user-profile-form';
+@import 'components/flag-wp-recommend';
 @import 'components/comment';
 @import 'components/comment-form';
 @import 'components/comment-wrapper';
 @import 'components/ckeditor_overrides';
 @import 'components/oembed';
+@import 'components/media-element-container';
 @import 'components/colorbox';
 @import 'components/view';
+@import 'components/view-action-prompt-replies';
+@import 'components/wp-og-recent-posts';
 @import 'components/pane-wp-groups-interest-buttons';
+@import 'components/user-badges';
+@import 'components/user-profile';
 @import 'components/user-profile-teaser';
+@import 'components/user-profile-teaser-flag';
+@import 'components/rex-type';
+@import 'components/header-metadata';
+@import 'components/field-rex-external-link';
+@import 'components/field-post-cover-image-wrapper';
+@import 'components/field-post-image-gallery';
+@import 'components/pane-wp-view-group-content-sort-post-list-preview';
+@import 'components/pane-wp-community-landing-links';
+@import 'components/pane-wp-feature-spotlights-pane';
+@import 'components/pane-search-api-page-search';
+@import 'components/privatemsg-list-form';
+@import 'components/page-messages-view';
+@import 'components/search-api-page-results';
+
 
 ////////////////////////
 // Import print

@@ -1,0 +1,27 @@
+/**
+ * @file _search-api-page-results.scss
+ * Search results page from Solr. For the most part, we're gonna make this look
+ * like _views.scss.
+ */
+.search-api-page-results {
+  @extend %panel-pane-primary;
+
+  .search-performance {
+    font-style: italic;
+    font-size: 0.875em;
+    text-align: right;
+    @include rtl { text-align: left; }
+  }
+
+  .search-results {
+    margin: 0;
+    padding: 0;
+
+    // Adapted from the row styles in _view.scss
+    article {
+      padding-bottom: 1em;
+      border-bottom: 1px solid wp-color($grey, highlight, -5%);
+      margin-bottom: 1em;
+    }
+  }
+}

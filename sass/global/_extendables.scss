@@ -9,3 +9,13 @@
 %clearfix {
 	@include clearfix;
 }
+
+.legacy-ie-background-size,
+%legacy-ie-background-size {
+  // This "behavior" polyfill allows us to use background-size on elements
+  // of this selector. Note that this property requires absolute links because
+  // relative links will be relative to the document, not the CSS files, because
+  // JavaScript parses this property.
+  -ms-behavior: url(/sites/all/themes/wp_aurora/ie8/backgroundsize.min.htc);
+  behavior: url(/sites/all/themes/wp_aurora/ie8/backgroundsize.min.htc);
+}

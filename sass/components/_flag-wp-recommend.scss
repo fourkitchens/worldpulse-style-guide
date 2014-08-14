@@ -1,0 +1,15 @@
+/**
+ * @file _flag-wp-recommend.scss
+ * The recommend button on posts. This link uses classes from _button.scss
+ * primarily, but we make a color change when it is activated.
+ */
+
+.flag-wp-recommend {
+  a.unflag-action {
+    // This is a btn-aux1 (purple, general action) button, but when it has been
+    // flagged, the button needs to look "on", so we switch it to aux2 (orange,
+    // special navigation). Normally, it would be negative (red, removals and
+    // deletions), but that looked jarring.
+    @extend %btn-aux2;
+  }
+}

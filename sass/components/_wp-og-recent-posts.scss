@@ -1,0 +1,50 @@
+/**
+ * @file _wp-og-recent-posts.scss
+ * This view takes recent posts _and_the_spotlights_ within groups.
+ */
+.wp-og-recent-posts {
+  .wp-spotlight-pane--content {
+    article {
+      @extend %panel-pane-primary;
+    }
+
+    @include respond-to('primary content view two col') {
+      .flexbox & {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        -webkit-flex-flow: row wrap;
+        -moz-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+
+        article {
+          -webkit-flex: 1 auto;
+          -ms-flex: 1 auto;
+          flex: 1 auto;
+          width: 45%; // Just has to give enough room for the 1em margin between
+                      // the columns, which we set in ems rather than px to match
+                      // the vertical margin beneath each article. Flexbox will
+                      // handle setting the exact width.
+          &:nth-child(2n+1) { margin-right: 1em; }
+        }
+
+      }
+
+      // Needed to break this apart from the rules above because we need both
+      // RTL and Modernizr class detection on this selector
+      html.flexbox[dir="rtl"] & article:nth-child(2n+1) {
+        margin-left: 1em;
+        margin-right: 0;
+      }
+    }
+
+  }
+
+}

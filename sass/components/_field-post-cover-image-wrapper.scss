@@ -1,0 +1,58 @@
+/**
+ * @file _field-post-cover-image-wrapper.scss
+ *  The cover image styling.
+ */
+
+.field-post-cover-image-wrapper {
+  @include box-sizing(content-box); // To make it easier to fill the full width
+  margin-top: -1em;
+  margin-left: -1em;
+  margin-bottom: 1em;
+  width: 100%;
+  padding: 0 1em; // To match the padding that's on the node container (pane)
+
+  position: relative;
+  overflow: hidden;
+  @include border-radius(3px 3px 0 0);
+
+
+  figure {
+    margin: 0;
+    border: 0;
+
+    // To combat nested padding, we force the image to be too wide, and then
+    // cropped by the container's overflow:hidden. This results in a very thin
+    // margin being cropped on the sides of the image, but the goal is to
+    // minimize this and also avoid using JavaScript to make this positioning
+    // more complicated.
+    max-width: 120%;
+    width: 120%;
+    position: relative;
+    left: -10%;
+  }
+
+  img {
+    display: block;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0.75em;
+    padding: 0.375em 8.5%;
+    color: wp-color($grey, highlight);
+    background-color: wp-color($grey, dark, -5%);
+    background-color: rgba(0,0,0,0.8);
+
+    p:first-child {
+      // The title; or the caption without a title
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+  }
+}

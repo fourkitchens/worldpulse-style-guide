@@ -1,0 +1,69 @@
+/**
+ * @file _pane-search-api-page-search.scss
+ * Styles for the search box in the header
+ */
+.pane-search-api-page-search {
+  form {
+    line-height: 65px;
+    padding: 0 1em;
+  }
+
+  div, input {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .form-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  input {
+    margin-bottom: 0.5em;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding: 0.25em 0;
+    background: transparent;
+    border: 0;
+    @include border-radius(0);
+    @include box-shadow(none);
+    border-bottom: 1px solid wp-color($grey, highlight, -10%);
+
+    // Mostly-match the link text styles in _header.scss for meta-menu links
+    font-family: $gotham;
+    font-weight: 400;
+    color: wp-color($grey, highlight);
+    @include text-shadow(1px 1px 0 rgba(0,0,0,0.5));
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 13px;
+
+  }
+
+  // Placeholder text: http://css-tricks.com/snippets/css/style-placeholder-text/
+  // Note that because these are selectors, not properties, each rule must be
+  // separate. http://css-tricks.com/snippets/css/style-placeholder-text/#comment-96772
+  ::-webkit-input-placeholder { color: wp-color($grey, highlight, -10%); }
+  :-moz-placeholder { color: wp-color($grey, highlight, -10%); }
+  ::-moz-placeholder { color: wp-color($grey, highlight, -10%); }
+  :-ms-input-placeholder { color: wp-color($grey, highlight, -10%); }
+
+  input[type="submit"] {
+    // In the Gruntfile, this selector is used for .icon-search-highlight
+    // using a custom selector instead of adding .icon-search-highlight on
+    // this element in a Form Alter allows the button styles to be overridden.
+    margin: 0;
+    margin-bottom: 0.5em;
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    width: 1.5em;
+    height: 1.5em;
+    text-indent: 500%;
+    overflow: hidden;
+  }
+
+}

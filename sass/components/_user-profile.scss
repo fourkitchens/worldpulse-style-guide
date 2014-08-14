@@ -1,0 +1,28 @@
+/**
+ * @file _user-profile.scss
+ * Styles for the user profile
+ * NOTE: These will be inherited by the user profile teaser, as well.
+ */
+
+.user-profile {
+  // Drupal outputs core stuff (like Membership history) in a definition list,
+  // there's not much to it. But user_badges outputs through this mechanism!
+  dl {
+    dt {
+      // On the full display, all field labels are h3 tags, except for these
+      // titles. Let's make them visually match.
+      @extend h3;
+    }
+
+    .column-2 & dt {
+      // Unless we're showing this in a sidebar, in which case go to h4
+      @extend h4;
+    }
+
+    dt, dd {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+}

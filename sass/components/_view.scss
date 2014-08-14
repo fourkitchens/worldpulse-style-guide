@@ -30,6 +30,14 @@
         width: auto;
       }
     }
+
+    .chosen-container-multi .chosen-choices {
+      width: auto;
+    }
+
+    .chosen-container-multi {
+      background-image: none;
+    }
   }
 
   .vbo-views-form {
@@ -51,6 +59,16 @@
     }
   }
 
+  // The last form element or BEF in .view-filters will have a bottom margin
+  // on it. Strike that and add a border area if we also have an attachment:
+  .view-filters + .attachment-before {
+    margin-top: -1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid wp-color($grey, highlight, -5%);
+    margin-bottom: 1em;
+    > .button { margin-bottom: 0; }
+  }
+
   // The read-more link that shows underneath node teasers. If it's appearing
   // in a view, it's obvious that it is excerpted content.
   .node-readmore {
@@ -58,7 +76,10 @@
   }
 
   // For list views of rendered entities (generally teasers):
-  .views-row article {
+  .view-content div:not(.views-row-last) article {
+    // This selector used to be `.views-row article` but Views only adds that
+    // class sometimes, otherwise it's views-row-[odd|even]. The :not skips the
+    // final row so there aren't too many borders.
     padding-bottom: 1em;
     border-bottom: 1px solid wp-color($grey, highlight, -5%);
     margin-bottom: 1em;
@@ -73,6 +94,17 @@
   .l-two-column .column-2 & {
     .button {
       @extend %btn-small;
+    }
+    .view-content, .attachment-after {
+      @extend %panel-pane-secondary;
+    }
+    .attachment-after {
+      margin-top: -1em;
+    }
+    .more {
+      text-align: right;
+      font-size: 0.85em;
+      font-style: italic;
     }
   }
 }

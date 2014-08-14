@@ -1,1 +1,13 @@
-.pre-content,.post-content{width:100%}
+/**
+ * @file wp_footer.admin.scss
+ * The layout only to be used on the admin interface for wp_footer.
+ */
+.pre-content,
+.post-content {
+  width: 100%;
+}
+
+/**
+ * @file _base_layouts.scss
+ * A generic set of layouts that are used cross-site.
+ */

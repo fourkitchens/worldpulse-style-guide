@@ -1,0 +1,252 @@
+/**
+ * @file _main-menu.scss
+ * The design main menu lists
+ */
+
+.main-menu {
+  // Rules for _all_ menus (the top-level and all submenus)
+  .menu {
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      list-style: none;
+    }
+
+    a {
+      display: block;
+
+      font-family: $gotham;
+      text-decoration: none;
+    }
+  }
+
+  // Rules for _only_ the top-level menu
+  > .menu {
+    &.with-js { display: none; } // If flexnav enabled, hide at mobile sizes
+    &.flexnav-show { display: block; }
+
+    > li {
+      border-top: 1px solid wp-color($red, dark);
+      border-bottom: 1px solid wp-color($red, dark, -10%);
+      &.first { border-top: 0; }
+    }
+
+    // START: Horizontal navigation structure, both using Flexbox (when available) or falling back to display:table-cell
+    @include respond-to('header horizontal nav') {
+      &.width-js { display: block; } // Show a horizontal nav hidden by flexnav
+
+      border-left: 1px solid wp-color($red, dark, -10%);
+      // border-right is applied on a flexbox container, but on a li:after when flexbox isn't available
+
+      .flexbox & {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: stretch;
+        border-right: 1px solid wp-color($red, dark);
+        li {
+          -webkit-flex: 1 0;
+          -ms-flex: 1 0;
+          flex: 1 0;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex; // These are flex items AND flex containers to make height stuff work for multiline menu titles
+          -webkit-align-items: stretch;
+          -ms-flex-align: stretch;
+          align-items: stretch;
+          > a {
+            -webkit-flex: 1 0;
+            -ms-flex: 1 0;
+            flex: 1 0;
+          }
+        }
+      }
+
+      #{nest('.no-js, .no-flexbox', '&')} {
+        display: table;
+
+        > li {
+          display: table-cell;
+          &.item-with-ul {
+            padding-right: 2em; // To make room for the FlexNav marker
+          }
+        }
+
+        > li.last:after {
+          content: " ";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: -2px;
+          border-right: 1px solid wp-color($red, dark);
+        }
+      }
+
+      #{nest('.no-js[dir="rtl"], .no-flexbox[dir="rtl"]', '&')} {
+        > li { float: right; }
+      }
+
+      // Top-level menu items only
+      > li {
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid wp-color($red, dark);
+        border-right: 1px solid wp-color($red, dark, -10%);
+      }
+    } // END: Horizontal nav
+
+    > li {
+
+      > a {
+        padding: 1em 1em 0.75em 1em;
+        text-align: center;
+        font-weight: 600;
+        color: wp-color($grey, highlight);
+
+        &, .flexbox & ~ .touch-button {
+          border-bottom: 0.25em solid transparent; // To "reserve" that space for the hover/active border color-change
+          @include text-shadow(1px 1px 0 wp-color($red, dark, -20%));
+        }
+      }
+
+      &.active-trail > a,
+      > a.active {
+        color: wp-color($grey, highlight, 10%);
+        background-color: wp-color($red, dark, -10%);
+
+        &, .flexbox & ~ .touch-button {
+          @include text-shadow(1px 1px 0 wp-color($red, dark, -25%));
+          border-bottom-color: wp-color($red);
+          background-image: image-url('textures/noise.png');
+        }
+      }
+
+      &:hover { // Hover on list-item, not link == flexnav menu is open, but hover is on a submenu link
+        .touch-button {
+          color: wp-color($grey, main, 5%);
+          background-color: wp-color($grey, highlight, -5%);
+        }
+
+        a {
+          color: wp-color($grey, main, 10%);
+          background-color: wp-color($grey, highlight);
+
+          &, .flexbox & ~ .touch-button {
+            @include text-shadow(1px 1px 0 wp-color($grey, highlight, 15%));
+            border-bottom-color: wp-color($grey, highlight, 5%);
+            background-image: none;
+          }
+        }
+      }
+
+      > a:active,
+      > a:hover {
+        color: wp-color($red);
+        background-color: wp-color($grey, highlight, -5%);
+
+        &, .flexbox & ~ .touch-button {
+          @include text-shadow(1px 1px 0 wp-color($grey, highlight, 15%));
+          border-bottom-color: wp-color($grey, highlight, 5%);
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  .menu li:hover ul {
+    display: block;
+  }
+
+  // Submenus
+  .menu ul {
+
+    margin-top: -1px;
+    border-bottom: 3px solid wp-color($red);
+
+    background-color: wp-color($grey, highlight);
+
+    @include respond-to('header horizontal nav') {
+      position: absolute;
+      z-index: 1000;
+      left: 0px;
+      right: 0px;
+      top: 100%;
+      @include border-radius(0 0 3px 3px);
+      @include box-shadow(0px 2px 4px rgba(0,0,0,0.4));
+    }
+
+    li {
+      border-bottom: 1px solid wp-color($grey, highlight, 5%);
+      border-top: 1px solid wp-color($grey, highlight, -5%);
+
+      &.last {
+        border-bottom: none;
+      }
+    }
+
+    a {
+      padding: 0.5em;
+      color: wp-color($grey, main, 5%);
+      @include text-shadow(1px 1px 0 wp-color($grey, highlight, 15%));
+    }
+
+    li.active-trail a, a.active, a:active, a:hover {
+      color: wp-color($red);
+      background: {
+        color: wp-color($grey, highlight, -5%);
+      }
+    }
+  }
+
+  // Flexnav Touch Buttons
+  .touch-button {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    min-width: 2em;
+    padding: 1em;
+    .flexbox & { padding-bottom: 0.75em; }
+
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+
+    @include respond-to('header horizontal nav') {
+      #{nest('.no-js, .no-flexbox', '&')} {
+        padding: 1em 0;
+      }
+
+      .flexbox & {
+        position: relative;
+        padding: 0;
+      }
+    }
+
+    i {
+      display: block;
+      @include opacity(0.5);
+
+      @include respond-to('header horizontal nav') {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        @include transform( translateY(-50%) ); // When supported, adjust positioning for better vertical centering
+      }
+    }
+
+    &:hover i {
+      @include opacity(0.9);
+    }
+  }
+
+}
+
+// The hide/show menu button, which is injected with JS into the meta menu:
+.menu-button-wrapper {
+  @include respond-to('header horizontal nav') {
+    display: none !important;
+  }
+}

@@ -1,0 +1,30 @@
+/**
+ * @file _privatemsg-list-form.scss
+ * The inbox table and the bulk operations form above it for Private Message
+ */
+
+#privatemsg-list-form {
+
+  // Add space below the delete/operations select menu container
+  > .container-inline { margin-bottom: 1em; }
+
+  // Mark our delete button as red:
+  input[id*='delete'] { @extend %btn-small; @extend %btn-negative; }
+
+  // Strip the bottom margin on the bulk ops select list container for better alignment:
+  .form-item-operation { margin-bottom: 0; }
+
+  // Unread row style:
+  .privatemsg-unread {
+    font-style: italic;
+
+    .marker {
+      color: wp-color($orange, 'main');
+    }
+  }
+
+  // Bulk ops checkbox:
+  .form-type-checkbox {
+    text-align: center;
+  }
+}

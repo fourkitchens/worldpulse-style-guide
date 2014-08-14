@@ -18,6 +18,10 @@ input[type="button"],
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   margin-right: 0.5em;
+  @include rtl {
+    margin-left: 0.5em;
+    margin-right: 0;
+  }
 
   color: wp-color($grey);
   @include text-shadow(1px 1px 0 rgba(wp-color($grey, 'highlight'), 0.5));
@@ -66,6 +70,8 @@ input[type="button"],
 }
 
 a.button {
+  display: inline-block; // This way, if the text goes multiline, it won't break up the border/background gradient
+  &.btn-multiline { display: block; } // And override with great specificity for multiline buttons
   color: $white !important; // To override the :link, :visited, and :hover pseudo-elements
   text-decoration: none; // Yeah, no underlines on these links, but they look like buttons...
 }

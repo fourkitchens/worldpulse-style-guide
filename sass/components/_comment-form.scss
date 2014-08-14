@@ -27,7 +27,7 @@ form.comment-form { border-top: 1px solid wp-color($grey, highlight, -2.5%); }
   .filter-wrapper { display: none; }
 
   @include respond-to('wide form labels') {
-    .form-type-item .username {
+    .form-type-item > .username {
       display: block;
       float: right;
       width: 80%;

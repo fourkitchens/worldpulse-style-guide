@@ -38,6 +38,7 @@
     position: relative;
   }
 
+  // This is the logo, meta-menu, and search area:
   .row-1 {
     background-color: wp-color($red, dark);
     border-bottom: 1px solid wp-color($red, dark, -5%);
@@ -95,9 +96,10 @@
         border-bottom: 0;
         border-left: 1px solid wp-color($red, dark, 5%);
         border-right: 1px solid wp-color($red, dark, -5%);
-        @include border-radius(none);
+        @include border-radius(0);
         background-color: wp-color($red, dark);
         @include text-shadow(1px 1px 0 rgba(0,0,0,0.5));
+        @include transition(background 0.1s ease-out);
 
         &:hover {
           background-color: wp-color($red, dark, -2.5%);
@@ -121,14 +123,25 @@
     }
   }
 
-
+  // Whatever menu is here is the main menu:
   .row-2 {
     border-top: 1px solid wp-color($red, dark);
     background-color: wp-color($red, dark, -5%);
     border-bottom: 1px solid wp-color($grey, highlight, 10%);
+
+    .l-centered {
+      padding: 0;
+
+      @include respond-to('header horizontal nav') {
+        padding: 0 10px;
+      }
+    }
+
+    // Looking for the main menu? Look in _main-menu.scss -- it is too specific and big to be here.
   }
 
   .row-3 {
+    // Breadcrumbs are going in here
     background-color: wp-color($grey, bright, 10%);
     border-bottom: 2px solid wp-color($grey, bright, 5%);
   }

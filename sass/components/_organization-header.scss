@@ -1,0 +1,121 @@
+/**
+ * @file _organization-header.scss
+ * Some group nodes represent organizations. We'll make some minor stylistic
+ * changes to the header to try and set that apart
+ */
+
+.organization-header {
+  @extend %clearfix;
+
+  @include box-sizing(content-box); // To make it easier to fill the full width
+  margin-top: -1em;
+  margin-left: -1em;
+  margin-bottom: 1em;
+  width: 100%;
+  padding: 1em; // To match the padding that's on the node container
+
+  @include border-radius(2px 2px 0 0);
+  border-top: 3px solid wp-color($purple, bright);
+  border-bottom: 3px solid wp-color($purple, bright);
+
+  @include respond-to('node group org floated logo') {
+    border-top: 0; // Too many lines at this point
+
+    .flexbox & {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+  }
+
+
+  .field-organization-logo {
+    margin: 0 auto 1em auto;
+    text-align: center;
+
+    min-width: 100px;
+    width: 50%;
+    max-width: 300px;
+
+    @include respond-to('node group org floated logo') {
+      margin-bottom: 0;
+      float: left; // If flexbox is available, this will be overridden by that display
+      padding-right: 1em;
+      @include rtl {
+        float: right;
+        padding-right: 0;
+        padding-left: 1em;
+      }
+      width: 27.5%;
+    }
+  }
+
+  .organization-link {
+    // The only link that gets written out instead of iconified, so we'll break
+    // it onto its own line.
+    display: block;
+  }
+
+  .contact {
+    @include respond-to('node group org floated logo') {
+      float: right;
+      width: 72.5%;
+
+      h1, h2 {
+        text-align: center;
+        padding-bottom: 16px; // Because '1em' would be relative, trying to match .contact-detail's padding-top
+        border-bottom: 1px solid white;
+        margin-bottom: 0
+      }
+    }
+  }
+
+  // If flexbox is available _and_ the content is wide enough, split columns
+  // and align center. If not, just run it all inline like it was.
+  .contact-details {
+    @include respond-to('node group org contact info') {
+      border-top: 1px solid wp-color($grey, highlight);
+      padding-top: 1em;
+
+      > div {
+        text-align: center;
+        padding: 0 0.5em;
+      }
+
+      .flexbox & {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        > div {
+          -webkit-flex: 1 0;
+          -ms-flex: 1 0;
+          flex: 1 0;
+        }
+
+        .links {
+          border-right: 1px dotted wp-color($grey, highlight, -10%);
+        }
+      }
+
+      .no-flexbox & {
+        > div {
+          width: 50%;
+          float: left;
+        }
+      }
+    }
+  }
+}

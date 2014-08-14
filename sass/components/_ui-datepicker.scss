@@ -1,0 +1,43 @@
+/**
+ * @file _ui-datepicker.scss
+ * Additional theming for the jQuery UI date picker widget, in use on REX and
+ * even date fields in the node form.
+ */
+
+.ui-datepicker {
+  padding: 0.5em;
+  border: 1px solid wp-color($grey, highlight, -10%);
+  border-bottom-width: 2px;
+  @include border-radius(2px);
+  background: wp-color($grey, highlight, -2.5%);
+
+  .ui-datepicker-prev, .ui-datepicker-next {
+    display: inline-block;
+    @extend %button;
+    @extend %btn-small;
+    @extend %btn-aux1;
+    margin-top: 0;
+  }
+
+  .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-title select {
+    width: 49%;
+    margin-left: 0;
+    margin-right: 0;
+    html[dir="ltr"] &:first-child { margin-right: 2%; }
+    html[dir="rtl"] &:first-child { margin-left: 2%; }
+  }
+
+  .ui-datepicker-today a {
+    font-weight: bold;
+  }
+
+  table {
+    border: 1px solid wp-color($grey, highlight, -5%);
+    margin-top: 0.5em;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+

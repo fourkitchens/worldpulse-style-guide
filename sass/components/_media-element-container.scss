@@ -1,0 +1,17 @@
+/**
+ * @file _media-element-container.scss
+ * Styles for media embeds
+ */
+.media-element-container {
+  @extend %figure;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-top: 1px solid wp-color($grey, highlight, -5%);
+  border-bottom: 1px solid wp-color($grey, highlight, -5%);
+}

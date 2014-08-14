@@ -1,0 +1,123 @@
+/**
+ * @file _node-teaser.scss
+ * Styles for node teasers
+ */
+
+.node-teaser {
+  margin-bottom: 1em; // margin-top on the h3 is removed, so this keeps spacing between nodes in a list
+
+  h2, h3 {
+    margin-top: 0; // Better alignment with the top of the <figure>
+  }
+
+  // For all node types, the figure is flush-top/left
+  figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 30%;
+
+    float: left;
+    margin-left: -1em;
+
+    @include rtl {
+      float: right;
+      margin-left: 0;
+      margin-right: -1em;
+    }
+  }
+
+  // The post-cover-image-wrapper has special styles for the full view mode
+  // which we just need to override here:
+  .field-post-cover-image-wrapper {
+    margin: 0;
+    padding: 0;
+    @include border-radius(0);
+
+    figure {
+      width: auto;
+      position: static;
+    }
+
+    figcaption {
+      display: none;
+    }
+  }
+
+  // An event node's figure is actually a stylized event date like: AUG 20
+  &.node-event figure {
+    padding: 1em 0;
+
+    .csstransforms & {
+      position: relative;
+      padding: 0 0 15% 0;
+      min-height: 100px;
+
+      > div {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+    }
+    background-color: wp-color($grey, highlight, -1.5%);
+
+    span {
+      display: block;
+      font-family: $gotham;
+      line-height: 1.125;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      color: wp-color($grey, main, 20%);
+      @include text-shadow(2px 2px 0 wp-color($grey, highlight, 10%));
+    }
+
+    .day {
+      font-size: 2em;
+    }
+  }
+
+  // *If* a figure is present (it may not always be), make space
+  figure ~ header,
+  figure ~ .content,
+  figure ~ footer {
+    float: right;
+    clear: right;
+    width: 70%; // 30% + 70% = 100%, but the -1em margin on figure creates space between
+    @include rtl {
+      float: left;
+      clear: left;
+    }
+  }
+
+/*
+  // Spotlights are special. The figure is full-width, and we don't float-right the content
+  // AS OF 7/15: This is not true for Spotlights as they are currently built,
+  // but this code remains here commented-out as a way to do full-width images
+  // on node teasers when we reach that point.
+  &.spotlight {
+    > figure {
+      float: none;
+      width: 100%;
+      margin: 0;
+    }
+
+    header, .content, footer {
+      width: auto;
+      float: none;
+      clear: both;
+    }
+  }
+*/
+
+  .content {
+    font-size: 0.875em;
+  }
+
+  footer {
+    font-size: .75em;
+    margin-top: 1em;
+  }
+}

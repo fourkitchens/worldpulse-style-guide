@@ -49,15 +49,15 @@ html body .cke_chrome {
   .cke_wysiwyg_frame, .cke_wysiwyg_div {
     background-color: $white; // Our "white", not "white-white"
   }
+
+  .wpe-image-left {
+    float: left;
+    margin: 1em;
+  }
+
+  .wpe-image-right {
+    float: right;
+    margin: 1em;
+  }
+
 }
-
- .wpe-image-left {
-  float: left;
-  margin: 1em;
- }
-
- .wpe-image-right {
-  float: right;
-  margin: 1em;
- }
-

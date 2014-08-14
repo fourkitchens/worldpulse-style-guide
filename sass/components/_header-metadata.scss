@@ -1,0 +1,82 @@
+/**
+ * @file _header-metadata.scss
+ * Generic node styles
+ */
+
+.header-metadata {
+  padding-bottom: 1em;
+  border-bottom: 1px solid wp-color($grey, highlight, -2.5%);
+
+  h1, h2 {
+    margin-top: 0;
+  }
+
+  .privacy-status {
+    float: left;
+
+    @include rtl {
+      float: right;
+    }
+
+    span { // The icon, whichever one it is
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  &--data {
+    color: wp-color($grey, main, 20%);
+    position: relative;
+  }
+
+  .comment-link {
+    clear: both;
+    @include respond-to('node header meta floats') {
+      line-height: 32px; // There are icons floated left and right of this element; line 'em up vertically
+      clear: none;
+      float: right;
+      margin-left: 1em;
+
+      @include rtl {
+        float: left;
+        margin-left: 0;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  .abuse-info {
+    // Yes this is just like .comment-link, but it is always floated, even on narrowest displays
+    float: right;
+    margin-left: 0.5em; // There's already spacing in this element for the reporting count
+
+    @include rtl {
+      float: left;
+      margin-left: 0;
+      margin-right: 0.5em; // There's already spacing in this element for the reporting count
+    }
+  }
+
+  a.flag {
+    margin: 0 0 0 8px;
+  }
+
+  .reported {
+    @include border-radius(3px);
+    padding: 0.375em;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    color: wp-color($red, highlight, 5%);
+    background-color: wp-color($red, bright, -5%);
+  }
+
+  .posted-location, .byline, .date {
+    // We call all three of these out because we may not get any/all of them
+    clear: both;
+  }
+  .detail div {
+    display: inline;
+    margin-right: .3em;
+  }
+}

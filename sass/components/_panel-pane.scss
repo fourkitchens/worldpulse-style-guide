@@ -42,13 +42,19 @@
   background-color: transparent;
 }
 
-// General Panels setup
+// General Panels setup. Apply panel-pane-primary directly to .panel-pane if the
+// pane title should be included in the visible container (in the case of a
+// user-generated title like nodes, user profiles, etc...). Apply to the direct
+// child .pane-content when the title should appear above the box (in the case
+// of a system/site generated title like "Resources" or "Add content" etc...)
 .panel-pane {
-  &.pane-page-content, &.pane-node {
+  &.pane-node,
+  &.pane-user-profile,
+  &.pane-page-content > .pane-content {
     @extend %panel-pane-primary;
   }
 
-  .pane-title {
+  h1, .pane-title {
     margin-top: 0;
   }
 }
@@ -63,6 +69,7 @@
 #first-time, // #first-time is the Drupal home page placeholder until we put something there
 .main-container h1 + article,
 .main-container h1 + form,
+.main-container > h1 + dl, // The content and descriptions on /node/add is just a definition list of node types
 .main-container h1 + .view {
   @extend %panel-pane-primary;
 }
@@ -70,6 +77,12 @@
 // These "secondary" content items (primarily sidebar or meta stuff) get a
 // similar treatment as most panel-panes, but with a slightly more subtle
 // background color and border color.
-.l-two-column .column-2 .panel-pane {
-  @extend %panel-pane-secondary;
+.l-two-column .column-2 {
+
+  // Right now, most of these sidebar panes are Views, and we apply this extention
+  // to .view-content instead (see _views.scss) so that the view is wrapped but
+  // the title isn't. This rule extends non-View panes as a whole, but this
+  // may not be visually consistent. @TODO: May need to rethink this once we
+  // have views and non-view panes working. Also this isn't IE8 supported.
+  .panel-pane:not(.pane-views-panes) .pane-content { @extend %panel-pane-secondary; }
 }

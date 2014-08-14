@@ -1,0 +1,13 @@
+/**
+ * @file _field-rex-external-link.scss
+ * External link button on rex nodes
+ */
+.field-rex-external-link {
+  margin: 1em auto;
+  text-align: center;
+
+  .field-post-image-gallery + & {
+    // When immediately following an image gallery, give a little more space
+    margin-top: 2em;
+  }
+}

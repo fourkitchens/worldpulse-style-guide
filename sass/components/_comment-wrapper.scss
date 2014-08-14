@@ -9,6 +9,10 @@
   @include box-sizing(content-box);
   position: relative;
   left: -1em;
+  @include rtl {
+    right: -1em;
+    left: auto;
+  }
   margin-bottom: -1em;
   margin-top: 1em;
   width: 100%;
@@ -16,6 +20,7 @@
   background-color: wp-color($grey, highlight, 2.5%);
   border-top: 1px solid wp-color($grey, highlight);
   @include border-radius(0 0 3px 3px);
+  clear: both; // In case the content contains an overset floated image (because that field isn't wrapped)
 
   a.button {
     // This is the "Comment on this Post" link/button.
