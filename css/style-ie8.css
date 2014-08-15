@@ -568,8 +568,8 @@ blockquote:before, blockquote:after, blockquote footer {
 }
 blockquote:before, blockquote:after {
   position: absolute;
-  font-size: 3em;
-  font-size: 4em;
+  font-size: 48px;
+  font-size: 64px;
   line-height: 0;
 }
 blockquote:before {

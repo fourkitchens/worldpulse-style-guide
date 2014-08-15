@@ -579,13 +579,13 @@ blockquote {
   }
   blockquote:before, blockquote:after {
     position: absolute;
-    font-size: 3em;
+    font-size: 48px;
     line-height: 0;
   }
 }
 @media (min-width: 23.75em) and (min-width: 42.5em) {
   blockquote:before, blockquote:after {
-    font-size: 4em;
+    font-size: 64px;
   }
 }
 @media (min-width: 23.75em) {

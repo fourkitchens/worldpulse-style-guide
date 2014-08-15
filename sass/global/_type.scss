@@ -189,8 +189,9 @@ blockquote {
 
     &:before, &:after {
       position: absolute;
-      font-size: 3em;
-      @include respond-to('blockquote indent') { font-size: 4em; }
+      // These font-sizes are specified in pixels because of a strange IE11 edgecase that caused ems to be exploded to tyranosaurusquotes!
+      font-size: (3*16px);
+      @include respond-to('blockquote indent') { font-size: (4*16px); }
       line-height: 0;
     }
 
