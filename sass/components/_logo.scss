@@ -26,21 +26,6 @@
   }
 }
 
-.logo-crimson-glow {
-  @extend %worldpulse-logo;
-  .logo {
-    background: {
-      color: transparent;
-      image: image-url('logos/logo-crimson-glow.png');
-    }
-
-
-    @include respond-to('hi res') {
-      background-image: image-url('logos/logo-crimson-glow-2x.png');
-    }
-  }
-}
-
 .logo-crimson-solid {
   @extend %worldpulse-logo;
   #{nest('.no-js, .no-svg', '& .logo')} {
@@ -48,26 +33,10 @@
       color: transparent;
       image: image-url('logos/logo-crimson-solid.png');
     }
-
-    @include respond-to('hi res') { background-image: image-url('logos/logo-crimson-solid-2x.png'); }
   }
 
   .svg & .logo {
     background-image: image-url('logos/logo-crimson-solid.svg');
-  }
-}
-
-.logo-white-glow {
-  @extend %worldpulse-logo;
-  .logo, &.crimson-gradient .logo:after {
-    background: {
-      color: wp-color($red, 'dark');
-      image: image-url('logos/logo-white-glow.png');
-    }
-
-    @include respond-to('hi res') {
-      background-image: image-url('logos/logo-white-glow-2x.png');
-    }
   }
 }
 
@@ -79,8 +48,6 @@
       color: wp-color($red, 'dark');
       image: image-url('logos/logo-white-solid.png');
     }
-
-    @include respond-to('hi res') { background-image: image-url('logos/logo-white-solid-2x.png'); }
   }
 
   #{nest('.svg', '& .logo, &.crimson-gradient .logo:after')} {
@@ -91,10 +58,6 @@
 
 
 .logo-white-solid, .logo-white-glow {
-  &.bright-crimson .logo {
-    background-color: wp-color($red);
-  }
-
   &.crimson-gradient .logo {
     position: relative;
     z-index: 10;
